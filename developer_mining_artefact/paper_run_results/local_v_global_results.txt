@@ -1,0 +1,86 @@
+======================================================================
+ STATISTICAL ANALYSIS: LOCAL SAFETY ↔ GLOBAL SAFETY CORRELATION
+======================================================================
+
+  Definitions:
+    Locally safe  = guard scope has NO writes feeding a
+                    conditional in the same function
+    Globally safe = guard scope has NO writes with verified
+                    inter-procedural conditional impact
+
+  H0: Local safety and global safety are independent
+  H1: Local safety and global safety are correlated
+
+======================================================================
+ DEVELOPER PATCHES (per-patch, n=684)
+======================================================================
+
+  Patches analysed: 684
+
+  ── Developer patches: local ↔ global safety ──
+                             Globally Safe  Globally Unsafe   Total
+  Locally Safe                         629                4     633
+  Locally Unsafe                        43                8      51
+  Total                                672               12     684
+
+  P(locally safe)  = 92.5%
+  P(globally safe) = 98.2%
+  P(both safe)     = 92.0%
+  P(globally safe | locally safe) = 99.4%
+  P(globally safe | locally unsafe) = 84.3%
+
+  Phi coefficient: 0.3012
+    → Medium association
+    Direction: POSITIVE — local safety predicts global safety
+
+  Chi-square: χ² = 62.0589, df = 1, p = 3.33e-15
+    WARNING: min expected count = 0.9 < 5, prefer Fisher's exact
+  Fisher's exact: OR = 29.2558, p = 2.19e-07
+
+  Result: Highly significant (p < 0.001)
+
+======================================================================
+ BASELINE STUDY (per-write-location)
+======================================================================
+
+  Write locations classified: 24,809
+
+  ── Baseline: local ↔ global safety (per location) ──
+                             Globally Safe  Globally Unsafe   Total
+  Locally Safe                      10,389            1,105  11,494
+  Locally Unsafe                    11,755            1,560  13,315
+  Total                             22,144            2,665  24,809
+
+  P(locally safe)  = 46.3%
+  P(globally safe) = 89.3%
+  P(both safe)     = 41.9%
+  P(globally safe | locally safe) = 90.4%
+  P(globally safe | locally unsafe) = 88.3%
+
+  Phi coefficient: 0.0339
+    → Negligible association
+    Direction: POSITIVE — local safety predicts global safety
+
+  Chi-square: χ² = 28.4379, df = 1, p = 9.68e-08
+  Fisher's exact: OR = 1.2477, p = 9.91e-08
+
+  Result: Highly significant (p < 0.001)
+
+======================================================================
+ SUMMARY FOR PAPER
+======================================================================
+
+  Of 684 developer NPE patches:
+    629 (92.0%) are both locally and globally safe
+    4 (0.6%) are locally safe but globally unsafe
+    43 (6.3%) are locally unsafe but globally safe
+    8 (1.2%) are both locally and globally unsafe
+
+  P(globally safe | locally safe) = 99.4%  95% CI [98.4%, 99.8%]
+
+  Local and global safety are positively correlated (φ = 0.301).
+  Patches that are locally safe tend to also be globally safe.
+  This supports using local safety as a practical proxy for
+  global safety in NPE patch generation.
+
+======================================================================

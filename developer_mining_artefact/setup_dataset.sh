@@ -36,7 +36,6 @@ declare -a PROJECTS=(
   "mosquitto    https://github.com/eclipse/mosquitto.git             v2.0.18"
 
   # ---------- Databases ----------
-  "sqlite       https://github.com/nicholasgasior/gorm-sqlite.git   main"
   "lmdb         https://github.com/LMDB/lmdb.git                   LMDB_0.9.31"
 
   # ---------- Crypto / Security ----------
@@ -50,7 +49,6 @@ declare -a PROJECTS=(
   "libjpeg      https://github.com/libjpeg-turbo/libjpeg-turbo.git  3.0.2"
 
   # ---------- Language Runtimes ----------
-  "cpython      https://github.com/python/cpython.git               v3.12.2"
   "lua          https://github.com/lua/lua.git                      v5.4.6"
 
   # ---------- Utilities ----------
