@@ -1,0 +1,1713 @@
+#0
+apps/ca.c:1995: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `errline` is read without initialization. 
+  1993.     parms = CONF_load(NULL, infile, &errline);
+  1994.     if (parms == NULL) {
+  1995.         BIO_printf(bio_err, "error on line %ld of %s\n", errline, infile);
+                                                                 ^
+  1996.         goto end;
+  1997.     }
+
+#1
+apps/cms.c:1461: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `make_names_stack()` on line 1451 is not freed after the last access at line 1461, column 12. 
+  1459.         rct_from = NULL;
+  1460.     }
+  1461.     return CMS_ReceiptRequest_create0_ex(NULL, -1, rr_allorfirst, rct_from,
+                   ^
+  1462.                                          rct_to, app_get0_libctx());
+  1463.  err:
+
+#2
+apps/cms.c:1461: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `make_names_stack()` on line 1455 is not freed after the last access at line 1461, column 12. 
+  1459.         rct_from = NULL;
+  1460.     }
+  1461.     return CMS_ReceiptRequest_create0_ex(NULL, -1, rr_allorfirst, rct_from,
+                   ^
+  1462.                                          rct_to, app_get0_libctx());
+  1463.  err:
+
+#3
+apps/dgst.c:543: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `ctx` is read without initialization. 
+  541.         EVP_MD_CTX *ctx;
+  542.         BIO_get_md_ctx(bp, &ctx);
+  543.         i = EVP_DigestVerifyFinal(ctx, sigin, (unsigned int)siglen);
+                                         ^
+  544.         if (i > 0) {
+  545.             BIO_printf(out, "Verified OK\n");
+
+#4
+apps/dgst.c:561: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `ctx` is read without initialization. 
+  559. 
+  560.         BIO_get_md_ctx(bp, &ctx);
+  561.         if (!EVP_DigestSignFinal(ctx, NULL, &tmplen)) {
+                                        ^
+  562.             BIO_printf(bio_err, "Error getting maximum length of signed data\n");
+  563.             goto end;
+
+#5
+apps/dgst.c:585: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `ctx` is read without initialization. 
+  583.         BIO_get_md_ctx(bp, &ctx);
+  584. 
+  585.         if (!EVP_DigestFinalXOF(ctx, buf, len)) {
+                                       ^
+  586.             BIO_printf(bio_err, "Error Digesting Data\n");
+  587.             goto end;
+
+#6
+apps/lib/cmp_mock_srv.c:359: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `X509_digest_sig()` on line 352 is not freed after the last access at line 359, column 5. 
+  357.         return 0;
+  358.     }
+  359.     ASN1_OCTET_STRING_free(digest);
+           ^
+  360.     return 1;
+  361. }
+
+#7
+apps/list.c:1143: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `pkey_flags` is read without initialization. 
+  1141.             EVP_PKEY_asn1_get0_info(&pkey_id, &pkey_base_id, &pkey_flags,
+  1142.                                     &pinfo, &pem_str, ameth);
+  1143.             if (pkey_flags & ASN1_PKEY_ALIAS) {
+                        ^
+  1144.                 BIO_printf(bio_out, " Name: %s\n", OBJ_nid2ln(pkey_id));
+  1145.                 BIO_printf(bio_out, "\tAlias for: %s\n",
+
+#8
+apps/list.c:1144: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `pkey_id` is read without initialization. 
+  1142.                                     &pinfo, &pem_str, ameth);
+  1143.             if (pkey_flags & ASN1_PKEY_ALIAS) {
+  1144.                 BIO_printf(bio_out, " Name: %s\n", OBJ_nid2ln(pkey_id));
+                                                                      ^
+  1145.                 BIO_printf(bio_out, "\tAlias for: %s\n",
+  1146.                            OBJ_nid2ln(pkey_base_id));
+
+#9
+apps/list.c:1146: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `pkey_base_id` is read without initialization. 
+  1144.                 BIO_printf(bio_out, " Name: %s\n", OBJ_nid2ln(pkey_id));
+  1145.                 BIO_printf(bio_out, "\tAlias for: %s\n",
+  1146.                            OBJ_nid2ln(pkey_base_id));
+                                              ^
+  1147.             } else {
+  1148.                 BIO_printf(bio_out, " Name: %s\n", pinfo);
+
+#10
+apps/list.c:1148: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `pinfo` is read without initialization. 
+  1146.                            OBJ_nid2ln(pkey_base_id));
+  1147.             } else {
+  1148.                 BIO_printf(bio_out, " Name: %s\n", pinfo);
+                                                           ^
+  1149.                 BIO_printf(bio_out, "\tType: %s Algorithm\n",
+  1150.                            pkey_flags & ASN1_PKEY_DYNAMIC ?
+
+#11
+apps/list.c:1152: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `pkey_id` is read without initialization. 
+  1150.                            pkey_flags & ASN1_PKEY_DYNAMIC ?
+  1151.                            "External" : "Builtin");
+  1152.                 BIO_printf(bio_out, "\tOID: %s\n", OBJ_nid2ln(pkey_id));
+                                                                      ^
+  1153.                 if (pem_str == NULL)
+  1154.                     pem_str = "(none)";
+
+#12
+apps/list.c:1153: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `pem_str` is read without initialization. 
+  1151.                            "External" : "Builtin");
+  1152.                 BIO_printf(bio_out, "\tOID: %s\n", OBJ_nid2ln(pkey_id));
+  1153.                 if (pem_str == NULL)
+                            ^
+  1154.                     pem_str = "(none)";
+  1155.                 BIO_printf(bio_out, "\tPEM string: %s\n", pem_str);
+
+#13
+apps/list.c:1292: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `sk_OSSL_PROVIDER_new()` on line 1266 is not freed after the last access at line 1292, column 14. 
+  1290.         params[4] = OSSL_PARAM_construct_end();
+  1291.         OSSL_PARAM_set_all_unmodified(params);
+  1292.         if (!OSSL_PROVIDER_get_params(prov, params)) {
+                     ^
+  1293.             BIO_printf(bio_err, "ERROR: Unable to query provider parameters\n");
+  1294.             return;
+
+#14
+apps/ocsp.c:1070: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `cert_id_md_oid` is read without initialization. 
+  1068.         OCSP_id_get0_info(NULL, &cert_id_md_oid, NULL, NULL, cid);
+  1069. 
+  1070.         cert_id_md = EVP_get_digestbyobj(cert_id_md_oid);
+                             ^
+  1071.         if (cert_id_md == NULL) {
+  1072.             *resp = OCSP_response_create(OCSP_RESPONSE_STATUS_INTERNALERROR,
+
+#15
+apps/openssl.c:412: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.deprecated_alternative` is read without initialization. 
+  410.     }
+  411.     if (fp != NULL) {
+  412.         if (fp->deprecated_alternative != NULL)
+                   ^
+  413.             warn_deprecated(fp);
+  414.         return fp->func(argc, argv);
+
+#16
+apps/ts.c:925: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `imprint_len` is read without initialization. 
+  923.             unsigned char *hexstr = OPENSSL_hexstr2buf(digest, &imprint_len);
+  924.             f |= TS_VFY_IMPRINT;
+  925.             if (TS_VERIFY_CTX_set_imprint(ctx, hexstr, imprint_len) == NULL) {
+                                                              ^
+  926.                 BIO_printf(bio_err, "invalid digest string\n");
+  927.                 goto err;
+
+#17
+crypto/asn1/a_mbstr.c:233: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `value` is read without initialization. 
+  231.         }
+  232.         if (rfunc) {
+  233.             ret = rfunc(value, arg);
+                               ^
+  234.             if (ret <= 0)
+  235.                 return ret;
+
+#18
+crypto/asn1/a_strnid.c:139: error: Stack Variable Address Escape(STACK_VARIABLE_ADDRESS_ESCAPE)
+  Address of stack variable `fnd` is returned by the function. 
+  137.         idx = sk_ASN1_STRING_TABLE_find(stable, &fnd);
+  138.         if (idx >= 0)
+  139.             return sk_ASN1_STRING_TABLE_value(stable, idx);
+                   ^
+  140.     }
+  141.     return OBJ_bsearch_table(&fnd, tbl_standard, OSSL_NELEM(tbl_standard));
+
+#19
+crypto/asn1/asn1_gen.c:126: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.utype` is read without initialization. 
+  124.     }
+  125. 
+  126.     if ((asn1_tags.utype == V_ASN1_SEQUENCE)
+                ^
+  127.         || (asn1_tags.utype == V_ASN1_SET)) {
+  128.         if (!cnf) {
+
+#20
+crypto/asn1/asn1_gen.c:136: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.str` is read without initialization. 
+  134.             return NULL;
+  135.         }
+  136.         ret = asn1_multi(asn1_tags.utype, asn1_tags.str, cnf, depth, perr);
+                                                 ^
+  137.     } else
+  138.         ret = asn1_str2type(asn1_tags.str, asn1_tags.format, asn1_tags.utype);
+
+#21
+crypto/asn1/asn1_gen.c:138: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.str` is read without initialization. 
+  136.         ret = asn1_multi(asn1_tags.utype, asn1_tags.str, cnf, depth, perr);
+  137.     } else
+  138.         ret = asn1_str2type(asn1_tags.str, asn1_tags.format, asn1_tags.utype);
+                                   ^
+  139. 
+  140.     if (!ret)
+
+#22
+crypto/asn1/asn_mime.c:886: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `CRYPTO_malloc()` on line 881 is not freed after the last access at line 886, column 10. 
+  884.     mparam->param_name = tmpname;
+  885.     mparam->param_value = tmpval;
+  886.     if (!sk_MIME_PARAM_push(mhdr->params, mparam))
+                ^
+  887.         goto err;
+  888.     return 1;
+
+#23
+crypto/asn1/tasn_dec.c:932: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `ASN1_STRING_type_new()` on line 894 is not freed after the last access at line 932, column 1. 
+  930.     }
+  931.     return ret;
+  932. }
+       ^
+  933. 
+  934. /*
+
+#24
+crypto/asn1/tasn_new.c:212: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `OPENSSL_sk_new_null()` on line 206 is not freed after the last access at line 212, column 9. 
+  210.             goto done;
+  211.         }
+  212.         *pval = (ASN1_VALUE *)skval;
+               ^
+  213.         ret = 1;
+  214.         goto done;
+
+#25
+crypto/asn1/tasn_utl.c:177: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `CRYPTO_malloc()` on line 171 is not freed after the last access at line 177, column 5. 
+  175.     memcpy(enc->enc, in, inlen);
+  176.     enc->len = inlen;
+  177.     enc->modified = 0;
+           ^
+  178. 
+  179.     return 1;
+
+#26
+crypto/asn1_dsa.c:211: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `BN_bin2bn()` on line 211 is not freed after the last access at line 211, column 9. 
+  209.     }
+  210. 
+  211.     if (BN_bin2bn(PACKET_data(&contpkt),
+               ^
+  212.                   (int)PACKET_remaining(&contpkt), n) == NULL)
+  213.         return 0;
+
+#27
+crypto/async/async.c:143: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `sk_ASYNC_JOB_push()` on line 143 is not freed after the last access at line 143, column 5. 
+  141.     OPENSSL_free(job->funcargs);
+  142.     job->funcargs = NULL;
+  143.     sk_ASYNC_JOB_push(pool->jobs, job);
+           ^
+  144. }
+  145. 
+
+#28
+crypto/bio/bio_lib.c:317: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `readbytes` is read without initialization during the call to `bio_read_intern()`. 
+  315.         return 0;
+  316. 
+  317.     ret = bio_read_intern(b, data, (size_t)dlen, &readbytes);
+                 ^
+  318. 
+  319.     if (ret > 0) {
+
+FALSE_POSITIVE
+#29
+crypto/bio/bss_core.c:49: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `bcgbl` could be null (from the call to `get_globals()` on line 47) and is dereferenced. 
+  47.     BIO_CORE_GLOBALS *bcgbl = get_globals(bio->libctx);
+  48. 
+  49.     if (bcgbl->c_bio_read_ex == NULL)
+              ^
+  50.         return 0;
+  51.     return bcgbl->c_bio_read_ex(BIO_get_data(bio), data, data_len, bytes_read);
+
+FALSE_POSITIVE
+#30
+crypto/bio/bss_core.c:59: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `bcgbl` could be null (from the call to `get_globals()` on line 57) and is dereferenced. 
+  57.     BIO_CORE_GLOBALS *bcgbl = get_globals(bio->libctx);
+  58. 
+  59.     if (bcgbl->c_bio_write_ex == NULL)
+              ^
+  60.         return 0;
+  61.     return bcgbl->c_bio_write_ex(BIO_get_data(bio), data, data_len, written);
+
+FALSE_POSITIVE
+#31
+crypto/bio/bss_core.c:68: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `bcgbl` could be null (from the call to `get_globals()` on line 66) and is dereferenced. 
+  66.     BIO_CORE_GLOBALS *bcgbl = get_globals(bio->libctx);
+  67. 
+  68.     if (bcgbl->c_bio_ctrl == NULL)
+              ^
+  69.         return -1;
+  70.     return bcgbl->c_bio_ctrl(BIO_get_data(bio), cmd, num, ptr);
+
+FALSE_POSITIVE
+#32
+crypto/bio/bss_core.c:77: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `bcgbl` could be null (from the call to `get_globals()` on line 75) and is dereferenced. 
+  75.     BIO_CORE_GLOBALS *bcgbl = get_globals(bio->libctx);
+  76. 
+  77.     if (bcgbl->c_bio_gets == NULL)
+              ^
+  78.         return -1;
+  79.     return bcgbl->c_bio_gets(BIO_get_data(bio), buf, size);
+
+FALSE_POSITIVE
+#33
+crypto/bio/bss_core.c:86: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `bcgbl` could be null (from the call to `get_globals()` on line 84) and is dereferenced. 
+  84.     BIO_CORE_GLOBALS *bcgbl = get_globals(bio->libctx);
+  85. 
+  86.     if (bcgbl->c_bio_puts == NULL)
+              ^
+  87.         return -1;
+  88.     return bcgbl->c_bio_puts(BIO_get_data(bio), str);
+
+FALSE_POSITIVE
+#34
+crypto/bio/bss_core.c:131: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `bcgbl` could be null (from the call to `get_globals()` on line 128) and is dereferenced. 
+  129. 
+  130.     /* Check the library context has been initialised with the callbacks */
+  131.     if (bcgbl->c_bio_write_ex == NULL && bcgbl->c_bio_read_ex == NULL)
+               ^
+  132.         return NULL;
+  133. 
+
+FALSE_POSITIVE
+#35
+crypto/bio/bss_core.c:148: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `bcgbl` could be null (from the call to `get_globals()` on line 143) and is dereferenced. 
+  146.         switch (fns->function_id) {
+  147.         case OSSL_FUNC_BIO_READ_EX:
+  148.             if (bcgbl->c_bio_read_ex == NULL)
+                       ^
+  149.                 bcgbl->c_bio_read_ex = OSSL_FUNC_BIO_read_ex(fns);
+  150.             break;
+
+FALSE_POSITIVE
+#36
+crypto/bio/bss_core.c:152: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `bcgbl` could be null (from the call to `get_globals()` on line 143) and is dereferenced. 
+  150.             break;
+  151.         case OSSL_FUNC_BIO_WRITE_EX:
+  152.             if (bcgbl->c_bio_write_ex == NULL)
+                       ^
+  153.                 bcgbl->c_bio_write_ex = OSSL_FUNC_BIO_write_ex(fns);
+  154.             break;
+
+FALSE_POSITIVE
+#37
+crypto/bio/bss_core.c:156: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `bcgbl` could be null (from the call to `get_globals()` on line 143) and is dereferenced. 
+  154.             break;
+  155.         case OSSL_FUNC_BIO_GETS:
+  156.             if (bcgbl->c_bio_gets == NULL)
+                       ^
+  157.                 bcgbl->c_bio_gets = OSSL_FUNC_BIO_gets(fns);
+  158.             break;
+
+FALSE_POSITIVE
+#38
+crypto/bio/bss_core.c:160: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `bcgbl` could be null (from the call to `get_globals()` on line 143) and is dereferenced. 
+  158.             break;
+  159.         case OSSL_FUNC_BIO_PUTS:
+  160.             if (bcgbl->c_bio_puts == NULL)
+                       ^
+  161.                 bcgbl->c_bio_puts = OSSL_FUNC_BIO_puts(fns);
+  162.             break;
+
+FALSE_POSITIVE
+#39
+crypto/bio/bss_core.c:164: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `bcgbl` could be null (from the call to `get_globals()` on line 143) and is dereferenced. 
+  162.             break;
+  163.         case OSSL_FUNC_BIO_CTRL:
+  164.             if (bcgbl->c_bio_ctrl == NULL)
+                       ^
+  165.                 bcgbl->c_bio_ctrl = OSSL_FUNC_BIO_ctrl(fns);
+  166.             break;
+
+#40
+crypto/cmp/cmp_msg.c:208: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `ossl_cmp_hdr_init()` on line 130 is not freed after the last access at line 208, column 5. 
+  206. 
+  207.  err:
+  208.     OSSL_CMP_MSG_free(msg);
+           ^
+  209.     return NULL;
+  210. }
+
+#41
+crypto/cms/cms_env.c:1264: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `ctx` is read without initialization. 
+  1262.      * decryption.
+  1263.      */
+  1264.     if (!EVP_CIPHER_CTX_is_encrypting(ctx))
+                                              ^
+  1265.         return 1;
+  1266. 
+
+#42
+crypto/cms/cms_smime.c:238: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `CMS_ContentInfo_new_ex()` on line 235 is not freed after the last access at line 238, column 10. 
+  236.     if (cms == NULL)
+  237.         return NULL;
+  238.     if (!CMS_EncryptedData_set1_key(cms, cipher, key, keylen))
+                ^
+  239.         return NULL;
+  240. 
+
+#43
+crypto/conf/conf_sap.c:39: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc` on line 37 is not freed after the last access at line 39, column 5. 
+  37.         settings.appname = strdup(appname);
+  38.     settings.flags = DEFAULT_CONF_MFLAGS;
+  39.     OPENSSL_init_crypto(OPENSSL_INIT_LOAD_CONFIG, &settings);
+          ^
+  40. }
+  41. #endif
+
+#44
+crypto/context.c:339: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `ossl_crypto_get_ex_new_index_ex()` on line 334 is not freed after the last access at line 339, column 9. 
+  337.                                           NULL, ossl_lib_ctx_generic_free,
+  338.                                           meth->priority);
+  339.     if (idx < 0)
+               ^
+  340.         return 0;
+  341. 
+
+#45
+crypto/crmf/crmf_lib.c:102: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `ASN1_STRING_dup()` on line 102 is not freed after the last access at line 102, column 1. 
+  100. 
+  101. /* id-regCtrl-regToken Control (section 6.1) */
+  102. IMPLEMENT_CRMF_CTRL_FUNC(regToken, ASN1_STRING, regCtrl)
+       ^
+  103. 
+  104. /* id-regCtrl-authenticator Control (section 6.2) */
+
+#46
+crypto/crmf/crmf_lib.c:106: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `ASN1_STRING_dup()` on line 106 is not freed after the last access at line 106, column 1. 
+  104. /* id-regCtrl-authenticator Control (section 6.2) */
+  105. #define ASN1_UTF8STRING_dup ASN1_STRING_dup
+  106. IMPLEMENT_CRMF_CTRL_FUNC(authenticator, ASN1_UTF8STRING, regCtrl)
+       ^
+  107. 
+  108. int OSSL_CRMF_MSG_set0_SinglePubInfo(OSSL_CRMF_SINGLEPUBINFO *spi,
+
+#47
+crypto/ct/ct_oct.c:245: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `i2o_SCT_signature()` on line 245 is not freed after the last access at line 245, column 13. 
+  243.             p += sct->ext_len;
+  244.         }
+  245.         if (i2o_SCT_signature(sct, &p) <= 0)
+                   ^
+  246.             goto err;
+  247.     } else {
+
+#48
+crypto/dh/dh_key.c:252: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `BN_new()` on line 224 is not freed after the last access at line 252, column 5. 
+  250.     ret = 1;
+  251. err:
+  252.     BN_clear_free(prk);
+           ^
+  253.     return ret;
+  254. }
+
+#49
+crypto/dsa/dsa_ameth.c:77: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `ASN1_INTEGER_to_BN()` on line 70 is not freed after the last access at line 77, column 5. 
+  75.     dsa->dirty_cnt++;
+  76.     ASN1_INTEGER_free(public_key);
+  77.     EVP_PKEY_assign_DSA(pkey, dsa);
+          ^
+  78.     return 1;
+  79. 
+
+#50
+crypto/dsa/dsa_key.c:58: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `BN_new()` on line 47 is not freed after the last access at line 58, column 5. 
+  56.     ret = 1;
+  57. err:
+  58.     BN_clear_free(prk);
+          ^
+  59.     return ret;
+  60. }
+
+#51
+crypto/ec/ec_ameth.c:98: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `eckey_param2type()` on line 77 is not freed after the last access at line 98, column 9. 
+   96.         ASN1_OBJECT_free(pval);
+   97.     else
+   98.         ASN1_STRING_free(pval);
+               ^
+   99.     OPENSSL_free(penc);
+  100.     return 0;
+
+#52
+crypto/ec/ec_ameth.c:211: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `eckey_param2type()` on line 173 is not freed after the last access at line 211, column 1. 
+  209. 
+  210.     return 1;
+  211. }
+       ^
+  212. 
+  213. static int int_ec_size(const EVP_PKEY *pkey)
+
+#53
+crypto/ec/ec_print.c:70: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `EC_POINT_new()` on line 61 is not freed after the last access at line 70, column 9. 
+  68.     len = strlen(hex) / 2;
+  69.     oct_buf = OPENSSL_malloc(len);
+  70.     if (oct_buf == NULL)
+              ^
+  71.         return NULL;
+  72. 
+
+#54
+crypto/err/err_blocks.c:38: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `err_set_debug()` on line 38 is not freed after the last access at line 38, column 5. 
+  36.         return;
+  37. 
+  38.     err_set_debug(es, es->top, file, line, func);
+          ^
+  39. }
+  40. 
+
+#55
+crypto/err/err_prn.c:83: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `flags` is read without initialization. 
+  81. 
+  82.         ERR_peek_last_error_all(&file, &line, &func, &data, &flags);
+  83.         if ((flags & ERR_TXT_STRING) == 0) {
+                   ^
+  84.             data = "";
+  85.             leading_separator = "";
+
+#56
+crypto/ess/ess_lib.c:114: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `ESS_CERT_ID_V2_new_init()` on line 111 is not freed after the last access at line 114, column 10. 
+  112.     if (cid == NULL)
+  113.         goto err;
+  114.     if (!sk_ESS_CERT_ID_V2_push(sc->cert_ids, cid))
+                ^
+  115.         goto err;
+  116.     cid = NULL;
+
+#57
+crypto/ess/ess_lib.c:130: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `ESS_CERT_ID_V2_new_init()` on line 111 is not freed after the last access at line 130, column 5. 
+  128.     return sc;
+  129.  err:
+  130.     ESS_SIGNING_CERT_V2_free(sc);
+           ^
+  131.     ESS_CERT_ID_V2_free(cid);
+  132.     ERR_raise(ERR_LIB_ESS, ERR_R_MALLOC_FAILURE);
+
+#58
+crypto/evp/digest.c:918: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `evp_md_new()` on line 908 is not freed after the last access at line 918, column 9. 
+  916.             || md->type == -1) {
+  917.         ERR_raise(ERR_LIB_EVP, ERR_R_INTERNAL_ERROR);
+  918.         EVP_MD_free(md);
+               ^
+  919.         return NULL;
+  920.     }
+
+#59
+crypto/evp/digest.c:925: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `evp_md_new()` on line 908 is not freed after the last access at line 925, column 9. 
+  923.     md->name_id = name_id;
+  924.     if ((md->type_name = ossl_algorithm_get1_first_name(algodef)) == NULL) {
+  925.         EVP_MD_free(md);
+               ^
+  926.         return NULL;
+  927.     }
+
+#60
+crypto/evp/digest.c:1007: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `evp_md_new()` on line 908 is not freed after the last access at line 1007, column 9. 
+  1005.          * generate digests.
+  1006.          */
+  1007.         EVP_MD_free(md);
+                ^
+  1008.         ERR_raise(ERR_LIB_EVP, EVP_R_INVALID_PROVIDER_FUNCTIONS);
+  1009.         return NULL;
+
+#61
+crypto/evp/evp_enc.c:1472: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `evp_cipher_new()` on line 1462 is not freed after the last access at line 1472, column 9. 
+  1470.             || cipher->nid == -1) {
+  1471.         ERR_raise(ERR_LIB_EVP, ERR_R_INTERNAL_ERROR);
+  1472.         EVP_CIPHER_free(cipher);
+                ^
+  1473.         return NULL;
+  1474.     }
+
+#62
+crypto/evp/evp_enc.c:1479: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `evp_cipher_new()` on line 1462 is not freed after the last access at line 1479, column 9. 
+  1477.     cipher->name_id = name_id;
+  1478.     if ((cipher->type_name = ossl_algorithm_get1_first_name(algodef)) == NULL) {
+  1479.         EVP_CIPHER_free(cipher);
+                ^
+  1480.         return NULL;
+  1481.     }
+
+#63
+crypto/evp/evp_enc.c:1575: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `evp_cipher_new()` on line 1462 is not freed after the last access at line 1575, column 9. 
+  1573.          * the "newctx" and "freectx" functions.
+  1574.          */
+  1575.         EVP_CIPHER_free(cipher);
+                ^
+  1576.         ERR_raise(ERR_LIB_EVP, EVP_R_INVALID_PROVIDER_FUNCTIONS);
+  1577.         return NULL;
+
+#64
+crypto/evp/evp_pbe.c:262: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.cipher_nid` is read without initialization. 
+  260.         return 0;
+  261.     if (pcnid != NULL)
+  262.         *pcnid = pbetmp->cipher_nid;
+                        ^
+  263.     if (pmnid != NULL)
+  264.         *pmnid = pbetmp->md_nid;
+
+#65
+crypto/evp/evp_pbe.c:264: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.md_nid` is read without initialization. 
+  262.         *pcnid = pbetmp->cipher_nid;
+  263.     if (pmnid != NULL)
+  264.         *pmnid = pbetmp->md_nid;
+                        ^
+  265.     if (pkeygen != NULL)
+  266.         *pkeygen = pbetmp->keygen;
+
+#66
+crypto/evp/evp_pbe.c:266: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.keygen` is read without initialization. 
+  264.         *pmnid = pbetmp->md_nid;
+  265.     if (pkeygen != NULL)
+  266.         *pkeygen = pbetmp->keygen;
+                          ^
+  267.     if (pkeygen_ex != NULL)
+  268.         *pkeygen_ex = pbetmp->keygen_ex;
+
+#67
+crypto/evp/evp_pbe.c:268: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.keygen_ex` is read without initialization. 
+  266.         *pkeygen = pbetmp->keygen;
+  267.     if (pkeygen_ex != NULL)
+  268.         *pkeygen_ex = pbetmp->keygen_ex;
+                             ^
+  269.     return 1;
+  270. }
+
+#68
+crypto/evp/mac_meth.c:42: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `CRYPTO_zalloc()` on line 40 is not freed after the last access at line 42, column 9. 
+  40.     if ((mac = OPENSSL_zalloc(sizeof(*mac))) == NULL
+  41.         || (mac->lock = CRYPTO_THREAD_lock_new()) == NULL) {
+  42.         evp_mac_free(mac);
+              ^
+  43.         return NULL;
+  44.     }
+
+#69
+crypto/initthread.c:390: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `CRYPTO_malloc()` on line 380 is not freed after the last access at line 390, column 5. 
+  388. #endif
+  389.     hand->next = *hands;
+  390.     *hands = hand;
+           ^
+  391. 
+  392.     return 1;
+
+#70
+crypto/objects/obj_lib.c:52: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `ASN1_OBJECT_new()` on line 26 is not freed after the last access at line 52, column 5. 
+  50.     return r;
+  51.  err:
+  52.     ASN1_OBJECT_free(r);
+          ^
+  53.     ERR_raise(ERR_LIB_OBJ, ERR_R_MALLOC_FAILURE);
+  54.     return NULL;
+
+#71
+crypto/objects/obj_xref.c:61: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.hash_id` is read without initialization. 
+  59.         return 0;
+  60.     if (pdig_nid)
+  61.         *pdig_nid = rv->hash_id;
+                          ^
+  62.     if (ppkey_nid)
+  63.         *ppkey_nid = rv->pkey_id;
+
+#72
+crypto/objects/obj_xref.c:63: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.pkey_id` is read without initialization. 
+  61.         *pdig_nid = rv->hash_id;
+  62.     if (ppkey_nid)
+  63.         *ppkey_nid = rv->pkey_id;
+                           ^
+  64.     return 1;
+  65. }
+
+#73
+crypto/objects/obj_xref.c:91: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.sign_id` is read without initialization. 
+  89.         return 0;
+  90.     if (psignid)
+  91.         *psignid = (*rv)->sign_id;
+                         ^
+  92.     return 1;
+  93. }
+
+#74
+crypto/ocsp/ocsp_ext.c:387: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `ASN1_STRING_set()` on line 370 is not freed after the last access at line 387, column 5. 
+  385.     x = X509V3_EXT_i2d(NID_id_pkix_OCSP_CrlID, 0, cid);
+  386.  err:
+  387.     OCSP_CRLID_free(cid);
+           ^
+  388.     return x;
+  389. }
+
+#75
+crypto/ocsp/ocsp_ext.c:470: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `ASN1_STRING_set()` on line 455 is not freed after the last access at line 470, column 5. 
+  468.     ASN1_IA5STRING_free(ia5);
+  469.     ACCESS_DESCRIPTION_free(ad);
+  470.     OCSP_SERVICELOC_free(sloc);
+           ^
+  471.     return x;
+  472. }
+
+#76
+crypto/property/property.c:617: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `lh_QUERY_insert()` on line 613 is not freed after the last access at line 617, column 14. 
+  615.             goto end;
+  616.         }
+  617.         if (!lh_QUERY_error(alg->cache)) {
+                    ^
+  618.             if (++store->nelem >= IMPL_CACHE_FLUSH_THRESHOLD)
+  619.                 store->need_flush = 1;
+
+FALSE_POSITIVE
+#77
+crypto/provider_core.c:667: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `provider_dispatch` could be null (null value originating from line 561) and is dereferenced. 
+  665. #endif
+  666. 
+  667.     for (; provider_dispatch->function_id != 0; provider_dispatch++) {
+                  ^
+  668.         switch (provider_dispatch->function_id) {
+  669.         case OSSL_FUNC_PROVIDER_TEARDOWN:
+
+FALSE_POSITIVE
+#78
+crypto/rand/rand_lib.c:532: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `dgbl` could be null (from the call to `rand_get_global()` on line 528) and is dereferenced. 
+  530.     char *name;
+  531. 
+  532.     name = dgbl->seed_name != NULL ? dgbl->seed_name : "SEED-SRC";
+                  ^
+  533.     rand = EVP_RAND_fetch(libctx, name, dgbl->seed_propq);
+  534.     if (rand == NULL) {
+
+FALSE_POSITIVE
+#79
+crypto/rand/rand_lib.c:563: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `dgbl` could be null (from the call to `rand_get_global()` on line 558) and is dereferenced. 
+  561.     char *name, *cipher;
+  562. 
+  563.     name = dgbl->rng_name != NULL ? dgbl->rng_name : "CTR-DRBG";
+                  ^
+  564.     rand = EVP_RAND_fetch(libctx, name, dgbl->rng_propq);
+  565.     if (rand == NULL) {
+
+#80
+crypto/rsa/rsa_backend.c:52: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `OSSL_PARAM_get_BN()` on line 51 is not freed after the last access at line 52, column 20. 
+  50. 
+  51.             if (!OSSL_PARAM_get_BN(p, &tmp)
+  52.                 || sk_BIGNUM_push(numbers, tmp) == 0)
+                         ^
+  53.                 return 0;
+  54.         }
+
+#81
+crypto/srp/srp_lib.c:252: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `BN_new()` on line 227 is not freed after the last access at line 252, column 5. 
+  250.  err:
+  251.     BN_CTX_free(bn_ctx);
+  252.     BN_free(xtmp);
+           ^
+  253.     BN_clear_free(tmp);
+  254.     BN_clear_free(tmp2);
+
+#82
+crypto/ts/ts_rsp_sign.c:324: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `ASN1_STRING_set()` on line 309 is not freed after the last access at line 324, column 5. 
+  322.     if (!ret)
+  323.         ERR_raise(ERR_LIB_TS, ERR_R_MALLOC_FAILURE);
+  324.     TS_STATUS_INFO_free(si);
+           ^
+  325.     ASN1_UTF8STRING_free(utf8_text);
+  326.     return ret;
+
+#83
+crypto/ts/ts_rsp_sign.c:592: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `TS_TST_INFO_set_time()` on line 554 is not freed after the last access at line 592, column 9. 
+  590.  end:
+  591.     if (!result) {
+  592.         TS_TST_INFO_free(tst_info);
+               ^
+  593.         tst_info = NULL;
+  594.         ERR_raise(ERR_LIB_TS, TS_R_TST_INFO_SETUP_ERROR);
+
+#84
+crypto/ui/ui_lib.c:219: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `CRYPTO_strdup()` on line 212 is not freed after the last access at line 219, column 12. 
+  217.     }
+  218. 
+  219.     return general_allocate_string(ui, prompt_copy, 1,
+                  ^
+  220.                                    UIT_PROMPT, flags, result_buf, minsize,
+  221.                                    maxsize, NULL);
+
+#85
+crypto/ui/ui_lib.c:247: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `CRYPTO_strdup()` on line 240 is not freed after the last access at line 247, column 12. 
+  245.     }
+  246. 
+  247.     return general_allocate_string(ui, prompt_copy, 1,
+                  ^
+  248.                                    UIT_VERIFY, flags, result_buf, minsize,
+  249.                                    maxsize, test_buf);
+
+#86
+crypto/ui/ui_lib.c:331: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `CRYPTO_strdup()` on line 324 is not freed after the last access at line 331, column 12. 
+  329.     }
+  330. 
+  331.     return general_allocate_string(ui, text_copy, 1, UIT_INFO, 0, NULL,
+                  ^
+  332.                                    0, 0, NULL);
+  333. }
+
+#87
+crypto/ui/ui_lib.c:352: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `CRYPTO_strdup()` on line 346 is not freed after the last access at line 352, column 12. 
+  350.         }
+  351.     }
+  352.     return general_allocate_string(ui, text_copy, 1, UIT_ERROR, 0, NULL,
+                  ^
+  353.                                    0, 0, NULL);
+  354. }
+
+#88
+crypto/x509/pcy_data.c:54: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `OBJ_dup()` on line 47 is not freed after the last access at line 54, column 9. 
+  52.     ret = OPENSSL_zalloc(sizeof(*ret));
+  53.     if (ret == NULL) {
+  54.         ASN1_OBJECT_free(id);
+              ^
+  55.         ERR_raise(ERR_LIB_X509V3, ERR_R_MALLOC_FAILURE);
+  56.         return NULL;
+
+#89
+crypto/x509/pcy_data.c:61: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `OBJ_dup()` on line 47 is not freed after the last access at line 61, column 9. 
+  59.     if (ret->expected_policy_set == NULL) {
+  60.         OPENSSL_free(ret);
+  61.         ASN1_OBJECT_free(id);
+              ^
+  62.         ERR_raise(ERR_LIB_X509V3, ERR_R_MALLOC_FAILURE);
+  63.         return NULL;
+
+#90
+crypto/x509/t_x509.c:219: error: Stack Variable Address Escape(STACK_VARIABLE_ADDRESS_ESCAPE)
+  Address of stack variable `xpoid` is returned by the function. 
+  217.  err:
+  218.     OPENSSL_free(m);
+  219.     return ret;
+           ^
+  220. }
+  221. 
+
+#91
+crypto/x509/v3_cpols.c:368: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `ASN1_STRING_type_new()` on line 305 is not freed after the last access at line 368, column 5. 
+  366. 
+  367.  err:
+  368.     POLICYQUALINFO_free(qual);
+           ^
+  369.     return NULL;
+  370. }
+
+#92
+crypto/x509/x509_att.c:120: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `X509_ATTRIBUTE_create_by_OBJ()` on line 116 is not freed after the last access at line 120, column 5. 
+  118.         return 0;
+  119.     ret = X509at_add1_attr(x, attr);
+  120.     X509_ATTRIBUTE_free(attr);
+           ^
+  121.     return ret;
+  122. }
+
+#93
+crypto/x509/x509_att.c:135: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `X509_ATTRIBUTE_create_by_NID()` on line 131 is not freed after the last access at line 135, column 5. 
+  133.         return 0;
+  134.     ret = X509at_add1_attr(x, attr);
+  135.     X509_ATTRIBUTE_free(attr);
+           ^
+  136.     return ret;
+  137. }
+
+#94
+crypto/x509/x509_att.c:292: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `ASN1_STRING_type_new()` on line 280 is not freed after the last access at line 292, column 9. 
+  290.      */
+  291.     if (attrtype == 0) {
+  292.         ASN1_STRING_free(stmp);
+               ^
+  293.         return 1;
+  294.     }
+
+#95
+crypto/x509/x509_att.c:292: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `ASN1_STRING_set()` on line 282 is not freed after the last access at line 292, column 9. 
+  290.      */
+  291.     if (attrtype == 0) {
+  292.         ASN1_STRING_free(stmp);
+               ^
+  293.         return 1;
+  294.     }
+
+#96
+crypto/x509/x509_att.c:304: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `ASN1_STRING_set()` on line 282 is not freed after the last access at line 304, column 10. 
+  302.         stmp = NULL;
+  303.     }
+  304.     if (!sk_ASN1_TYPE_push(attr->set, ttmp))
+                ^
+  305.         goto err;
+  306.     return 1;
+
+#97
+crypto/x509/x509_att.c:310: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `ASN1_STRING_type_new()` on line 280 is not freed after the last access at line 310, column 5. 
+  308.     ERR_raise(ERR_LIB_X509, ERR_R_MALLOC_FAILURE);
+  309.     ASN1_TYPE_free(ttmp);
+  310.     ASN1_STRING_free(stmp);
+           ^
+  311.     return 0;
+  312. }
+
+#98
+crypto/x509/x509_lu.c:383: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `X509_OBJECT_new()` on line 357 is not freed after the last access at line 383, column 9. 
+  381.     X509_STORE_unlock(store);
+  382. 
+  383.     if (added == 0)             /* obj not pushed */
+               ^
+  384.         X509_OBJECT_free(obj);
+  385. 
+
+#99
+crypto/x509/x509_vfy.c:3415: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `val` is read without initialization. 
+  3413.                                      OSSL_PKEY_PARAM_EC_DECODED_FROM_EXPLICIT_PARAMS,
+  3414.                                      &val);
+  3415.         return ret < 0 ? ret : !val;
+                                        ^
+  3416.     }
+  3417. 
+
+#100
+crypto/x509/x509_vpm.c:623: error: Stack Variable Address Escape(STACK_VARIABLE_ADDRESS_ESCAPE)
+  Address of stack variable `pm` is returned by the function. 
+  621.         idx = sk_X509_VERIFY_PARAM_find(param_table, &pm);
+  622.         if (idx >= 0)
+  623.             return sk_X509_VERIFY_PARAM_value(param_table, idx);
+                   ^
+  624.     }
+  625.     return OBJ_bsearch_table(&pm, default_table, OSSL_NELEM(default_table));
+
+#101
+crypto/x509/x509name.c:149: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `X509_NAME_ENTRY_create_by_OBJ()` on line 145 is not freed after the last access at line 149, column 5. 
+  147.         return 0;
+  148.     ret = X509_NAME_add_entry(name, ne, loc, set);
+  149.     X509_NAME_ENTRY_free(ne);
+           ^
+  150.     return ret;
+  151. }
+
+#102
+crypto/x509/x509name.c:163: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `X509_NAME_ENTRY_create_by_NID()` on line 159 is not freed after the last access at line 163, column 5. 
+  161.         return 0;
+  162.     ret = X509_NAME_add_entry(name, ne, loc, set);
+  163.     X509_NAME_ENTRY_free(ne);
+           ^
+  164.     return ret;
+  165. }
+
+#103
+crypto/x509/x509name.c:322: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `ASN1_STRING_set_by_NID()` on line 322 is not freed after the last access at line 322, column 16. 
+  320.         return 0;
+  321.     if ((type > 0) && (type & MBSTRING_FLAG))
+  322.         return ASN1_STRING_set_by_NID(&ne->value, bytes,
+                      ^
+  323.                                       len, type,
+  324.                                       OBJ_obj2nid(ne->object)) ? 1 : 0;
+
+#104
+crypto/x509/x_crl.c:457: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `rev.issuer` is read without initialization during the call to `crl_revoked_issuer_match()`. 
+  455.         if (ASN1_INTEGER_cmp(&rev->serialNumber, serial))
+  456.             return 0;
+  457.         if (crl_revoked_issuer_match(crl, issuer, rev)) {
+                   ^
+  458.             if (ret)
+  459.                 *ret = rev;
+
+#105
+crypto/x509/x_crl.c:460: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.reason` is read without initialization. 
+  458.             if (ret)
+  459.                 *ret = rev;
+  460.             if (rev->reason == CRL_REASON_REMOVE_FROM_CRL)
+                       ^
+  461.                 return 2;
+  462.             return 1;
+
+#106
+crypto/x509/x_name.c:204: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `x509_name_ex_new()` on line 174 is not freed after the last access at line 204, column 9. 
+  202.  err:
+  203.     if (nm.x != NULL)
+  204.         X509_NAME_free(nm.x);
+               ^
+  205.     sk_STACK_OF_X509_NAME_ENTRY_pop_free(intname.s,
+  206.                                          local_sk_X509_NAME_ENTRY_pop_free);
+
+#107
+crypto/x509/x_x509a.c:120: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `OBJ_dup()` on line 108 is not freed after the last access at line 120, column 5. 
+  118.         return 1;
+  119.  err:
+  120.     ASN1_OBJECT_free(objtmp);
+           ^
+  121.     return 0;
+  122. }
+
+#108
+crypto/x509/x_x509a.c:135: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `OBJ_dup()` on line 128 is not freed after the last access at line 135, column 12. 
+  133.         && (aux->reject = sk_ASN1_OBJECT_new_null()) == NULL)
+  134.         goto err;
+  135.     return sk_ASN1_OBJECT_push(aux->reject, objtmp);
+                  ^
+  136.  err:
+  137.     ASN1_OBJECT_free(objtmp);
+
+#109
+crypto/x509/x_x509a.c:137: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `OBJ_dup()` on line 128 is not freed after the last access at line 137, column 5. 
+  135.     return sk_ASN1_OBJECT_push(aux->reject, objtmp);
+  136.  err:
+  137.     ASN1_OBJECT_free(objtmp);
+           ^
+  138.     return 0;
+  139. }
+
+#110
+engines/e_afalg.c:215: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `ASYNC_WAIT_CTX_set_wait_fd()` on line 215 is not freed after the last access at line 215, column 13. 
+  213.                 return 0;
+  214.             }
+  215.             ret = ASYNC_WAIT_CTX_set_wait_fd(waitctx, engine_afalg_id,
+                   ^
+  216.                                              aio->efd, custom,
+  217.                                              afalg_waitfd_cleanup);
+
+FALSE_POSITIVE
+#111
+engines/e_dasync.c:608: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `EVP_aes_128_cbc_hmac_sha1()` could be null (from the call to `EVP_aes_128_cbc_hmac_sha1()` on line 608) and is dereferenced in the call to `EVP_CIPHER_meth_get_ctrl()`. 
+  606.                 return -1;
+  607.             EVP_CIPHER_CTX_set_cipher_data(ctx, pipe_ctx->inner_cipher_data);
+  608.             ret = EVP_CIPHER_meth_get_ctrl(EVP_aes_128_cbc_hmac_sha1())
+                         ^
+  609.                                           (ctx, type, arg, ptr);
+  610.             EVP_CIPHER_CTX_set_cipher_data(ctx, pipe_ctx);
+
+#112
+fuzz/test-corpus.c:54: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc` on line 51 is not freed after the last access at line 54, column 9. 
+  52.     if (buf != NULL) {
+  53.         s = fread(buf, 1, st.st_size, f);
+  54.         OPENSSL_assert(s == (size_t)st.st_size);
+              ^
+  55.         FuzzerTestOneInput(buf, s);
+  56.         free(buf);
+
+#113
+providers/implementations/macs/kmac_prov.c:310: error: Stack Variable Address Escape(STACK_VARIABLE_ADDRESS_ESCAPE)
+  Address of stack variable `out_len` is returned by the function. 
+  308.                  kctx->custom, kctx->custom_len, block_len)) {
+  309.         ERR_raise(ERR_LIB_PROV, ERR_R_INTERNAL_ERROR);
+  310.         return 0;
+               ^
+  311.     }
+  312.     out = OPENSSL_malloc(out_len);
+
+#114
+providers/implementations/rands/drbg.c:475: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `CRYPTO_malloc()` on line 405 is not freed after the last access at line 475, column 9. 
+  473.         cleanup_entropy(drbg, entropy, entropylen);
+  474.     if (nonce != NULL)
+  475.         ossl_prov_cleanup_nonce(drbg->provctx, nonce, noncelen);
+               ^
+  476.     if (drbg->state == EVP_RAND_STATE_READY)
+  477.         return 1;
+
+#115
+providers/implementations/signature/sm2_sig.c:217: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `pkt.subs` is read without initialization during the call to `WPACKET_cleanup()`. 
+  215.         ctx->aid = WPACKET_get_curr(&pkt);
+  216.     }
+  217.     WPACKET_cleanup(&pkt);
+           ^
+  218. 
+  219.     if (!EVP_DigestInit_ex2(ctx->mdctx, ctx->md, params))
+
+#116
+providers/implementations/storemgmt/file_store.c:512: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `ossl_decoder_from_algorithm()` on line 453 is not freed after the last access at line 512, column 5. 
+  510.     ok = 1;
+  511.  err:
+  512.     OSSL_DECODER_free(to_obj);
+           ^
+  513.     return ok;
+  514. }
+
+#117
+ssl/d1_lib.c:332: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `timeleft.tv_sec` is read without initialization during the call to `dtls1_get_timeout()`. 
+  330. 
+  331.     /* Get time left until timeout, return false if no timer running */
+  332.     if (dtls1_get_timeout(s, &timeleft) == NULL) {
+               ^
+  333.         return 0;
+  334.     }
+
+#118
+ssl/d1_lib.c:764: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `pkt.subs` is read without initialization during the call to `WPACKET_cleanup()`. 
+  762.                     || !WPACKET_finish(&wpkt)) {
+  763.                 ERR_raise(ERR_LIB_SSL, ERR_R_INTERNAL_ERROR);
+  764.                 WPACKET_cleanup(&wpkt);
+                       ^
+  765.                 /* This is fatal */
+  766.                 return -1;
+
+#119
+ssl/ssl_ciph.c:1641: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `CRYPTO_malloc()` on line 1471 is not freed after the last access at line 1641, column 14. 
+  1639.         }
+  1640. 
+  1641.         if (!sk_SSL_CIPHER_push(cipherstack, sslc)) {
+                     ^
+  1642.             sk_SSL_CIPHER_free(cipherstack);
+  1643.             return NULL;
+
+#120
+ssl/statem/extensions_cust.c:438: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `CRYPTO_malloc()` on line 413 is not freed after the last access at line 438, column 10. 
+  436.                                 parse_cb_wrap);
+  437. 
+  438.     if (!ret) {
+                ^
+  439.         OPENSSL_free(add_cb_wrap);
+  440.         OPENSSL_free(parse_cb_wrap);
+
+#121
+ssl/statem/extensions_cust.c:438: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `CRYPTO_malloc()` on line 415 is not freed after the last access at line 438, column 10. 
+  436.                                 parse_cb_wrap);
+  437. 
+  438.     if (!ret) {
+                ^
+  439.         OPENSSL_free(add_cb_wrap);
+  440.         OPENSSL_free(parse_cb_wrap);
+
+#122
+ssl/statem/statem_dtls.c:269: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `written` is read without initialization. 
+  267.              * got sent.  but why would this happen?
+  268.              */
+  269.             if (!ossl_assert(len == written))
+                        ^
+  270.                 return -1;
+  271. 
+
+#123
+ssl/statem/statem_dtls.c:1104: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `dtls1_hm_fragment_new()` on line 1050 is not freed after the last access at line 1104, column 5. 
+  1102.     }
+  1103. 
+  1104.     pqueue_insert(s->d1->sent_messages, item);
+            ^
+  1105.     return 1;
+  1106. }
+
+FALSE_POSITIVE
+#124
+test/asn1_encode_test.c:703: error: Null Dereference(NULLPTR_DEREFERENCE)
+  The call to `do_encode` may trigger the following issue: `data` could be null (from the call to `do_encode()` on line 703) and is dereferenced in the call to `do_encode()`. 
+  701.         return -1;
+  702. 
+  703.     ret = do_encode(input, expected, expected_length, package);
+                 ^
+  704.     OPENSSL_free(expected);
+  705. 
+
+#125
+test/asynctest.c:100: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `ASYNC_WAIT_CTX_set_wait_fd()` on line 95 is not freed after the last access at line 100, column 10. 
+   98. 
+   99.     /* Third case: all fd removed */
+  100.     if (!ASYNC_WAIT_CTX_clear_fd(waitctx, waitctx))
+                ^
+  101.         return 0;
+  102.     ASYNC_pause_job();
+
+#126
+test/asynctest.c:107: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `ASYNC_WAIT_CTX_set_wait_fd()` on line 95 is not freed after the last access at line 107, column 10. 
+  105.     if (!ASYNC_WAIT_CTX_set_wait_fd(waitctx, waitctx, MAGIC_WAIT_FD, NULL, NULL))
+  106.         return 0;
+  107.     if (!ASYNC_WAIT_CTX_clear_fd(waitctx, waitctx))
+                ^
+  108.         return 0;
+  109. 
+
+#127
+test/cmp_hdr_test.c:239: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `ASN1_STRING_set()` on line 227 is not freed after the last access at line 239, column 5. 
+  237. 
+  238.  err:
+  239.     ASN1_UTF8STRING_free(text);
+           ^
+  240.     return 0;
+  241. }
+
+#128
+test/conf_include_test.c:53: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `CRYPTO_strdup()` on line 42 is not freed after the last access at line 53, column 9. 
+  51.         last = p++;
+  52.     }
+  53.     if (last == NULL)
+              ^
+  54.         return 0;
+  55.     last[DIRSEP_PRESERVE] = 0;
+
+#129
+test/conf_include_test.c:82: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `errline` is read without initialization. 
+  80.         if (expect_failure)
+  81.             return 1;
+  82.         TEST_note("Failure loading the configuration at line %ld", errline);
+                                                                         ^
+  83.         return 0;
+  84.     }
+
+#130
+test/dhtest.c:618: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `BN_bin2bn()` on line 577 is not freed after the last access at line 618, column 5. 
+  616.  bad_err:
+  617.     DH_free(dhA);
+  618.     DH_free(dhB);
+           ^
+  619.     BN_free(pub_key);
+  620.     BN_free(priv_key);
+
+#131
+test/dhtest.c:628: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `BN_bin2bn()` on line 577 is not freed after the last access at line 628, column 5. 
+  626.  err:
+  627.     DH_free(dhA);
+  628.     DH_free(dhB);
+           ^
+  629.     OPENSSL_free(Z1);
+  630.     OPENSSL_free(Z2);
+
+#132
+test/errtest.c:139: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `data` is read without initialization. 
+  137.     ERR_add_error_data(1, "world");
+  138.     ERR_peek_error_data(&data, NULL);
+  139.     return TEST_str_eq(data, "hello world");
+                  ^
+  140. }
+  141. 
+
+FALSE_POSITIVE
+#133
+test/evp_extra_test.c:2391: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `ctx` could be null (null value originating from line 2367) and is dereferenced in the call to `EVP_PKEY_keygen()`. 
+  2389. 
+  2390.     if (!TEST_int_gt(EVP_PKEY_keygen_init(ctx), 0)
+  2391.         || !TEST_int_gt(EVP_PKEY_keygen(ctx, &pkey), 0))
+                    ^
+  2392.         goto err;
+  2393. 
+
+#134
+test/evp_libctx_test.c:493: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `CRYPTO_strdup()` on line 492 is not freed after the last access at line 493, column 13. 
+  491.     /* the cipher will be freed after returning, strdup is needed */
+  492.     if ((namedup = OPENSSL_strdup(name)) != NULL
+  493.         && !sk_OPENSSL_STRING_push(names, namedup))
+                   ^
+  494.         OPENSSL_free(namedup);
+  495. }
+
+#135
+test/evp_test.c:2260: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `parse_bin()` on line 2260 is not freed after the last access at line 2260, column 20. 
+  2258.         item = rdata->data + n;
+  2259.         if (strncmp(keyword, "Entropy.", sizeof("Entropy")) == 0)
+  2260.             return parse_bin(value, &item->entropy, &item->entropy_len);
+                           ^
+  2261.         if (strncmp(keyword, "ReseedEntropy.", sizeof("ReseedEntropy")) == 0)
+  2262.             return parse_bin(value, &item->reseed_entropy,
+
+#136
+test/evp_test.c:2262: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `parse_bin()` on line 2262 is not freed after the last access at line 2262, column 20. 
+  2260.             return parse_bin(value, &item->entropy, &item->entropy_len);
+  2261.         if (strncmp(keyword, "ReseedEntropy.", sizeof("ReseedEntropy")) == 0)
+  2262.             return parse_bin(value, &item->reseed_entropy,
+                           ^
+  2263.                              &item->reseed_entropy_len);
+  2264.         if (strncmp(keyword, "Nonce.", sizeof("Nonce")) == 0)
+
+#137
+test/evp_test.c:2265: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `parse_bin()` on line 2265 is not freed after the last access at line 2265, column 20. 
+  2263.                              &item->reseed_entropy_len);
+  2264.         if (strncmp(keyword, "Nonce.", sizeof("Nonce")) == 0)
+  2265.             return parse_bin(value, &item->nonce, &item->nonce_len);
+                           ^
+  2266.         if (strncmp(keyword, "PersonalisationString.",
+  2267.                     sizeof("PersonalisationString")) == 0)
+
+#138
+test/evp_test.c:2268: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `parse_bin()` on line 2268 is not freed after the last access at line 2268, column 20. 
+  2266.         if (strncmp(keyword, "PersonalisationString.",
+  2267.                     sizeof("PersonalisationString")) == 0)
+  2268.             return parse_bin(value, &item->pers, &item->pers_len);
+                           ^
+  2269.         if (strncmp(keyword, "ReseedAdditionalInput.",
+  2270.                     sizeof("ReseedAdditionalInput")) == 0)
+
+#139
+test/evp_test.c:2271: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `parse_bin()` on line 2271 is not freed after the last access at line 2271, column 20. 
+  2269.         if (strncmp(keyword, "ReseedAdditionalInput.",
+  2270.                     sizeof("ReseedAdditionalInput")) == 0)
+  2271.             return parse_bin(value, &item->reseed_addin,
+                           ^
+  2272.                              &item->reseed_addin_len);
+  2273.         if (strncmp(keyword, "AdditionalInputA.",
+
+#140
+test/evp_test.c:2275: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `parse_bin()` on line 2275 is not freed after the last access at line 2275, column 20. 
+  2273.         if (strncmp(keyword, "AdditionalInputA.",
+  2274.                     sizeof("AdditionalInputA")) == 0)
+  2275.             return parse_bin(value, &item->addinA, &item->addinA_len);
+                           ^
+  2276.         if (strncmp(keyword, "AdditionalInputB.",
+  2277.                     sizeof("AdditionalInputB")) == 0)
+
+#141
+test/evp_test.c:2278: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `parse_bin()` on line 2278 is not freed after the last access at line 2278, column 20. 
+  2276.         if (strncmp(keyword, "AdditionalInputB.",
+  2277.                     sizeof("AdditionalInputB")) == 0)
+  2278.             return parse_bin(value, &item->addinB, &item->addinB_len);
+                           ^
+  2279.         if (strncmp(keyword, "EntropyPredictionResistanceA.",
+  2280.                     sizeof("EntropyPredictionResistanceA")) == 0)
+
+#142
+test/evp_test.c:2281: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `parse_bin()` on line 2281 is not freed after the last access at line 2281, column 20. 
+  2279.         if (strncmp(keyword, "EntropyPredictionResistanceA.",
+  2280.                     sizeof("EntropyPredictionResistanceA")) == 0)
+  2281.             return parse_bin(value, &item->pr_entropyA, &item->pr_entropyA_len);
+                           ^
+  2282.         if (strncmp(keyword, "EntropyPredictionResistanceB.",
+  2283.                     sizeof("EntropyPredictionResistanceB")) == 0)
+
+#143
+test/evp_test.c:2284: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `parse_bin()` on line 2284 is not freed after the last access at line 2284, column 20. 
+  2282.         if (strncmp(keyword, "EntropyPredictionResistanceB.",
+  2283.                     sizeof("EntropyPredictionResistanceB")) == 0)
+  2284.             return parse_bin(value, &item->pr_entropyB, &item->pr_entropyB_len);
+                           ^
+  2285.         if (strncmp(keyword, "Output.", sizeof("Output")) == 0)
+  2286.             return parse_bin(value, &item->output, &item->output_len);
+
+#144
+test/evp_test.c:2286: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `parse_bin()` on line 2286 is not freed after the last access at line 2286, column 20. 
+  2284.             return parse_bin(value, &item->pr_entropyB, &item->pr_entropyB_len);
+  2285.         if (strncmp(keyword, "Output.", sizeof("Output")) == 0)
+  2286.             return parse_bin(value, &item->output, &item->output_len);
+                           ^
+  2287.     } else {
+  2288.         if (strcmp(keyword, "Cipher") == 0)
+
+#145
+test/exptest.c:149: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `c` is read without initialization. 
+  147.     if (!TEST_true(RAND_bytes(&c, 1)))
+  148.         goto err;
+  149.     c = (c % BN_BITS) - BN_BITS2;
+                ^
+  150.     if (!TEST_true(BN_rand(a, NUM_BITS + c, BN_RAND_TOP_ONE,
+  151.                            BN_RAND_BOTTOM_ANY)))
+
+#146
+test/helpers/handshake.c:625: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `parse_protos()` on line 622 is not freed after the last access at line 625, column 21. 
+  623.                                     &alpn_protos, &alpn_protos_len))
+  624.                 /* Reversed return value convention... */
+  625.                 || !TEST_int_eq(SSL_CTX_set_alpn_protos(client_ctx, alpn_protos,
+                           ^
+  626.                                                         alpn_protos_len), 0))
+  627.             goto err;
+
+#147
+test/helpers/handshake.c:1427: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `HANDSHAKE_RESULT_new()` on line 1399 is not freed after the last access at line 1427, column 10. 
+  1425.     memset(&client_ex_data, 0, sizeof(client_ex_data));
+  1426. 
+  1427.     if (!configure_handshake_ctx(server_ctx, server2_ctx, client_ctx,
+                 ^
+  1428.                                  test_ctx, extra, &server_ctx_data,
+  1429.                                  &server2_ctx_data, &client_ctx_data)) {
+
+#148
+test/http_test.c:39: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `req` is read without initialization. 
+  37.     const char *req, *path;
+  38.     long count = BIO_get_mem_data(in, (unsigned char **)&req);
+  39.     const char *hdr = (char *)req;
+                                    ^
+  40.     int is_get = count >= 4 && strncmp(hdr, "GET ", 4) == 0;
+  41.     int len;
+
+#149
+test/igetest.c:165: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `key.rounds` is read without initialization during the call to `AES_ige_encrypt()`. 
+  163.         AES_set_decrypt_key(v->key, 8 * sizeof(v->key), &key);
+  164.     memcpy(iv, v->iv, sizeof(iv));
+  165.     AES_ige_encrypt(v->in, buf, v->length, &key, iv, v->encrypt);
+           ^
+  166. 
+  167.     if (!TEST_mem_eq(v->out, v->length, buf, v->length)) {
+
+#150
+test/igetest.c:178: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `key.rounds` is read without initialization during the call to `AES_ige_encrypt()`. 
+  176.     memcpy(iv, v->iv, sizeof(iv));
+  177.     memcpy(buf, v->in, v->length);
+  178.     AES_ige_encrypt(buf, buf, v->length, &key, iv, v->encrypt);
+           ^
+  179. 
+  180.     if (!TEST_mem_eq(v->out, v->length, buf, v->length)) {
+
+#151
+test/modes_internal_test.c:866: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `key.rounds` is read without initialization during the call to `CRYPTO_gcm128_init()`. 
+  864.     AES_set_encrypt_key(K.data, K.size * 8, &key);
+  865. 
+  866.     CRYPTO_gcm128_init(&ctx, &key, (block128_f)AES_encrypt);
+           ^
+  867.     CRYPTO_gcm128_setiv(&ctx, IV.data, IV.size);
+  868.     memset(out, 0, P.size);
+
+#152
+test/modes_internal_test.c:867: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `key.rounds` is read without initialization during the call to `CRYPTO_gcm128_setiv()`. 
+  865. 
+  866.     CRYPTO_gcm128_init(&ctx, &key, (block128_f)AES_encrypt);
+  867.     CRYPTO_gcm128_setiv(&ctx, IV.data, IV.size);
+           ^
+  868.     memset(out, 0, P.size);
+  869.     if (A.data != NULL)
+
+#153
+test/packettest.c:265: error: Stack Variable Address Escape(STACK_VARIABLE_ADDRESS_ESCAPE)
+  Address of stack variable `buf1` is returned by the function. 
+  263. end:
+  264.     OPENSSL_free(data);
+  265.     return result;
+           ^
+  266. }
+  267. 
+
+#154
+test/pkey_meth_test.c:33: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `pkey_id` is read without initialization. 
+  31.         ameth = EVP_PKEY_asn1_get0(i);
+  32.         EVP_PKEY_asn1_get0_info(&pkey_id, NULL, NULL, NULL, NULL, ameth);
+  33.         if (pkey_id < prev)
+                  ^
+  34.             good = 0;
+  35.         prev = pkey_id;
+
+#155
+test/rsa_test.c:94: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `BN_bin2bn()` on line 94 is not freed after the last access at line 94, column 5. 
+  92.         "\xb0\x05\xc3\x9e\xd8\x27\x4a\x9d\xbf\xa8\x06\x71\x40\x94\x39\xd2";
+  93. 
+  94.     SetKey;
+          ^
+  95. }
+  96. 
+
+#156
+test/rsa_test.c:139: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `BN_bin2bn()` on line 139 is not freed after the last access at line 139, column 5. 
+  137.         "\x62\x51";
+  138. 
+  139.     SetKey;
+           ^
+  140. }
+  141. 
+
+#157
+test/rsa_test.c:211: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `BN_bin2bn()` on line 211 is not freed after the last access at line 211, column 5. 
+  209.         "\xc4\x56\xb4\xf5\x9f\x7b\x62\x1e\xa1\xb9\xd8\x8f\x64\x20\x2f\xb1";
+  210. 
+  211.     SetKey;
+           ^
+  212. }
+  213. 
+
+#158
+test/sslapitest.c:729: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `p` is read without initialization. 
+  727. 
+  728.     len = SSL_client_hello_get0_ciphers(s, &p);
+  729.     if (!TEST_mem_eq(p, len, expected_ciphers, sizeof(expected_ciphers))
+                ^
+  730.             || !TEST_size_t_eq(
+  731.                        SSL_client_hello_get0_compression_methods(s, &p), 1)
+
+#159
+test/stack_test.c:343: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `CRYPTO_malloc()` on line 282 is not freed after the last access at line 343, column 1. 
+  341.     sk_SS_pop_free(s, &SS_free);
+  342.     return testresult;
+  343. }
+       ^
+  344. 
+  345. static int test_SU_stack(void)
+
+#160
+test/tls-provider.c:822: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `group_id` is read without initialization. 
+  820.      * (65024-65279)
+  821.      */
+  822.     group_id %= 65279 - 65024;
+           ^
+  823.     group_id += 65024;
+  824. 
+
+#161
+test/wpackettest.c:58: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `pkt.subs` is read without initialization during the call to `cleanup()`. 
+  56.             || !TEST_true(WPACKET_get_total_written(&pkt, &written))
+  57.             || !TEST_mem_eq(buf->data, written, simple1, sizeof(simple1)))
+  58.         return cleanup(&pkt);
+                     ^
+  59. 
+  60.     /* Now try with a one byte length prefix */
+
+#162
+test/wpackettest.c:129: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `pkt.subs` is read without initialization during the call to `cleanup()`. 
+  127.             || !TEST_true(WPACKET_set_max_size(&pkt, SIZE_MAX))
+  128.             || !TEST_true(WPACKET_finish(&pkt)))
+  129.         return cleanup(&pkt);
+                      ^
+  130. 
+  131.     if (!TEST_true(WPACKET_init_len(&pkt, buf, 1))
+
+#163
+test/wpackettest.c:178: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `pkt.subs` is read without initialization during the call to `cleanup()`. 
+  176.             || !TEST_true(WPACKET_get_total_written(&pkt, &written))
+  177.             || !TEST_mem_eq(buf->data, written, simple1, sizeof(simple1)))
+  178.         return cleanup(&pkt);
+                      ^
+  179. 
+  180.    /* Single sub-packet with length prefix */
+
+#164
+test/wpackettest.c:256: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `pkt.subs` is read without initialization during the call to `cleanup()`. 
+  254.             || !TEST_true(WPACKET_get_total_written(&pkt, &written))
+  255.             || !TEST_mem_eq(buf->data, written, simple1, sizeof(simple1)))
+  256.         return cleanup(&pkt);
+                      ^
+  257. 
+  258.     /* Repeat above test in a sub-packet */
+
+#165
+test/wpackettest.c:310: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `pkt.subs` is read without initialization during the call to `cleanup()`. 
+  308.     if (!TEST_true(WPACKET_init_len(&pkt, buf, 1))
+  309.             || !TEST_true(WPACKET_allocate_bytes(&pkt, 2, &bytes)))
+  310.         return cleanup(&pkt);
+                      ^
+  311.     bytes[0] = 0xfe;
+  312.     bytes[1] = 0xff;
+
+#166
+test/wpackettest.c:343: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `pkt.subs` is read without initialization during the call to `cleanup()`. 
+  341.             || !TEST_true(WPACKET_get_total_written(&pkt, &written))
+  342.             || !TEST_mem_eq(buf->data, written, alloc, sizeof(alloc)))
+  343.         return cleanup(&pkt);
+                      ^
+  344. 
+  345.     /* Repeat with WPACKET_sub_memcpy() */
+
+#167
+test/x509_time_test.c:286: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `asn1_before` could be null (from the call to `ASN1_TIME_adj()` on line 283) and is dereferenced in the call to `X509_cmp_time()`. 
+  284.     asn1_after = ASN1_TIME_adj(NULL, now, 1, 0);
+  285. 
+  286.     cmp_result  = X509_cmp_time(asn1_before, NULL);
+                         ^
+  287.     if (!TEST_int_eq(cmp_result, -1))
+  288.         failed = 1;
+
+#168
+test/x509_time_test.c:290: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `asn1_after` could be null (from the call to `ASN1_TIME_adj()` on line 284) and is dereferenced in the call to `X509_cmp_time()`. 
+  288.         failed = 1;
+  289. 
+  290.     cmp_result = X509_cmp_time(asn1_after, NULL);
+                        ^
+  291.     if (!TEST_int_eq(cmp_result, 1))
+  292.         failed = 1;
+
+Found 169 issues
+                                    Issue Type(ISSUED_TYPE_ID): #
+                                    Memory Leak(MEMORY_LEAK_C): 94
+                Uninitialized Value(PULSE_UNINITIALIZED_VALUE): 51
+                         Null Dereference(NULLPTR_DEREFERENCE): 19
+  Stack Variable Address Escape(STACK_VARIABLE_ADDRESS_ESCAPE): 5

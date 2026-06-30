@@ -1,0 +1,23 @@
+[
+  {
+    "procedure_name": "EVP_PBE_alg_add_type",
+    "procedure_id": "EVP_PBE_alg_add_type",
+    "source_file": "crypto/evp/evp_pbe.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 14,
+      "end_node": 14,
+      "start_line": 253,
+      "end_line": 253,
+      "guard_with_pointer": "0$?%__sil_tmpSIL_temp_conditional___n$0",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 1,
+        "nodes_in_scope": 1,
+        "true_slice_size": 1,
+        "initial_candidate_plans": 1,
+        "total_aliases": 1
+      }
+    }
+  }
+]

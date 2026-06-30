@@ -1,0 +1,9 @@
+Capturing in make/cc mode ...
+Arguments are 
+/home/infer_TempFix/c_npe_tests/test07_double_pointer_null.c
+annalysing main
+CallingFunction: printf @11
+/home/infer_TempFix/c_npe_tests/test07_double_pointer_null.c
+
+=====> Actual effects of function: main ======>
+(.ret=0 /\ deref(ptr)@9 · RET()@12,1)

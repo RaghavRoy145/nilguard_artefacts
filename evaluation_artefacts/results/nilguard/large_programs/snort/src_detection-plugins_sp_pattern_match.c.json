@@ -1,0 +1,14 @@
+[
+  {
+    "procedure_name": "ParseInt",
+    "procedure_id": "ParseInt{3b6b8f5e3f673f13c0cf2064bcd6eb86}",
+    "source_file": "src/detection-plugins/sp_pattern_match.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "No valid plans remained after filtering",
+      "npe_file": "src/detection-plugins/sp_pattern_match.c",
+      "npe_line": 954,
+      "original_pointer": "endptr"
+    }
+  }
+]

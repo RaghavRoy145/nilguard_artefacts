@@ -1,0 +1,2938 @@
+#0
+lib/gl_array_list.c:462: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.i` is read without initialization. 
+  460. #endif
+  461. 
+  462.   return result;
+         ^
+  463. }
+  464. 
+
+#1
+lib/gl_array_list.c:462: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.j` is read without initialization. 
+  460. #endif
+  461. 
+  462.   return result;
+         ^
+  463. }
+  464. 
+
+#2
+lib/gl_array_list.c:483: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.i` is read without initialization. 
+  481. #endif
+  482. 
+  483.   return result;
+         ^
+  484. }
+  485. 
+
+#3
+lib/gl_array_list.c:483: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.j` is read without initialization. 
+  481. #endif
+  482. 
+  483.   return result;
+         ^
+  484. }
+  485. 
+
+FALSE_POSITIVE
+#4
+lib/obstack.c:204: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `new_chunk` could be null (null value originating from line 185) and is dereferenced. 
+  202.     (*obstack_alloc_failed_handler)();
+  203.   h->chunk = new_chunk;
+  204.   new_chunk->prev = old_chunk;
+         ^
+  205.   new_chunk->limit = h->chunk_limit = (char *) new_chunk + new_size;
+  206. 
+
+#5
+lib/quotearg.c:1014: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `options.flags` is read without initialization during the call to `quotearg_n_options()`. 
+  1012.   options = quoting_options_from_style (s);
+  1013.   set_char_quoting (&options, ':', 1);
+  1014.   return quotearg_n_options (n, arg, SIZE_MAX, &options);
+                 ^
+  1015. }
+  1016. 
+
+#6
+lib/read-file.c:102: error: Use After Free(USE_AFTER_FREE)
+  accessing `buf` that was invalidated by call to `free()` on line 97. 
+  100.               }
+  101. 
+  102.             buf[size] = '\0';
+                   ^
+  103.             *length = size;
+  104.             return buf;
+
+#7
+lib/read-file.c:131: error: Use After Free(USE_AFTER_FREE)
+  accessing `buf` that was invalidated by call to `free()` on line 121. 
+  129.       }
+  130. 
+  131.     free (buf);
+           ^
+  132.     errno = save_errno;
+  133.     return NULL;
+
+#8
+lib/time_rz.c:257: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `tzalloc()` on line 251 is not freed after the last access at line 257, column 11. 
+  255.         {
+  256.           int saved_errno = errno;
+  257.           tzfree (old_tz);
+                 ^
+  258.           errno = saved_errno;
+  259.           return NULL;
+
+#9
+lib/time_rz.c:312: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `set_tz()` on line 308 is not freed after the last access at line 312, column 15. 
+  310.         {
+  311.           bool abbr_saved = localtime_r (t, tm) && save_abbr (tz, tm);
+  312.           if (revert_tz (old_tz) && abbr_saved)
+                     ^
+  313.             return tm;
+  314.         }
+
+#10
+src/rec-buf.c:81: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `buf->data` could be null (null value originating from line 80) and is dereferenced. 
+  79.   if (buf->used > 0)
+  80.       buf->data = realloc (buf->data, buf->used + 1);
+  81.   buf->data[buf->used] = '\0';
+        ^
+  82. 
+  83.   /* Update the user-provided buffer and size.  */
+
+#11
+src/rec-crypt.c:103: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc` on line 96 is not freed after the last access at line 103, column 7. 
+  101. 
+  102.   /* Create the handler.  */
+  103.   if (gcry_cipher_open (&handler,
+             ^
+  104.                         GCRY_CIPHER_AES128,
+  105.                         GCRY_CIPHER_MODE_CBC,
+
+#12
+src/rec-crypt.c:310: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc` on line 304 is not freed after the last access at line 310, column 11. 
+  308.   /* Make sure the field is not already encrypted.  */
+  309.   if ((strlen (rec_field_value (field)) >= strlen (REC_ENCRYPTED_PREFIX))
+  310.       && (strncmp (rec_field_value (field), REC_ENCRYPTED_PREFIX,
+                 ^
+  311.                    strlen (REC_ENCRYPTED_PREFIX)) == 0))
+  312.     return true;
+
+#13
+src/rec-crypt.c:314: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc` on line 304 is not freed after the last access at line 314, column 8. 
+  312.     return true;
+  313. 
+  314.   if (!rec_encrypt (field_value,
+              ^
+  315.                     strlen (field_value),
+  316.                     password,
+
+#14
+src/rec-crypt.c:314: error: Null Dereference(NULLPTR_DEREFERENCE)
+  The call to `rec_encrypt` may trigger the following issue: `i` could be null (from the call to `rec_encrypt()` on line 314) and is dereferenced in the call to `rec_encrypt()`. 
+  312.     return true;
+  313. 
+  314.   if (!rec_encrypt (field_value,
+              ^
+  315.                     strlen (field_value),
+  316.                     password,
+
+#15
+src/rec-crypt.c:314: error: Null Dereference(NULLPTR_DEREFERENCE)
+  The call to `rec_encrypt` may trigger the following issue: `real_in` could be null (from the call to `rec_encrypt()` on line 314) and is dereferenced in the call to `rec_encrypt()`. 
+  312.     return true;
+  313. 
+  314.   if (!rec_encrypt (field_value,
+              ^
+  315.                     strlen (field_value),
+  316.                     password,
+
+#16
+src/rec-crypt.c:314: error: Null Dereference(NULLPTR_DEREFERENCE)
+  The call to `rec_encrypt` may trigger the following issue: null (from the call to `rec_encrypt()` on line 314) is dereferenced in the call to `rec_encrypt()`. 
+  312.     return true;
+  313. 
+  314.   if (!rec_encrypt (field_value,
+              ^
+  315.                     strlen (field_value),
+  316.                     password,
+
+#17
+src/rec-crypt.c:382: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `base64_decoded_size` is read without initialization during the call to `base64_decode_ctx()`. 
+  380.                            &base64_decoded_size))
+  381.     {
+  382.       base64_decode (field_value,
+             ^
+  383.                      strlen(field_value),
+  384.                      base64_decoded,
+
+#18
+src/rec-db.c:106: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `new` could be null (null value originating from line 100) and is dereferenced. 
+  104.          database.  */
+  105. 
+  106.       new->aggregates = rec_aggregate_reg_new ();
+             ^
+  107.       if (!new->aggregates)
+  108.         {
+
+#19
+src/rec-db.c:110: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `gl_list_nx_create_empty()` on line 90 is not freed after the last access at line 110, column 11. 
+  108.         {
+  109.           /* Out of memory.  */
+  110.           free (new);
+                 ^
+  111.           return NULL;
+  112.         }
+
+#20
+src/rec-db.c:249: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `rec_rset_type()` on line 237 is not freed after the last access at line 249, column 16. 
+  247.       else
+  248.         { 
+  249.           if ((type != NULL)
+                      ^
+  250.               && (strcmp (rtype, type) == 0))
+  251.             {
+
+#21
+src/rec-db.c:250: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `rec_rset_type()` on line 237 is not freed after the last access at line 250, column 19. 
+  248.         { 
+  249.           if ((type != NULL)
+  250.               && (strcmp (rtype, type) == 0))
+                         ^
+  251.             {
+  252.               found = true;
+
+#22
+src/rec-db.c:1351: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `rec_field_new()` on line 1344 is not freed after the last access at line 1351, column 12. 
+  1349.         }
+  1350. 
+  1351.       if (!rec_mset_append (rec_record_mset (record), MSET_FIELD, (void *) field, MSET_ANY))
+                   ^
+  1352.         {
+  1353.           /* Out of memory.  */
+
+#23
+src/rec-db.c:1425: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc` on line 1375 is not freed after the last access at line 1425, column 10. 
+  1423. 
+  1424.   iter = rec_mset_iterator (rec_record_mset (record));
+  1425.   while (rec_mset_iterator_next (&iter, MSET_FIELD, (const void**) &field, &elem))
+                 ^
+  1426.     {
+  1427.       if (deletion_mask[i])
+
+#24
+src/rec-db.c:1425: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_next()`. 
+  1423. 
+  1424.   iter = rec_mset_iterator (rec_record_mset (record));
+  1425.   while (rec_mset_iterator_next (&iter, MSET_FIELD, (const void**) &field, &elem))
+                 ^
+  1426.     {
+  1427.       if (deletion_mask[i])
+
+#25
+src/rec-db.c:1427: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  a value is read without initialization. 
+  1425.   while (rec_mset_iterator_next (&iter, MSET_FIELD, (const void**) &field, &elem))
+  1426.     {
+  1427.       if (deletion_mask[i])
+                  ^
+  1428.         {
+  1429.           if (comment_out)
+
+#26
+src/rec-db.c:1454: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_free()`. 
+  1452.       i++;
+  1453.     }
+  1454.   rec_mset_iterator_free (&iter);
+          ^
+  1455. 
+  1456.   return true;
+
+FALSE_POSITIVE
+#27
+src/rec-fex.c:186: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `copy->elems[copy->elems[i]]` could be null (null value originating from line 178) and is dereferenced in the call to `rec_fex_destroy()`. 
+  184.             {
+  185.               /* Out of memory.  */
+  186.               rec_fex_destroy (copy);
+                     ^
+  187.               return NULL;
+  188.             }
+
+FALSE_POSITIVE
+#28
+src/rec-fex.c:212: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `copy->elems[copy->elems[i]->str]` could be null (null value originating from line 178) and is dereferenced in the call to `rec_fex_destroy()`. 
+  210.             } while (0)
+  211. 
+  212.           REC_COPY_STR_MAYBE_RETURN (str);
+                 ^
+  213.           REC_COPY_STR_MAYBE_RETURN (field_name);
+  214.           REC_COPY_STR_MAYBE_RETURN (rewrite_to);
+
+#29
+src/rec-fex.c:212: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `fex.rewrite_to` is read without initialization during the call to `rec_fex_destroy()`. 
+  210.             } while (0)
+  211. 
+  212.           REC_COPY_STR_MAYBE_RETURN (str);
+                 ^
+  213.           REC_COPY_STR_MAYBE_RETURN (field_name);
+  214.           REC_COPY_STR_MAYBE_RETURN (rewrite_to);
+
+FALSE_POSITIVE
+#30
+src/rec-fex.c:213: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `copy->elems[copy->elems[i]->field_name]` could be null (null value originating from line 178) and is dereferenced in the call to `rec_fex_destroy()`. 
+  211. 
+  212.           REC_COPY_STR_MAYBE_RETURN (str);
+  213.           REC_COPY_STR_MAYBE_RETURN (field_name);
+                 ^
+  214.           REC_COPY_STR_MAYBE_RETURN (rewrite_to);
+  215.           REC_COPY_STR_MAYBE_RETURN (function_name);
+
+#31
+src/rec-fex.c:213: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `fex.rewrite_to` is read without initialization during the call to `rec_fex_destroy()`. 
+  211. 
+  212.           REC_COPY_STR_MAYBE_RETURN (str);
+  213.           REC_COPY_STR_MAYBE_RETURN (field_name);
+                 ^
+  214.           REC_COPY_STR_MAYBE_RETURN (rewrite_to);
+  215.           REC_COPY_STR_MAYBE_RETURN (function_name);
+
+FALSE_POSITIVE
+#32
+src/rec-fex.c:412: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `buf` could be null (from the call to `rec_buf_new()` on line 353) and is dereferenced in the call to `rec_buf_close()`. 
+  410.     }
+  411. 
+  412.   rec_buf_close (buf);
+         ^
+  413. 
+  414.   return result;
+
+#33
+src/rec-fex.c:594: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `rec_parse_regexp()` on line 582 is not freed after the last access at line 594, column 19. 
+  592. 
+  593.                   /* Concatenate the field name and the subname.  */
+  594.                   elem->field_name = rec_concat_strings (elem->field_name, "_", subname);
+                         ^
+  595.                 }
+  596. 
+
+#34
+src/rec-fex.c:693: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `rec_fex_parse_elem()` on line 683 is not freed after the last access at line 693, column 11. 
+  691.             }
+  692. 
+  693.           free (elem);
+                 ^
+  694.           res = false;
+  695.           break;
+
+#35
+src/rec-int.c:156: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `rec_record_dup()` could be null (from the call to `rec_int_check_descriptor()` on line 156) and is dereferenced in the call to `rec_int_check_descriptor()`. 
+  154.   if (check_descriptor_p)
+  155.     {
+  156.       res += rec_int_check_descriptor (rset, errors);
+                    ^
+  157.     }
+  158. 
+
+#36
+src/rec-int.c:200: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_next()`. 
+  198.   
+  199.   iter = rec_mset_iterator (rec_rset_mset (rset));
+  200.   while (rec_mset_iterator_next (&iter, MSET_RECORD, (const void **) &record, NULL))
+                ^
+  201.     {
+  202.       res += rec_int_check_record (db,
+
+#37
+src/rec-int.c:208: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_free()`. 
+  206.     }
+  207. 
+  208.   rec_mset_iterator_free (&iter);
+         ^
+  209. 
+  210.   if (remote_descriptor_p)
+
+#38
+src/rec-int.c:380: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_next()`. 
+  378. 
+  379.   iter = rec_mset_iterator (rec_record_mset (record));
+  380.   while (rec_mset_iterator_next (&iter, MSET_FIELD, (const void **) &field, NULL))
+                ^
+  381.     {
+  382.       /* Check for the type.  */
+
+#39
+src/rec-int.c:380: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_next()`. 
+  378. 
+  379.   iter = rec_mset_iterator (rec_record_mset (record));
+  380.   while (rec_mset_iterator_next (&iter, MSET_FIELD, (const void **) &field, NULL))
+                ^
+  381.     {
+  382.       /* Check for the type.  */
+
+#40
+src/rec-int.c:389: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_free()`. 
+  387.     }
+  388. 
+  389.   rec_mset_iterator_free (&iter);
+         ^
+  390. 
+  391.   return res;
+
+#41
+src/rec-int.c:389: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_free()`. 
+  387.     }
+  388. 
+  389.   rec_mset_iterator_free (&iter);
+         ^
+  390. 
+  391.   return res;
+
+#42
+src/rec-int.c:635: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_next()`. 
+  633. 
+  634.   iter = rec_mset_iterator (rec_record_mset (record));
+  635.   while (rec_mset_iterator_next (&iter, MSET_FIELD, (const void**) &field, NULL))
+                ^
+  636.     {
+  637.       /* If the field is confidential it must be encrypted.  Encrypted
+
+#43
+src/rec-int.c:654: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_free()`. 
+  652.     }
+  653. 
+  654.   rec_mset_iterator_free (&iter);
+         ^
+  655. 
+  656.   return res;
+
+#44
+src/rec-int.c:691: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `field` could be null (from the call to `rec_record_get_field_by_name()` on line 688) and is dereferenced in the call to `rec_field_value()`. 
+  689. 
+  690.           /* Parse the field name from the value of %key:  */
+  691.           key_field_name = rec_parse_field_name_str (rec_field_value (field));
+                                                            ^
+  692.           if (key_field_name)
+  693.             {
+
+#45
+src/rec-int.c:814: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `field` could be null (from the call to `rec_record_get_field_by_name()` on line 813) and is dereferenced in the call to `rec_field_value()`. 
+  812. 
+  813.       field = rec_record_get_field_by_name (descriptor, FNAME(REC_FIELD_REC), 0);
+  814.       if (!rec_int_rec_type_p (rec_field_value (field)))
+                                      ^
+  815.         {
+  816.           ADD_ERROR (errors,
+
+#46
+src/rec-int.c:857: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_next()`. 
+  855. 
+  856.       iter = rec_mset_iterator (rec_record_mset (descriptor));
+  857.       while (rec_mset_iterator_next (&iter, MSET_FIELD, (const void**) &field, NULL))
+                    ^
+  858.         {
+  859.           field_name = rec_field_name (field);
+
+#47
+src/rec-int.c:977: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `parser.ast` is read without initialization during the call to `rec_sex_compile()`. 
+  975.               if (sex)
+  976.                 {
+  977.                   if (rec_sex_compile (sex, field_value))
+                             ^
+  978.                     {
+  979.                       rec_sex_destroy (sex);
+
+#48
+src/rec-int.c:1085: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_free()`. 
+  1083.         }
+  1084. 
+  1085.       rec_mset_iterator_free (&iter);
+              ^
+  1086.     }
+  1087. 
+
+#49
+src/rec-int.c:1124: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `rec_field` could be null (from the call to `rec_record_get_field_by_name()` on line 1122) and is dereferenced in the call to `rec_field_value()`. 
+  1122.       rec_field = rec_record_get_field_by_name (descriptor, FNAME(REC_FIELD_REC), 0);
+  1123. 
+  1124.       if (!rec_int_rec_type_p (rec_field_value (rec_field)))
+                                       ^
+  1125.         {
+  1126.           return 0;
+
+#50
+src/rec-mset.c:250: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `iterator.vtable` is read without initialization during the call to `gl_list_iterator_next()`. 
+  248. 
+  249.   iter = gl_list_iterator (list);
+  250.   while (gl_list_iterator_next (&iter, (const void **) &elem, NULL))
+                ^
+  251.     {
+  252.       /* Create a new node list with the proper data and insert it
+
+#51
+src/rec-mset.c:578: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `iterator.vtable` is read without initialization during the call to `gl_list_iterator_next()`. 
+  576. 
+  577.   iter = gl_list_iterator (mset->elem_list);
+  578.   while (gl_list_iterator_next (&iter, (const void **) &elem, NULL))
+                ^
+  579.     {
+  580.       if (elem->data == data)
+
+#52
+src/rec-mset.c:605: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `list_iter.vtable` is read without initialization during the call to `rec_mset_iter_gl2mset()`. 
+  603. 
+  604.   list_iter = gl_list_iterator (mset->elem_list);  
+  605.   mset_iter.list_iter = rec_mset_iter_gl2mset (list_iter);
+                               ^
+  606. 
+  607.   return mset_iter;
+
+#53
+src/rec-mset.c:607: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.list_iter.count` is read without initialization. 
+  605.   mset_iter.list_iter = rec_mset_iter_gl2mset (list_iter);
+  606. 
+  607.   return mset_iter;
+         ^
+  608. }
+  609. 
+
+#54
+src/rec-mset.c:607: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.list_iter.i` is read without initialization. 
+  605.   mset_iter.list_iter = rec_mset_iter_gl2mset (list_iter);
+  606. 
+  607.   return mset_iter;
+         ^
+  608. }
+  609. 
+
+#55
+src/rec-mset.c:607: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.list_iter.j` is read without initialization. 
+  605.   mset_iter.list_iter = rec_mset_iter_gl2mset (list_iter);
+  606. 
+  607.   return mset_iter;
+         ^
+  608. }
+  609. 
+
+#56
+src/rec-mset.c:607: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.list_iter.list` is read without initialization. 
+  605.   mset_iter.list_iter = rec_mset_iter_gl2mset (list_iter);
+  606. 
+  607.   return mset_iter;
+         ^
+  608. }
+  609. 
+
+#57
+src/rec-mset.c:607: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.list_iter.p` is read without initialization. 
+  605.   mset_iter.list_iter = rec_mset_iter_gl2mset (list_iter);
+  606. 
+  607.   return mset_iter;
+         ^
+  608. }
+  609. 
+
+#58
+src/rec-mset.c:607: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.list_iter.q` is read without initialization. 
+  605.   mset_iter.list_iter = rec_mset_iter_gl2mset (list_iter);
+  606. 
+  607.   return mset_iter;
+         ^
+  608. }
+  609. 
+
+#59
+src/rec-mset.c:607: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.list_iter.vtable` is read without initialization. 
+  605.   mset_iter.list_iter = rec_mset_iter_gl2mset (list_iter);
+  606. 
+  607.   return mset_iter;
+         ^
+  608. }
+  609. 
+
+#60
+src/rec-mset.c:628: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `iterator.vtable` is read without initialization during the call to `gl_list_iterator_next()`. 
+  626.      found.  */
+  627. 
+  628.   while ((found = gl_list_iterator_next (&list_iter, (const void**) &mset_elem, &list_node))
+                         ^
+  629.          && (type != 0) && (mset_elem->type != type));
+  630. 
+
+#61
+src/rec-mset.c:657: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `iterator.vtable` is read without initialization during the call to `gl_list_iterator_free()`. 
+  655. 
+  656.   list_iter = rec_mset_iter_mset2gl (iterator->list_iter);
+  657.   gl_list_iterator_free (&list_iter);
+         ^
+  658.   iterator->list_iter = rec_mset_iter_gl2mset (list_iter);
+  659. }
+
+#62
+src/rec-mset.c:725: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `iterator.vtable` is read without initialization during the call to `gl_list_iterator_next()`. 
+  723.   printf("  nodes:\n");
+  724.   iter = gl_list_iterator (mset->elem_list);
+  725.   while (gl_list_iterator_next (&iter, (const void **) &elem, &node))
+                ^
+  726.     {
+  727.       printf("    node=%p elem=%p elem->type=%d elem->data=%p contained=%p\n", node, elem,
+
+#63
+src/rec-parser.c:396: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `rec_parse_field_name()` on line 372 is not freed after the last access at line 396, column 1. 
+  394. 
+  395.   return ret;
+  396. }
+       ^
+  397. 
+  398. bool
+
+#64
+src/rec-parser.c:651: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `rec_db_new()` on line 629 is not freed after the last access at line 651, column 7. 
+  649.     ret = false;
+  650. 
+  651.   if (ret)
+             ^
+  652.     *db = new;
+  653. 
+
+#65
+src/rec-parser.c:682: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `parser` could be null (from the call to `rec_parser_new_str()` on line 681) and is dereferenced in the call to `rec_parse_field_name()`. 
+  680.   
+  681.   parser = rec_parser_new_str (str2, "dummy");
+  682.   if (!rec_parse_field_name (parser, &field_name))
+              ^
+  683.     field_name = NULL;
+  684. 
+
+#66
+src/rec-parser.c:682: error: Null Dereference(NULLPTR_DEREFERENCE)
+  null (from the call to `rec_parser_new_str()` on line 681) is dereferenced in the call to `rec_parse_field_name()`. 
+  680.   
+  681.   parser = rec_parser_new_str (str2, "dummy");
+  682.   if (!rec_parse_field_name (parser, &field_name))
+              ^
+  683.     field_name = NULL;
+  684. 
+
+#67
+src/rec-record.c:224: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `iter1.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_next()`. 
+  222. 
+  223.   iter1 = rec_mset_iterator (record1->mset);
+  224.   while (rec_mset_iterator_next (&iter1, MSET_ANY, &data, &elem1))
+                ^
+  225.     {
+  226.       bool elem_found = false;
+
+#68
+src/rec-record.c:224: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_next()`. 
+  222. 
+  223.   iter1 = rec_mset_iterator (record1->mset);
+  224.   while (rec_mset_iterator_next (&iter1, MSET_ANY, &data, &elem1))
+                ^
+  225.     {
+  226.       bool elem_found = false;
+
+#69
+src/rec-record.c:249: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `iter1.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_free()`. 
+  247.     }
+  248. 
+  249.   rec_mset_iterator_free (&iter1);
+         ^
+  250.   
+  251.   return result;
+
+#70
+src/rec-record.c:249: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_free()`. 
+  247.     }
+  248. 
+  249.   rec_mset_iterator_free (&iter1);
+         ^
+  250.   
+  251.   return result;
+
+#71
+src/rec-record.c:295: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_next()`. 
+  293. 
+  294.   iter = rec_mset_iterator (record->mset);
+  295.   while (rec_mset_iterator_next (&iter, MSET_FIELD, (const void **) &list_field, NULL))
+                ^
+  296.     {
+  297.       if (field == list_field)
+
+#72
+src/rec-record.c:295: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_next()`. 
+  293. 
+  294.   iter = rec_mset_iterator (record->mset);
+  295.   while (rec_mset_iterator_next (&iter, MSET_FIELD, (const void **) &list_field, NULL))
+                ^
+  296.     {
+  297.       if (field == list_field)
+
+#73
+src/rec-record.c:305: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_free()`. 
+  303.     }
+  304. 
+  305.   rec_mset_iterator_free (&iter);
+         ^
+  306. 
+  307.   return res;
+
+#74
+src/rec-record.c:305: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_free()`. 
+  303.     }
+  304. 
+  305.   rec_mset_iterator_free (&iter);
+         ^
+  306. 
+  307.   return res;
+
+#75
+src/rec-record.c:326: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_next()`. 
+  324. 
+  325.   iter = rec_mset_iterator (record->mset);
+  326.   while (rec_mset_iterator_next (&iter, MSET_FIELD, (const void **) &field, NULL))
+                ^
+  327.     {
+  328.       if (rec_field_name_equal_p (rec_field_name (field), field_name))
+
+#76
+src/rec-record.c:326: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_next()`. 
+  324. 
+  325.   iter = rec_mset_iterator (record->mset);
+  326.   while (rec_mset_iterator_next (&iter, MSET_FIELD, (const void **) &field, NULL))
+                ^
+  327.     {
+  328.       if (rec_field_name_equal_p (rec_field_name (field), field_name))
+
+#77
+src/rec-record.c:333: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_free()`. 
+  331.         }
+  332.     }
+  333.   rec_mset_iterator_free (&iter);
+         ^
+  334. 
+  335.   return num_fields;
+
+#78
+src/rec-record.c:333: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_free()`. 
+  331.         }
+  332.     }
+  333.   rec_mset_iterator_free (&iter);
+         ^
+  334. 
+  335.   return num_fields;
+
+#79
+src/rec-record.c:350: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_next()`. 
+  348.   
+  349.   iter = rec_mset_iterator (record->mset);
+  350.   while (rec_mset_iterator_next (&iter, MSET_FIELD, (const void **) &field, NULL))
+                ^
+  351.     {
+  352.       if (rec_field_name_equal_p (rec_field_name (field), field_name))
+
+#80
+src/rec-record.c:350: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_next()`. 
+  348.   
+  349.   iter = rec_mset_iterator (record->mset);
+  350.   while (rec_mset_iterator_next (&iter, MSET_FIELD, (const void **) &field, NULL))
+                ^
+  351.     {
+  352.       if (rec_field_name_equal_p (rec_field_name (field), field_name))
+
+#81
+src/rec-record.c:363: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_free()`. 
+  361.         }
+  362.     }
+  363.   rec_mset_iterator_free (&iter);
+         ^
+  364. 
+  365.   return result;
+
+#82
+src/rec-record.c:363: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_free()`. 
+  361.         }
+  362.     }
+  363.   rec_mset_iterator_free (&iter);
+         ^
+  364. 
+  365.   return result;
+
+#83
+src/rec-record.c:379: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_next()`. 
+  377. 
+  378.   iter = rec_mset_iterator (record->mset);
+  379.   while (rec_mset_iterator_next (&iter, MSET_FIELD, (const void**) &field, &elem))
+                ^
+  380.     {
+  381.       if (rec_field_name_equal_p (rec_field_name (field), field_name))
+
+#84
+src/rec-record.c:379: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_next()`. 
+  377. 
+  378.   iter = rec_mset_iterator (record->mset);
+  379.   while (rec_mset_iterator_next (&iter, MSET_FIELD, (const void**) &field, &elem))
+                ^
+  380.     {
+  381.       if (rec_field_name_equal_p (rec_field_name (field), field_name))
+
+#85
+src/rec-record.c:391: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_free()`. 
+  389.         }
+  390.     }
+  391.   rec_mset_iterator_free (&iter);
+         ^
+  392. }
+  393. 
+
+#86
+src/rec-record.c:391: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_free()`. 
+  389.         }
+  390.     }
+  391.   rec_mset_iterator_free (&iter);
+         ^
+  392. }
+  393. 
+
+#87
+src/rec-record.c:403: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_next()`. 
+  401. 
+  402.   iter = rec_mset_iterator (record->mset);
+  403.   while (rec_mset_iterator_next (&iter, MSET_FIELD, (const void **) &list_field, NULL))
+                ^
+  404.     {
+  405.       if (field == list_field)
+
+#88
+src/rec-record.c:403: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_next()`. 
+  401. 
+  402.   iter = rec_mset_iterator (record->mset);
+  403.   while (rec_mset_iterator_next (&iter, MSET_FIELD, (const void **) &list_field, NULL))
+                ^
+  404.     {
+  405.       if (field == list_field)
+
+#89
+src/rec-record.c:416: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_free()`. 
+  414.     }
+  415. 
+  416.   rec_mset_iterator_free (&iter);
+         ^
+  417. 
+  418.   return res;
+
+#90
+src/rec-record.c:416: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_free()`. 
+  414.     }
+  415. 
+  416.   rec_mset_iterator_free (&iter);
+         ^
+  417. 
+  418.   return res;
+
+#91
+src/rec-record.c:435: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_next()`. 
+  433. 
+  434.   iter = rec_mset_iterator (record->mset);
+  435.   while (rec_mset_iterator_next (&iter, MSET_ANY, &data, &elem))
+                ^
+  436.     {
+  437.       if (rec_mset_elem_type (elem) == MSET_FIELD)
+
+#92
+src/rec-record.c:435: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_next()`. 
+  433. 
+  434.   iter = rec_mset_iterator (record->mset);
+  435.   while (rec_mset_iterator_next (&iter, MSET_ANY, &data, &elem))
+                ^
+  436.     {
+  437.       if (rec_mset_elem_type (elem) == MSET_FIELD)
+
+#93
+src/rec-record.c:439: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `buf->used` could be null (from the call to `rec_write_field_str()` on line 439) and is dereferenced in the call to `rec_buf_puts()`. 
+  437.       if (rec_mset_elem_type (elem) == MSET_FIELD)
+  438.         {
+  439.           rec_buf_puts (rec_write_field_str ((rec_field_t) data,
+                 ^
+  440.                                              REC_WRITER_NORMAL),
+  441.                         buf);
+
+#94
+src/rec-record.c:439: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `rec_write_field_str()` could be null (from the call to `rec_write_field_str()` on line 439) and is dereferenced in the call to `rec_buf_puts()`. 
+  437.       if (rec_mset_elem_type (elem) == MSET_FIELD)
+  438.         {
+  439.           rec_buf_puts (rec_write_field_str ((rec_field_t) data,
+                 ^
+  440.                                              REC_WRITER_NORMAL),
+  441.                         buf);
+
+#95
+src/rec-record.c:447: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `buf->used` could be null (from the call to `rec_write_comment_str()` on line 447) and is dereferenced in the call to `rec_buf_puts()`. 
+  445.         {
+  446.           /* Comment.  */
+  447.           rec_buf_puts (rec_write_comment_str (rec_comment_text ((rec_comment_t) data),
+                 ^
+  448.                                                REC_WRITER_NORMAL),
+  449.                         buf);
+
+#96
+src/rec-record.c:447: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `rec_write_comment_str()` could be null (from the call to `rec_write_comment_str()` on line 447) and is dereferenced in the call to `rec_buf_puts()`. 
+  445.         {
+  446.           /* Comment.  */
+  447.           rec_buf_puts (rec_write_comment_str (rec_comment_text ((rec_comment_t) data),
+                 ^
+  448.                                                REC_WRITER_NORMAL),
+  449.                         buf);
+
+#97
+src/rec-record.c:454: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_free()`. 
+  452.     }
+  453. 
+  454.   rec_mset_iterator_free (&iter);
+         ^
+  455. 
+  456.   rec_buf_close (buf);
+
+#98
+src/rec-record.c:454: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_free()`. 
+  452.     }
+  453. 
+  454.   rec_mset_iterator_free (&iter);
+         ^
+  455. 
+  456.   rec_buf_close (buf);
+
+#99
+src/rec-record.c:456: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `buf` could be null (from the call to `rec_buf_new()` on line 432) and is dereferenced in the call to `rec_buf_close()`. 
+  454.   rec_mset_iterator_free (&iter);
+  455. 
+  456.   rec_buf_close (buf);
+         ^
+  457. 
+  458.   /* Remove a trailing newline.  */
+
+#100
+src/rec-record.c:588: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_next()`. 
+  586. 
+  587.   iter = rec_mset_iterator (record->mset);
+  588.   while (rec_mset_iterator_next (&iter, MSET_FIELD, (const void **) &field, NULL))
+                ^
+  589.     {
+  590.       field_value = rec_field_value (field);
+
+#101
+src/rec-record.c:588: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_next()`. 
+  586. 
+  587.   iter = rec_mset_iterator (record->mset);
+  588.   while (rec_mset_iterator_next (&iter, MSET_FIELD, (const void **) &field, NULL))
+                ^
+  589.     {
+  590.       field_value = rec_field_value (field);
+
+#102
+src/rec-record.c:608: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_free()`. 
+  606.     }
+  607. 
+  608.   rec_mset_iterator_free (&iter);
+         ^
+  609. 
+  610.   return res;
+
+#103
+src/rec-record.c:608: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_free()`. 
+  606.     }
+  607. 
+  608.   rec_mset_iterator_free (&iter);
+         ^
+  609. 
+  610.   return res;
+
+#104
+src/rec-record.c:623: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_next()`. 
+  621. 
+  622.   iter = rec_mset_iterator (record->mset);
+  623.   while (rec_mset_iterator_next (&iter, MSET_FIELD, (const void **) &field, NULL))
+                ^
+  624.     {
+  625.       if (rec_field_name_equal_p (field_name,
+
+#105
+src/rec-record.c:623: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_next()`. 
+  621. 
+  622.   iter = rec_mset_iterator (record->mset);
+  623.   while (rec_mset_iterator_next (&iter, MSET_FIELD, (const void **) &field, NULL))
+                ^
+  624.     {
+  625.       if (rec_field_name_equal_p (field_name,
+
+#106
+src/rec-record.c:633: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_free()`. 
+  631.         }
+  632.     }
+  633.   rec_mset_iterator_free (&iter);
+         ^
+  634. 
+  635.   return res;
+
+#107
+src/rec-record.c:633: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_free()`. 
+  631.         }
+  632.     }
+  633.   rec_mset_iterator_free (&iter);
+         ^
+  634. 
+  635.   return res;
+
+#108
+src/rec-record.c:664: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `to_remove` could be null (null value originating from line 663) and is dereferenced. 
+  662.   num_fields = rec_record_num_fields (record);
+  663.   to_remove = malloc (sizeof(bool) * num_fields);
+  664.   memset (to_remove, false, num_fields);
+         ^
+  665. 
+  666.   /* Iterate on the fields of the record an mark the fields that will
+
+#109
+src/rec-record.c:671: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `iter1.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_next()`. 
+  669.   i = 0;
+  670.   iter1 = rec_mset_iterator (record->mset);
+  671.   while (rec_mset_iterator_next (&iter1, MSET_FIELD, (const void **) &field1, NULL))
+                ^
+  672.     {
+  673.       if (!to_remove[i])
+
+#110
+src/rec-record.c:671: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_next()`. 
+  669.   i = 0;
+  670.   iter1 = rec_mset_iterator (record->mset);
+  671.   while (rec_mset_iterator_next (&iter1, MSET_FIELD, (const void **) &field1, NULL))
+                ^
+  672.     {
+  673.       if (!to_remove[i])
+
+#111
+src/rec-record.c:680: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_next()`. 
+  678.           j = 0;
+  679.           iter2 = rec_mset_iterator (record->mset);
+  680.           while (rec_mset_iterator_next (&iter2, MSET_FIELD, (const void **) &field2, NULL))
+                        ^
+  681.             {
+  682.               if ((j != i)
+
+#112
+src/rec-record.c:691: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_free()`. 
+  689.               j++;
+  690.             }
+  691.           rec_mset_iterator_free (&iter2);
+                 ^
+  692.         }
+  693. 
+
+#113
+src/rec-record.c:696: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `iter1.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_free()`. 
+  694.       i++;
+  695.     }
+  696.   rec_mset_iterator_free (&iter1);
+         ^
+  697. 
+  698. 
+
+#114
+src/rec-record.c:696: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_free()`. 
+  694.       i++;
+  695.     }
+  696.   rec_mset_iterator_free (&iter1);
+         ^
+  697. 
+  698. 
+
+#115
+src/rec-record.c:726: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_next()`. 
+  724. 
+  725.   iter = rec_mset_iterator (src_record->mset);
+  726.   while (rec_mset_iterator_next (&iter, MSET_FIELD, (const void **) &field, NULL))
+                ^
+  727.     {
+  728.       if (!rec_mset_append (rec_record_mset (dest_record),
+
+#116
+src/rec-record.c:726: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_next()`. 
+  724. 
+  725.   iter = rec_mset_iterator (src_record->mset);
+  726.   while (rec_mset_iterator_next (&iter, MSET_FIELD, (const void **) &field, NULL))
+                ^
+  727.     {
+  728.       if (!rec_mset_append (rec_record_mset (dest_record),
+
+#117
+src/rec-record.c:728: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `rec_field_dup()` on line 730 is not freed after the last access at line 728, column 12. 
+  726.   while (rec_mset_iterator_next (&iter, MSET_FIELD, (const void **) &field, NULL))
+  727.     {
+  728.       if (!rec_mset_append (rec_record_mset (dest_record),
+                  ^
+  729.                             MSET_FIELD,
+  730.                             (void *) rec_field_dup (field),
+
+#118
+src/rec-record.c:737: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_free()`. 
+  735.         }
+  736.     }
+  737.   rec_mset_iterator_free (&iter);
+         ^
+  738. }
+  739. 
+
+#119
+src/rec-record.c:737: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_free()`. 
+  735.         }
+  736.     }
+  737.   rec_mset_iterator_free (&iter);
+         ^
+  738. }
+  739. 
+
+#120
+src/rec-record.c:747: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_next()`. 
+  745. 
+  746.   iter = rec_mset_iterator (record->mset);
+  747.   while (rec_mset_iterator_next (&iter, MSET_FIELD, (const void **) &field, NULL))
+                ^
+  748.     {
+  749.       rec_field_set_mark (field, 0);
+
+#121
+src/rec-record.c:747: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_next()`. 
+  745. 
+  746.   iter = rec_mset_iterator (record->mset);
+  747.   while (rec_mset_iterator_next (&iter, MSET_FIELD, (const void **) &field, NULL))
+                ^
+  748.     {
+  749.       rec_field_set_mark (field, 0);
+
+#122
+src/rec-record.c:751: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_free()`. 
+  749.       rec_field_set_mark (field, 0);
+  750.     }
+  751.   rec_mset_iterator_free (&iter);
+         ^
+  752. }
+  753. 
+
+#123
+src/rec-record.c:751: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_free()`. 
+  749.       rec_field_set_mark (field, 0);
+  750.     }
+  751.   rec_mset_iterator_free (&iter);
+         ^
+  752. }
+  753. 
+
+#124
+src/rec-record.c:763: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_next()`. 
+  761. 
+  762.   iter = rec_mset_iterator (record->mset);
+  763.   while (rec_mset_iterator_next (&iter, MSET_FIELD, (const void **) &iter_field, NULL))
+                ^
+  764.     {
+  765.       if (field == iter_field)
+
+#125
+src/rec-record.c:763: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_next()`. 
+  761. 
+  762.   iter = rec_mset_iterator (record->mset);
+  763.   while (rec_mset_iterator_next (&iter, MSET_FIELD, (const void **) &iter_field, NULL))
+                ^
+  764.     {
+  765.       if (field == iter_field)
+
+#126
+src/rec-record.c:768: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_free()`. 
+  766.         {
+  767.           rec_field_set_mark (field, mark);
+  768.           rec_mset_iterator_free (&iter);
+                 ^
+  769.           return true;
+  770.         }
+
+#127
+src/rec-record.c:772: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_free()`. 
+  770.         }
+  771.     }
+  772.   rec_mset_iterator_free (&iter);
+         ^
+  773. 
+  774.   return false;
+
+#128
+src/rec-record.c:772: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_free()`. 
+  770.         }
+  771.     }
+  772.   rec_mset_iterator_free (&iter);
+         ^
+  773. 
+  774.   return false;
+
+#129
+src/rec-rset.c:301: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `new` could be null (null value originating from line 273) and is dereferenced. 
+  299.     }
+  300. 
+  301.   new->mset = rec_mset_dup (rset->mset);
+         ^
+  302.   if (!new->mset)
+  303.     {
+
+#130
+src/rec-rset.c:391: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `rset->descriptor` could be null (from the call to `rec_record_new()` on line 387) and is dereferenced in the call to `rec_record_get_field_by_name()`. 
+  389.     }
+  390. 
+  391.   rec_field = rec_record_get_field_by_name (rset->descriptor,
+                     ^
+  392.                                             FNAME(REC_FIELD_REC),
+  393.                                             0);
+
+#131
+src/rec-rset.c:397: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `rec_field_set_value()` on line 397 is not freed after the last access at line 397, column 7. 
+  395.   if (rec_field)
+  396.     {
+  397.       rec_field_set_value (rec_field, type);
+             ^
+  398.     }
+  399.   else
+
+#132
+src/rec-rset.c:402: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `rset->descriptor` could be null (from the call to `rec_record_new()` on line 387) and is dereferenced in the call to `rec_record_mset()`. 
+  400.     {
+  401.       rec_field = rec_field_new (FNAME(REC_FIELD_REC), type);
+  402.       rec_mset_append (rec_record_mset (rset->descriptor), MSET_FIELD, (void *) rec_field, MSET_FIELD);
+                              ^
+  403.     }
+  404. }
+
+#133
+src/rec-rset.c:591: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `fex` could be null (from the call to `rec_fex_new()` on line 584) and is dereferenced in the call to `rec_fex_append()`. 
+  589.       if (props->auto_p)
+  590.         {
+  591.           rec_fex_append (fex,
+                 ^
+  592.                           props->fname,
+  593.                           -1, -1);
+
+#134
+src/rec-rset.c:642: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `fex` could be null (from the call to `rec_fex_new()` on line 635) and is dereferenced in the call to `rec_fex_append()`. 
+  640.       if (props->confidential_p)
+  641.         {
+  642.           rec_fex_append (fex,
+                 ^
+  643.                           props->fname,
+  644.                           -1, -1);
+
+#135
+src/rec-rset.c:777: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_next()`. 
+  775.   num_record = 0;
+  776.   iter = rec_mset_iterator (rec_rset_mset (rset));
+  777.   while (rec_mset_iterator_next (&iter, MSET_RECORD, (const void **)&record, NULL))
+                ^
+  778.     {
+  779.       if (!deletion_map[num_record])
+
+#136
+src/rec-rset.c:782: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.mset` is read without initialization. 
+  780.         {
+  781.           size_t num_record_2 = num_record;
+  782.           rec_mset_iterator_t iter2 = iter;
+                 ^
+  783.           rec_record_t record2;
+  784.           
+
+#137
+src/rec-rset.c:782: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `iter.list_iter.count` is read without initialization. 
+  780.         {
+  781.           size_t num_record_2 = num_record;
+  782.           rec_mset_iterator_t iter2 = iter;
+                 ^
+  783.           rec_record_t record2;
+  784.           
+
+#138
+src/rec-rset.c:782: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `iter.list_iter.i` is read without initialization. 
+  780.         {
+  781.           size_t num_record_2 = num_record;
+  782.           rec_mset_iterator_t iter2 = iter;
+                 ^
+  783.           rec_record_t record2;
+  784.           
+
+#139
+src/rec-rset.c:782: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `iter.list_iter.j` is read without initialization. 
+  780.         {
+  781.           size_t num_record_2 = num_record;
+  782.           rec_mset_iterator_t iter2 = iter;
+                 ^
+  783.           rec_record_t record2;
+  784.           
+
+#140
+src/rec-rset.c:782: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `iter.list_iter.list` is read without initialization. 
+  780.         {
+  781.           size_t num_record_2 = num_record;
+  782.           rec_mset_iterator_t iter2 = iter;
+                 ^
+  783.           rec_record_t record2;
+  784.           
+
+#141
+src/rec-rset.c:782: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `iter.list_iter.p` is read without initialization. 
+  780.         {
+  781.           size_t num_record_2 = num_record;
+  782.           rec_mset_iterator_t iter2 = iter;
+                 ^
+  783.           rec_record_t record2;
+  784.           
+
+#142
+src/rec-rset.c:782: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `iter.list_iter.q` is read without initialization. 
+  780.         {
+  781.           size_t num_record_2 = num_record;
+  782.           rec_mset_iterator_t iter2 = iter;
+                 ^
+  783.           rec_record_t record2;
+  784.           
+
+#143
+src/rec-rset.c:782: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `iter.list_iter.vtable` is read without initialization. 
+  780.         {
+  781.           size_t num_record_2 = num_record;
+  782.           rec_mset_iterator_t iter2 = iter;
+                 ^
+  783.           rec_record_t record2;
+  784.           
+
+#144
+src/rec-rset.c:816: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_free()`. 
+  814.       num_record++;
+  815.     }
+  816.   rec_mset_iterator_free (&iter);
+         ^
+  817. 
+  818.   /* Delete the records marked for deletion.  */
+
+#145
+src/rec-rset.c:1108: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_next()`. 
+  1106. 
+  1107.     iter = rec_mset_iterator (rec_record_mset (rset->descriptor));
+  1108.     while (rec_mset_iterator_next (&iter, MSET_FIELD, (const void **)&field, NULL))
+                   ^
+  1109.       {
+  1110.         const char *field_name = rec_field_name (field);
+
+#146
+src/rec-rset.c:1121: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `parser.ast` is read without initialization during the call to `rec_sex_compile()`. 
+  1119.               }
+  1120. 
+  1121.             if (rec_sex_compile (sex, field_value))
+                        ^
+  1122.               {
+  1123.                 rset->constraints[rset->num_constraints++] = sex;
+
+#147
+src/rec-rset.c:1131: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_free()`. 
+  1129.           }
+  1130.       }
+  1131.     rec_mset_iterator_free (&iter);
+            ^
+  1132.   }
+  1133. }
+
+#148
+src/rec-rset.c:1229: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_next()`. 
+  1227. 
+  1228.       iter = rec_mset_iterator (rec_record_mset (rset->descriptor));
+  1229.       while (rec_mset_iterator_next (&iter, MSET_FIELD, (const void**) &field, NULL))
+                     ^
+  1230.         {
+  1231.           const char *field_name = rec_field_name (field);
+
+#149
+src/rec-rset.c:1243: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `fex` could be null (from the call to `rec_rset_type_field_fex()` on line 1241) and is dereferenced in the call to `rec_fex_size()`. 
+  1241.               rec_fex_t fex = rec_rset_type_field_fex (field_value);
+  1242. 
+  1243.               for (i = 0; i < rec_fex_size (fex); i++)
+                                      ^
+  1244.                 {
+  1245.                   char *field_type = rec_rset_type_field_type (field_value);
+
+#150
+src/rec-rset.c:1304: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `rset->field_props` could be null (from the call to `rec_parse_regexp()` on line 1303) and is dereferenced in the call to `rec_rset_get_props()`. 
+  1302.               rec_skip_blanks (&field_value);
+  1303.               rec_parse_regexp (&field_value, "^" REC_RECORD_TYPE_RE, &type_name);
+  1304.               props = rec_rset_get_props (rset, type_name, true);
+                              ^
+  1305.               props->key_p = true;
+  1306.               free (type_name);
+
+#151
+src/rec-rset.c:1304: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `rset->field_props` could be null (null value originating from line 1300) and is dereferenced in the call to `rec_rset_get_props()`. 
+  1302.               rec_skip_blanks (&field_value);
+  1303.               rec_parse_regexp (&field_value, "^" REC_RECORD_TYPE_RE, &type_name);
+  1304.               props = rec_rset_get_props (rset, type_name, true);
+                              ^
+  1305.               props->key_p = true;
+  1306.               free (type_name);
+
+#152
+src/rec-rset.c:1305: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `props` could be null (from the call to `rec_rset_get_props()` on line 1304) and is dereferenced. 
+  1303.               rec_parse_regexp (&field_value, "^" REC_RECORD_TYPE_RE, &type_name);
+  1304.               props = rec_rset_get_props (rset, type_name, true);
+  1305.               props->key_p = true;
+                      ^
+  1306.               free (type_name);
+  1307.             }
+
+#153
+src/rec-rset.c:1371: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_free()`. 
+  1369.         }
+  1370. 
+  1371.       rec_mset_iterator_free (&iter);
+              ^
+  1372.     }
+  1373. 
+
+#154
+src/rec-rset.c:1413: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_next()`. 
+  1411. 
+  1412.       iter = rec_mset_iterator (rec_record_mset (rset->descriptor));
+  1413.       while (rec_mset_iterator_next (&iter, MSET_FIELD, (const void **) &field, NULL))
+                     ^
+  1414.         {
+  1415.           const char *field_name = rec_field_name (field);
+
+#155
+src/rec-rset.c:1460: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_free()`. 
+  1458.         }
+  1459. 
+  1460.       rec_mset_iterator_free (&iter);
+              ^
+  1461.     }
+  1462. }
+
+#156
+src/rec-rset.c:1590: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_next()`. 
+  1588. 
+  1589.   iter = rec_mset_iterator (rec_rset_mset (rset));
+  1590.   while (rec_mset_iterator_next (&iter, MSET_RECORD, (const void **) &rec, NULL))
+                 ^
+  1591.     {
+  1592.       num_fields = rec_record_get_num_fields_by_name (rec, field_name);
+
+#157
+src/rec-rset.c:1590: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_next()`. 
+  1588. 
+  1589.   iter = rec_mset_iterator (rec_rset_mset (rset));
+  1590.   while (rec_mset_iterator_next (&iter, MSET_RECORD, (const void **) &rec, NULL))
+                 ^
+  1591.     {
+  1592.       num_fields = rec_record_get_num_fields_by_name (rec, field_name);
+
+#158
+src/rec-rset.c:1600: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `field` could be null (from the call to `rec_record_get_field_by_name()` on line 1595) and is dereferenced in the call to `rec_field_value()`. 
+  1598.              values.  */
+  1599.           errno = 0;
+  1600.           field_value = strtol (rec_field_value (field), &end, 10);
+                                        ^
+  1601.           if ((errno == 0) && (*end == '\0'))
+  1602.             {
+
+#159
+src/rec-rset.c:1611: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_free()`. 
+  1609.     }
+  1610. 
+  1611.   rec_mset_iterator_free (&iter);
+          ^
+  1612.        
+  1613.   /* Create and insert the auto field.  */
+
+#160
+src/rec-rset.c:1611: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_free()`. 
+  1609.     }
+  1610. 
+  1611.   rec_mset_iterator_free (&iter);
+          ^
+  1612.        
+  1613.   /* Create and insert the auto field.  */
+
+#161
+src/rec-rset.c:1664: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `rec_field_new()` on line 1657 is not freed after the last access at line 1664, column 8. 
+  1662.     }
+  1663. 
+  1664.   if (!rec_mset_insert_at (rec_record_mset (record), MSET_FIELD, (void *) auto_field, 0))
+               ^
+  1665.     {
+  1666.       /* Out of memory.  */
+
+#162
+src/rec-rset.c:1697: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `rec_field_new()` on line 1690 is not freed after the last access at line 1697, column 8. 
+  1695.     }
+  1696. 
+  1697.   if (!rec_mset_insert_at (rec_record_mset (record), MSET_FIELD, (void *) auto_field, 0))
+               ^
+  1698.     {
+  1699.       /* Out of memory.  */
+
+#163
+src/rec-rset.c:1718: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_next()`. 
+  1716. 
+  1717.   iter = rec_mset_iterator (rec_record_mset (from_record));
+  1718.   while (rec_mset_iterator_next (&iter, MSET_ANY, (const void**) &data, &elem))
+                 ^
+  1719.     {
+  1720.       if (rec_mset_elem_type (elem) == MSET_FIELD)
+
+#164
+src/rec-rset.c:1718: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_next()`. 
+  1716. 
+  1717.   iter = rec_mset_iterator (rec_record_mset (from_record));
+  1718.   while (rec_mset_iterator_next (&iter, MSET_ANY, (const void**) &data, &elem))
+                 ^
+  1719.     {
+  1720.       if (rec_mset_elem_type (elem) == MSET_FIELD)
+
+#165
+src/rec-rset.c:1746: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `rec_field_dup()` on line 1748 is not freed after the last access at line 1746, column 16. 
+  1744.           /* Ok, add this field.  */
+  1745. 
+  1746.           if (!rec_mset_append (rec_record_mset (to_record),
+                       ^
+  1747.                                 MSET_FIELD,
+  1748.                                 (void *) rec_field_dup (field),
+
+#166
+src/rec-rset.c:1758: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `rec_comment_dup()` on line 1760 is not freed after the last access at line 1758, column 11. 
+  1756.         {
+  1757.           rec_comment_t comment = (rec_comment_t) data;
+  1758.           rec_mset_append (rec_record_mset (to_record),
+                  ^
+  1759.                            MSET_COMMENT,
+  1760.                            (void *) rec_comment_dup (comment),
+
+#167
+src/rec-rset.c:1764: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_free()`. 
+  1762.         }
+  1763.     }
+  1764.   rec_mset_iterator_free (&iter);
+          ^
+  1765. 
+  1766.   return to_record;
+
+#168
+src/rec-rset.c:1764: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_free()`. 
+  1762.         }
+  1763.     }
+  1764.   rec_mset_iterator_free (&iter);
+          ^
+  1765. 
+  1766.   return to_record;
+
+#169
+src/rec-sex-lex.c:2040: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `sexalloc()` on line 2029 is not freed after the last access at line 2040, column 3. 
+  2038. 	b->yy_ch_buf = (char *) yyalloc( (yy_size_t) (b->yy_buf_size + 2) , yyscanner );
+  2039. 	if ( ! b->yy_ch_buf )
+  2040. 		YY_FATAL_ERROR( "out of dynamic memory in yy_create_buffer()" );
+          ^
+  2041. 
+  2042. 	b->yy_is_our_buffer = 1;
+
+#170
+src/rec-sex-lex.c:105: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `integer_value` is read without initialization. 
+  103. #define sexlex_ALREADY_DEFINED
+  104. #else
+  105. #define yylex sexlex
+                                                 ^
+  106. #endif
+  107. 
+
+#171
+src/rec-sex-lex.l:192: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `res` could be null (null value originating from line 191) and is dereferenced. 
+  190.   size = p - str;
+  191.   res = malloc (size + 1);
+  192.   memcpy (res, str, size);
+         ^
+  193.   res[size] = 0;
+  194. 
+
+#172
+src/rec-sex-lex.l:192: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `size` could be null (null value originating from line 191) and is dereferenced. 
+  190.   size = p - str;
+  191.   res = malloc (size + 1);
+  192.   memcpy (res, str, size);
+         ^
+  193.   res[size] = 0;
+  194. 
+
+#173
+src/rec-sex-parser.c:68: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `new->scanner` could be null (from the call to `sexlex_init()` on line 67) and is dereferenced in the call to `sexset_extra()`. 
+  66.       /* Initialize the sexy scanner.  */
+  67.       sexlex_init (&(new->scanner));
+  68.       sexset_extra (new, new->scanner);
+            ^
+  69.     }
+  70. 
+
+#174
+src/rec-sex.c:84: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `new->parser` could be null (from the call to `rec_sex_parser_new()` on line 83) and is dereferenced in the call to `rec_sex_parser_set_case_insensitive()`. 
+  82.       /* Initialize a new parser.  */
+  83.       new->parser = rec_sex_parser_new ();
+  84.       rec_sex_parser_set_case_insensitive (new->parser,
+            ^
+  85.                                            case_insensitive);
+  86. 
+
+#175
+src/rec-sex.c:173: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.type` is read without initialization. 
+  171. 
+  172.   res = NULL;
+  173.   switch (val.type)
+                 ^
+  174.     {
+  175.     case REC_SEX_VAL_INT:
+
+#176
+src/rec-sex.c:177: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.int_val` is read without initialization. 
+  175.     case REC_SEX_VAL_INT:
+  176.       {
+  177.         asprintf (&res, "%d", val.int_val);
+                                     ^
+  178.         break;
+  179.       }
+
+#177
+src/rec-sex.c:182: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.real_val` is read without initialization. 
+  180.     case REC_SEX_VAL_REAL:
+  181.       {
+  182.         asprintf (&res, "%f", val.real_val);
+                                     ^
+  183.         break;
+  184.       }
+
+#178
+src/rec-sex.c:187: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.str_val` is read without initialization. 
+  185.     case REC_SEX_VAL_STR:
+  186.       {
+  187.         res = strdup (val.str_val);
+                             ^
+  188.         break;
+  189.       }
+
+#179
+src/rec-sex.c:212: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.type` is read without initialization. 
+  210. 
+  211.   rec_sex_ast_node_unfix (rec_sex_ast_top (sex->ast));
+  212.   EXEC_AST (record);
+         ^
+  213.   if (res)
+  214.     {
+
+#180
+src/rec-sex.c:212: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.int_val` is read without initialization. 
+  210. 
+  211.   rec_sex_ast_node_unfix (rec_sex_ast_top (sex->ast));
+  212.   EXEC_AST (record);
+         ^
+  213.   if (res)
+  214.     {
+
+#181
+src/rec-sex.c:221: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_next()`. 
+  219. 
+  220.   iter = rec_mset_iterator (rec_record_mset (record));
+  221.   while (rec_mset_iterator_next (&iter, MSET_FIELD, (const void**) &field, NULL))
+                ^
+  222.     {
+  223.       nf = rec_record_get_num_fields_by_name (record, rec_field_name (field));
+
+#182
+src/rec-sex.c:258: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_free()`. 
+  256.     }
+  257. 
+  258.   rec_mset_iterator_free (&iter);
+         ^
+  259. 
+  260.  exit:          
+
+#183
+src/rec-sex.c:431: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `op2_real` is read without initialization. 
+  429. 
+  430.             res.type = REC_SEX_VAL_REAL;
+  431.             res.real_val = op1_real + op2_real;
+                                             ^
+  432.           }
+  433.         else
+
+#184
+src/rec-sex.c:440: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `op1` is read without initialization. 
+  438. 
+  439.             res.type = REC_SEX_VAL_INT;
+  440.             res.int_val = op1 + op2;
+                                 ^
+  441.           }
+  442. 
+
+#185
+src/rec-sex.c:440: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `op2` is read without initialization. 
+  438. 
+  439.             res.type = REC_SEX_VAL_INT;
+  440.             res.int_val = op1 + op2;
+                                       ^
+  441.           }
+  442. 
+
+#186
+src/rec-sex.c:462: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `op1` is read without initialization. 
+  460. 
+  461.             res.type = REC_SEX_VAL_REAL;
+  462.             res.real_val = op1 - op2;
+                                  ^
+  463.           }
+  464.         else
+
+#187
+src/rec-sex.c:462: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `op2` is read without initialization. 
+  460. 
+  461.             res.type = REC_SEX_VAL_REAL;
+  462.             res.real_val = op1 - op2;
+                                        ^
+  463.           }
+  464.         else
+
+#188
+src/rec-sex.c:472: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `op1` is read without initialization. 
+  470. 
+  471.             res.type = REC_SEX_VAL_INT;
+  472.             res.int_val = op1 - op2;
+                                 ^
+  473.           }
+  474. 
+
+#189
+src/rec-sex.c:472: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `op2` is read without initialization. 
+  470. 
+  471.             res.type = REC_SEX_VAL_INT;
+  472.             res.int_val = op1 - op2;
+                                       ^
+  473.           }
+  474. 
+
+#190
+src/rec-sex.c:494: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `op2_real` is read without initialization. 
+  492. 
+  493.             res.type = REC_SEX_VAL_REAL;
+  494.             res.real_val = op1_real * op2_real;
+                                             ^
+  495.           }
+  496.         else
+
+#191
+src/rec-sex.c:503: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `op1` is read without initialization. 
+  501.             
+  502.             res.type = REC_SEX_VAL_INT;
+  503.             res.int_val = op1 * op2;
+                                 ^
+  504.           }
+  505. 
+
+#192
+src/rec-sex.c:503: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `op2` is read without initialization. 
+  501.             
+  502.             res.type = REC_SEX_VAL_INT;
+  503.             res.int_val = op1 * op2;
+                                       ^
+  504.           }
+  505. 
+
+#193
+src/rec-sex.c:525: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `op2_real` is read without initialization. 
+  523. 
+  524.             res.type = REC_SEX_VAL_REAL;
+  525.             res.real_val = op1_real / op2_real;
+                                             ^
+  526.           }
+  527.         else
+
+#194
+src/rec-sex.c:535: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `op2` is read without initialization. 
+  533.             res.type = REC_SEX_VAL_INT;
+  534.             
+  535.             if (op2 != 0)
+                       ^
+  536.               {
+  537.                 res.int_val = op1 / op2;
+
+#195
+src/rec-sex.c:537: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `op1` is read without initialization. 
+  535.             if (op2 != 0)
+  536.               {
+  537.                 res.int_val = op1 / op2;
+                                     ^
+  538.               }
+  539.             else
+
+#196
+src/rec-sex.c:563: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `op2` is read without initialization. 
+  561.         res.type = REC_SEX_VAL_INT;
+  562. 
+  563.         if (op2 != 0)
+                   ^
+  564.           {
+  565.             res.int_val = op1 % op2;
+
+#197
+src/rec-sex.c:565: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `op1` is read without initialization. 
+  563.         if (op2 != 0)
+  564.           {
+  565.             res.int_val = op1 % op2;
+                                 ^
+  566.           }
+  567.         else
+
+#198
+src/rec-sex.c:612: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `op2_real` is read without initialization. 
+  610. 
+  611.                 res.type = REC_SEX_VAL_INT;
+  612.                 res.int_val = op1_real == op2_real;
+                                                 ^
+  613.               }
+  614.             else
+
+#199
+src/rec-sex.c:621: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `op1` is read without initialization. 
+  619.                 
+  620.                 res.type = REC_SEX_VAL_INT;
+  621.                 res.int_val = op1 == op2;
+                                     ^
+  622.               }
+  623.           }
+
+#200
+src/rec-sex.c:621: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `op2` is read without initialization. 
+  619.                 
+  620.                 res.type = REC_SEX_VAL_INT;
+  621.                 res.int_val = op1 == op2;
+                                            ^
+  622.               }
+  623.           }
+
+#201
+src/rec-sex.c:663: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `op2_real` is read without initialization. 
+  661. 
+  662.                 res.type = REC_SEX_VAL_INT;
+  663.                 res.int_val = op1_real != op2_real;
+                                                 ^
+  664.               }
+  665.             else
+
+#202
+src/rec-sex.c:672: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `op1` is read without initialization. 
+  670.             
+  671.                 res.type = REC_SEX_VAL_INT;
+  672.                 res.int_val = op1 != op2;
+                                     ^
+  673.               }
+  674.           }
+
+#203
+src/rec-sex.c:672: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `op2` is read without initialization. 
+  670.             
+  671.                 res.type = REC_SEX_VAL_INT;
+  672.                 res.int_val = op1 != op2;
+                                            ^
+  673.               }
+  674.           }
+
+#204
+src/rec-sex.c:722: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `x.tv_sec` is read without initialization during the call to `rec_timespec_subtract()`. 
+  720. 
+  721.         res.type = REC_SEX_VAL_INT;
+  722.         res.int_val = rec_timespec_subtract (&diff, &op1, &op2);
+                             ^
+  723.         break;
+  724.       }
+
+#205
+src/rec-sex.c:722: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `y.tv_sec` is read without initialization during the call to `rec_timespec_subtract()`. 
+  720. 
+  721.         res.type = REC_SEX_VAL_INT;
+  722.         res.int_val = rec_timespec_subtract (&diff, &op1, &op2);
+                             ^
+  723.         break;
+  724.       }
+
+#206
+src/rec-sex.c:738: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `x.tv_sec` is read without initialization during the call to `rec_timespec_subtract()`. 
+  736. 
+  737.         res.type = REC_SEX_VAL_INT;
+  738.         res.int_val = (!rec_timespec_subtract (&diff, &op1, &op2)
+                               ^
+  739.                        && ((diff.tv_sec != 0) || (diff.tv_nsec != 0)));
+  740.         break;
+
+#207
+src/rec-sex.c:738: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `y.tv_sec` is read without initialization during the call to `rec_timespec_subtract()`. 
+  736. 
+  737.         res.type = REC_SEX_VAL_INT;
+  738.         res.int_val = (!rec_timespec_subtract (&diff, &op1, &op2)
+                               ^
+  739.                        && ((diff.tv_sec != 0) || (diff.tv_nsec != 0)));
+  740.         break;
+
+#208
+src/rec-sex.c:754: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `x.tv_sec` is read without initialization during the call to `rec_timespec_subtract()`. 
+  752.         ATOTS_VAL (op2, child_val2);
+  753. 
+  754.         rec_timespec_subtract (&diff, &op1, &op2);
+               ^
+  755. 
+  756.         res.type = REC_SEX_VAL_INT;
+
+#209
+src/rec-sex.c:754: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `y.tv_sec` is read without initialization during the call to `rec_timespec_subtract()`. 
+  752.         ATOTS_VAL (op2, child_val2);
+  753. 
+  754.         rec_timespec_subtract (&diff, &op1, &op2);
+               ^
+  755. 
+  756.         res.type = REC_SEX_VAL_INT;
+
+#210
+src/rec-sex.c:772: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `op1` is read without initialization. 
+  770. 
+  771.         res.type = REC_SEX_VAL_INT;
+  772.         res.int_val = !op1 || (op1 && op2);
+                              ^
+  773. 
+  774.         break;
+
+#211
+src/rec-sex.c:772: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `op2` is read without initialization. 
+  770. 
+  771.         res.type = REC_SEX_VAL_INT;
+  772.         res.int_val = !op1 || (op1 && op2);
+                                             ^
+  773. 
+  774.         break;
+
+#212
+src/rec-sex.c:801: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `op2_real` is read without initialization. 
+  799.             else
+  800.               {
+  801.                 res.int_val = op1_real <= op2_real;
+                                                 ^
+  802.               }
+  803.           }
+
+#213
+src/rec-sex.c:818: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `op1` is read without initialization. 
+  816.             else
+  817.               {
+  818.                 res.int_val = op1 <= op2;
+                                     ^
+  819.               }
+  820.           }
+
+#214
+src/rec-sex.c:818: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `op2` is read without initialization. 
+  816.             else
+  817.               {
+  818.                 res.int_val = op1 <= op2;
+                                            ^
+  819.               }
+  820.           }
+
+#215
+src/rec-sex.c:849: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `op2_real` is read without initialization. 
+  847.             else
+  848.               {
+  849.                 res.int_val = op1_real >= op2_real;
+                                                 ^
+  850.               }
+  851.           }
+
+#216
+src/rec-sex.c:866: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `op1` is read without initialization. 
+  864.             else
+  865.               {
+  866.                 res.int_val = op1 >= op2;
+                                     ^
+  867.               }
+  868.           }
+
+#217
+src/rec-sex.c:866: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `op2` is read without initialization. 
+  864.             else
+  865.               {
+  866.                 res.int_val = op1 >= op2;
+                                            ^
+  867.               }
+  868.           }
+
+#218
+src/rec-sex.c:884: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `op1` is read without initialization. 
+  882. 
+  883.         res.type = REC_SEX_VAL_INT;
+  884.         res.int_val = op1 && op2;
+                             ^
+  885. 
+  886.         break;
+
+#219
+src/rec-sex.c:884: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `op2` is read without initialization. 
+  882. 
+  883.         res.type = REC_SEX_VAL_INT;
+  884.         res.int_val = op1 && op2;
+                                    ^
+  885. 
+  886.         break;
+
+#220
+src/rec-sex.c:900: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `op1` is read without initialization. 
+  898. 
+  899.         res.type = REC_SEX_VAL_INT;
+  900.         res.int_val = op1 || op2;
+                             ^
+  901. 
+  902.         break;
+
+#221
+src/rec-sex.c:900: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `op2` is read without initialization. 
+  898. 
+  899.         res.type = REC_SEX_VAL_INT;
+  900.         res.int_val = op1 || op2;
+                                    ^
+  901. 
+  902.         break;
+
+#222
+src/rec-sex.c:940: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `op` is read without initialization. 
+  938. 
+  939.         res.type = REC_SEX_VAL_INT;
+  940.         res.int_val = !op;
+                              ^
+  941. 
+  942.         break;
+
+#223
+src/rec-sex.c:997: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `op1` is read without initialization. 
+  995.         /* Return the first or the second operand, depending on the
+  996.            value of op1.  */
+  997.         if (op1)
+                   ^
+  998.           {
+  999.             res = child_val2;
+
+#224
+src/rec-sex.c:1060: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `effective_field_name` could be null (null value originating from line 1058) and is dereferenced. 
+  1058.                   char *effective_field_name = malloc (sizeof (char) *
+  1059.                                                        (strlen (field_name) + strlen (field_subname) + 2));
+  1060.                   memcpy (effective_field_name, field_name, strlen(field_name));
+                          ^
+  1061.                   effective_field_name[strlen(field_name)] = '_';
+  1062.                   memcpy (effective_field_name + strlen(field_name) + 1, field_subname, strlen(field_subname) + 1);
+
+#225
+src/rec-types.c:774: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `reg->types` could be null (null value originating from line 769) and is dereferenced. 
+  772.     }
+  773. 
+  774.   reg->types[i].type_name = strdup (rec_type_name (type));
+         ^
+  775.   reg->types[i].type = type;
+  776.   reg->types[i].to_type = NULL;
+
+#226
+src/rec-types.c:813: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `reg->types` could be null (null value originating from line 808) and is dereferenced. 
+  811.     }
+  812. 
+  813.   reg->types[i].type_name = strdup (type_name);
+         ^
+  814.   reg->types[i].to_type = strdup (to_type);
+  815.   reg->types[i].type = NULL;
+
+#227
+src/rec-utils.c:103: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `rec_file` could be null (null value originating from line 102) and is dereferenced. 
+  101.       rec_file_length = matches.rm_eo - matches.rm_so;
+  102.       rec_file = malloc (rec_file_length + 1);
+  103.       memcpy (rec_file, str + matches.rm_so + 1, rec_file_length - 1);
+             ^
+  104.       rec_file[rec_file_length - 1] = '\0';
+  105.     }
+
+#228
+src/rec-utils.c:131: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `rec_url` could be null (null value originating from line 130) and is dereferenced. 
+  129.       rec_url_length = matches.rm_eo - matches.rm_so;
+  130.       rec_url = malloc (rec_url_length + 1);
+  131.       memcpy (rec_url, str + matches.rm_so, rec_url_length);
+             ^
+  132.       rec_url[rec_url_length] = '\0';
+  133.     }
+
+#229
+src/rec-utils.c:160: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `rec_type` could be null (null value originating from line 159) and is dereferenced. 
+  158.       rec_type_length = matches.rm_eo - matches.rm_so;
+  159.       rec_type = malloc (rec_type_length + 1);
+  160.       memcpy (rec_type, str + matches.rm_so, rec_type_length);
+             ^
+  161.       rec_type[rec_type_length] = '\0';
+  162.     }
+
+#230
+src/rec-utils.c:232: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `*result` could be null (null value originating from line 231) and is dereferenced. 
+  230.                  can use rm_eo relative to *p.  */
+  231.               *result = malloc (pm.rm_eo + 1);
+  232.               memcpy (*result, p, pm.rm_eo);
+                     ^
+  233.               (*result)[pm.rm_eo] = '\0';
+  234.             }
+
+#231
+src/rec-utils.c:346: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `res` is read without initialization. 
+  344.   rec_parse_int (&p, &res);
+  345. 
+  346.   return (size_t) res;
+                         ^
+  347. }
+  348. 
+
+#232
+src/rec-writer.c:404: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_next()`. 
+  402.   num_elem = 0;
+  403.   iter = rec_mset_iterator (rec_record_mset (record));
+  404.   while (rec_mset_iterator_next (&iter, MSET_ANY, (const void **) &data, &elem))
+                ^
+  405.     {
+  406.       if (rec_mset_elem_type (elem) == MSET_FIELD)
+
+#233
+src/rec-writer.c:462: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_free()`. 
+  460.     }
+  461. 
+  462.   rec_mset_iterator_free (&iter);
+         ^
+  463. 
+  464.   if (mode == REC_WRITER_SEXP)
+
+#234
+src/rec-writer.c:462: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_free()`. 
+  460.     }
+  461. 
+  462.   rec_mset_iterator_free (&iter);
+         ^
+  463. 
+  464.   if (mode == REC_WRITER_SEXP)
+
+#235
+src/rec-writer.c:507: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_next()`. 
+  505. 
+  506.   iter = rec_mset_iterator (rec_rset_mset (rset));
+  507.   while (rec_mset_iterator_next (&iter, MSET_ANY, (const void **) &data, &elem))
+                ^
+  508.     {
+  509.       if (position != 0)
+
+#236
+src/rec-writer.c:507: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_next()`. 
+  505. 
+  506.   iter = rec_mset_iterator (rec_rset_mset (rset));
+  507.   while (rec_mset_iterator_next (&iter, MSET_ANY, (const void **) &data, &elem))
+                ^
+  508.     {
+  509.       if (position != 0)
+
+#237
+src/rec-writer.c:562: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_free()`. 
+  560.     }
+  561. 
+  562.   rec_mset_iterator_free (&iter);
+         ^
+  563. 
+  564.   /* Special case:
+
+#238
+src/rec-writer.c:562: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_free()`. 
+  560.     }
+  561. 
+  562.   rec_mset_iterator_free (&iter);
+         ^
+  563. 
+  564.   /* Special case:
+
+#239
+src/rec-writer.c:638: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `rec_writer_destroy()` on line 638 is not freed after the last access at line 638, column 7. 
+  636.       rec_writer_set_mode (writer, mode);
+  637.       rec_write_field (writer, field);
+  638.       rec_writer_destroy (writer);
+             ^
+  639.     }
+  640.   
+
+#240
+src/rec-writer.c:658: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `rec_writer_destroy()` on line 658 is not freed after the last access at line 658, column 7. 
+  656.       rec_writer_set_mode (writer, mode);
+  657.       rec_write_field_name (writer, field_name);
+  658.       rec_writer_destroy (writer);
+             ^
+  659.     }
+  660.   
+
+#241
+src/rec-writer.c:678: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `rec_writer_destroy()` on line 678 is not freed after the last access at line 678, column 7. 
+  676.       rec_writer_set_mode (writer, mode);
+  677.       rec_write_comment (writer, comment);
+  678.       rec_writer_destroy (writer);
+             ^
+  679.     }
+  680.   
+
+#242
+utils/csv2rec.c:233: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `ctx->field_names` could be null (null value originating from line 214) and is dereferenced. 
+  231.                         str);
+  232.         }
+  233.       ctx->field_names[ctx->num_field_names++] = str;
+             ^
+  234.     }
+  235.   else
+
+#243
+utils/csv2rec.c:372: error: Resource Leak(PULSE_RESOURCE_LEAK)
+  File descriptor dynamically allocated by `fopen()` on line 345 is not closed after the last access at line 372, column 10. 
+  370. 
+  371.   /* Parse the input file in chunks of data.  */
+  372.   while ((bytes_read = fread (buf, 1, 1024, in)) > 0)
+                ^
+  373.     {
+  374.       if (csv_parse (&p, buf, bytes_read, field_cb, record_cb, &ctx) != bytes_read)
+
+#244
+utils/csv2rec.c:372: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `in` could be null (null value originating from line 345) and is dereferenced. 
+  370. 
+  371.   /* Parse the input file in chunks of data.  */
+  372.   while ((bytes_read = fread (buf, 1, 1024, in)) > 0)
+                              ^
+  373.     {
+  374.       if (csv_parse (&p, buf, bytes_read, field_cb, record_cb, &ctx) != bytes_read)
+
+#245
+utils/rec2csv.c:213: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `tmp` is read without initialization. 
+  211.         }
+  212. 
+  213.       csv_fwrite (stdout, tmp, strlen(tmp));
+                                 ^
+  214.       free (field_name);
+  215.       free (tmp);
+
+#246
+utils/rec2csv.c:223: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_next()`. 
+  221. 
+  222.   iter = rec_mset_iterator (rec_rset_mset (rset));
+  223.   while (rec_mset_iterator_next (&iter, MSET_RECORD, (const void**) &record, NULL))
+                ^
+  224.     {
+  225.       for (i = 0; i < rec_fex_size (fex); i++)
+
+#247
+utils/rec2csv.c:247: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_free()`. 
+  245.     }
+  246. 
+  247.   rec_mset_iterator_free (&iter);
+         ^
+  248. }
+  249. 
+
+#248
+utils/rec2csv.c:263: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `iter_rset.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_next()`. 
+  261. 
+  262.   iter_rset = rec_mset_iterator (rec_rset_mset (rset));
+  263.   while (rec_mset_iterator_next (&iter_rset, MSET_RECORD, (const void **) &record, NULL))
+                ^
+  264.     {
+  265.       iter_record = rec_mset_iterator (rec_record_mset (record));
+
+#249
+utils/rec2csv.c:263: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_next()`. 
+  261. 
+  262.   iter_rset = rec_mset_iterator (rec_rset_mset (rset));
+  263.   while (rec_mset_iterator_next (&iter_rset, MSET_RECORD, (const void **) &record, NULL))
+                ^
+  264.     {
+  265.       iter_record = rec_mset_iterator (rec_record_mset (record));
+
+#250
+utils/rec2csv.c:266: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_next()`. 
+  264.     {
+  265.       iter_record = rec_mset_iterator (rec_record_mset (record));
+  266.       while (rec_mset_iterator_next (&iter_record, MSET_FIELD, (const void **) &field, NULL))
+                    ^
+  267.         {
+  268.           field_index = rec_record_get_field_index_by_name (record, field);
+
+#251
+utils/rec2csv.c:270: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `field_index` could be null (from the call to `rec_fex_new()` on line 260) and is dereferenced in the call to `rec_fex_member_p()`. 
+  268.           field_index = rec_record_get_field_index_by_name (record, field);
+  269.           
+  270.           if (!rec_fex_member_p (fields,
+                      ^
+  271.                                  rec_field_name (field),
+  272.                                  field_index, field_index))
+
+#252
+utils/rec2csv.c:270: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `fields` could be null (from the call to `rec_fex_new()` on line 260) and is dereferenced in the call to `rec_fex_member_p()`. 
+  268.           field_index = rec_record_get_field_index_by_name (record, field);
+  269.           
+  270.           if (!rec_fex_member_p (fields,
+                      ^
+  271.                                  rec_field_name (field),
+  272.                                  field_index, field_index))
+
+#253
+utils/rec2csv.c:274: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `field_index` could be null (from the call to `rec_fex_new()` on line 260) and is dereferenced in the call to `rec_fex_append()`. 
+  272.                                  field_index, field_index))
+  273.             {
+  274.               rec_fex_append (fields,
+                     ^
+  275.                               rec_field_name (field),
+  276.                               field_index, field_index);
+
+#254
+utils/rec2csv.c:280: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_free()`. 
+  278.         }
+  279. 
+  280.       rec_mset_iterator_free (&iter_record);
+             ^
+  281.     }
+  282. 
+
+#255
+utils/rec2csv.c:283: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `iter_rset.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_free()`. 
+  281.     }
+  282. 
+  283.   rec_mset_iterator_free (&iter_rset);
+         ^
+  284. 
+  285.   return fields;
+
+#256
+utils/rec2csv.c:283: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_free()`. 
+  281.     }
+  282. 
+  283.   rec_mset_iterator_free (&iter_rset);
+         ^
+  284. 
+  285.   return fields;
+
+#257
+utils/recdel.c:192: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `parser.ast` is read without initialization during the call to `rec_sex_compile()`. 
+  190.         {
+  191.           COMMON_ARGS_CASES
+  192.           RECORD_SELECTION_ARGS_CASES
+                 ^
+  193.         case FORCE_ARG:
+  194.           {
+
+#258
+utils/recdel.c:235: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `recutl_sex` could be null (from the call to `rec_sex_new()` on line 234) and is dereferenced in the call to `rec_sex_compile()`. 
+  233.     {
+  234.       recutl_sex = rec_sex_new (recutl_insensitive);
+  235.       if (!rec_sex_compile (recutl_sex, recutl_sex_str))
+                  ^
+  236.         {
+  237.           recutl_fatal (_("invalid selection expression.\n"));
+
+#259
+utils/recdel.c:235: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `parser.ast` is read without initialization during the call to `rec_sex_compile()`. 
+  233.     {
+  234.       recutl_sex = rec_sex_new (recutl_insensitive);
+  235.       if (!rec_sex_compile (recutl_sex, recutl_sex_str))
+                  ^
+  236.         {
+  237.           recutl_fatal (_("invalid selection expression.\n"));
+
+#260
+utils/recfix.c:348: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `rec_buf_close()` on line 348 is not freed after the last access at line 348, column 3. 
+  346.                            recfix_external, /* Use external descriptors.  */
+  347.                            buf) == 0);
+  348.   rec_buf_close (buf);
+         ^
+  349.   fprintf (stderr, "%s", errors);
+  350. 
+
+#261
+utils/recfmt.c:162: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `sex` could be null (from the call to `rec_sex_new()` on line 161) and is dereferenced in the call to `rec_sex_compile()`. 
+  160. 
+  161.   sex = rec_sex_new (false);
+  162.   if (!rec_sex_compile (sex, str))
+              ^
+  163.     {
+  164.       recutl_fatal (_("invalid expression in a template slot.\n"));
+
+#262
+utils/recfmt.c:162: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `parser.ast` is read without initialization during the call to `rec_sex_compile()`. 
+  160. 
+  161.   sex = rec_sex_new (false);
+  162.   if (!rec_sex_compile (sex, str))
+              ^
+  163.     {
+  164.       recutl_fatal (_("invalid expression in a template slot.\n"));
+
+#263
+utils/recfmt.c:219: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `result_buf` could be null (from the call to `rec_buf_new()` on line 207) and is dereferenced in the call to `rec_buf_puts()`. 
+  217.           memcpy (tmp, p, matches.rm_so);
+  218.           tmp[matches.rm_so] = '\0';
+  219.           rec_buf_puts (tmp, result_buf);
+                 ^
+  220.           free (tmp);
+  221.         }
+
+#264
+utils/recfmt.c:219: error: Null Dereference(NULLPTR_DEREFERENCE)
+  null (from the call to `rec_buf_new()` on line 207) is dereferenced in the call to `rec_buf_puts()`. 
+  217.           memcpy (tmp, p, matches.rm_so);
+  218.           tmp[matches.rm_so] = '\0';
+  219.           rec_buf_puts (tmp, result_buf);
+                 ^
+  220.           free (tmp);
+  221.         }
+
+#265
+utils/recfmt.c:248: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `result_buf` could be null (from the call to `rec_buf_new()` on line 207) and is dereferenced in the call to `rec_buf_close()`. 
+  246.     }
+  247.   
+  248.   rec_buf_close (result_buf);
+         ^
+  249. 
+  250.   return result;
+
+#266
+utils/recfmt.c:270: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_next()`. 
+  268. 
+  269.       iter = rec_mset_iterator (rec_rset_mset (rset));
+  270.       while (rec_mset_iterator_next (&iter, MSET_RECORD, (const void**) &record, NULL))
+                    ^
+  271.         {
+  272.           /* Apply the template to this record.  */
+
+#267
+utils/recfmt.c:270: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_next()`. 
+  268. 
+  269.       iter = rec_mset_iterator (rec_rset_mset (rset));
+  270.       while (rec_mset_iterator_next (&iter, MSET_RECORD, (const void**) &record, NULL))
+                    ^
+  271.         {
+  272.           /* Apply the template to this record.  */
+
+#268
+utils/recfmt.c:281: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_free()`. 
+  279.         }
+  280. 
+  281.       rec_mset_iterator_free (&iter);
+             ^
+  282.     }
+  283. }
+
+#269
+utils/recfmt.c:281: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mset_iter.list_iter.vtable` is read without initialization during the call to `rec_mset_iterator_free()`. 
+  279.         }
+  280. 
+  281.       rec_mset_iterator_free (&iter);
+             ^
+  282.     }
+  283. }
+
+#270
+utils/recinf.c:132: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `parser` could be null (from the call to `rec_parser_new()` on line 130) and is dereferenced in the call to `rec_parse_db()`. 
+  130.   parser = rec_parser_new (in, file_name);
+  131. 
+  132.   ret = rec_parse_db (parser, &db);
+               ^
+  133.   if (ret)
+  134.     {
+
+#271
+utils/recinf.c:193: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `parser` could be null (from the call to `rec_parser_new()` on line 130) and is dereferenced in the call to `rec_parser_error()`. 
+  191.     }
+  192.   
+  193.   if (rec_parser_error (parser))
+             ^
+  194.     {
+  195.       rec_parser_perror (parser, file_name);
+
+#272
+utils/recins.c:179: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `parser.ast` is read without initialization during the call to `rec_sex_compile()`. 
+  177.         {
+  178.           COMMON_ARGS_CASES
+  179.           RECORD_SELECTION_ARGS_CASES
+                 ^
+  180.         case FORCE_ARG:
+  181.           {
+
+FALSE_POSITIVE
+#273
+utils/recins.c:202: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `recins_record` could be null (from the call to `rec_record_new()` on line 201) and is dereferenced in the call to `rec_record_set_source()`. 
+  200.               {
+  201.                 recins_record = rec_record_new ();
+  202.                 rec_record_set_source (recins_record, "cmdli");
+                       ^
+  203.                 rec_record_set_location (recins_record, 0);
+  204.               }
+
+FALSE_POSITIVE
+#274
+utils/recins.c:222: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `field` could be null (null value originating from line 163) and is dereferenced in the call to `rec_field_set_value()`. 
+  220.               }
+  221. 
+  222.             rec_field_set_value (field, optarg);
+                   ^
+  223.             rec_mset_append (rec_record_mset (recins_record), MSET_FIELD, (void *) field, MSET_ANY);
+  224. 
+
+FALSE_POSITIVE
+#275
+utils/recins.c:266: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `provided_record` could be null (from the call to `rec_parse_record_str()` on line 255) and is dereferenced in the call to `rec_record_mset()`. 
+  264.                    recins_record.  */
+  265.                 
+  266.                 rec_mset_iterator_t iter = rec_mset_iterator (rec_record_mset (provided_record));
+                                                                     ^
+  267.                 while (rec_mset_iterator_next (&iter, MSET_FIELD, (const void **) &field, NULL))
+  268.                   {
+
+#276
+utils/recsel.c:199: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `parser.ast` is read without initialization during the call to `rec_sex_compile()`. 
+  197.         {
+  198.         COMMON_ARGS_CASES
+  199.         RECORD_SELECTION_ARGS_CASES
+               ^
+  200.         case DESCRIPTOR_ARG:
+  201.         case 'd':
+
+#277
+utils/recsel.c:333: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `recsel_fex` could be null (from the call to `rec_fex_new()` on line 321) and is dereferenced in the call to `rec_fex_size()`. 
+  331.             {
+  332.               size_t i = 0;
+  333.               for (i = 0; i < rec_fex_size (recsel_fex); i++)
+                                     ^
+  334.                 {
+  335.                   rec_fex_elem_t elem = rec_fex_get (recsel_fex, i);
+
+FALSE_POSITIVE
+#278
+utils/recsel.c:484: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `rset` could be null (from the call to `rec_db_query()` on line 464) and is dereferenced in the call to `rec_rset_num_records()`. 
+  482.       /* Write the number of matching records.  */
+  483.       
+  484.       fprintf (stdout, "%d\n", rec_rset_num_records (rset));
+                                      ^
+  485.     }
+  486.   else
+
+FALSE_POSITIVE
+#279
+utils/recsel.c:491: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `writer` could be null (from the call to `rec_writer_new()` on line 490) and is dereferenced in the call to `rec_writer_set_collapse()`. 
+  489. 
+  490.       writer = rec_writer_new (stdout);
+  491.       rec_writer_set_collapse (writer, recsel_collapse);
+             ^
+  492.       rec_writer_set_skip_comments (writer, true);
+  493.       rec_writer_set_mode (writer, recsel_write_mode);
+
+FALSE_POSITIVE
+#280
+utils/recsel.c:494: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `rset` could be null (from the call to `rec_db_query()` on line 464) and is dereferenced in the call to `rec_write_rset()`. 
+  492.       rec_writer_set_skip_comments (writer, true);
+  493.       rec_writer_set_mode (writer, recsel_write_mode);
+  494.       rec_write_rset (writer, rset);
+             ^
+  495.       rec_writer_destroy (writer);
+  496.     }
+
+#281
+utils/recsel.c:495: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `rec_writer_destroy()` on line 495 is not freed after the last access at line 495, column 7. 
+  493.       rec_writer_set_mode (writer, recsel_write_mode);
+  494.       rec_write_rset (writer, rset);
+  495.       rec_writer_destroy (writer);
+             ^
+  496.     }
+  497. 
+
+#282
+utils/recset.c:196: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `parser.ast` is read without initialization during the call to `rec_sex_compile()`. 
+  194.         {
+  195.           COMMON_ARGS_CASES
+  196.           RECORD_SELECTION_ARGS_CASES
+                 ^
+  197.         case FORCE_ARG:
+  198.           {
+
+#283
+utils/recset.c:225: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `recutl_fex` could be null (from the call to `rec_fex_new()` on line 217) and is dereferenced in the call to `rec_fex_sort()`. 
+  223. 
+  224.             /* Sort it.  */
+  225.             rec_fex_sort (recutl_fex);
+                   ^
+  226. 
+  227.             break;
+
+#284
+utils/recutl.c:246: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `parser` could be null (from the call to `rec_parser_new()` on line 245) and is dereferenced in the call to `rec_parse_rset()`. 
+  244. 
+  245.   parser = rec_parser_new (in, file_name);
+  246.   while (rec_parse_rset (parser, &rset))
+                ^
+  247.     {
+  248.       char *rset_type;
+
+#285
+utils/recutl.c:334: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `rec_db_new()` on line 308 is not freed after the last access at line 334, column 19. 
+  332.               if (!recutl_parse_db_from_file (in, file_name, db))
+  333.                 {
+  334.                   free (db);
+                         ^
+  335.                   db = NULL;
+  336.                 }
+
+#286
+utils/recutl.c:346: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `rec_db_new()` on line 308 is not freed after the last access at line 346, column 11. 
+  344.       if (!recutl_parse_db_from_file (stdin, "stdin", db))
+  345.         {
+  346.           free (db);
+                 ^
+  347.           db = NULL;
+  348.         }
+
+#287
+utils/recutl.c:364: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `rec_db_new()` on line 360 is not freed after the last access at line 364, column 11. 
+  362.     {
+  363.       in = fopen (file_name, "r");
+  364.       if (in == NULL)
+                 ^
+  365.         {
+  366.            return NULL;
+
+#288
+utils/recutl.c:376: error: Resource Leak(PULSE_RESOURCE_LEAK)
+  File descriptor dynamically allocated by `fopen()` on line 363 is not closed after the last access at line 376, column 8. 
+  374.     }
+  375. 
+  376.   if (!recutl_parse_db_from_file (in,
+              ^
+  377.                                   file_name,
+  378.                                   db))
+
+#289
+utils/recutl.c:419: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `des` is read without initialization. 
+  417.         recutl_fatal (_("cannot create a unique name.\n"));
+  418. 
+  419.       out = fdopen (des, "w+");
+                           ^
+  420.     }
+  421. 
+
+#290
+utils/recutl.c:477: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `rec_buf_new()` on line 476 is not freed after the last access at line 477, column 7. 
+  475. 
+  476.   errors_buf = rec_buf_new (&errors_str, &errors_str_size);
+  477.   if (rec_int_check_db (db, true, external_p, errors_buf) > 0)
+             ^
+  478.     {
+  479.       rec_buf_close (errors_buf);
+
+#291
+utils/recutl.c:479: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `rec_buf_close()` on line 479 is not freed after the last access at line 479, column 7. 
+  477.   if (rec_int_check_db (db, true, external_p, errors_buf) > 0)
+  478.     {
+  479.       rec_buf_close (errors_buf);
+             ^
+  480.       if (!verbose_p)
+  481.         {
+
+Found 292 issues
+                      Issue Type(ISSUED_TYPE_ID): #
+  Uninitialized Value(PULSE_UNINITIALIZED_VALUE): 193
+           Null Dereference(NULLPTR_DEREFERENCE): 64
+                      Memory Leak(MEMORY_LEAK_C): 31
+                  Use After Free(USE_AFTER_FREE): 2
+              Resource Leak(PULSE_RESOURCE_LEAK): 2

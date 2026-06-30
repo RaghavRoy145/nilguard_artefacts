@@ -1,0 +1,24 @@
+
+In /home/infer_TempFix/c_npe_tests/test10_switch_case_null.c:
+
+~~~~~~~~~ In function: main ~~~~~~~~~
+Future-condition checking for 'malloc @12': Failed!
+
+<======[Bidirectional Bug Localization & Possible Proof Repairs]======>
+
+[Repair Options]
+true /\ (ptr!=0) /\ emp ~~~> (!free(ptr))^* · free(ptr) · (_)^*;
+[Patches]
+ @ line 4 can be inserted with code: if ((ptr!=0)){free(ptr); }
+
+
+~~~~~~~~~ In function: main ~~~~~~~~~
+Future-condition checking for 'malloc @16': Failed!
+
+<======[Bidirectional Bug Localization & Possible Proof Repairs]======>
+
+[Repair Options]
+true /\ (ptr!=0) /\ emp ~~~> (!free(ptr))^* · free(ptr) · (_)^*;
+[Patches]
+ @ line 4 can be inserted with code: if ((ptr!=0)){free(ptr); }
+

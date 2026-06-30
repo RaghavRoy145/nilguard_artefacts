@@ -1,0 +1,14 @@
+[
+  {
+    "procedure_name": "initStreamPolicyConfig",
+    "procedure_id": "initStreamPolicyConfig{b3f905daeff80fe4f640f71f5be56619}",
+    "source_file": "src/preprocessors/spp_stream6.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "Alias analysis found no pointers to guard.",
+      "npe_file": "src/preprocessors/spp_stream6.c",
+      "npe_line": 351,
+      "original_pointer": "stream_parsing_config"
+    }
+  }
+]

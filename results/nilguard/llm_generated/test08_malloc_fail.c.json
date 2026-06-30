@@ -1,0 +1,14 @@
+[
+  {
+    "procedure_name": "main",
+    "procedure_id": "main",
+    "source_file": "test08_malloc_fail.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "No valid plans remained after filtering",
+      "npe_file": "test08_malloc_fail.c",
+      "npe_line": 7,
+      "original_pointer": "buffer"
+    }
+  }
+]

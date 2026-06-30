@@ -1,0 +1,44 @@
+[
+  {
+    "procedure_name": "rec_buf_close",
+    "procedure_id": "rec_buf_close",
+    "source_file": "src/rec-buf.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 6,
+      "end_node": 3,
+      "start_line": 81,
+      "end_line": 88,
+      "guard_with_pointer": "buf",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 2,
+        "nodes_in_scope": 4,
+        "true_slice_size": 6,
+        "initial_candidate_plans": 5,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "rec_buf_close",
+    "procedure_id": "rec_buf_close",
+    "source_file": "src/rec-buf.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 11,
+      "end_node": 11,
+      "start_line": 80,
+      "end_line": 80,
+      "guard_with_pointer": "buf",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 2,
+        "nodes_in_scope": 1,
+        "true_slice_size": 6,
+        "initial_candidate_plans": 5,
+        "total_aliases": 1
+      }
+    }
+  }
+]

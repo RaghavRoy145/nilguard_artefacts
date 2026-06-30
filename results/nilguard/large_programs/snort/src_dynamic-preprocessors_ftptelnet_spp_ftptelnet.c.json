@@ -1,0 +1,56 @@
+[
+  {
+    "procedure_name": "_FtpTelnetReload",
+    "procedure_id": "_FtpTelnetReload{85e8e81582e8ccca1397efc73818aed8}",
+    "source_file": "src/dynamic-preprocessors/ftptelnet/spp_ftptelnet.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 88,
+      "end_node": 88,
+      "start_line": 509,
+      "end_line": 509,
+      "guard_with_pointer": "args",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 1,
+        "nodes_in_scope": 1,
+        "true_slice_size": 4,
+        "initial_candidate_plans": 1,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "FTPTelnetInit",
+    "procedure_id": "FTPTelnetInit{85e8e81582e8ccca1397efc73818aed8}",
+    "source_file": "src/dynamic-preprocessors/ftptelnet/spp_ftptelnet.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 121,
+      "end_node": 121,
+      "start_line": 262,
+      "end_line": 262,
+      "guard_with_pointer": "args",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 1,
+        "nodes_in_scope": 1,
+        "true_slice_size": 4,
+        "initial_candidate_plans": 1,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "FTPTelnetInit",
+    "procedure_id": "FTPTelnetInit{85e8e81582e8ccca1397efc73818aed8}",
+    "source_file": "src/dynamic-preprocessors/ftptelnet/spp_ftptelnet.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "Alias analysis found no pointers to guard.",
+      "npe_file": "src/dynamic-preprocessors/ftptelnet/spp_ftptelnet.c",
+      "npe_line": 273,
+      "original_pointer": "ftp_telnet_config"
+    }
+  }
+]

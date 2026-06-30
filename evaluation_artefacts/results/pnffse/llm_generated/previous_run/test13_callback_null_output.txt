@@ -1,0 +1,13 @@
+Capturing in make/cc mode ...
+Arguments are ,cb,value
+/home/infer_TempFix/c_npe_tests/test13_callback_null.c
+annalysing process
+CallingFunction: cb @8
+Arguments are 
+/home/infer_TempFix/c_npe_tests/test13_callback_null.c
+annalysing main
+CallingFunction: process @14
+/home/infer_TempFix/c_npe_tests/test13_callback_null.c
+
+=====> Actual effects of function: main ======>
+(.ret=0 /\ RET()@16,1)

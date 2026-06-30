@@ -1,0 +1,119 @@
+[
+  {
+    "procedure_name": "process_csv",
+    "procedure_id": "process_csv{e8014a8c0b48310a1104c420361fce3d}",
+    "source_file": "utils/csv2rec.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "No valid plans remained after filtering",
+      "npe_file": "utils/csv2rec.c",
+      "npe_line": 345,
+      "original_pointer": "in"
+    }
+  },
+  {
+    "procedure_name": "field_cb",
+    "procedure_id": "field_cb",
+    "source_file": "utils/csv2rec.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 7,
+      "end_node": 7,
+      "start_line": 233,
+      "end_line": 233,
+      "guard_with_pointer": "ctx",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 5,
+        "nodes_in_scope": 1,
+        "true_slice_size": 16,
+        "initial_candidate_plans": 5,
+        "total_aliases": 2
+      }
+    }
+  },
+  {
+    "procedure_name": "field_cb",
+    "procedure_id": "field_cb",
+    "source_file": "utils/csv2rec.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 32,
+      "end_node": 32,
+      "start_line": 213,
+      "end_line": 213,
+      "guard_with_pointer": "ctx",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 5,
+        "nodes_in_scope": 1,
+        "true_slice_size": 16,
+        "initial_candidate_plans": 5,
+        "total_aliases": 2
+      }
+    }
+  },
+  {
+    "procedure_name": "field_cb",
+    "procedure_id": "field_cb",
+    "source_file": "utils/csv2rec.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 33,
+      "end_node": 33,
+      "start_line": 268,
+      "end_line": 268,
+      "guard_with_pointer": "ctx",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 5,
+        "nodes_in_scope": 1,
+        "true_slice_size": 16,
+        "initial_candidate_plans": 5,
+        "total_aliases": 2
+      }
+    }
+  },
+  {
+    "procedure_name": "field_cb",
+    "procedure_id": "field_cb",
+    "source_file": "utils/csv2rec.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 40,
+      "end_node": 40,
+      "start_line": 265,
+      "end_line": 265,
+      "guard_with_pointer": "ctx",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 5,
+        "nodes_in_scope": 1,
+        "true_slice_size": 16,
+        "initial_candidate_plans": 5,
+        "total_aliases": 2
+      }
+    }
+  },
+  {
+    "procedure_name": "field_cb",
+    "procedure_id": "field_cb",
+    "source_file": "utils/csv2rec.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 47,
+      "end_node": 47,
+      "start_line": 258,
+      "end_line": 258,
+      "guard_with_pointer": "ctx",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 5,
+        "nodes_in_scope": 1,
+        "true_slice_size": 16,
+        "initial_candidate_plans": 5,
+        "total_aliases": 2
+      }
+    }
+  }
+]

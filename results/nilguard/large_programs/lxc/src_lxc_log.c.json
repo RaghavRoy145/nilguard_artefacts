@@ -1,0 +1,14 @@
+[
+  {
+    "procedure_name": "log_append_syslog",
+    "procedure_id": "log_append_syslog{8d70bb074fd81175d0d282cb234ed0ea}",
+    "source_file": "src/lxc/log.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "Alias analysis found no pointers to guard.",
+      "npe_file": "src/lxc/log.c",
+      "npe_line": 106,
+      "original_pointer": "null"
+    }
+  }
+]

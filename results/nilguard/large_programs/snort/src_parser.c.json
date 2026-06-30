@@ -1,0 +1,380 @@
+[
+  {
+    "procedure_name": "ParseVar",
+    "procedure_id": "ParseVar{bfbbcdf73459e9ea8fb4afa8455ce74d}",
+    "source_file": "src/parser.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 4,
+      "end_node": 3,
+      "start_line": 9692,
+      "end_line": 9693,
+      "guard_with_pointer": "toks",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 3,
+        "nodes_in_scope": 2,
+        "true_slice_size": 6,
+        "initial_candidate_plans": 4,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "ParseVar",
+    "procedure_id": "ParseVar{bfbbcdf73459e9ea8fb4afa8455ce74d}",
+    "source_file": "src/parser.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 19,
+      "end_node": 19,
+      "start_line": 9684,
+      "end_line": 9684,
+      "guard_with_pointer": "toks",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 3,
+        "nodes_in_scope": 1,
+        "true_slice_size": 6,
+        "initial_candidate_plans": 4,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "ParseVar",
+    "procedure_id": "ParseVar{bfbbcdf73459e9ea8fb4afa8455ce74d}",
+    "source_file": "src/parser.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 25,
+      "end_node": 25,
+      "start_line": 9670,
+      "end_line": 9670,
+      "guard_with_pointer": "toks",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 3,
+        "nodes_in_scope": 1,
+        "true_slice_size": 6,
+        "initial_candidate_plans": 4,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "ParsePortVar",
+    "procedure_id": "ParsePortVar{bfbbcdf73459e9ea8fb4afa8455ce74d}",
+    "source_file": "src/parser.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 4,
+      "end_node": 3,
+      "start_line": 9586,
+      "end_line": 9588,
+      "guard_with_pointer": "toks",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 3,
+        "nodes_in_scope": 2,
+        "true_slice_size": 6,
+        "initial_candidate_plans": 4,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "ParsePortVar",
+    "procedure_id": "ParsePortVar{bfbbcdf73459e9ea8fb4afa8455ce74d}",
+    "source_file": "src/parser.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 19,
+      "end_node": 19,
+      "start_line": 9578,
+      "end_line": 9578,
+      "guard_with_pointer": "toks",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 3,
+        "nodes_in_scope": 1,
+        "true_slice_size": 6,
+        "initial_candidate_plans": 4,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "ParsePortVar",
+    "procedure_id": "ParsePortVar{bfbbcdf73459e9ea8fb4afa8455ce74d}",
+    "source_file": "src/parser.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 25,
+      "end_node": 25,
+      "start_line": 9564,
+      "end_line": 9564,
+      "guard_with_pointer": "toks",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 3,
+        "nodes_in_scope": 1,
+        "true_slice_size": 6,
+        "initial_candidate_plans": 4,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "ParseConfig",
+    "procedure_id": "ParseConfig{bfbbcdf73459e9ea8fb4afa8455ce74d}",
+    "source_file": "src/parser.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 3,
+      "end_node": 3,
+      "start_line": 4630,
+      "end_line": 4630,
+      "guard_with_pointer": "toks",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 4,
+        "nodes_in_scope": 1,
+        "true_slice_size": 9,
+        "initial_candidate_plans": 4,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "ParseConfig",
+    "procedure_id": "ParseConfig{bfbbcdf73459e9ea8fb4afa8455ce74d}",
+    "source_file": "src/parser.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 8,
+      "end_node": 8,
+      "start_line": 4627,
+      "end_line": 4627,
+      "guard_with_pointer": "toks",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 4,
+        "nodes_in_scope": 1,
+        "true_slice_size": 9,
+        "initial_candidate_plans": 4,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "ParseConfig",
+    "procedure_id": "ParseConfig{bfbbcdf73459e9ea8fb4afa8455ce74d}",
+    "source_file": "src/parser.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 27,
+      "end_node": 27,
+      "start_line": 4615,
+      "end_line": 4615,
+      "guard_with_pointer": "toks",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 4,
+        "nodes_in_scope": 1,
+        "true_slice_size": 9,
+        "initial_candidate_plans": 4,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "ParseConfig",
+    "procedure_id": "ParseConfig{bfbbcdf73459e9ea8fb4afa8455ce74d}",
+    "source_file": "src/parser.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 33,
+      "end_node": 33,
+      "start_line": 4608,
+      "end_line": 4608,
+      "guard_with_pointer": "toks",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 4,
+        "nodes_in_scope": 1,
+        "true_slice_size": 9,
+        "initial_candidate_plans": 4,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "ConfigReference",
+    "procedure_id": "ConfigReference",
+    "source_file": "src/parser.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 4,
+      "end_node": 3,
+      "start_line": 8771,
+      "end_line": 8773,
+      "guard_with_pointer": "toks",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 1,
+        "nodes_in_scope": 2,
+        "true_slice_size": 4,
+        "initial_candidate_plans": 2,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "ParseIpVar",
+    "procedure_id": "ParseIpVar{bfbbcdf73459e9ea8fb4afa8455ce74d}",
+    "source_file": "src/parser.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 24,
+      "end_node": 4,
+      "start_line": 9629,
+      "end_line": 9626,
+      "guard_with_pointer": "toks",
+      "metrics": {
+        "cost_l_imprecision": 9,
+        "cost_g_overhead_final": 6,
+        "nodes_in_scope": 14,
+        "true_slice_size": 13,
+        "initial_candidate_plans": 10,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "ParseIpVar",
+    "procedure_id": "ParseIpVar{bfbbcdf73459e9ea8fb4afa8455ce74d}",
+    "source_file": "src/parser.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 14,
+      "end_node": 14,
+      "start_line": 9630,
+      "end_line": 9630,
+      "guard_with_pointer": "toks",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 6,
+        "nodes_in_scope": 1,
+        "true_slice_size": 13,
+        "initial_candidate_plans": 10,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "ParseIpVar",
+    "procedure_id": "ParseIpVar{bfbbcdf73459e9ea8fb4afa8455ce74d}",
+    "source_file": "src/parser.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 25,
+      "end_node": 25,
+      "start_line": 9624,
+      "end_line": 9624,
+      "guard_with_pointer": "toks",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 6,
+        "nodes_in_scope": 1,
+        "true_slice_size": 13,
+        "initial_candidate_plans": 10,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "ParseIpVar",
+    "procedure_id": "ParseIpVar{bfbbcdf73459e9ea8fb4afa8455ce74d}",
+    "source_file": "src/parser.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 40,
+      "end_node": 40,
+      "start_line": 9616,
+      "end_line": 9616,
+      "guard_with_pointer": "toks",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 6,
+        "nodes_in_scope": 1,
+        "true_slice_size": 13,
+        "initial_candidate_plans": 10,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "ParseIpVar",
+    "procedure_id": "ParseIpVar{bfbbcdf73459e9ea8fb4afa8455ce74d}",
+    "source_file": "src/parser.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 46,
+      "end_node": 46,
+      "start_line": 9602,
+      "end_line": 9602,
+      "guard_with_pointer": "toks",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 6,
+        "nodes_in_scope": 1,
+        "true_slice_size": 13,
+        "initial_candidate_plans": 10,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "ParseIpVar",
+    "procedure_id": "ParseIpVar{bfbbcdf73459e9ea8fb4afa8455ce74d}",
+    "source_file": "src/parser.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 3,
+      "end_node": 3,
+      "start_line": 9657,
+      "end_line": 9657,
+      "guard_with_pointer": "toks",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 6,
+        "nodes_in_scope": 1,
+        "true_slice_size": 13,
+        "initial_candidate_plans": 10,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "ParsePreprocessor",
+    "procedure_id": "ParsePreprocessor{bfbbcdf73459e9ea8fb4afa8455ce74d}",
+    "source_file": "src/parser.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 3,
+      "end_node": 3,
+      "start_line": 2100,
+      "end_line": 2100,
+      "guard_with_pointer": "toks",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 1,
+        "nodes_in_scope": 1,
+        "true_slice_size": 4,
+        "initial_candidate_plans": 1,
+        "total_aliases": 1
+      }
+    }
+  }
+]

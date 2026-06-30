@@ -1,0 +1,26 @@
+[
+  {
+    "procedure_name": "hashSearchFixed",
+    "procedure_id": "hashSearchFixed",
+    "source_file": "src/hashstring.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "No valid plans remained after filtering",
+      "npe_file": "src/hashstring.c",
+      "npe_line": 132,
+      "original_pointer": "digest"
+    }
+  },
+  {
+    "procedure_name": "hashSearchFixed",
+    "procedure_id": "hashSearchFixed",
+    "source_file": "src/hashstring.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "No valid plans remained after filtering",
+      "npe_file": "src/hashstring.c",
+      "npe_line": 126,
+      "original_pointer": "digest"
+    }
+  }
+]

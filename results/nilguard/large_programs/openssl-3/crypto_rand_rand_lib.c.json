@@ -1,0 +1,50 @@
+[
+  {
+    "procedure_name": "rand_new_seed",
+    "procedure_id": "rand_new_seed{baca3d0b945f277b98ef9b654387b6bf}",
+    "source_file": "crypto/rand/rand_lib.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "All potential crash sites were found to be already syntactically guarded.",
+      "npe_file": "crypto/rand/rand_lib.c",
+      "npe_line": 528,
+      "original_pointer": "dgbl"
+    }
+  },
+  {
+    "procedure_name": "rand_new_drbg",
+    "procedure_id": "rand_new_drbg{baca3d0b945f277b98ef9b654387b6bf}",
+    "source_file": "crypto/rand/rand_lib.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "All potential crash sites were found to be already syntactically guarded.",
+      "npe_file": "crypto/rand/rand_lib.c",
+      "npe_line": 558,
+      "original_pointer": "dgbl"
+    }
+  },
+  {
+    "procedure_name": "rand_new_seed",
+    "procedure_id": "rand_new_seed{baca3d0b945f277b98ef9b654387b6bf}",
+    "source_file": "crypto/rand/rand_lib.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "No valid plans remained after filtering",
+      "npe_file": "crypto/rand/rand_lib.c",
+      "npe_line": 528,
+      "original_pointer": "dgbl"
+    }
+  },
+  {
+    "procedure_name": "rand_new_drbg",
+    "procedure_id": "rand_new_drbg{baca3d0b945f277b98ef9b654387b6bf}",
+    "source_file": "crypto/rand/rand_lib.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "No valid plans remained after filtering",
+      "npe_file": "crypto/rand/rand_lib.c",
+      "npe_line": 558,
+      "original_pointer": "dgbl"
+    }
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "procedure_name": "test_keygen_with_empty_template",
+    "procedure_id": "test_keygen_with_empty_template{9299755b63953e1ce3561e8d6f29a334}",
+    "source_file": "test/evp_extra_test.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "All potential crash sites were found to be already syntactically guarded.",
+      "npe_file": "test/evp_extra_test.c",
+      "npe_line": 2367,
+      "original_pointer": "ctx"
+    }
+  },
+  {
+    "procedure_name": "test_keygen_with_empty_template",
+    "procedure_id": "test_keygen_with_empty_template{9299755b63953e1ce3561e8d6f29a334}",
+    "source_file": "test/evp_extra_test.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "No valid plans remained after filtering",
+      "npe_file": "test/evp_extra_test.c",
+      "npe_line": 2367,
+      "original_pointer": "ctx"
+    }
+  }
+]

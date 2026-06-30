@@ -1,0 +1,343 @@
+
+In /home/snort/src/output-plugins/spo_alert_sf_socket.c:
+
+~~~~~~~~~ In function: String2ULong ~~~~~~~~~
+Future-condition checking for 'strtoul @486': Failed!
+
+<======[Bidirectional Bug Localization & Possible Proof Repairs]======>
+
+[Repair Options]
+.ret=0 /\ endptr=0 /\ deref(endptr)@487 ~~~> (!_(endptr))^*;
+[Patches]
+ @ line 487 can be inserted with code: if (endptr==0){ return; }
+
+
+In /home/snort/src/detection-plugins/sp_rpc_check.c:
+
+~~~~~~~~~ In function: ParseRpc ~~~~~~~~~
+Future-condition checking for 'strtoul @236': Failed!
+
+<======[Bidirectional Bug Localization & Possible Proof Repairs]======>
+
+[Repair Options]
+true /\ tmp=0 /\ deref(tmp)@244 ~~~> (!_(tmp))^*;
+[Patches]
+ @ line 244 can be inserted with code: if (tmp==0){ return; }
+
+
+~~~~~~~~~ In function: ParseRpc ~~~~~~~~~
+Future-condition checking for 'strtoul @222': Failed!
+
+<======[Bidirectional Bug Localization & Possible Proof Repairs]======>
+
+[Repair Options]
+true /\ tmp=0 /\ deref(tmp)@231 · deref(data)@234 · deref(tmp)@244 ~~~> (!_(tmp))^*;
+[Patches]
+ @ line 231 can be inserted with code: if (tmp==0){ return; }
+
+
+In /home/snort/src/preprocessors/Session/session_common.c:
+
+~~~~~~~~~ In function: registerDirectionPortCallback ~~~~~~~~~
+Future-condition checking for 'getSessionPlugins @109': Failed!
+
+<======[Bidirectional Bug Localization & Possible Proof Repairs]======>
+
+[Repair Options]
+true /\ pfunks=0 /\ deref(pfunks)@114 ~~~> (!_(pfunks))^*;
+[Patches]
+ @ line 114 can be inserted with code: if (pfunks==0){ return; }
+
+
+~~~~~~~~~ In function: registerFlushStreamCallback ~~~~~~~~~
+Future-condition checking for 'getSessionPlugins @121': Failed!
+
+<======[Bidirectional Bug Localization & Possible Proof Repairs]======>
+
+[Repair Options]
+true /\ pfunks=0 /\ deref(pfunks)@126 ~~~> (!_(pfunks))^*;
+[Patches]
+ @ line 126 can be inserted with code: if (pfunks==0){ return; }
+
+
+In /home/snort/src/preprocessors/spp_frag3.c:
+
+~~~~~~~~~ In function: Frag3ParseGlobalArgs ~~~~~~~~~
+Future-condition checking for 'strtoul @1549': Failed!
+
+<======[Bidirectional Bug Localization & Possible Proof Repairs]======>
+
+[Repair Options]
+!(((stoks.1=0 \/ stoks.1=char) \/ value>50000)) /\ endPtr=0 /\ deref(endPtr)@1552 ~~~> (!_(endPtr))^*;
+[Patches]
+ @ line 1552 can be inserted with code: if (!(((stoks.1==0 \/ stoks.1==char) \/ value>50000)) /\ endPtr==0){ return; }
+
+
+In /home/snort/src/preprocessors/spp_session.c:
+
+~~~~~~~~~ In function: registerNapSelector ~~~~~~~~~
+Future-condition checking for 'getSessionPlugins @3833': Failed!
+
+<======[Bidirectional Bug Localization & Possible Proof Repairs]======>
+
+[Repair Options]
+true /\ pfunks=0 /\ deref(pfunks)@3836 ~~~> (!_(pfunks))^*;
+[Patches]
+ @ line 3836 can be inserted with code: if (pfunks==0){ return; }
+
+
+In /home/snort/src/dynamic-preprocessors/ftptelnet/pp_ftp.c:
+
+~~~~~~~~~ In function: getIP1639 ~~~~~~~~~
+Future-condition checking for 'strtoul @197': Failed!
+
+<======[Bidirectional Bug Localization & Possible Proof Repairs]======>
+
+[Repair Options]
+!(((val>255 \/ endPtr=tok) \/ (endPtr!=char))) /\ .ret=0 /\ endPtr=0 /\ deref(endPtr)@201 ~~~> (!_(endPtr))^*;
+[Patches]
+ @ line 201 can be inserted with code: if (!(((val>255 \/ endPtr==tok) \/ (endPtr!=char))) /\ endPtr==0){ return; }
+
+
+In /home/snort/src/dynamic-preprocessors/ftptelnet/pp_ftp.c:
+
+~~~~~~~~~ In function: getIP1639 ~~~~~~~~~
+Future-condition checking for 'strtoul @197': Failed!
+
+<======[Bidirectional Bug Localization & Possible Proof Repairs]======>
+
+[Repair Options]
+!(((val>255 \/ endPtr=tok) \/ (endPtr!=char))) /\ .ret=0 /\ endPtr=0 /\ deref(endPtr)@201 ~~~> (!_(endPtr))^*;
+[Patches]
+ @ line 201 can be inserted with code: if (!(((val>255 \/ endPtr==tok) \/ (endPtr!=char))) /\ endPtr==0){ return; }
+
+
+In /home/snort/src/dynamic-preprocessors/pop/spp_pop.c:
+
+~~~~~~~~~ In function: POPReloadSwap ~~~~~~~~~
+Future-condition checking for 'sfPolicyUserDataGet @840': Failed!
+
+<======[Bidirectional Bug Localization & Possible Proof Repairs]======>
+
+[Repair Options]
+(configNew!=0) /\ configOld=0 /\ deref(configOld)@859 ~~~> (!_(configOld))^*;
+[Patches]
+ @ line 859 can be inserted with code: if ((configNew!=0) /\ configOld==0){ return; }
+
+
+In /home/snort/src/dynamic-preprocessors/pop/spp_pop.c:
+
+~~~~~~~~~ In function: POPReloadSwap ~~~~~~~~~
+Future-condition checking for 'sfPolicyUserDataGet @840': Failed!
+
+<======[Bidirectional Bug Localization & Possible Proof Repairs]======>
+
+[Repair Options]
+(configNew!=0) /\ configOld=0 /\ deref(configOld)@859 ~~~> (!_(configOld))^*;
+[Patches]
+ @ line 859 can be inserted with code: if ((configNew!=0) /\ configOld==0){ return; }
+
+
+In /home/snort/src/dynamic-preprocessors/imap/spp_imap.c:
+
+~~~~~~~~~ In function: IMAPReloadSwap ~~~~~~~~~
+Future-condition checking for 'sfPolicyUserDataGet @849': Failed!
+
+<======[Bidirectional Bug Localization & Possible Proof Repairs]======>
+
+[Repair Options]
+(configNew!=0) /\ configOld=0 /\ deref(configOld)@868 ~~~> (!_(configOld))^*;
+[Patches]
+ @ line 868 can be inserted with code: if ((configNew!=0) /\ configOld==0){ return; }
+
+
+In /home/snort/src/dynamic-preprocessors/imap/spp_imap.c:
+
+~~~~~~~~~ In function: IMAPReloadSwap ~~~~~~~~~
+Future-condition checking for 'sfPolicyUserDataGet @849': Failed!
+
+<======[Bidirectional Bug Localization & Possible Proof Repairs]======>
+
+[Repair Options]
+(configNew!=0) /\ configOld=0 /\ deref(configOld)@868 ~~~> (!_(configOld))^*;
+[Patches]
+ @ line 868 can be inserted with code: if ((configNew!=0) /\ configOld==0){ return; }
+
+
+In /home/snort/src/dynamic-preprocessors/smtp/smtp_config.c:
+
+~~~~~~~~~ In function: ProcessLogDepth ~~~~~~~~~
+Future-condition checking for 'strtoul @1057': Failed!
+
+<======[Bidirectional Bug Localization & Possible Proof Repairs]======>
+
+[Repair Options]
+!((log_depth!=0)) /\ !(log_depth>20480) /\ !((log_depth!=0)) /\ .ret=0 /\ endptr=0 /\ deref(endptr)@1059 ~~~> (!_(endptr))^*;
+[Patches]
+ @ line 1059 can be inserted with code: if (!((log_depth!=0)) /\ !(log_depth>20480) /\ !((log_depth!=0)) /\ endptr==0){ return; }
+
+
+In /home/snort/src/dynamic-preprocessors/smtp/smtp_config.c:
+
+~~~~~~~~~ In function: ProcessLogDepth ~~~~~~~~~
+Future-condition checking for 'strtoul @1057': Failed!
+
+<======[Bidirectional Bug Localization & Possible Proof Repairs]======>
+
+[Repair Options]
+!((log_depth!=0)) /\ !(log_depth>20480) /\ !((log_depth!=0)) /\ .ret=0 /\ endptr=0 /\ deref(endptr)@1059 ~~~> (!_(endptr))^*;
+[Patches]
+ @ line 1059 can be inserted with code: if (!((log_depth!=0)) /\ !(log_depth>20480) /\ !((log_depth!=0)) /\ endptr==0){ return; }
+
+
+In /home/snort/src/dynamic-preprocessors/smtp/spp_smtp.c:
+
+~~~~~~~~~ In function: SMTPReloadSwap ~~~~~~~~~
+Future-condition checking for 'sfPolicyUserDataGet @866': Failed!
+
+<======[Bidirectional Bug Localization & Possible Proof Repairs]======>
+
+[Repair Options]
+(configNew!=0) /\ configOld=0 /\ deref(configOld)@885 ~~~> (!_(configOld))^*;
+[Patches]
+ @ line 885 can be inserted with code: if ((configNew!=0) /\ configOld==0){ return; }
+
+
+In /home/snort/src/dynamic-preprocessors/smtp/spp_smtp.c:
+
+~~~~~~~~~ In function: SMTPReloadSwap ~~~~~~~~~
+Future-condition checking for 'sfPolicyUserDataGet @866': Failed!
+
+<======[Bidirectional Bug Localization & Possible Proof Repairs]======>
+
+[Repair Options]
+(configNew!=0) /\ configOld=0 /\ deref(configOld)@885 ~~~> (!_(configOld))^*;
+[Patches]
+ @ line 885 can be inserted with code: if ((configNew!=0) /\ configOld==0){ return; }
+
+
+In /home/snort/src/dynamic-preprocessors/ssh/spp_ssh.c:
+
+~~~~~~~~~ In function: ProcessSSH ~~~~~~~~~
+Future-condition checking for 'sfPolicyUserDataGet @611': Failed!
+
+<======[Bidirectional Bug Localization & Possible Proof Repairs]======>
+
+[Repair Options]
+true /\ ssh_eval_config=0 /\ deref(ssh_eval_config)@801 ~~~> (!_(ssh_eval_config))^*;
+[Patches]
+ @ line 801 can be inserted with code: if (ssh_eval_config==0){ return; }
+
+
+In /home/snort/src/dynamic-preprocessors/ssh/spp_ssh.c:
+
+~~~~~~~~~ In function: ProcessSSH ~~~~~~~~~
+Future-condition checking for 'sfPolicyUserDataGet @611': Failed!
+
+<======[Bidirectional Bug Localization & Possible Proof Repairs]======>
+
+[Repair Options]
+true /\ ssh_eval_config=0 /\ deref(ssh_eval_config)@801 ~~~> (!_(ssh_eval_config))^*;
+[Patches]
+ @ line 801 can be inserted with code: if (ssh_eval_config==0){ return; }
+
+
+In /home/snort/src/dynamic-preprocessors/sdf/sdf_us_ssn.c:
+
+~~~~~~~~~ In function: ParseSSNGroups ~~~~~~~~~
+Future-condition checking for 'malloc @195': Failed!
+
+<======[Bidirectional Bug Localization & Possible Proof Repairs]======>
+
+[Repair Options]
+contents=0 /\ free(contents)@202 · RET()@203 ~~~> (!_(contents))^*;
+[Patches]
+ @ line 201 can be inserted with code: if (contents==0){ return; }
+
+
+In /home/snort/src/dynamic-preprocessors/sdf/sdf_us_ssn.c:
+
+~~~~~~~~~ In function: ParseSSNGroups ~~~~~~~~~
+Future-condition checking for 'malloc @195': Failed!
+
+<======[Bidirectional Bug Localization & Possible Proof Repairs]======>
+
+[Repair Options]
+contents=0 /\ free(contents)@202 · RET()@203 ~~~> (!_(contents))^*;
+[Patches]
+ @ line 201 can be inserted with code: if (contents==0){ return; }
+
+
+In /home/snort/src/dynamic-preprocessors/sip/spp_sip.c:
+
+~~~~~~~~~ In function: SIPReloadVerify ~~~~~~~~~
+Future-condition checking for 'sfPolicyUserDataGet @977': Failed!
+
+<======[Bidirectional Bug Localization & Possible Proof Repairs]======>
+
+[Repair Options]
+(current_default_config!=0) /\ .ret=0 /\ default_swap_config=0 /\ deref(default_swap_config)@991 ~~~> (!_(default_swap_config))^*;
+[Patches]
+ @ line 991 can be inserted with code: if ((current_default_config!=0) /\ default_swap_config==0){ return; }
+
+
+In /home/snort/src/dynamic-preprocessors/sip/spp_sip.c:
+
+~~~~~~~~~ In function: SIPReloadVerify ~~~~~~~~~
+Future-condition checking for 'sfPolicyUserDataGet @977': Failed!
+
+<======[Bidirectional Bug Localization & Possible Proof Repairs]======>
+
+[Repair Options]
+(current_default_config!=0) /\ .ret=0 /\ default_swap_config=0 /\ deref(default_swap_config)@991 ~~~> (!_(default_swap_config))^*;
+[Patches]
+ @ line 991 can be inserted with code: if ((current_default_config!=0) /\ default_swap_config==0){ return; }
+
+
+In /home/snort/src/parser.c:
+
+~~~~~~~~~ In function: ConfigMaxAttributeHosts ~~~~~~~~~
+Future-condition checking for 'strtoul @7688': Failed!
+
+<======[Bidirectional Bug Localization & Possible Proof Repairs]======>
+
+[Repair Options]
+!((args=endp \/ val=0)) /\ !(val<32) /\ endp=0 /\ deref(endp)@7689 ~~~> (!_(endp))^*;
+[Patches]
+ @ line 7689 can be inserted with code: if (!((args==endp \/ val==0)) /\ !(val<32) /\ endp==0){ return; }
+
+
+~~~~~~~~~ In function: ConfigMaxAttributeServicesPerHost ~~~~~~~~~
+Future-condition checking for 'strtoul @7712': Failed!
+
+<======[Bidirectional Bug Localization & Possible Proof Repairs]======>
+
+[Repair Options]
+!((args=endp \/ val=0)) /\ !((val>65535 \/ val<1)) /\ endp=0 /\ deref(endp)@7713 ~~~> (!_(endp))^*;
+[Patches]
+ @ line 7713 can be inserted with code: if (!((args==endp \/ val==0)) /\ !((val>65535 \/ val<1)) /\ endp==0){ return; }
+
+
+~~~~~~~~~ In function: ConfigMaxMetadataServices ~~~~~~~~~
+Future-condition checking for 'strtoul @7736': Failed!
+
+<======[Bidirectional Bug Localization & Possible Proof Repairs]======>
+
+[Repair Options]
+!((args=endp \/ val=0)) /\ !((val>256 \/ val<1)) /\ endp=0 /\ deref(endp)@7737 ~~~> (!_(endp))^*;
+[Patches]
+ @ line 7737 can be inserted with code: if (!((args==endp \/ val==0)) /\ !((val>256 \/ val<1)) /\ endp==0){ return; }
+
+
+In /home/snort/src/util.c:
+
+~~~~~~~~~ In function: GoDaemon ~~~~~~~~~
+Future-condition checking for 'open @1622': Failed! because there is no handler ! 
+
+<======[Bidirectional Bug Localization & Possible Proof Repairs]======>
+
+[Repair Options]
+r19>0 /\ (r19!=stdout) /\ (r19!=stdin) /\ emp ~~~> (!close(r19))^* · close(r19) · (_)^*;
+[Patches]
+@ line 1623 can be inserted with code: int r19 = open(char,2); if (r19>0 /\ (r19!=stdout) /\ (r19!=stdin)){close(r19); }
+

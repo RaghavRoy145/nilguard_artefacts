@@ -1,0 +1,14 @@
+[
+  {
+    "procedure_name": "GTP_ParsePortList",
+    "procedure_id": "GTP_ParsePortList{2dc044ef003eddfa54fd5e4ffee9e5eb}",
+    "source_file": "src/dynamic-preprocessors/gtp/gtp_config.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "No valid plans remained after filtering",
+      "npe_file": "src/dynamic-preprocessors/gtp/gtp_config.c",
+      "npe_line": 794,
+      "original_pointer": "endStr"
+    }
+  }
+]

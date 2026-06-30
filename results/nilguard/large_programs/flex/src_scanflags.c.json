@@ -1,0 +1,26 @@
+[
+  {
+    "procedure_name": "sf_init",
+    "procedure_id": "sf_init",
+    "source_file": "src/scanflags.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "Alias analysis found no pointers to guard.",
+      "npe_file": "src/scanflags.c",
+      "npe_line": 65,
+      "original_pointer": "_sf_stk"
+    }
+  },
+  {
+    "procedure_name": "sf_push",
+    "procedure_id": "sf_push",
+    "source_file": "src/scanflags.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "Alias analysis found no pointers to guard.",
+      "npe_file": "src/scanflags.c",
+      "npe_line": 44,
+      "original_pointer": "_sf_stk"
+    }
+  }
+]

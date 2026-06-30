@@ -1,0 +1,26 @@
+[
+  {
+    "procedure_name": "ls_field_width",
+    "procedure_id": "ls_field_width{8ae143f9ab943849c62587ce9957e3aa}",
+    "source_file": "src/lxc/tools/lxc_ls.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "No valid plans remained after filtering",
+      "npe_file": "src/lxc/tools/lxc_ls.c",
+      "npe_line": 1270,
+      "original_pointer": "i"
+    }
+  },
+  {
+    "procedure_name": "ls_field_width",
+    "procedure_id": "ls_field_width{8ae143f9ab943849c62587ce9957e3aa}",
+    "source_file": "src/lxc/tools/lxc_ls.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "Alias analysis found no pointers to guard.",
+      "npe_file": "src/lxc/tools/lxc_ls.c",
+      "npe_line": 1270,
+      "original_pointer": "i"
+    }
+  }
+]

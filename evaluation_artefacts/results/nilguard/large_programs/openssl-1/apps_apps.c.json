@@ -1,0 +1,110 @@
+[
+  {
+    "procedure_name": "rotate_index",
+    "procedure_id": "rotate_index",
+    "source_file": "apps/apps.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "Alias analysis found no pointers to guard.",
+      "npe_file": "apps/apps.c",
+      "npe_line": 1981,
+      "original_pointer": "sbuffer"
+    }
+  },
+  {
+    "procedure_name": "rotate_index",
+    "procedure_id": "rotate_index",
+    "source_file": "apps/apps.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "Alias analysis found no pointers to guard.",
+      "npe_file": "apps/apps.c",
+      "npe_line": 1986,
+      "original_pointer": "sbuffer"
+    }
+  },
+  {
+    "procedure_name": "rotate_index",
+    "procedure_id": "rotate_index",
+    "source_file": "apps/apps.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "Alias analysis found no pointers to guard.",
+      "npe_file": "apps/apps.c",
+      "npe_line": 1993,
+      "original_pointer": "sbuffer"
+    }
+  },
+  {
+    "procedure_name": "rotate_index",
+    "procedure_id": "rotate_index",
+    "source_file": "apps/apps.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "Alias analysis found no pointers to guard.",
+      "npe_file": "apps/apps.c",
+      "npe_line": 2000,
+      "original_pointer": "sbuffer"
+    }
+  },
+  {
+    "procedure_name": "rotate_index",
+    "procedure_id": "rotate_index",
+    "source_file": "apps/apps.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "Alias analysis found no pointers to guard.",
+      "npe_file": "apps/apps.c",
+      "npe_line": 2007,
+      "original_pointer": "sbuffer"
+    }
+  },
+  {
+    "procedure_name": "save_serial",
+    "procedure_id": "save_serial",
+    "source_file": "apps/apps.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "Alias analysis found no pointers to guard.",
+      "npe_file": "apps/apps.c",
+      "npe_line": 1669,
+      "original_pointer": "sbuffer"
+    }
+  },
+  {
+    "procedure_name": "make_config_name",
+    "procedure_id": "make_config_name",
+    "source_file": "apps/apps.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "No valid plans remained after filtering",
+      "npe_file": "apps/apps.c",
+      "npe_line": 1544,
+      "original_pointer": "p"
+    }
+  },
+  {
+    "procedure_name": "rotate_serial",
+    "procedure_id": "rotate_serial",
+    "source_file": "apps/apps.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "Alias analysis found no pointers to guard.",
+      "npe_file": "apps/apps.c",
+      "npe_line": 1723,
+      "original_pointer": "sbuffer"
+    }
+  },
+  {
+    "procedure_name": "rotate_serial",
+    "procedure_id": "rotate_serial",
+    "source_file": "apps/apps.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "Alias analysis found no pointers to guard.",
+      "npe_file": "apps/apps.c",
+      "npe_line": 1730,
+      "original_pointer": "sbuffer"
+    }
+  }
+]

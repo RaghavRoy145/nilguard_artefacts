@@ -1,0 +1,14 @@
+[
+  {
+    "procedure_name": "asn1_collate_primitive",
+    "procedure_id": "asn1_collate_primitive{dc6a64d7fea97bb0393f32c3a746a655}",
+    "source_file": "crypto/asn1/a_bytes.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "Alias analysis found no pointers to guard.",
+      "npe_file": "crypto/asn1/a_bytes.c",
+      "npe_line": 260,
+      "original_pointer": "b"
+    }
+  }
+]

@@ -1,0 +1,35 @@
+[
+  {
+    "procedure_name": "GTPInit",
+    "procedure_id": "GTPInit{6c2b61c7d10e0052fa900aee89f5aea3}",
+    "source_file": "src/dynamic-preprocessors/gtp/spp_gtp.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "Alias analysis found no pointers to guard.",
+      "npe_file": "src/dynamic-preprocessors/gtp/spp_gtp.c",
+      "npe_line": 175,
+      "original_pointer": "gtp_config"
+    }
+  },
+  {
+    "procedure_name": "GTPReload",
+    "procedure_id": "GTPReload{6c2b61c7d10e0052fa900aee89f5aea3}",
+    "source_file": "src/dynamic-preprocessors/gtp/spp_gtp.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 27,
+      "end_node": 27,
+      "start_line": 707,
+      "end_line": 707,
+      "guard_with_pointer": "gtp_swap_config",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 1,
+        "nodes_in_scope": 1,
+        "true_slice_size": 1,
+        "initial_candidate_plans": 1,
+        "total_aliases": 1
+      }
+    }
+  }
+]

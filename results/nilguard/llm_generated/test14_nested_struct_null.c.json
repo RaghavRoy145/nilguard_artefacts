@@ -1,0 +1,14 @@
+[
+  {
+    "procedure_name": "main",
+    "procedure_id": "main",
+    "source_file": "test14_nested_struct_null.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "Alias analysis found no pointers to guard.",
+      "npe_file": "test14_nested_struct_null.c",
+      "npe_line": 15,
+      "original_pointer": "acc"
+    }
+  }
+]

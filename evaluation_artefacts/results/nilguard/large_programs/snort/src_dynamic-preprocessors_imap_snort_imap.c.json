@@ -1,0 +1,86 @@
+[
+  {
+    "procedure_name": "IMAP_InitCmds",
+    "procedure_id": "IMAP_InitCmds",
+    "source_file": "src/dynamic-preprocessors/imap/snort_imap.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 23,
+      "end_node": 21,
+      "start_line": 231,
+      "end_line": 233,
+      "guard_with_pointer": "config",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 4,
+        "nodes_in_scope": 3,
+        "true_slice_size": 10,
+        "initial_candidate_plans": 6,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "IMAP_InitCmds",
+    "procedure_id": "IMAP_InitCmds",
+    "source_file": "src/dynamic-preprocessors/imap/snort_imap.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 29,
+      "end_node": 29,
+      "start_line": 221,
+      "end_line": 221,
+      "guard_with_pointer": "config",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 4,
+        "nodes_in_scope": 1,
+        "true_slice_size": 10,
+        "initial_candidate_plans": 6,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "IMAP_InitCmds",
+    "procedure_id": "IMAP_InitCmds",
+    "source_file": "src/dynamic-preprocessors/imap/snort_imap.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 9,
+      "end_node": 9,
+      "start_line": 244,
+      "end_line": 244,
+      "guard_with_pointer": "config",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 4,
+        "nodes_in_scope": 1,
+        "true_slice_size": 10,
+        "initial_candidate_plans": 6,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "IMAP_InitCmds",
+    "procedure_id": "IMAP_InitCmds",
+    "source_file": "src/dynamic-preprocessors/imap/snort_imap.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 3,
+      "end_node": 3,
+      "start_line": 252,
+      "end_line": 252,
+      "guard_with_pointer": "config",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 4,
+        "nodes_in_scope": 1,
+        "true_slice_size": 10,
+        "initial_candidate_plans": 6,
+        "total_aliases": 1
+      }
+    }
+  }
+]

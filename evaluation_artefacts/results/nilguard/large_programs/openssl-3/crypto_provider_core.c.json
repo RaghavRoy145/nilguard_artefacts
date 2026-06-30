@@ -1,0 +1,170 @@
+[
+  {
+    "procedure_name": "provider_init",
+    "procedure_id": "provider_init{fdc1f2425db7cf1a3fc1d85e6c44942f}",
+    "source_file": "crypto/provider_core.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 51,
+      "end_node": 51,
+      "start_line": 694,
+      "end_line": 694,
+      "guard_with_pointer": "provider_dispatch",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 8,
+        "nodes_in_scope": 1,
+        "true_slice_size": 14,
+        "initial_candidate_plans": 8,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "provider_init",
+    "procedure_id": "provider_init{fdc1f2425db7cf1a3fc1d85e6c44942f}",
+    "source_file": "crypto/provider_core.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 52,
+      "end_node": 52,
+      "start_line": 690,
+      "end_line": 690,
+      "guard_with_pointer": "provider_dispatch",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 8,
+        "nodes_in_scope": 1,
+        "true_slice_size": 14,
+        "initial_candidate_plans": 8,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "provider_init",
+    "procedure_id": "provider_init{fdc1f2425db7cf1a3fc1d85e6c44942f}",
+    "source_file": "crypto/provider_core.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 53,
+      "end_node": 53,
+      "start_line": 686,
+      "end_line": 686,
+      "guard_with_pointer": "provider_dispatch",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 8,
+        "nodes_in_scope": 1,
+        "true_slice_size": 14,
+        "initial_candidate_plans": 8,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "provider_init",
+    "procedure_id": "provider_init{fdc1f2425db7cf1a3fc1d85e6c44942f}",
+    "source_file": "crypto/provider_core.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 54,
+      "end_node": 54,
+      "start_line": 682,
+      "end_line": 682,
+      "guard_with_pointer": "provider_dispatch",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 8,
+        "nodes_in_scope": 1,
+        "true_slice_size": 14,
+        "initial_candidate_plans": 8,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "provider_init",
+    "procedure_id": "provider_init{fdc1f2425db7cf1a3fc1d85e6c44942f}",
+    "source_file": "crypto/provider_core.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 55,
+      "end_node": 55,
+      "start_line": 678,
+      "end_line": 678,
+      "guard_with_pointer": "provider_dispatch",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 8,
+        "nodes_in_scope": 1,
+        "true_slice_size": 14,
+        "initial_candidate_plans": 8,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "provider_init",
+    "procedure_id": "provider_init{fdc1f2425db7cf1a3fc1d85e6c44942f}",
+    "source_file": "crypto/provider_core.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 56,
+      "end_node": 56,
+      "start_line": 674,
+      "end_line": 674,
+      "guard_with_pointer": "provider_dispatch",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 8,
+        "nodes_in_scope": 1,
+        "true_slice_size": 14,
+        "initial_candidate_plans": 8,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "provider_init",
+    "procedure_id": "provider_init{fdc1f2425db7cf1a3fc1d85e6c44942f}",
+    "source_file": "crypto/provider_core.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 57,
+      "end_node": 57,
+      "start_line": 670,
+      "end_line": 670,
+      "guard_with_pointer": "provider_dispatch",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 8,
+        "nodes_in_scope": 1,
+        "true_slice_size": 14,
+        "initial_candidate_plans": 8,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "provider_init",
+    "procedure_id": "provider_init{fdc1f2425db7cf1a3fc1d85e6c44942f}",
+    "source_file": "crypto/provider_core.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 75,
+      "end_node": 75,
+      "start_line": 662,
+      "end_line": 662,
+      "guard_with_pointer": "provider_dispatch",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 8,
+        "nodes_in_scope": 1,
+        "true_slice_size": 14,
+        "initial_candidate_plans": 8,
+        "total_aliases": 1
+      }
+    }
+  }
+]

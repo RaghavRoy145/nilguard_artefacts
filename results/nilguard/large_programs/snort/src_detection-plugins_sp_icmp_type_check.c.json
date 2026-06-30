@@ -1,0 +1,233 @@
+[
+  {
+    "procedure_name": "ParseIcmpType",
+    "procedure_id": "ParseIcmpType",
+    "source_file": "src/detection-plugins/sp_icmp_type_check.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 30,
+      "end_node": 30,
+      "start_line": 231,
+      "end_line": 231,
+      "guard_with_pointer": "endptr",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 11,
+        "nodes_in_scope": 1,
+        "true_slice_size": 42,
+        "initial_candidate_plans": 11,
+        "total_aliases": 3
+      }
+    }
+  },
+  {
+    "procedure_name": "ParseIcmpType",
+    "procedure_id": "ParseIcmpType",
+    "source_file": "src/detection-plugins/sp_icmp_type_check.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 31,
+      "end_node": 31,
+      "start_line": 228,
+      "end_line": 228,
+      "guard_with_pointer": "endptr",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 11,
+        "nodes_in_scope": 1,
+        "true_slice_size": 42,
+        "initial_candidate_plans": 11,
+        "total_aliases": 3
+      }
+    }
+  },
+  {
+    "procedure_name": "ParseIcmpType",
+    "procedure_id": "ParseIcmpType",
+    "source_file": "src/detection-plugins/sp_icmp_type_check.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 48,
+      "end_node": 48,
+      "start_line": 217,
+      "end_line": 217,
+      "guard_with_pointer": "endptr",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 11,
+        "nodes_in_scope": 1,
+        "true_slice_size": 42,
+        "initial_candidate_plans": 11,
+        "total_aliases": 3
+      }
+    }
+  },
+  {
+    "procedure_name": "ParseIcmpType",
+    "procedure_id": "ParseIcmpType",
+    "source_file": "src/detection-plugins/sp_icmp_type_check.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 54,
+      "end_node": 54,
+      "start_line": 211,
+      "end_line": 211,
+      "guard_with_pointer": "endptr",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 11,
+        "nodes_in_scope": 1,
+        "true_slice_size": 42,
+        "initial_candidate_plans": 11,
+        "total_aliases": 3
+      }
+    }
+  },
+  {
+    "procedure_name": "ParseIcmpType",
+    "procedure_id": "ParseIcmpType",
+    "source_file": "src/detection-plugins/sp_icmp_type_check.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 67,
+      "end_node": 67,
+      "start_line": 247,
+      "end_line": 247,
+      "guard_with_pointer": "endptr",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 11,
+        "nodes_in_scope": 1,
+        "true_slice_size": 42,
+        "initial_candidate_plans": 11,
+        "total_aliases": 3
+      }
+    }
+  },
+  {
+    "procedure_name": "ParseIcmpType",
+    "procedure_id": "ParseIcmpType",
+    "source_file": "src/detection-plugins/sp_icmp_type_check.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 68,
+      "end_node": 68,
+      "start_line": 244,
+      "end_line": 244,
+      "guard_with_pointer": "endptr",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 11,
+        "nodes_in_scope": 1,
+        "true_slice_size": 42,
+        "initial_candidate_plans": 11,
+        "total_aliases": 3
+      }
+    }
+  },
+  {
+    "procedure_name": "ParseIcmpType",
+    "procedure_id": "ParseIcmpType",
+    "source_file": "src/detection-plugins/sp_icmp_type_check.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 87,
+      "end_node": 87,
+      "start_line": 263,
+      "end_line": 263,
+      "guard_with_pointer": "endptr",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 11,
+        "nodes_in_scope": 1,
+        "true_slice_size": 42,
+        "initial_candidate_plans": 11,
+        "total_aliases": 3
+      }
+    }
+  },
+  {
+    "procedure_name": "ParseIcmpType",
+    "procedure_id": "ParseIcmpType",
+    "source_file": "src/detection-plugins/sp_icmp_type_check.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 88,
+      "end_node": 88,
+      "start_line": 260,
+      "end_line": 260,
+      "guard_with_pointer": "endptr",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 11,
+        "nodes_in_scope": 1,
+        "true_slice_size": 42,
+        "initial_candidate_plans": 11,
+        "total_aliases": 3
+      }
+    }
+  },
+  {
+    "procedure_name": "ParseIcmpType",
+    "procedure_id": "ParseIcmpType",
+    "source_file": "src/detection-plugins/sp_icmp_type_check.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 100,
+      "end_node": 100,
+      "start_line": 275,
+      "end_line": 275,
+      "guard_with_pointer": "endptr",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 11,
+        "nodes_in_scope": 1,
+        "true_slice_size": 42,
+        "initial_candidate_plans": 11,
+        "total_aliases": 3
+      }
+    }
+  },
+  {
+    "procedure_name": "ParseIcmpType",
+    "procedure_id": "ParseIcmpType",
+    "source_file": "src/detection-plugins/sp_icmp_type_check.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 101,
+      "end_node": 101,
+      "start_line": 272,
+      "end_line": 272,
+      "guard_with_pointer": "endptr",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 11,
+        "nodes_in_scope": 1,
+        "true_slice_size": 42,
+        "initial_candidate_plans": 11,
+        "total_aliases": 3
+      }
+    }
+  },
+  {
+    "procedure_name": "ParseIcmpType",
+    "procedure_id": "ParseIcmpType",
+    "source_file": "src/detection-plugins/sp_icmp_type_check.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 106,
+      "end_node": 106,
+      "start_line": 200,
+      "end_line": 200,
+      "guard_with_pointer": "endptr",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 11,
+        "nodes_in_scope": 1,
+        "true_slice_size": 42,
+        "initial_candidate_plans": 11,
+        "total_aliases": 3
+      }
+    }
+  }
+]

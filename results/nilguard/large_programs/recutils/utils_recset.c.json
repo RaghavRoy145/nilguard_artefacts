@@ -1,0 +1,14 @@
+[
+  {
+    "procedure_name": "recset_parse_args",
+    "procedure_id": "recset_parse_args{a91a5e21a553f02f7384209d19614a5f}",
+    "source_file": "utils/recset.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "Alias analysis found no pointers to guard.",
+      "npe_file": "utils/recset.c",
+      "npe_line": 217,
+      "original_pointer": "recutl_fex"
+    }
+  }
+]

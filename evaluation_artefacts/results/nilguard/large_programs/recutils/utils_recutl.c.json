@@ -1,0 +1,14 @@
+[
+  {
+    "procedure_name": "recutl_parse_db_from_file",
+    "procedure_id": "recutl_parse_db_from_file",
+    "source_file": "utils/recutl.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "No valid plans remained after filtering",
+      "npe_file": "utils/recutl.c",
+      "npe_line": 245,
+      "original_pointer": "parser"
+    }
+  }
+]

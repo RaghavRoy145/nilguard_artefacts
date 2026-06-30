@@ -1,0 +1,44 @@
+[
+  {
+    "procedure_name": "lxc_safe_uint",
+    "procedure_id": "lxc_safe_uint",
+    "source_file": "src/lxc/tools/tool_utils.c",
+    "plan_type": "Replace",
+    "details": {
+      "def_site_node": 43,
+      "def_site_line": 314,
+      "target_pvar": "err",
+      "pvar_type": "char*",
+      "reuse_candidate": null,
+      "metrics": { "cost_rep_modification": 1, "total_aliases": 1 }
+    }
+  },
+  {
+    "procedure_name": "lxc_safe_int",
+    "procedure_id": "lxc_safe_int",
+    "source_file": "src/lxc/tools/tool_utils.c",
+    "plan_type": "Replace",
+    "details": {
+      "def_site_node": 42,
+      "def_site_line": 340,
+      "target_pvar": "err",
+      "pvar_type": "char*",
+      "reuse_candidate": null,
+      "metrics": { "cost_rep_modification": 1, "total_aliases": 1 }
+    }
+  },
+  {
+    "procedure_name": "lxc_safe_long",
+    "procedure_id": "lxc_safe_long",
+    "source_file": "src/lxc/tools/tool_utils.c",
+    "plan_type": "Replace",
+    "details": {
+      "def_site_node": 34,
+      "def_site_line": 363,
+      "target_pvar": "err",
+      "pvar_type": "char*",
+      "reuse_candidate": null,
+      "metrics": { "cost_rep_modification": 1, "total_aliases": 1 }
+    }
+  }
+]

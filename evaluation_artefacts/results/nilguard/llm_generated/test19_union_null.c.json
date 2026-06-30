@@ -1,0 +1,14 @@
+[
+  {
+    "procedure_name": "main",
+    "procedure_id": "main",
+    "source_file": "test19_union_null.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "Alias analysis found no pointers to guard.",
+      "npe_file": "test19_union_null.c",
+      "npe_line": 12,
+      "original_pointer": "ptr"
+    }
+  }
+]

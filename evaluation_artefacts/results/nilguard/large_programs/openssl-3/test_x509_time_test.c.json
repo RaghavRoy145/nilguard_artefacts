@@ -1,0 +1,50 @@
+[
+  {
+    "procedure_name": "test_x509_cmp_time_current",
+    "procedure_id": "test_x509_cmp_time_current{28305a88dcdf226c693b1bbc784761b9}",
+    "source_file": "test/x509_time_test.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "All potential crash sites were found to be already syntactically guarded.",
+      "npe_file": "test/x509_time_test.c",
+      "npe_line": 283,
+      "original_pointer": "asn1_before"
+    }
+  },
+  {
+    "procedure_name": "test_x509_cmp_time_current",
+    "procedure_id": "test_x509_cmp_time_current{28305a88dcdf226c693b1bbc784761b9}",
+    "source_file": "test/x509_time_test.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "All potential crash sites were found to be already syntactically guarded.",
+      "npe_file": "test/x509_time_test.c",
+      "npe_line": 284,
+      "original_pointer": "asn1_after"
+    }
+  },
+  {
+    "procedure_name": "test_x509_cmp_time_current",
+    "procedure_id": "test_x509_cmp_time_current{28305a88dcdf226c693b1bbc784761b9}",
+    "source_file": "test/x509_time_test.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "No valid plans remained after filtering",
+      "npe_file": "test/x509_time_test.c",
+      "npe_line": 283,
+      "original_pointer": "asn1_before"
+    }
+  },
+  {
+    "procedure_name": "test_x509_cmp_time_current",
+    "procedure_id": "test_x509_cmp_time_current{28305a88dcdf226c693b1bbc784761b9}",
+    "source_file": "test/x509_time_test.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "No valid plans remained after filtering",
+      "npe_file": "test/x509_time_test.c",
+      "npe_line": 284,
+      "original_pointer": "asn1_after"
+    }
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "procedure_name": "d2i_PublicKey",
+    "procedure_id": "d2i_PublicKey",
+    "source_file": "crypto/asn1/d2i_pu.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "Alias analysis found no pointers to guard.",
+      "npe_file": "crypto/asn1/d2i_pu.c",
+      "npe_line": 90,
+      "original_pointer": "ret"
+    }
+  }
+]

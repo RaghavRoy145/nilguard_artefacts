@@ -1,0 +1,353 @@
+[
+  {
+    "procedure_name": "mkftbl",
+    "procedure_id": "mkftbl",
+    "source_file": "src/gen.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "No valid plans remained after filtering",
+      "npe_file": "src/gen.c",
+      "npe_line": 653,
+      "original_pointer": "tbl"
+    }
+  },
+  {
+    "procedure_name": "mkftbl",
+    "procedure_id": "mkftbl",
+    "source_file": "src/gen.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "No valid plans remained after filtering",
+      "npe_file": "src/gen.c",
+      "npe_line": 660,
+      "original_pointer": "tdata"
+    }
+  },
+  {
+    "procedure_name": "mkecstbl",
+    "procedure_id": "mkecstbl{4f5f87582c85520eb3e80197765c75ce}",
+    "source_file": "src/gen.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "No valid plans remained after filtering",
+      "npe_file": "src/gen.c",
+      "npe_line": 442,
+      "original_pointer": "tbl"
+    }
+  },
+  {
+    "procedure_name": "mkecstbl",
+    "procedure_id": "mkecstbl{4f5f87582c85520eb3e80197765c75ce}",
+    "source_file": "src/gen.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 12,
+      "end_node": 12,
+      "start_line": 453,
+      "end_line": 453,
+      "guard_with_pointer": "tdata",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 1,
+        "nodes_in_scope": 1,
+        "true_slice_size": 3,
+        "initial_candidate_plans": 1,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "mkeoltbl",
+    "procedure_id": "mkeoltbl{4f5f87582c85520eb3e80197765c75ce}",
+    "source_file": "src/gen.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "No valid plans remained after filtering",
+      "npe_file": "src/gen.c",
+      "npe_line": 109,
+      "original_pointer": "tbl"
+    }
+  },
+  {
+    "procedure_name": "mkeoltbl",
+    "procedure_id": "mkeoltbl{4f5f87582c85520eb3e80197765c75ce}",
+    "source_file": "src/gen.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 17,
+      "end_node": 17,
+      "start_line": 117,
+      "end_line": 117,
+      "guard_with_pointer": "tdata",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 1,
+        "nodes_in_scope": 1,
+        "true_slice_size": 3,
+        "initial_candidate_plans": 1,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "genctbl",
+    "procedure_id": "genctbl",
+    "source_file": "src/gen.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "Alias analysis found no pointers to guard.",
+      "npe_file": "src/gen.c",
+      "npe_line": 364,
+      "original_pointer": "nxt"
+    }
+  },
+  {
+    "procedure_name": "genctbl",
+    "procedure_id": "genctbl",
+    "source_file": "src/gen.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "Alias analysis found no pointers to guard.",
+      "npe_file": "src/gen.c",
+      "npe_line": 364,
+      "original_pointer": "chk"
+    }
+  },
+  {
+    "procedure_name": "mkssltbl",
+    "procedure_id": "mkssltbl{4f5f87582c85520eb3e80197765c75ce}",
+    "source_file": "src/gen.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "No valid plans remained after filtering",
+      "npe_file": "src/gen.c",
+      "npe_line": 312,
+      "original_pointer": "tbl"
+    }
+  },
+  {
+    "procedure_name": "mkssltbl",
+    "procedure_id": "mkssltbl{4f5f87582c85520eb3e80197765c75ce}",
+    "source_file": "src/gen.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "Alias analysis found no pointers to guard.",
+      "npe_file": "src/gen.c",
+      "npe_line": 319,
+      "original_pointer": "i"
+    }
+  },
+  {
+    "procedure_name": "mkctbl",
+    "procedure_id": "mkctbl{4f5f87582c85520eb3e80197765c75ce}",
+    "source_file": "src/gen.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "No valid plans remained after filtering",
+      "npe_file": "src/gen.c",
+      "npe_line": 216,
+      "original_pointer": "tbl"
+    }
+  },
+  {
+    "procedure_name": "mkctbl",
+    "procedure_id": "mkctbl{4f5f87582c85520eb3e80197765c75ce}",
+    "source_file": "src/gen.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "Alias analysis found no pointers to guard.",
+      "npe_file": "src/gen.c",
+      "npe_line": 223,
+      "original_pointer": "curr"
+    }
+  },
+  {
+    "procedure_name": "gentabs",
+    "procedure_id": "gentabs",
+    "source_file": "src/gen.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 303,
+      "end_node": 302,
+      "start_line": 1229,
+      "end_line": 1230,
+      "guard_with_pointer": "acc_array",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 9,
+        "nodes_in_scope": 2,
+        "true_slice_size": 15,
+        "initial_candidate_plans": 10,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "gentabs",
+    "procedure_id": "gentabs",
+    "source_file": "src/gen.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 305,
+      "end_node": 305,
+      "start_line": 1224,
+      "end_line": 1224,
+      "guard_with_pointer": "acc_array",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 9,
+        "nodes_in_scope": 1,
+        "true_slice_size": 15,
+        "initial_candidate_plans": 10,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "gentabs",
+    "procedure_id": "gentabs",
+    "source_file": "src/gen.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 319,
+      "end_node": 319,
+      "start_line": 1219,
+      "end_line": 1219,
+      "guard_with_pointer": "acc_array",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 9,
+        "nodes_in_scope": 1,
+        "true_slice_size": 15,
+        "initial_candidate_plans": 10,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "gentabs",
+    "procedure_id": "gentabs",
+    "source_file": "src/gen.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 321,
+      "end_node": 321,
+      "start_line": 1215,
+      "end_line": 1215,
+      "guard_with_pointer": "acc_array",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 9,
+        "nodes_in_scope": 1,
+        "true_slice_size": 15,
+        "initial_candidate_plans": 10,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "gentabs",
+    "procedure_id": "gentabs",
+    "source_file": "src/gen.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 359,
+      "end_node": 359,
+      "start_line": 1157,
+      "end_line": 1157,
+      "guard_with_pointer": "acc_array",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 9,
+        "nodes_in_scope": 1,
+        "true_slice_size": 15,
+        "initial_candidate_plans": 10,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "gentabs",
+    "procedure_id": "gentabs",
+    "source_file": "src/gen.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 412,
+      "end_node": 412,
+      "start_line": 1108,
+      "end_line": 1108,
+      "guard_with_pointer": "acc_array",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 9,
+        "nodes_in_scope": 1,
+        "true_slice_size": 15,
+        "initial_candidate_plans": 10,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "gentabs",
+    "procedure_id": "gentabs",
+    "source_file": "src/gen.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 447,
+      "end_node": 447,
+      "start_line": 1177,
+      "end_line": 1177,
+      "guard_with_pointer": "acc_array",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 9,
+        "nodes_in_scope": 1,
+        "true_slice_size": 15,
+        "initial_candidate_plans": 10,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "gentabs",
+    "procedure_id": "gentabs",
+    "source_file": "src/gen.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 454,
+      "end_node": 454,
+      "start_line": 1174,
+      "end_line": 1174,
+      "guard_with_pointer": "acc_array",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 9,
+        "nodes_in_scope": 1,
+        "true_slice_size": 15,
+        "initial_candidate_plans": 10,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "gentabs",
+    "procedure_id": "gentabs",
+    "source_file": "src/gen.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 3,
+      "end_node": 3,
+      "start_line": 1462,
+      "end_line": 1462,
+      "guard_with_pointer": "acc_array",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 9,
+        "nodes_in_scope": 1,
+        "true_slice_size": 15,
+        "initial_candidate_plans": 10,
+        "total_aliases": 1
+      }
+    }
+  }
+]

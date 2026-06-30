@@ -1,0 +1,417 @@
+[
+  {
+    "procedure_name": "DecodeContentPattern",
+    "procedure_id": "DecodeContentPattern{16ef09552504bb5275917879182110cd}",
+    "source_file": "src/dynamic-plugins/sf_engine/sf_snort_detection_engine.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 44,
+      "end_node": 44,
+      "start_line": 503,
+      "end_line": 503,
+      "guard_with_pointer": "tmp_len",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 5,
+        "nodes_in_scope": 1,
+        "true_slice_size": 14,
+        "initial_candidate_plans": 5,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "DecodeContentPattern",
+    "procedure_id": "DecodeContentPattern{16ef09552504bb5275917879182110cd}",
+    "source_file": "src/dynamic-plugins/sf_engine/sf_snort_detection_engine.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 70,
+      "end_node": 70,
+      "start_line": 538,
+      "end_line": 538,
+      "guard_with_pointer": "tmp_len",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 5,
+        "nodes_in_scope": 1,
+        "true_slice_size": 14,
+        "initial_candidate_plans": 5,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "DecodeContentPattern",
+    "procedure_id": "DecodeContentPattern{16ef09552504bb5275917879182110cd}",
+    "source_file": "src/dynamic-plugins/sf_engine/sf_snort_detection_engine.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 77,
+      "end_node": 77,
+      "start_line": 557,
+      "end_line": 557,
+      "guard_with_pointer": "tmp_len",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 5,
+        "nodes_in_scope": 1,
+        "true_slice_size": 14,
+        "initial_candidate_plans": 5,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "DecodeContentPattern",
+    "procedure_id": "DecodeContentPattern{16ef09552504bb5275917879182110cd}",
+    "source_file": "src/dynamic-plugins/sf_engine/sf_snort_detection_engine.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 89,
+      "end_node": 89,
+      "start_line": 471,
+      "end_line": 471,
+      "guard_with_pointer": "tmp_len",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 5,
+        "nodes_in_scope": 1,
+        "true_slice_size": 14,
+        "initial_candidate_plans": 5,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "DecodeContentPattern",
+    "procedure_id": "DecodeContentPattern{16ef09552504bb5275917879182110cd}",
+    "source_file": "src/dynamic-plugins/sf_engine/sf_snort_detection_engine.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 111,
+      "end_node": 111,
+      "start_line": 453,
+      "end_line": 453,
+      "guard_with_pointer": "tmp_len",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 5,
+        "nodes_in_scope": 1,
+        "true_slice_size": 14,
+        "initial_candidate_plans": 5,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "DecodeContentPattern",
+    "procedure_id": "DecodeContentPattern{16ef09552504bb5275917879182110cd}",
+    "source_file": "src/dynamic-plugins/sf_engine/sf_snort_detection_engine.c",
+    "plan_type": "Evade",
+    "details": {
+      "start_node": 1,
+      "pointer_expr": "content",
+      "return_type": "int"
+    }
+  },
+  {
+    "procedure_name": "DecodeProtectedContentPattern",
+    "procedure_id": "DecodeProtectedContentPattern{16ef09552504bb5275917879182110cd}",
+    "source_file": "src/dynamic-plugins/sf_engine/sf_snort_detection_engine.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "No valid plans remained after filtering",
+      "npe_file": "src/dynamic-plugins/sf_engine/sf_snort_detection_engine.c",
+      "npe_line": 666,
+      "original_pointer": "index"
+    }
+  },
+  {
+    "procedure_name": "DecodeProtectedContentPattern",
+    "procedure_id": "DecodeProtectedContentPattern{16ef09552504bb5275917879182110cd}",
+    "source_file": "src/dynamic-plugins/sf_engine/sf_snort_detection_engine.c",
+    "plan_type": "Evade",
+    "details": {
+      "start_node": 1,
+      "pointer_expr": "content",
+      "return_type": "int"
+    }
+  },
+  {
+    "procedure_name": "GetDynamicContents",
+    "procedure_id": "GetDynamicContents{16ef09552504bb5275917879182110cd}",
+    "source_file": "src/dynamic-plugins/sf_engine/sf_snort_detection_engine.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 85,
+      "end_node": 84,
+      "start_line": 228,
+      "end_line": 229,
+      "guard_with_pointer": "tail",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 12,
+        "nodes_in_scope": 2,
+        "true_slice_size": 23,
+        "initial_candidate_plans": 17,
+        "total_aliases": 2
+      }
+    }
+  },
+  {
+    "procedure_name": "GetDynamicContents",
+    "procedure_id": "GetDynamicContents{16ef09552504bb5275917879182110cd}",
+    "source_file": "src/dynamic-plugins/sf_engine/sf_snort_detection_engine.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 38,
+      "end_node": 38,
+      "start_line": 257,
+      "end_line": 257,
+      "guard_with_pointer": "tail",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 12,
+        "nodes_in_scope": 1,
+        "true_slice_size": 23,
+        "initial_candidate_plans": 17,
+        "total_aliases": 2
+      }
+    }
+  },
+  {
+    "procedure_name": "GetDynamicContents",
+    "procedure_id": "GetDynamicContents{16ef09552504bb5275917879182110cd}",
+    "source_file": "src/dynamic-plugins/sf_engine/sf_snort_detection_engine.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 29,
+      "end_node": 28,
+      "start_line": 265,
+      "end_line": 265,
+      "guard_with_pointer": "tail",
+      "metrics": {
+        "cost_l_imprecision": 4,
+        "cost_g_overhead_final": 12,
+        "nodes_in_scope": 6,
+        "true_slice_size": 23,
+        "initial_candidate_plans": 17,
+        "total_aliases": 2
+      }
+    }
+  },
+  {
+    "procedure_name": "GetDynamicContents",
+    "procedure_id": "GetDynamicContents{16ef09552504bb5275917879182110cd}",
+    "source_file": "src/dynamic-plugins/sf_engine/sf_snort_detection_engine.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 75,
+      "end_node": 75,
+      "start_line": 237,
+      "end_line": 237,
+      "guard_with_pointer": "tail",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 12,
+        "nodes_in_scope": 1,
+        "true_slice_size": 23,
+        "initial_candidate_plans": 17,
+        "total_aliases": 2
+      }
+    }
+  },
+  {
+    "procedure_name": "GetDynamicContents",
+    "procedure_id": "GetDynamicContents{16ef09552504bb5275917879182110cd}",
+    "source_file": "src/dynamic-plugins/sf_engine/sf_snort_detection_engine.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 70,
+      "end_node": 70,
+      "start_line": 239,
+      "end_line": 239,
+      "guard_with_pointer": "tail",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 12,
+        "nodes_in_scope": 1,
+        "true_slice_size": 23,
+        "initial_candidate_plans": 17,
+        "total_aliases": 2
+      }
+    }
+  },
+  {
+    "procedure_name": "GetDynamicContents",
+    "procedure_id": "GetDynamicContents{16ef09552504bb5275917879182110cd}",
+    "source_file": "src/dynamic-plugins/sf_engine/sf_snort_detection_engine.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 65,
+      "end_node": 65,
+      "start_line": 241,
+      "end_line": 241,
+      "guard_with_pointer": "tail",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 12,
+        "nodes_in_scope": 1,
+        "true_slice_size": 23,
+        "initial_candidate_plans": 17,
+        "total_aliases": 2
+      }
+    }
+  },
+  {
+    "procedure_name": "GetDynamicContents",
+    "procedure_id": "GetDynamicContents{16ef09552504bb5275917879182110cd}",
+    "source_file": "src/dynamic-plugins/sf_engine/sf_snort_detection_engine.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 60,
+      "end_node": 60,
+      "start_line": 243,
+      "end_line": 243,
+      "guard_with_pointer": "tail",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 12,
+        "nodes_in_scope": 1,
+        "true_slice_size": 23,
+        "initial_candidate_plans": 17,
+        "total_aliases": 2
+      }
+    }
+  },
+  {
+    "procedure_name": "GetDynamicContents",
+    "procedure_id": "GetDynamicContents{16ef09552504bb5275917879182110cd}",
+    "source_file": "src/dynamic-plugins/sf_engine/sf_snort_detection_engine.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 55,
+      "end_node": 55,
+      "start_line": 250,
+      "end_line": 250,
+      "guard_with_pointer": "tail",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 12,
+        "nodes_in_scope": 1,
+        "true_slice_size": 23,
+        "initial_candidate_plans": 17,
+        "total_aliases": 2
+      }
+    }
+  },
+  {
+    "procedure_name": "GetDynamicContents",
+    "procedure_id": "GetDynamicContents{16ef09552504bb5275917879182110cd}",
+    "source_file": "src/dynamic-plugins/sf_engine/sf_snort_detection_engine.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 50,
+      "end_node": 50,
+      "start_line": 248,
+      "end_line": 248,
+      "guard_with_pointer": "tail",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 12,
+        "nodes_in_scope": 1,
+        "true_slice_size": 23,
+        "initial_candidate_plans": 17,
+        "total_aliases": 2
+      }
+    }
+  },
+  {
+    "procedure_name": "GetDynamicContents",
+    "procedure_id": "GetDynamicContents{16ef09552504bb5275917879182110cd}",
+    "source_file": "src/dynamic-plugins/sf_engine/sf_snort_detection_engine.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 45,
+      "end_node": 45,
+      "start_line": 246,
+      "end_line": 246,
+      "guard_with_pointer": "tail",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 12,
+        "nodes_in_scope": 1,
+        "true_slice_size": 23,
+        "initial_candidate_plans": 17,
+        "total_aliases": 2
+      }
+    }
+  },
+  {
+    "procedure_name": "GetDynamicContents",
+    "procedure_id": "GetDynamicContents{16ef09552504bb5275917879182110cd}",
+    "source_file": "src/dynamic-plugins/sf_engine/sf_snort_detection_engine.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 40,
+      "end_node": 39,
+      "start_line": 261,
+      "end_line": 262,
+      "guard_with_pointer": "tail",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 12,
+        "nodes_in_scope": 2,
+        "true_slice_size": 23,
+        "initial_candidate_plans": 17,
+        "total_aliases": 2
+      }
+    }
+  },
+  {
+    "procedure_name": "GetDynamicContents",
+    "procedure_id": "GetDynamicContents{16ef09552504bb5275917879182110cd}",
+    "source_file": "src/dynamic-plugins/sf_engine/sf_snort_detection_engine.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 78,
+      "end_node": 76,
+      "start_line": 232,
+      "end_line": 234,
+      "guard_with_pointer": "tail",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 12,
+        "nodes_in_scope": 3,
+        "true_slice_size": 23,
+        "initial_candidate_plans": 17,
+        "total_aliases": 2
+      }
+    }
+  },
+  {
+    "procedure_name": "DecodeContentPattern",
+    "procedure_id": "DecodeContentPattern{16ef09552504bb5275917879182110cd}",
+    "source_file": "src/dynamic-plugins/sf_engine/sf_snort_detection_engine.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "Alias analysis found no pointers to guard.",
+      "npe_file": "src/dynamic-plugins/sf_engine/sf_snort_detection_engine.c",
+      "npe_line": 580,
+      "original_pointer": "tmp_len"
+    }
+  },
+  {
+    "procedure_name": "DecodeProtectedContentPattern",
+    "procedure_id": "DecodeProtectedContentPattern{16ef09552504bb5275917879182110cd}",
+    "source_file": "src/dynamic-plugins/sf_engine/sf_snort_detection_engine.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "Alias analysis found no pointers to guard.",
+      "npe_file": "src/dynamic-plugins/sf_engine/sf_snort_detection_engine.c",
+      "npe_line": 666,
+      "original_pointer": "index"
+    }
+  }
+]

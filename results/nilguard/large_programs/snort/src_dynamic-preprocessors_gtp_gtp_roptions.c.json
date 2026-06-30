@@ -1,0 +1,38 @@
+[
+  {
+    "procedure_name": "GTP_AddInfoElementByNumer",
+    "procedure_id": "GTP_AddInfoElementByNumer{1357a1068430dc43f2daa46e0c4e2e71}",
+    "source_file": "src/dynamic-preprocessors/gtp/gtp_roptions.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "No valid plans remained after filtering",
+      "npe_file": "src/dynamic-preprocessors/gtp/gtp_roptions.c",
+      "npe_line": 237,
+      "original_pointer": "end"
+    }
+  },
+  {
+    "procedure_name": "GTP_VersionInit",
+    "procedure_id": "GTP_VersionInit{1357a1068430dc43f2daa46e0c4e2e71}",
+    "source_file": "src/dynamic-preprocessors/gtp/gtp_roptions.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "No valid plans remained after filtering",
+      "npe_file": "src/dynamic-preprocessors/gtp/gtp_roptions.c",
+      "npe_line": 419,
+      "original_pointer": "end"
+    }
+  },
+  {
+    "procedure_name": "GTP_AddTypeByNumer",
+    "procedure_id": "GTP_AddTypeByNumer{1357a1068430dc43f2daa46e0c4e2e71}",
+    "source_file": "src/dynamic-preprocessors/gtp/gtp_roptions.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "No valid plans remained after filtering",
+      "npe_file": "src/dynamic-preprocessors/gtp/gtp_roptions.c",
+      "npe_line": 87,
+      "original_pointer": "endStr"
+    }
+  }
+]

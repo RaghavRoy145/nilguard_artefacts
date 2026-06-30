@@ -1,0 +1,14 @@
+[
+  {
+    "procedure_name": "print_info_file",
+    "procedure_id": "print_info_file",
+    "source_file": "utils/recinf.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "No valid plans remained after filtering",
+      "npe_file": "utils/recinf.c",
+      "npe_line": 130,
+      "original_pointer": "parser"
+    }
+  }
+]

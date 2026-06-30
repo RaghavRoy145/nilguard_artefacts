@@ -1,0 +1,86 @@
+[
+  {
+    "procedure_name": "SMTP_InitCmds",
+    "procedure_id": "SMTP_InitCmds",
+    "source_file": "src/dynamic-preprocessors/smtp/snort_smtp.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 24,
+      "end_node": 21,
+      "start_line": 265,
+      "end_line": 268,
+      "guard_with_pointer": "config",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 4,
+        "nodes_in_scope": 4,
+        "true_slice_size": 11,
+        "initial_candidate_plans": 7,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "SMTP_InitCmds",
+    "procedure_id": "SMTP_InitCmds",
+    "source_file": "src/dynamic-preprocessors/smtp/snort_smtp.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 30,
+      "end_node": 30,
+      "start_line": 255,
+      "end_line": 255,
+      "guard_with_pointer": "config",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 4,
+        "nodes_in_scope": 1,
+        "true_slice_size": 11,
+        "initial_candidate_plans": 7,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "SMTP_InitCmds",
+    "procedure_id": "SMTP_InitCmds",
+    "source_file": "src/dynamic-preprocessors/smtp/snort_smtp.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 9,
+      "end_node": 9,
+      "start_line": 279,
+      "end_line": 279,
+      "guard_with_pointer": "config",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 4,
+        "nodes_in_scope": 1,
+        "true_slice_size": 11,
+        "initial_candidate_plans": 7,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "SMTP_InitCmds",
+    "procedure_id": "SMTP_InitCmds",
+    "source_file": "src/dynamic-preprocessors/smtp/snort_smtp.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 3,
+      "end_node": 3,
+      "start_line": 287,
+      "end_line": 287,
+      "guard_with_pointer": "config",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 4,
+        "nodes_in_scope": 1,
+        "true_slice_size": 11,
+        "initial_candidate_plans": 7,
+        "total_aliases": 1
+      }
+    }
+  }
+]

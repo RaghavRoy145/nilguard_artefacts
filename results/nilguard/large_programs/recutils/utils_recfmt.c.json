@@ -1,0 +1,59 @@
+[
+  {
+    "procedure_name": "recfmt_get_subst",
+    "procedure_id": "recfmt_get_subst",
+    "source_file": "utils/recfmt.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "No valid plans remained after filtering",
+      "npe_file": "utils/recfmt.c",
+      "npe_line": 161,
+      "original_pointer": "sex"
+    }
+  },
+  {
+    "procedure_name": "recfmt_apply_template",
+    "procedure_id": "recfmt_apply_template",
+    "source_file": "utils/recfmt.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 38,
+      "end_node": 38,
+      "start_line": 219,
+      "end_line": 219,
+      "guard_with_pointer": "result_buf",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 1,
+        "nodes_in_scope": 1,
+        "true_slice_size": 1,
+        "initial_candidate_plans": 1,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "recfmt_apply_template",
+    "procedure_id": "recfmt_apply_template",
+    "source_file": "utils/recfmt.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "Alias analysis found no pointers to guard.",
+      "npe_file": "utils/recfmt.c",
+      "npe_line": 207,
+      "original_pointer": "null"
+    }
+  },
+  {
+    "procedure_name": "recfmt_apply_template",
+    "procedure_id": "recfmt_apply_template",
+    "source_file": "utils/recfmt.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "No valid plans remained after filtering",
+      "npe_file": "utils/recfmt.c",
+      "npe_line": 207,
+      "original_pointer": "result_buf"
+    }
+  }
+]

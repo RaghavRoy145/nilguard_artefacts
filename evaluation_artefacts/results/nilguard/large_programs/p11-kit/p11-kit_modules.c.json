@@ -1,0 +1,14 @@
+[
+  {
+    "procedure_name": "lookup_managed_option",
+    "procedure_id": "lookup_managed_option{3e8e8826455b90a4722485846d839825}",
+    "source_file": "p11-kit/modules.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "Alias analysis found no pointers to guard.",
+      "npe_file": "p11-kit/modules.c",
+      "npe_line": 1832,
+      "original_pointer": "null"
+    }
+  }
+]

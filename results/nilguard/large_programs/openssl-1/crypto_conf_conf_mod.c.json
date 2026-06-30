@@ -1,0 +1,14 @@
+[
+  {
+    "procedure_name": "CONF_parse_list",
+    "procedure_id": "CONF_parse_list",
+    "source_file": "crypto/conf/conf_mod.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "No valid plans remained after filtering",
+      "npe_file": "crypto/conf/conf_mod.c",
+      "npe_line": 602,
+      "original_pointer": "lstart"
+    }
+  }
+]

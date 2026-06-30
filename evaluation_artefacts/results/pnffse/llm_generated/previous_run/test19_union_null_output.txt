@@ -1,0 +1,8 @@
+Capturing in make/cc mode ...
+Arguments are 
+/home/infer_TempFix/c_npe_tests/test19_union_null.c
+annalysing main
+/home/infer_TempFix/c_npe_tests/test19_union_null.c
+
+=====> Actual effects of function: main ======>
+(.ret=0 /\ deref(ptr)@12 · deref(ptr.int_ptr)@15 · deref(ptr.char_ptr)@18 · deref(ptr.float_ptr)@19 · RET()@21,1)

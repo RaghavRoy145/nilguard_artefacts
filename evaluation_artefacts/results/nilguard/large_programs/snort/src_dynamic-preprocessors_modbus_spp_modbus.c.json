@@ -1,0 +1,14 @@
+[
+  {
+    "procedure_name": "ModbusReload",
+    "procedure_id": "ModbusReload{31e9f5721b825ff0ff6f021e248bcbcb}",
+    "source_file": "src/dynamic-preprocessors/modbus/spp_modbus.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "No valid plans remained after filtering",
+      "npe_file": "src/dynamic-preprocessors/modbus/spp_modbus.c",
+      "npe_line": 494,
+      "original_pointer": "modbus_swap_context_id"
+    }
+  }
+]

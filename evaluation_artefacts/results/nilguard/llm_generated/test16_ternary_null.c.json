@@ -1,0 +1,14 @@
+[
+  {
+    "procedure_name": "main",
+    "procedure_id": "main",
+    "source_file": "test16_ternary_null.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "No valid plans remained after filtering",
+      "npe_file": "test16_ternary_null.c",
+      "npe_line": 7,
+      "original_pointer": "value"
+    }
+  }
+]

@@ -1,0 +1,24 @@
+Capturing in make/cc mode ...
+/home/infer_TempFix/c_npe_tests/test08_malloc_fail.c:7:26: error: use of undeclared identifier 'SIZE_MAX'
+    int *buffer = malloc(SIZE_MAX);
+                         ^
+1 error generated.
+Arguments are 
+/home/infer_TempFix/c_npe_tests/test08_malloc_fail.c
+annalysing main
+CallingFunction: malloc @7
+|- futurec_raw ((.ret!=0) /\ (!free(.ret))^* · free(.ret) · (_)^*) \/ (.ret=0 /\ (!_(.ret))^*), and the handler is buffer
+CallingFunction: printf @13
+CallingFunction: free @14
+current states: 1
+checking futurecondition ... 1|-2
+ = LHS: (.ret=0 /\ deref(buffer)@10 · deref(buffer)@11 · free(buffer)@14 · RET()@15,1)
+|- RHS: ((buffer!=0) /\ (!free(buffer))^* · free(buffer) · (_)^*) \/ (buffer=0 /\ (!_(buffer))^*)
+deref(buffer)@10 · deref(buffer)@11 · free(buffer)@14 · RET()@15 |- (!_(buffer))^*
+ ------- 
+/home/infer_TempFix/c_npe_tests/test08_malloc_fail.c
+
+=====> Actual effects of function: main ======>
+(.ret=0 /\ deref(buffer)@10 · deref(buffer)@11 · free(buffer)@14 · RET()@15,1)
+<<<SYH:Clang.Capture.run_clang-ErrorN>>>
+

@@ -1,0 +1,95 @@
+[
+  {
+    "procedure_name": "SSLPP_init",
+    "procedure_id": "SSLPP_init",
+    "source_file": "src/dynamic-preprocessors/ssl_common/ssl_config.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "Alias analysis found no pointers to guard.",
+      "npe_file": "src/dynamic-preprocessors/ssl_common/ssl_config.c",
+      "npe_line": 661,
+      "original_pointer": "ssl_config"
+    }
+  },
+  {
+    "procedure_name": "SSLPP_config",
+    "procedure_id": "SSLPP_config{8cced31c9876b546e9a4477639f5fc38}",
+    "source_file": "src/dynamic-preprocessors/ssl_common/ssl_config.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "No valid plans remained after filtering",
+      "npe_file": "src/dynamic-preprocessors/ssl_common/ssl_config.c",
+      "npe_line": 382,
+      "original_pointer": "endStr"
+    }
+  },
+  {
+    "procedure_name": "SSLPP_config",
+    "procedure_id": "SSLPP_config{8cced31c9876b546e9a4477639f5fc38}",
+    "source_file": "src/dynamic-preprocessors/ssl_common/ssl_config.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "No valid plans remained after filtering",
+      "npe_file": "src/dynamic-preprocessors/ssl_common/ssl_config.c",
+      "npe_line": 408,
+      "original_pointer": "endStr"
+    }
+  },
+  {
+    "procedure_name": "SSLPP_config",
+    "procedure_id": "SSLPP_config{8cced31c9876b546e9a4477639f5fc38}",
+    "source_file": "src/dynamic-preprocessors/ssl_common/ssl_config.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "No valid plans remained after filtering",
+      "npe_file": "src/dynamic-preprocessors/ssl_common/ssl_config.c",
+      "npe_line": 457,
+      "original_pointer": "endStr"
+    }
+  },
+  {
+    "procedure_name": "SSLPP_ver_init",
+    "procedure_id": "SSLPP_ver_init{8cced31c9876b546e9a4477639f5fc38}",
+    "source_file": "src/dynamic-preprocessors/ssl_common/ssl_config.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "No valid plans remained after filtering",
+      "npe_file": "src/dynamic-preprocessors/ssl_common/ssl_config.c",
+      "npe_line": 194,
+      "original_pointer": "sdata"
+    }
+  },
+  {
+    "procedure_name": "SSLPP_state_init",
+    "procedure_id": "SSLPP_state_init{8cced31c9876b546e9a4477639f5fc38}",
+    "source_file": "src/dynamic-preprocessors/ssl_common/ssl_config.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "No valid plans remained after filtering",
+      "npe_file": "src/dynamic-preprocessors/ssl_common/ssl_config.c",
+      "npe_line": 117,
+      "original_pointer": "sdata"
+    }
+  },
+  {
+    "procedure_name": "SSLReload",
+    "procedure_id": "SSLReload",
+    "source_file": "src/dynamic-preprocessors/ssl_common/ssl_config.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 26,
+      "end_node": 26,
+      "start_line": 947,
+      "end_line": 947,
+      "guard_with_pointer": "ssl_swap_config",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 1,
+        "nodes_in_scope": 1,
+        "true_slice_size": 1,
+        "initial_candidate_plans": 1,
+        "total_aliases": 1
+      }
+    }
+  }
+]

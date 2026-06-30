@@ -1,0 +1,14 @@
+[
+  {
+    "procedure_name": "main",
+    "procedure_id": "main",
+    "source_file": "test04_array_index_null.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "No valid plans remained after filtering",
+      "npe_file": "test04_array_index_null.c",
+      "npe_line": 5,
+      "original_pointer": "array"
+    }
+  }
+]

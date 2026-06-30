@@ -1,0 +1,76 @@
+[
+  {
+    "procedure_name": "AddCmd",
+    "procedure_id": "AddCmd{dc237d571ea6bb214289f29efd212eea}",
+    "source_file": "src/dynamic-preprocessors/smtp/smtp_config.c",
+    "plan_type": "Evade",
+    "details": {
+      "start_node": 1,
+      "pointer_expr": "config",
+      "return_type": "int"
+    }
+  },
+  {
+    "procedure_name": "AddCmd",
+    "procedure_id": "AddCmd{dc237d571ea6bb214289f29efd212eea}",
+    "source_file": "src/dynamic-preprocessors/smtp/smtp_config.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 12,
+      "end_node": 12,
+      "start_line": 981,
+      "end_line": 981,
+      "guard_with_pointer": "config",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 14,
+        "nodes_in_scope": 1,
+        "true_slice_size": 19,
+        "initial_candidate_plans": 14,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "AddCmd",
+    "procedure_id": "AddCmd{dc237d571ea6bb214289f29efd212eea}",
+    "source_file": "src/dynamic-preprocessors/smtp/smtp_config.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 17,
+      "end_node": 17,
+      "start_line": 978,
+      "end_line": 978,
+      "guard_with_pointer": "config",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 14,
+        "nodes_in_scope": 1,
+        "true_slice_size": 19,
+        "initial_candidate_plans": 14,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "AddCmd",
+    "procedure_id": "AddCmd{dc237d571ea6bb214289f29efd212eea}",
+    "source_file": "src/dynamic-preprocessors/smtp/smtp_config.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 22,
+      "end_node": 22,
+      "start_line": 975,
+      "end_line": 975,
+      "guard_with_pointer": "config",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 14,
+        "nodes_in_scope": 1,
+        "true_slice_size": 19,
+        "initial_candidate_plans": 14,
+        "total_aliases": 1
+      }
+    }
+  }
+]

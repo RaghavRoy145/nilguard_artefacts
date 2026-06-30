@@ -1,0 +1,26 @@
+[
+  {
+    "procedure_name": "rec_parse_field_name_str",
+    "procedure_id": "rec_parse_field_name_str",
+    "source_file": "src/rec-parser.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "Alias analysis found no pointers to guard.",
+      "npe_file": "src/rec-parser.c",
+      "npe_line": 681,
+      "original_pointer": "null"
+    }
+  },
+  {
+    "procedure_name": "rec_parse_field_name_str",
+    "procedure_id": "rec_parse_field_name_str",
+    "source_file": "src/rec-parser.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "No valid plans remained after filtering",
+      "npe_file": "src/rec-parser.c",
+      "npe_line": 681,
+      "original_pointer": "parser"
+    }
+  }
+]

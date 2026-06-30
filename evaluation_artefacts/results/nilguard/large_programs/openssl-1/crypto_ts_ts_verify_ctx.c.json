@@ -1,0 +1,23 @@
+[
+  {
+    "procedure_name": "TS_VERIFY_CTX_init",
+    "procedure_id": "TS_VERIFY_CTX_init",
+    "source_file": "crypto/ts/ts_verify_ctx.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 3,
+      "end_node": 3,
+      "start_line": 77,
+      "end_line": 77,
+      "guard_with_pointer": "ctx",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 1,
+        "nodes_in_scope": 1,
+        "true_slice_size": 2,
+        "initial_candidate_plans": 1,
+        "total_aliases": 1
+      }
+    }
+  }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "procedure_name": "test_single_eval",
+    "procedure_id": "test_single_eval{ebb1d767f2bdd7e2b65b82b9561af909}",
+    "source_file": "test/test_test.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "Alias analysis found no pointers to guard.",
+      "npe_file": "test/test_test.c",
+      "npe_line": 494,
+      "original_pointer": "null"
+    }
+  },
+  {
+    "procedure_name": "test_single_eval",
+    "procedure_id": "test_single_eval{ebb1d767f2bdd7e2b65b82b9561af909}",
+    "source_file": "test/test_test.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "All potential crash sites were found to be already syntactically guarded.",
+      "npe_file": "test/test_test.c",
+      "npe_line": 494,
+      "original_pointer": "p"
+    }
+  },
+  {
+    "procedure_name": "test_single_eval",
+    "procedure_id": "test_single_eval{ebb1d767f2bdd7e2b65b82b9561af909}",
+    "source_file": "test/test_test.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "No valid plans remained after filtering",
+      "npe_file": "test/test_test.c",
+      "npe_line": 494,
+      "original_pointer": "p"
+    }
+  }
+]

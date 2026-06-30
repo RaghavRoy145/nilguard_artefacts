@@ -1,0 +1,26 @@
+[
+  {
+    "procedure_name": "rec_sex_lex_extract_name",
+    "procedure_id": "rec_sex_lex_extract_name",
+    "source_file": "src/rec-sex-lex.l",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "Alias analysis found no pointers to guard.",
+      "npe_file": "src/rec-sex-lex.l",
+      "npe_line": 191,
+      "original_pointer": "size"
+    }
+  },
+  {
+    "procedure_name": "rec_sex_lex_extract_name",
+    "procedure_id": "rec_sex_lex_extract_name",
+    "source_file": "src/rec-sex-lex.l",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "No valid plans remained after filtering",
+      "npe_file": "src/rec-sex-lex.l",
+      "npe_line": 191,
+      "original_pointer": "res"
+    }
+  }
+]

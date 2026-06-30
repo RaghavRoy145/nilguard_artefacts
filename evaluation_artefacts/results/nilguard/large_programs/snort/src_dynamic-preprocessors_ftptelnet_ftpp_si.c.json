@@ -1,0 +1,23 @@
+[
+  {
+    "procedure_name": "TelnetStatefulSessionInspection",
+    "procedure_id": "TelnetStatefulSessionInspection{2d6ced7eee2507e415f5f4d76f794b7a}",
+    "source_file": "src/dynamic-preprocessors/ftptelnet/ftpp_si.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 16,
+      "end_node": 16,
+      "start_line": 195,
+      "end_line": 195,
+      "guard_with_pointer": "NewSession",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 1,
+        "nodes_in_scope": 1,
+        "true_slice_size": 1,
+        "initial_candidate_plans": 1,
+        "total_aliases": 1
+      }
+    }
+  }
+]

@@ -1,0 +1,59 @@
+[
+  {
+    "procedure_name": "buf_prints",
+    "procedure_id": "buf_prints",
+    "source_file": "src/buf.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "No valid plans remained after filtering",
+      "npe_file": "src/buf.c",
+      "npe_line": 77,
+      "original_pointer": "t"
+    }
+  },
+  {
+    "procedure_name": "buf_m4_define",
+    "procedure_id": "buf_m4_define",
+    "source_file": "src/buf.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "No valid plans remained after filtering",
+      "npe_file": "src/buf.c",
+      "npe_line": 175,
+      "original_pointer": "str"
+    }
+  },
+  {
+    "procedure_name": "buf_m4_undefine",
+    "procedure_id": "buf_m4_undefine",
+    "source_file": "src/buf.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "No valid plans remained after filtering",
+      "npe_file": "src/buf.c",
+      "npe_line": 196,
+      "original_pointer": "str"
+    }
+  },
+  {
+    "procedure_name": "buf_linedir",
+    "procedure_id": "buf_linedir",
+    "source_file": "src/buf.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 5,
+      "end_node": 5,
+      "start_line": 115,
+      "end_line": 115,
+      "guard_with_pointer": "t",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 1,
+        "nodes_in_scope": 1,
+        "true_slice_size": 6,
+        "initial_candidate_plans": 1,
+        "total_aliases": 1
+      }
+    }
+  }
+]

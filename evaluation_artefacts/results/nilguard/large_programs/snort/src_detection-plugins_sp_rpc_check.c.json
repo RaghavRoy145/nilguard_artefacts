@@ -1,0 +1,16 @@
+[
+  {
+    "procedure_name": "ParseRpc",
+    "procedure_id": "ParseRpc",
+    "source_file": "src/detection-plugins/sp_rpc_check.c",
+    "plan_type": "Replace",
+    "details": {
+      "def_site_node": 29,
+      "def_site_line": 233,
+      "target_pvar": "tmp",
+      "pvar_type": "char*",
+      "reuse_candidate": null,
+      "metrics": { "cost_rep_modification": 1, "total_aliases": 1 }
+    }
+  }
+]

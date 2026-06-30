@@ -1,0 +1,1676 @@
+#0
+common/constants.c:684: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `p11_dict_new()` on line 674 is not freed after the last access at line 684, column 11. 
+  682. 			if (nick) {
+  683. 				for (k = 0; table[j].nicks[k] != NULL; k++) {
+  684. 					if (!p11_dict_set (lookups, (void *)table[j].nicks[k],
+                 ^
+  685. 					                   (void *)&table[j].value))
+  686. 						return_val_if_reached (NULL);
+
+#1
+common/constants.c:689: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `p11_dict_new()` on line 674 is not freed after the last access at line 689, column 10. 
+  687. 				}
+  688. 			} else {
+  689. 				if (!p11_dict_set (lookups, (void *)table[j].name, (void *)&table[j].value))
+                ^
+  690. 					return_val_if_reached (NULL);
+  691. 			}
+
+#2
+p11-kit/conf.c:142: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `p11_dict_new()` on line 129 is not freed after the last access at line 142, column 9. 
+  140. 			p11_debug ("config value: %s: %s", lexer.tok.field.name,
+  141. 			           lexer.tok.field.value);
+  142. 			if (!p11_dict_set (map, lexer.tok.field.name, lexer.tok.field.value))
+               ^
+  143. 				return_val_if_reached (NULL);
+  144. 			lexer.tok.field.name = NULL;
+
+#3
+p11-kit/conf.c:422: error: Resource Leak(PULSE_RESOURCE_LEAK)
+  File descriptor dynamically allocated by `fopen()` on line 403 is not closed after the last access at line 422, column 3. 
+  420. 	while ((dp = readdir(dir)) != NULL) {
+  421. 		path = p11_path_build (directory, dp->d_name, NULL);
+  422. 		return_val_if_fail (path != NULL, false);
+         ^
+  423. 
+  424. 		if (stat (path, &st) < 0) {
+
+#4
+p11-kit/filter.c:395: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc` on line 376 is not freed after the last access at line 395, column 2. 
+  393. 	filter->lower = &lower->funcs;
+  394. 	filter->entries = p11_array_new ((p11_destroyer)free);
+  395. 	return &filter->virt;
+        ^
+  396. }
+  397. 
+
+#5
+p11-kit/filter.c:395: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `p11_array_new()` on line 394 is not freed after the last access at line 395, column 2. 
+  393. 	filter->lower = &lower->funcs;
+  394. 	filter->entries = p11_array_new ((p11_destroyer)free);
+  395. 	return &filter->virt;
+        ^
+  396. }
+  397. 
+
+#6
+p11-kit/filter.c:411: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `memdup()` on line 408 is not freed after the last access at line 411, column 7. 
+  409. 	return_if_fail (token_copy != NULL);
+  410. 
+  411. 	if (!p11_array_push (filter->entries, token_copy))
+             ^
+  412. 		return_if_reached ();
+  413. 
+
+#7
+p11-kit/filter.c:431: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `memdup()` on line 428 is not freed after the last access at line 431, column 7. 
+  429. 	return_if_fail (token_copy != NULL);
+  430. 
+  431. 	if (!p11_array_push (filter->entries, token_copy))
+             ^
+  432. 		return_if_reached ();
+  433. 
+
+#8
+p11-kit/log.c:988: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 984 is not freed after the last access at line 988, column 1. 
+  986. 	PROCESS_CALL ((self, pInitArgs))
+  987. 	DONE_CALL
+  988. }
+       ^
+  989. 
+  990. static CK_RV
+
+#9
+p11-kit/log.c:998: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 994 is not freed after the last access at line 998, column 1. 
+   996. 	PROCESS_CALL ((self, pReserved))
+   997. 	DONE_CALL
+   998. }
+        ^
+   999. 
+  1000. static CK_RV
+
+#10
+p11-kit/log.c:1008: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 1004 is not freed after the last access at line 1008, column 1. 
+  1006. 		OUT_INFO (pInfo)
+  1007. 	DONE_CALL
+  1008. }
+        ^
+  1009. 
+  1010. static CK_RV
+
+#11
+p11-kit/log.c:1022: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 1016 is not freed after the last access at line 1022, column 1. 
+  1020. 		OUT_SLOT_ID_ARRAY (pSlotList, pulCount)
+  1021. 	DONE_CALL
+  1022. }
+        ^
+  1023. 
+  1024. static CK_RV
+
+#12
+p11-kit/log.c:1034: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 1029 is not freed after the last access at line 1034, column 1. 
+  1032. 		OUT_SLOT_INFO (pInfo)
+  1033. 	DONE_CALL
+  1034. }
+        ^
+  1035. 
+  1036. static CK_RV
+
+#13
+p11-kit/log.c:1046: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 1041 is not freed after the last access at line 1046, column 1. 
+  1044. 		OUT_TOKEN_INFO (pInfo)
+  1045. 	DONE_CALL
+  1046. }
+        ^
+  1047. 
+  1048. static CK_RV
+
+#14
+p11-kit/log.c:1060: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 1054 is not freed after the last access at line 1060, column 1. 
+  1058. 		OUT_MECHANISM_TYPE_ARRAY (pMechanismList, pulCount)
+  1059. 	DONE_CALL
+  1060. }
+        ^
+  1061. 
+  1062. static CK_RV
+
+#15
+p11-kit/log.c:1074: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 1068 is not freed after the last access at line 1074, column 1. 
+  1072. 		OUT_MECHANISM_INFO (pInfo)
+  1073. 	DONE_CALL
+  1074. }
+        ^
+  1075. 
+  1076. static CK_RV
+
+#16
+p11-kit/log.c:1089: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 1083 is not freed after the last access at line 1089, column 1. 
+  1087. 	PROCESS_CALL ((self, slotID, pPin, ulPinLen, pLabel))
+  1088. 	DONE_CALL
+  1089. }
+        ^
+  1090. 
+  1091. static CK_RV
+
+#17
+p11-kit/log.c:1110: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 1100 is not freed after the last access at line 1110, column 1. 
+  1108. 		OUT_POINTER (pReserved)
+  1109. 	DONE_CALL
+  1110. }
+        ^
+  1111. 
+  1112. static CK_RV
+
+#18
+p11-kit/log.c:1136: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 1123 is not freed after the last access at line 1136, column 1. 
+  1134. 		OUT_SESSION (phSession)
+  1135. 	DONE_CALL
+  1136. }
+        ^
+  1137. 
+  1138. static CK_RV
+
+#19
+p11-kit/log.c:1146: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 1142 is not freed after the last access at line 1146, column 1. 
+  1144. 	PROCESS_CALL ((self, hSession))
+  1145. 	DONE_CALL
+  1146. }
+        ^
+  1147. 
+  1148. static CK_RV
+
+#20
+p11-kit/log.c:1156: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 1152 is not freed after the last access at line 1156, column 1. 
+  1154. 	PROCESS_CALL ((self, slotID))
+  1155. 	DONE_CALL
+  1156. }
+        ^
+  1157. 
+  1158. static CK_RV
+
+#21
+p11-kit/log.c:1168: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 1163 is not freed after the last access at line 1168, column 1. 
+  1166. 		OUT_SESSION_INFO (pInfo)
+  1167. 	DONE_CALL
+  1168. }
+        ^
+  1169. 
+  1170. static CK_RV
+
+#22
+p11-kit/log.c:1181: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 1176 is not freed after the last access at line 1181, column 1. 
+  1179. 	PROCESS_CALL ((self, hSession, pPin, ulPinLen))
+  1180. 	DONE_CALL
+  1181. }
+        ^
+  1182. 
+  1183. static CK_RV
+
+#23
+p11-kit/log.c:1197: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 1191 is not freed after the last access at line 1197, column 1. 
+  1195. 	PROCESS_CALL ((self, hSession, pOldPin, ulOldLen, pNewPin, ulNewLen))
+  1196. 	DONE_CALL
+  1197. }
+        ^
+  1198. 
+  1199. static CK_RV
+
+#24
+p11-kit/log.c:1211: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 1205 is not freed after the last access at line 1211, column 1. 
+  1209. 		OUT_BYTE_ARRAY (pOperationState, pulOperationStateLen)
+  1210. 	DONE_CALL
+  1211. }
+        ^
+  1212. 
+  1213. static CK_RV
+
+#25
+p11-kit/log.c:1228: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 1221 is not freed after the last access at line 1228, column 1. 
+  1226. 	PROCESS_CALL ((self, hSession, pOperationState, ulOperationStateLen, hEncryptionKey, hAuthenticationKey))
+  1227. 	DONE_CALL
+  1228. }
+        ^
+  1229. 
+  1230. static CK_RV
+
+#26
+p11-kit/log.c:1243: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 1237 is not freed after the last access at line 1243, column 1. 
+  1241. 	PROCESS_CALL ((self, hSession, userType, pPin, ulPinLen))
+  1242. 	DONE_CALL
+  1243. }
+        ^
+  1244. 
+  1245. static CK_RV
+
+#27
+p11-kit/log.c:1253: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 1249 is not freed after the last access at line 1253, column 1. 
+  1251. 	PROCESS_CALL ((self, hSession))
+  1252. 	DONE_CALL
+  1253. }
+        ^
+  1254. 
+  1255. static CK_RV
+
+#28
+p11-kit/log.c:1268: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 1262 is not freed after the last access at line 1268, column 1. 
+  1266. 		OUT_HANDLE (phObject)
+  1267. 	DONE_CALL
+  1268. }
+        ^
+  1269. 
+  1270. static CK_RV
+
+#29
+p11-kit/log.c:1285: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 1278 is not freed after the last access at line 1285, column 1. 
+  1283. 		OUT_HANDLE (phNewObject)
+  1284. 	DONE_CALL
+  1285. }
+        ^
+  1286. 
+  1287. 
+
+#30
+p11-kit/log.c:1298: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 1293 is not freed after the last access at line 1298, column 1. 
+  1296. 	PROCESS_CALL ((self, hSession, hObject))
+  1297. 	DONE_CALL
+  1298. }
+        ^
+  1299. 
+  1300. static CK_RV
+
+#31
+p11-kit/log.c:1312: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 1306 is not freed after the last access at line 1312, column 1. 
+  1310. 		OUT_ULONG (size)
+  1311. 	DONE_CALL
+  1312. }
+        ^
+  1313. 
+  1314. static CK_RV
+
+#32
+p11-kit/log.c:1328: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 1321 is not freed after the last access at line 1328, column 1. 
+  1326. 		OUT_ATTRIBUTE_ARRAY (pTemplate, ulCount)
+  1327. 	DONE_CALL
+  1328. }
+        ^
+  1329. 
+  1330. static CK_RV
+
+#33
+p11-kit/log.c:1343: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 1337 is not freed after the last access at line 1343, column 1. 
+  1341. 	PROCESS_CALL ((self, hSession, hObject, pTemplate, ulCount))
+  1342. 	DONE_CALL
+  1343. }
+        ^
+  1344. 
+  1345. static CK_RV
+
+#34
+p11-kit/log.c:1356: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 1351 is not freed after the last access at line 1356, column 1. 
+  1354. 	PROCESS_CALL ((self, hSession, pTemplate, ulCount))
+  1355. 	DONE_CALL
+  1356. }
+        ^
+  1357. 
+  1358. static CK_RV
+
+#35
+p11-kit/log.c:1371: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 1365 is not freed after the last access at line 1371, column 1. 
+  1369. 		OUT_HANDLE_ARRAY (object, object_count)
+  1370. 	DONE_CALL
+  1371. }
+        ^
+  1372. 
+  1373. static CK_RV
+
+#36
+p11-kit/log.c:1381: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 1377 is not freed after the last access at line 1381, column 1. 
+  1379. 	PROCESS_CALL ((self, hSession))
+  1380. 	DONE_CALL
+  1381. }
+        ^
+  1382. 
+  1383. static CK_RV
+
+#37
+p11-kit/log.c:1395: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 1389 is not freed after the last access at line 1395, column 1. 
+  1393. 	PROCESS_CALL ((self, hSession, pMechanism, hKey))
+  1394. 	DONE_CALL
+  1395. }
+        ^
+  1396. 
+  1397. static CK_RV
+
+#38
+p11-kit/log.c:1411: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 1405 is not freed after the last access at line 1411, column 1. 
+  1409. 		OUT_BYTE_ARRAY (pEncryptedData, pulEncryptedDataLen)
+  1410. 	DONE_CALL
+  1411. }
+        ^
+  1412. 
+  1413. static CK_RV
+
+#39
+p11-kit/log.c:1427: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 1421 is not freed after the last access at line 1427, column 1. 
+  1425. 		OUT_BYTE_ARRAY (pEncryptedPart, pulEncryptedPartLen)
+  1426. 	DONE_CALL
+  1427. }
+        ^
+  1428. 
+  1429. static CK_RV
+
+#40
+p11-kit/log.c:1440: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 1435 is not freed after the last access at line 1440, column 1. 
+  1438. 		OUT_BYTE_ARRAY (pLastEncryptedPart, pulLastEncryptedPartLen)
+  1439. 	DONE_CALL
+  1440. }
+        ^
+  1441. 
+  1442. static CK_RV
+
+#41
+p11-kit/log.c:1454: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 1448 is not freed after the last access at line 1454, column 1. 
+  1452. 	PROCESS_CALL ((self, hSession, pMechanism, hKey))
+  1453. 	DONE_CALL
+  1454. }
+        ^
+  1455. 
+  1456. static CK_RV
+
+#42
+p11-kit/log.c:1470: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 1464 is not freed after the last access at line 1470, column 1. 
+  1468. 		OUT_BYTE_ARRAY (pData, pulDataLen)
+  1469. 	DONE_CALL
+  1470. }
+        ^
+  1471. 
+  1472. static CK_RV
+
+#43
+p11-kit/log.c:1486: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 1480 is not freed after the last access at line 1486, column 1. 
+  1484. 		OUT_BYTE_ARRAY (pPart, pulPartLen)
+  1485. 	DONE_CALL
+  1486. }
+        ^
+  1487. 
+  1488. static CK_RV
+
+#44
+p11-kit/log.c:1499: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 1494 is not freed after the last access at line 1499, column 1. 
+  1497. 		OUT_BYTE_ARRAY (pLastPart, pulLastPartLen)
+  1498. 	DONE_CALL
+  1499. }
+        ^
+  1500. 
+  1501. static CK_RV
+
+#45
+p11-kit/log.c:1511: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 1506 is not freed after the last access at line 1511, column 1. 
+  1509. 	PROCESS_CALL ((self, hSession, pMechanism))
+  1510. 	DONE_CALL
+  1511. }
+        ^
+  1512. 
+  1513. static CK_RV
+
+#46
+p11-kit/log.c:1527: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 1521 is not freed after the last access at line 1527, column 1. 
+  1525. 		OUT_BYTE_ARRAY (pDigest, pulDigestLen)
+  1526. 	DONE_CALL
+  1527. }
+        ^
+  1528. 
+  1529. static CK_RV
+
+#47
+p11-kit/log.c:1540: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 1535 is not freed after the last access at line 1540, column 1. 
+  1538. 	PROCESS_CALL ((self, hSession, pPart, ulPartLen))
+  1539. 	DONE_CALL
+  1540. }
+        ^
+  1541. 
+  1542. static CK_RV
+
+#48
+p11-kit/log.c:1552: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 1547 is not freed after the last access at line 1552, column 1. 
+  1550. 	PROCESS_CALL ((self, hSession, hKey))
+  1551. 	DONE_CALL
+  1552. }
+        ^
+  1553. 
+  1554. static CK_RV
+
+#49
+p11-kit/log.c:1565: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 1560 is not freed after the last access at line 1565, column 1. 
+  1563. 		OUT_BYTE_ARRAY (pDigest, pulDigestLen)
+  1564. 	DONE_CALL
+  1565. }
+        ^
+  1566. 
+  1567. static CK_RV
+
+#50
+p11-kit/log.c:1579: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 1573 is not freed after the last access at line 1579, column 1. 
+  1577. 	PROCESS_CALL ((self, hSession, pMechanism, hKey))
+  1578. 	DONE_CALL
+  1579. }
+        ^
+  1580. 
+  1581. static CK_RV
+
+#51
+p11-kit/log.c:1595: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 1589 is not freed after the last access at line 1595, column 1. 
+  1593. 		OUT_BYTE_ARRAY (pSignature, pulSignatureLen)
+  1594. 	DONE_CALL
+  1595. }
+        ^
+  1596. 
+  1597. static CK_RV
+
+#52
+p11-kit/log.c:1608: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 1603 is not freed after the last access at line 1608, column 1. 
+  1606. 	PROCESS_CALL ((self, hSession, pPart, ulPartLen))
+  1607. 	DONE_CALL
+  1608. }
+        ^
+  1609. 
+  1610. static CK_RV
+
+#53
+p11-kit/log.c:1621: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 1616 is not freed after the last access at line 1621, column 1. 
+  1619. 		OUT_BYTE_ARRAY (pSignature, pulSignatureLen)
+  1620. 	DONE_CALL
+  1621. }
+        ^
+  1622. 
+  1623. static CK_RV
+
+#54
+p11-kit/log.c:1635: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 1629 is not freed after the last access at line 1635, column 1. 
+  1633. 	PROCESS_CALL ((self, hSession, pMechanism, hKey))
+  1634. 	DONE_CALL
+  1635. }
+        ^
+  1636. 
+  1637. static CK_RV
+
+#55
+p11-kit/log.c:1651: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 1645 is not freed after the last access at line 1651, column 1. 
+  1649. 		OUT_BYTE_ARRAY (pSignature, pulSignatureLen)
+  1650. 	DONE_CALL
+  1651. }
+        ^
+  1652. 
+  1653. static CK_RV
+
+#56
+p11-kit/log.c:1665: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 1659 is not freed after the last access at line 1665, column 1. 
+  1663. 	PROCESS_CALL ((self, hSession, pMechanism, hKey))
+  1664. 	DONE_CALL
+  1665. }
+        ^
+  1666. 
+  1667. static CK_RV
+
+#57
+p11-kit/log.c:1681: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 1675 is not freed after the last access at line 1681, column 1. 
+  1679. 	PROCESS_CALL ((self, hSession, pData, ulDataLen, pSignature, ulSignatureLen))
+  1680. 	DONE_CALL
+  1681. }
+        ^
+  1682. 
+  1683. static CK_RV
+
+#58
+p11-kit/log.c:1694: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 1689 is not freed after the last access at line 1694, column 1. 
+  1692. 	PROCESS_CALL ((self, hSession, pPart, ulPartLen))
+  1693. 	DONE_CALL
+  1694. }
+        ^
+  1695. 
+  1696. static CK_RV
+
+#59
+p11-kit/log.c:1707: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 1702 is not freed after the last access at line 1707, column 1. 
+  1705. 	PROCESS_CALL ((self, hSession, pSignature, ulSignatureLen))
+  1706. 	DONE_CALL
+  1707. }
+        ^
+  1708. 
+  1709. static CK_RV
+
+#60
+p11-kit/log.c:1721: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 1715 is not freed after the last access at line 1721, column 1. 
+  1719. 	PROCESS_CALL ((self, hSession, pMechanism, hKey))
+  1720. 	DONE_CALL
+  1721. }
+        ^
+  1722. 
+  1723. static CK_RV
+
+#61
+p11-kit/log.c:1737: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 1731 is not freed after the last access at line 1737, column 1. 
+  1735. 		OUT_BYTE_ARRAY (pData, pulDataLen)
+  1736. 	DONE_CALL
+  1737. }
+        ^
+  1738. 
+  1739. static CK_RV
+
+#62
+p11-kit/log.c:1753: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 1747 is not freed after the last access at line 1753, column 1. 
+  1751. 		OUT_BYTE_ARRAY (pEncryptedPart, pulEncryptedPartLen)
+  1752. 	DONE_CALL
+  1753. }
+        ^
+  1754. 
+  1755. static CK_RV
+
+#63
+p11-kit/log.c:1769: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 1763 is not freed after the last access at line 1769, column 1. 
+  1767. 		OUT_BYTE_ARRAY (pPart, pulPartLen)
+  1768. 	DONE_CALL
+  1769. }
+        ^
+  1770. 
+  1771. static CK_RV
+
+#64
+p11-kit/log.c:1785: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 1779 is not freed after the last access at line 1785, column 1. 
+  1783. 		OUT_BYTE_ARRAY (pEncryptedPart, pulEncryptedPartLen)
+  1784. 	DONE_CALL
+  1785. }
+        ^
+  1786. 
+  1787. static CK_RV
+
+#65
+p11-kit/log.c:1801: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 1795 is not freed after the last access at line 1801, column 1. 
+  1799. 		OUT_BYTE_ARRAY (pPart, pulPartLen)
+  1800. 	DONE_CALL
+  1801. }
+        ^
+  1802. 
+  1803. static CK_RV
+
+#66
+p11-kit/log.c:1818: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 1811 is not freed after the last access at line 1818, column 1. 
+  1816. 		OUT_HANDLE (phKey)
+  1817. 	DONE_CALL
+  1818. }
+        ^
+  1819. 
+  1820. static CK_RV
+
+#67
+p11-kit/log.c:1841: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 1831 is not freed after the last access at line 1841, column 1. 
+  1839. 		OUT_HANDLE (phPrivateKey)
+  1840. 	DONE_CALL
+  1841. }
+        ^
+  1842. 
+  1843. static CK_RV
+
+#68
+p11-kit/log.c:1860: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 1852 is not freed after the last access at line 1860, column 1. 
+  1858. 		OUT_BYTE_ARRAY (pWrappedKey, pulWrappedKeyLen)
+  1859. 	DONE_CALL
+  1860. }
+        ^
+  1861. 
+  1862. static CK_RV
+
+#69
+p11-kit/log.c:1883: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 1873 is not freed after the last access at line 1883, column 1. 
+  1881. 		OUT_HANDLE (phKey)
+  1882. 	DONE_CALL
+  1883. }
+        ^
+  1884. 
+  1885. static CK_RV
+
+#70
+p11-kit/log.c:1902: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 1894 is not freed after the last access at line 1902, column 1. 
+  1900. 		OUT_HANDLE (phObject)
+  1901. 	DONE_CALL
+  1902. }
+        ^
+  1903. 
+  1904. static CK_RV
+
+#71
+p11-kit/log.c:1915: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 1910 is not freed after the last access at line 1915, column 1. 
+  1913. 	PROCESS_CALL ((self, hSession, pSeed, ulSeedLen))
+  1914. 	DONE_CALL
+  1915. }
+        ^
+  1916. 
+  1917. static CK_RV
+
+#72
+p11-kit/log.c:1929: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc`, indirectly via call to `p11_buffer_init_null()` on line 1923 is not freed after the last access at line 1929, column 1. 
+  1927. 		OUT_BYTE_ARRAY (pRandomData, &ulRandomLen)
+  1928. 	DONE_CALL
+  1929. }
+        ^
+  1930. 
+  1931. static CK_X_FUNCTION_LIST log_functions = {
+
+#73
+p11-kit/log.c:2021: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc` on line 2016 is not freed after the last access at line 2021, column 2. 
+  2019. 	p11_virtual_init (&log->virt, &log_functions, lower, destroyer);
+  2020. 	log->lower = &lower->funcs;
+  2021. 	return &log->virt;
+         ^
+  2022. }
+
+#74
+p11-kit/modules.c:421: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `alloc_module_unlocked()` on line 415 is not freed after the last access at line 421, column 3. 
+  419. 		p11_debug ("module path is relative, loading from: %s", P11_MODULE_PATH);
+  420. 		path = expand = p11_path_build (P11_MODULE_PATH, path, NULL);
+  421. 		return_val_if_fail (path != NULL, CKR_HOST_MEMORY);
+         ^
+  422. 	}
+  423. 
+
+#75
+p11-kit/modules.c:1603: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `memdup()` on line 1599 is not freed after the last access at line 1603, column 2. 
+  1601. 
+  1602. 	value = memdup (&slot_id, sizeof (CK_SESSION_HANDLE));
+  1603. 	return_val_if_fail (value != NULL, CKR_HOST_MEMORY);
+         ^
+  1604. 
+  1605. 	if (!p11_dict_set (sessions, key, value))
+
+#76
+p11-kit/modules.c:1605: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `memdup()` on line 1602 is not freed after the last access at line 1605, column 7. 
+  1603. 	return_val_if_fail (value != NULL, CKR_HOST_MEMORY);
+  1604. 
+  1605. 	if (!p11_dict_set (sessions, key, value))
+              ^
+  1606. 		return_val_if_reached (CKR_HOST_MEMORY);
+  1607. 
+
+#77
+p11-kit/modules.c:1784: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `count` is read without initialization. 
+  1782. 
+  1783. 	self = &managed->mod->virt.funcs;
+  1784. 	managed_close_sessions (self, stolen, count);
+                                               ^
+  1785. 	if (stolen) {
+  1786. 		free (stolen);
+
+#78
+p11-kit/modules.c:1820: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc` on line 1807 is not freed after the last access at line 1820, column 2. 
+  1818. 	mod->ref_count++;
+  1819. 
+  1820. 	return &managed->virt;
+         ^
+  1821. }
+  1822. 
+
+#79
+p11-kit/modules.c:1832: error: Null Dereference(NULLPTR_DEREFERENCE)
+  null (null value originating from line 1832) is dereferenced in the call to `module_get_option_inlock()`. 
+  1830. 	bool value;
+  1831. 
+  1832. 	string = module_get_option_inlock (NULL, option);
+                  ^
+  1833. 	if (!string)
+  1834. 		string = module_get_option_inlock (mod, option);
+
+#80
+p11-kit/pin.c:187: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc` on line 181 is not freed after the last access at line 187, column 3. 
+  185. 		gl.pin_sources = p11_dict_new (p11_dict_str_hash, p11_dict_str_equal,
+  186. 		                               free, (p11_destroyer)p11_array_free);
+  187. 		return_val_if_fail (gl.pin_sources != NULL, false);
+         ^
+  188. 	}
+  189. 
+
+#81
+p11-kit/pin.c:195: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc` on line 181 is not freed after the last access at line 195, column 3. 
+  193. 	if (callbacks == NULL) {
+  194. 		callbacks = p11_array_new (unref_pin_callback);
+  195. 		return_val_if_fail (callbacks != NULL, false);
+         ^
+  196. 		if (!p11_dict_set (gl.pin_sources, name, callbacks))
+  197. 			return_val_if_reached (false);
+
+#82
+p11-kit/pin.c:248: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc` on line 238 is not freed after the last access at line 248, column 2. 
+  246. 	p11_lock ();
+  247. 
+  248. 	ret = register_callback_unlocked (pin_source, cb);
+        ^
+  249. 
+  250. 	p11_unlock ();
+
+#83
+p11-kit/pin.c:508: error: Use After Free(USE_AFTER_FREE)
+  accessing `buffer` that was invalidated by call to `free()` on line 483. 
+  506. 
+  507. 	if (error != 0) {
+  508. 		free (buffer);
+         ^
+  509. 		errno = error;
+  510. 		return NULL;
+
+#84
+p11-kit/pin.c:513: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `realloc` on line 483 is not freed after the last access at line 513, column 9. 
+  511. 	}
+  512. 
+  513. 	return p11_kit_pin_new_for_buffer (buffer, used, free);
+               ^
+  514. }
+  515. 
+
+#85
+p11-kit/pin.c:553: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc` on line 549 is not freed after the last access at line 553, column 2. 
+  551. 
+  552. 	memcpy (copy, value, length);
+  553. 	pin = p11_kit_pin_new_for_buffer (copy, length, free);
+        ^
+  554. 	return_val_if_fail (pin != NULL, NULL);
+  555. 
+
+#86
+p11-kit/proxy.c:282: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc` on line 269 is not freed after the last access at line 282, column 4. 
+  280. 		if (count > 0) {
+  281. 			py->mappings = realloc (py->mappings, sizeof (Mapping) * (py->n_mappings + count));
+  282. 			return_val_if_fail (py->mappings != NULL, CKR_HOST_MEMORY);
+          ^
+  283. 
+  284. 			/* And now add a mapping for each of those slots */
+
+#87
+p11-kit/proxy.c:530: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mapping.real_slot` is read without initialization during the call to `map_slot_to_real()`. 
+  528. 	CK_RV rv;
+  529. 
+  530. 	rv = map_slot_to_real (state->px, &id, &map);
+             ^
+  531. 	if (rv != CKR_OK)
+  532. 		return rv;
+
+#88
+p11-kit/proxy.c:533: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.funcs` is read without initialization. 
+  531. 	if (rv != CKR_OK)
+  532. 		return rv;
+  533. 	return (map.funcs->C_GetSlotInfo) (id, info);
+                ^
+  534. }
+  535. 
+
+#89
+p11-kit/proxy.c:545: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mapping.real_slot` is read without initialization during the call to `map_slot_to_real()`. 
+  543. 	CK_RV rv;
+  544. 
+  545. 	rv = map_slot_to_real (state->px, &id, &map);
+             ^
+  546. 	if (rv != CKR_OK)
+  547. 		return rv;
+
+#90
+p11-kit/proxy.c:548: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.funcs` is read without initialization. 
+  546. 	if (rv != CKR_OK)
+  547. 		return rv;
+  548. 	return (map.funcs->C_GetTokenInfo) (id, info);
+                ^
+  549. }
+  550. 
+
+#91
+p11-kit/proxy.c:561: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mapping.real_slot` is read without initialization during the call to `map_slot_to_real()`. 
+  559. 	CK_RV rv;
+  560. 
+  561. 	rv = map_slot_to_real (state->px, &id, &map);
+             ^
+  562. 	if (rv != CKR_OK)
+  563. 		return rv;
+
+#92
+p11-kit/proxy.c:564: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.funcs` is read without initialization. 
+  562. 	if (rv != CKR_OK)
+  563. 		return rv;
+  564. 	return (map.funcs->C_GetMechanismList) (id, mechanism_list, count);
+                ^
+  565. }
+  566. 
+
+#93
+p11-kit/proxy.c:577: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mapping.real_slot` is read without initialization during the call to `map_slot_to_real()`. 
+  575. 	CK_RV rv;
+  576. 
+  577. 	rv = map_slot_to_real (state->px, &id, &map);
+             ^
+  578. 	if (rv != CKR_OK)
+  579. 		return rv;
+
+#94
+p11-kit/proxy.c:580: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.funcs` is read without initialization. 
+  578. 	if (rv != CKR_OK)
+  579. 		return rv;
+  580. 	return (map.funcs->C_GetMechanismInfo) (id, type, info);
+                ^
+  581. }
+  582. 
+
+#95
+p11-kit/proxy.c:594: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mapping.real_slot` is read without initialization during the call to `map_slot_to_real()`. 
+  592. 	CK_RV rv;
+  593. 
+  594. 	rv = map_slot_to_real (state->px, &id, &map);
+             ^
+  595. 	if (rv != CKR_OK)
+  596. 		return rv;
+
+#96
+p11-kit/proxy.c:597: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.funcs` is read without initialization. 
+  595. 	if (rv != CKR_OK)
+  596. 		return rv;
+  597. 	return (map.funcs->C_InitToken) (id, pin, pin_len, label);
+                ^
+  598. }
+  599. 
+
+#97
+p11-kit/proxy.c:657: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `mapping.real_slot` is read without initialization during the call to `map_slot_to_real()`. 
+  655. 	return_val_if_fail (handle != NULL, CKR_ARGUMENTS_BAD);
+  656. 
+  657. 	rv = map_slot_to_real (state->px, &id, &map);
+             ^
+  658. 	if (rv != CKR_OK)
+  659. 		return rv;
+
+#98
+p11-kit/proxy.c:661: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.funcs` is read without initialization. 
+  659. 		return rv;
+  660. 
+  661. 	rv = (map.funcs->C_OpenSession) (id, flags, user_data, callback, handle);
+              ^
+  662. 
+  663. 	if (rv == CKR_OK) {
+
+#99
+p11-kit/proxy.c:678: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.wrap_slot` is read without initialization. 
+  676. 				sess = calloc (1, sizeof (Session));
+  677. 				return_val_if_fail (sess != NULL, CKR_HOST_MEMORY);
+  678. 				sess->wrap_slot = map.wrap_slot;
+                             ^
+  679. 				sess->real_session = *handle;
+  680. 				sess->wrap_session = ++state->last_handle; /* TODO: Handle wrapping, and then collisions */
+
+#100
+p11-kit/proxy.c:683: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc` on line 676 is not freed after the last access at line 683, column 5. 
+  681. 				if (!p11_dict_set (state->px->sessions, &sess->wrap_session, sess))
+  682. 					warn_if_reached ();
+  683. 				*handle = sess->wrap_session;
+           ^
+  684. 			}
+  685. 
+
+#101
+p11-kit/proxy.c:705: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.funcs` is read without initialization. 
+  703. 	if (rv != CKR_OK)
+  704. 		return rv;
+  705. 	rv = (map.funcs->C_CloseSession) (handle);
+              ^
+  706. 
+  707. 	if (rv == CKR_OK) {
+
+#102
+p11-kit/proxy.c:777: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.funcs` is read without initialization. 
+  775. 		return rv;
+  776. 
+  777. 	rv = (map.funcs->C_GetSessionInfo) (handle, info);
+              ^
+  778. 	if (rv == CKR_OK)
+  779. 		info->slotID = map.wrap_slot;
+
+#103
+p11-kit/proxy.c:779: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.wrap_slot` is read without initialization. 
+  777. 	rv = (map.funcs->C_GetSessionInfo) (handle, info);
+  778. 	if (rv == CKR_OK)
+  779. 		info->slotID = map.wrap_slot;
+                        ^
+  780. 
+  781. 	return rv;
+
+#104
+p11-kit/proxy.c:798: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.funcs` is read without initialization. 
+  796. 		return rv;
+  797. 
+  798. 	return (map.funcs->C_InitPIN) (handle, pin, pin_len);
+                ^
+  799. }
+  800. 
+
+#105
+p11-kit/proxy.c:817: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.funcs` is read without initialization. 
+  815. 		return rv;
+  816. 
+  817. 	return (map.funcs->C_SetPIN) (handle, old_pin, old_pin_len, new_pin, new_pin_len);
+                ^
+  818. }
+  819. 
+
+#106
+p11-kit/proxy.c:833: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.funcs` is read without initialization. 
+  831. 	if (rv != CKR_OK)
+  832. 		return rv;
+  833. 	return (map.funcs->C_GetOperationState) (handle, operation_state, operation_state_len);
+                ^
+  834. }
+  835. 
+
+#107
+p11-kit/proxy.c:851: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.funcs` is read without initialization. 
+  849. 	if (rv != CKR_OK)
+  850. 		return rv;
+  851. 	return (map.funcs->C_SetOperationState) (handle, operation_state, operation_state_len, encryption_key, authentication_key);
+                ^
+  852. }
+  853. 
+
+#108
+p11-kit/proxy.c:869: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.funcs` is read without initialization. 
+  867. 		return rv;
+  868. 
+  869. 	return (map.funcs->C_Login) (handle, user_type, pin, pin_len);
+                ^
+  870. }
+  871. 
+
+#109
+p11-kit/proxy.c:883: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.funcs` is read without initialization. 
+  881. 	if (rv != CKR_OK)
+  882. 		return rv;
+  883. 	return (map.funcs->C_Logout) (handle);
+                ^
+  884. }
+  885. 
+
+#110
+p11-kit/proxy.c:901: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.funcs` is read without initialization. 
+  899. 		return rv;
+  900. 
+  901. 	return (map.funcs->C_CreateObject) (handle, template, count, new_object);
+                ^
+  902. }
+  903. 
+
+#111
+p11-kit/proxy.c:919: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.funcs` is read without initialization. 
+  917. 	if (rv != CKR_OK)
+  918. 		return rv;
+  919. 	return (map.funcs->C_CopyObject) (handle, object, template, count, new_object);
+                ^
+  920. }
+  921. 
+
+#112
+p11-kit/proxy.c:934: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.funcs` is read without initialization. 
+  932. 	if (rv != CKR_OK)
+  933. 		return rv;
+  934. 	return (map.funcs->C_DestroyObject) (handle, object);
+                ^
+  935. }
+  936. 
+
+#113
+p11-kit/proxy.c:950: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.funcs` is read without initialization. 
+  948. 	if (rv != CKR_OK)
+  949. 		return rv;
+  950. 	return (map.funcs->C_GetObjectSize) (handle, object, size);
+                ^
+  951. }
+  952. 
+
+#114
+p11-kit/proxy.c:967: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.funcs` is read without initialization. 
+  965. 	if (rv != CKR_OK)
+  966. 		return rv;
+  967. 	return (map.funcs->C_GetAttributeValue) (handle, object, template, count);
+                ^
+  968. }
+  969. 
+
+#115
+p11-kit/proxy.c:984: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.funcs` is read without initialization. 
+  982. 	if (rv != CKR_OK)
+  983. 		return rv;
+  984. 	return (map.funcs->C_SetAttributeValue) (handle, object, template, count);
+                ^
+  985. }
+  986. 
+
+#116
+p11-kit/proxy.c:1000: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.funcs` is read without initialization. 
+   998. 	if (rv != CKR_OK)
+   999. 		return rv;
+  1000. 	return (map.funcs->C_FindObjectsInit) (handle, template, count);
+                 ^
+  1001. }
+  1002. 
+
+#117
+p11-kit/proxy.c:1017: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.funcs` is read without initialization. 
+  1015. 	if (rv != CKR_OK)
+  1016. 		return rv;
+  1017. 	return (map.funcs->C_FindObjects) (handle, objects, max_count, count);
+                 ^
+  1018. }
+  1019. 
+
+#118
+p11-kit/proxy.c:1031: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.funcs` is read without initialization. 
+  1029. 	if (rv != CKR_OK)
+  1030. 		return rv;
+  1031. 	return (map.funcs->C_FindObjectsFinal) (handle);
+                 ^
+  1032. }
+  1033. 
+
+#119
+p11-kit/proxy.c:1047: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.funcs` is read without initialization. 
+  1045. 	if (rv != CKR_OK)
+  1046. 		return rv;
+  1047. 	return (map.funcs->C_EncryptInit) (handle, mechanism, key);
+                 ^
+  1048. }
+  1049. 
+
+#120
+p11-kit/proxy.c:1065: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.funcs` is read without initialization. 
+  1063. 	if (rv != CKR_OK)
+  1064. 		return rv;
+  1065. 	return (map.funcs->C_Encrypt) (handle, input, input_len, encrypted_data, encrypted_data_len);
+                 ^
+  1066. }
+  1067. 
+
+#121
+p11-kit/proxy.c:1083: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.funcs` is read without initialization. 
+  1081. 	if (rv != CKR_OK)
+  1082. 		return rv;
+  1083. 	return (map.funcs->C_EncryptUpdate) (handle, part, part_len, encrypted_part, encrypted_part_len);
+                 ^
+  1084. }
+  1085. 
+
+#122
+p11-kit/proxy.c:1099: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.funcs` is read without initialization. 
+  1097. 	if (rv != CKR_OK)
+  1098. 		return rv;
+  1099. 	return (map.funcs->C_EncryptFinal) (handle, last_part, last_part_len);
+                 ^
+  1100. }
+  1101. 
+
+#123
+p11-kit/proxy.c:1115: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.funcs` is read without initialization. 
+  1113. 	if (rv != CKR_OK)
+  1114. 		return rv;
+  1115. 	return (map.funcs->C_DecryptInit) (handle, mechanism, key);
+                 ^
+  1116. }
+  1117. 
+
+#124
+p11-kit/proxy.c:1133: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.funcs` is read without initialization. 
+  1131. 	if (rv != CKR_OK)
+  1132. 		return rv;
+  1133. 	return (map.funcs->C_Decrypt) (handle, enc_data, enc_data_len, output, output_len);
+                 ^
+  1134. }
+  1135. 
+
+#125
+p11-kit/proxy.c:1151: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.funcs` is read without initialization. 
+  1149. 	if (rv != CKR_OK)
+  1150. 		return rv;
+  1151. 	return (map.funcs->C_DecryptUpdate) (handle, enc_part, enc_part_len, part, part_len);
+                 ^
+  1152. }
+  1153. 
+
+#126
+p11-kit/proxy.c:1167: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.funcs` is read without initialization. 
+  1165. 	if (rv != CKR_OK)
+  1166. 		return rv;
+  1167. 	return (map.funcs->C_DecryptFinal) (handle, last_part, last_part_len);
+                 ^
+  1168. }
+  1169. 
+
+#127
+p11-kit/proxy.c:1182: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.funcs` is read without initialization. 
+  1180. 	if (rv != CKR_OK)
+  1181. 		return rv;
+  1182. 	return (map.funcs->C_DigestInit) (handle, mechanism);
+                 ^
+  1183. }
+  1184. 
+
+#128
+p11-kit/proxy.c:1200: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.funcs` is read without initialization. 
+  1198. 	if (rv != CKR_OK)
+  1199. 		return rv;
+  1200. 	return (map.funcs->C_Digest) (handle, input, input_len, digest, digest_len);
+                 ^
+  1201. }
+  1202. 
+
+#129
+p11-kit/proxy.c:1216: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.funcs` is read without initialization. 
+  1214. 	if (rv != CKR_OK)
+  1215. 		return rv;
+  1216. 	return (map.funcs->C_DigestUpdate) (handle, part, part_len);
+                 ^
+  1217. }
+  1218. 
+
+#130
+p11-kit/proxy.c:1231: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.funcs` is read without initialization. 
+  1229. 	if (rv != CKR_OK)
+  1230. 		return rv;
+  1231. 	return (map.funcs->C_DigestKey) (handle, key);
+                 ^
+  1232. }
+  1233. 
+
+#131
+p11-kit/proxy.c:1247: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.funcs` is read without initialization. 
+  1245. 	if (rv != CKR_OK)
+  1246. 		return rv;
+  1247. 	return (map.funcs->C_DigestFinal) (handle, digest, digest_len);
+                 ^
+  1248. }
+  1249. 
+
+#132
+p11-kit/proxy.c:1263: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.funcs` is read without initialization. 
+  1261. 	if (rv != CKR_OK)
+  1262. 		return rv;
+  1263. 	return (map.funcs->C_SignInit) (handle, mechanism, key);
+                 ^
+  1264. }
+  1265. 
+
+#133
+p11-kit/proxy.c:1281: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.funcs` is read without initialization. 
+  1279. 	if (rv != CKR_OK)
+  1280. 		return rv;
+  1281. 	return (map.funcs->C_Sign) (handle, input, input_len, signature, signature_len);
+                 ^
+  1282. }
+  1283. 
+
+#134
+p11-kit/proxy.c:1297: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.funcs` is read without initialization. 
+  1295. 	if (rv != CKR_OK)
+  1296. 		return rv;
+  1297. 	return (map.funcs->C_SignUpdate) (handle, part, part_len);
+                 ^
+  1298. }
+  1299. 
+
+#135
+p11-kit/proxy.c:1313: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.funcs` is read without initialization. 
+  1311. 	if (rv != CKR_OK)
+  1312. 		return rv;
+  1313. 	return (map.funcs->C_SignFinal) (handle, signature, signature_len);
+                 ^
+  1314. }
+  1315. 
+
+#136
+p11-kit/proxy.c:1329: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.funcs` is read without initialization. 
+  1327. 	if (rv != CKR_OK)
+  1328. 		return rv;
+  1329. 	return (map.funcs->C_SignRecoverInit) (handle, mechanism, key);
+                 ^
+  1330. }
+  1331. 
+
+#137
+p11-kit/proxy.c:1347: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.funcs` is read without initialization. 
+  1345. 	if (rv != CKR_OK)
+  1346. 		return rv;
+  1347. 	return (map.funcs->C_SignRecover) (handle, input, input_len, signature, signature_len);
+                 ^
+  1348. }
+  1349. 
+
+#138
+p11-kit/proxy.c:1363: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.funcs` is read without initialization. 
+  1361. 	if (rv != CKR_OK)
+  1362. 		return rv;
+  1363. 	return (map.funcs->C_VerifyInit) (handle, mechanism, key);
+                 ^
+  1364. }
+  1365. 
+
+#139
+p11-kit/proxy.c:1381: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.funcs` is read without initialization. 
+  1379. 	if (rv != CKR_OK)
+  1380. 		return rv;
+  1381. 	return (map.funcs->C_Verify) (handle, input, input_len, signature, signature_len);
+                 ^
+  1382. }
+  1383. 
+
+#140
+p11-kit/proxy.c:1397: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.funcs` is read without initialization. 
+  1395. 	if (rv != CKR_OK)
+  1396. 		return rv;
+  1397. 	return (map.funcs->C_VerifyUpdate) (handle, part, part_len);
+                 ^
+  1398. }
+  1399. 
+
+#141
+p11-kit/proxy.c:1413: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.funcs` is read without initialization. 
+  1411. 	if (rv != CKR_OK)
+  1412. 		return rv;
+  1413. 	return (map.funcs->C_VerifyFinal) (handle, signature, signature_len);
+                 ^
+  1414. }
+  1415. 
+
+#142
+p11-kit/proxy.c:1429: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.funcs` is read without initialization. 
+  1427. 	if (rv != CKR_OK)
+  1428. 		return rv;
+  1429. 	return (map.funcs->C_VerifyRecoverInit) (handle, mechanism, key);
+                 ^
+  1430. }
+  1431. 
+
+#143
+p11-kit/proxy.c:1447: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.funcs` is read without initialization. 
+  1445. 	if (rv != CKR_OK)
+  1446. 		return rv;
+  1447. 	return (map.funcs->C_VerifyRecover) (handle, signature, signature_len, output, output_len);
+                 ^
+  1448. }
+  1449. 
+
+#144
+p11-kit/proxy.c:1465: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.funcs` is read without initialization. 
+  1463. 	if (rv != CKR_OK)
+  1464. 		return rv;
+  1465. 	return (map.funcs->C_DigestEncryptUpdate) (handle, part, part_len, enc_part, enc_part_len);
+                 ^
+  1466. }
+  1467. 
+
+#145
+p11-kit/proxy.c:1483: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.funcs` is read without initialization. 
+  1481. 	if (rv != CKR_OK)
+  1482. 		return rv;
+  1483. 	return (map.funcs->C_DecryptDigestUpdate) (handle, enc_part, enc_part_len, part, part_len);
+                 ^
+  1484. }
+  1485. 
+
+#146
+p11-kit/proxy.c:1501: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.funcs` is read without initialization. 
+  1499. 	if (rv != CKR_OK)
+  1500. 		return rv;
+  1501. 	return (map.funcs->C_SignEncryptUpdate) (handle, part, part_len, enc_part, enc_part_len);
+                 ^
+  1502. }
+  1503. 
+
+#147
+p11-kit/proxy.c:1519: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.funcs` is read without initialization. 
+  1517. 	if (rv != CKR_OK)
+  1518. 		return rv;
+  1519. 	return (map.funcs->C_DecryptVerifyUpdate) (handle, enc_part, enc_part_len, part, part_len);
+                 ^
+  1520. }
+  1521. 
+
+#148
+p11-kit/proxy.c:1537: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.funcs` is read without initialization. 
+  1535. 	if (rv != CKR_OK)
+  1536. 		return rv;
+  1537. 	return (map.funcs->C_GenerateKey) (handle, mechanism, template, count, key);
+                 ^
+  1538. }
+  1539. 
+
+#149
+p11-kit/proxy.c:1558: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.funcs` is read without initialization. 
+  1556. 	if (rv != CKR_OK)
+  1557. 		return rv;
+  1558. 	return (map.funcs->C_GenerateKeyPair) (handle, mechanism, pub_template, pub_count, priv_template, priv_count, pub_key, priv_key);
+                 ^
+  1559. }
+  1560. 
+
+#150
+p11-kit/proxy.c:1577: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.funcs` is read without initialization. 
+  1575. 	if (rv != CKR_OK)
+  1576. 		return rv;
+  1577. 	return (map.funcs->C_WrapKey) (handle, mechanism, wrapping_key, key, wrapped_key, wrapped_key_len);
+                 ^
+  1578. }
+  1579. 
+
+#151
+p11-kit/proxy.c:1598: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.funcs` is read without initialization. 
+  1596. 	if (rv != CKR_OK)
+  1597. 		return rv;
+  1598. 	return (map.funcs->C_UnwrapKey) (handle, mechanism, unwrapping_key, wrapped_key, wrapped_key_len, template, count, key);
+                 ^
+  1599. }
+  1600. 
+
+#152
+p11-kit/proxy.c:1617: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.funcs` is read without initialization. 
+  1615. 	if (rv != CKR_OK)
+  1616. 		return rv;
+  1617. 	return (map.funcs->C_DeriveKey) (handle, mechanism, base_key, template, count, key);
+                 ^
+  1618. }
+  1619. 
+
+#153
+p11-kit/proxy.c:1633: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.funcs` is read without initialization. 
+  1631. 	if (rv != CKR_OK)
+  1632. 		return rv;
+  1633. 	return (map.funcs->C_SeedRandom) (handle, seed, seed_len);
+                 ^
+  1634. }
+  1635. 
+
+#154
+p11-kit/proxy.c:1649: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.funcs` is read without initialization. 
+  1647. 	if (rv != CKR_OK)
+  1648. 		return rv;
+  1649. 	return (map.funcs->C_GenerateRandom) (handle, random_data, random_len);
+                 ^
+  1650. }
+  1651. 
+
+#155
+p11-kit/rpc-client.c:779: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `msg.input` is read without initialization during the call to `call_done()`. 
+  777. 	if (ret == CKR_OK)
+  778. 		ret = call_run (module, &msg);
+  779. 	call_done (module, &msg, ret);
+        ^
+  780. 
+  781. done:
+
+#156
+p11-kit/rpc-client.c:817: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `msg.input` is read without initialization during the call to `call_done()`. 
+  815. 		if (ret == CKR_OK)
+  816. 			ret = call_run (module, &msg);
+  817. 		call_done (module, &msg, ret);
+         ^
+  818. 		if (ret != CKR_OK)
+  819. 			p11_message ("finalizing rpc module returned an error: %lu", ret);
+
+#157
+p11-kit/rpc-message.c:529: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc` on line 525 is not freed after the last access at line 529, column 7. 
+  527. 
+  528. 	p11_buffer_init_full (buffer, NULL, 0, 0, frealloc, ffree);
+  529. 	if (!p11_buffer_reset (buffer, reserve))
+             ^
+  530. 		return_val_if_reached (NULL);
+  531. 
+
+#158
+p11-kit/rpc-server.c:2008: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `self.funcs.C_WaitForSlotEvent` is read without initialization during the call to `p11_rpc_server_handle()`. 
+  2006. 		}
+  2007. 
+  2008. 		if (!p11_rpc_server_handle (&virt.funcs, &buffer, &buffer)) {
+               ^
+  2009. 			p11_message ("unexpected error handling rpc message");
+  2010. 			goto out;
+
+#159
+p11-kit/rpc-transport.c:1034: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc` on line 1034 is not freed after the last access at line 1034, column 7. 
+  1032. 	p11_array *argv = data;
+  1033. 
+  1034. 	if (!p11_array_push (argv, strdup (argument)))
+              ^
+  1035. 		return_if_reached ();
+  1036. }
+
+#160
+p11-kit/rpc-transport.c:1096: error: Resource Leak(PULSE_RESOURCE_LEAK)
+  File descriptor dynamically allocated by `fopen()` on line 1084 is not closed after the last access at line 1096, column 2. 
+  1094. 	}
+  1095. 
+  1096. 	run->base.socket = rpc_socket_new (fd);
+         ^
+  1097. 	return_val_if_fail (run->base.socket != NULL, CKR_GENERAL_ERROR);
+  1098. 
+
+#161
+p11-kit/uri.c:860: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc` on line 854 is not freed after the last access at line 860, column 9. 
+  858. 	attr->value = value;
+  859. 
+  860. 	return p11_array_insert (attrs, i, attr);
+               ^
+  861. }
+  862. 
+
+#162
+p11-kit/uri.c:893: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc` on line 894 is not freed after the last access at line 893, column 10. 
+  891. 		if (value == NULL)
+  892. 			return 0;
+  893. 		return insert_attribute (uri->qattrs,
+                ^
+  894. 					 strdup (name), strdup (value));
+  895. 	}
+
+#163
+p11-kit/uri.c:899: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `attr` is read without initialization. 
+  897. 		p11_array_remove (uri->qattrs, i);
+  898. 	else {
+  899. 		free (attr->value);
+               ^
+  900. 		attr->value = strdup (value);
+  901. 	}
+
+#164
+p11-kit/uri.c:1282: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `p11_url_decode()` on line 1278 is not freed after the last access at line 1282, column 2. 
+  1280. 		return P11_KIT_URI_BAD_ENCODING;
+  1281. 
+  1282. 	uri->attrs = p11_attrs_take (uri->attrs, type, value, length);
+         ^
+  1283. 	return 1;
+  1284. }
+
+#165
+p11-kit/uri.c:1596: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc`, indirectly via call to `p11_url_decode()` on line 1590 is not freed after the last access at line 1596, column 2. 
+  1594. 	}
+  1595. 
+  1596. 	insert_attribute (uri->qattrs, (char *)name, (char *)value);
+         ^
+  1597. 
+  1598. 	return 0;
+
+#166
+p11-kit/virtual.c:2536: error: Null Dereference(NULLPTR_DEREFERENCE)
+  null (null value originating from line 2536) is dereferenced. 
+  2534. 
+  2535. static const FunctionInfo function_info[] = {
+  2536.         { FUNCTION (Initialize) },
+                ^
+  2537.         { FUNCTION (Finalize) },
+  2538.         { FUNCTION (GetInfo) },
+
+Found 167 issues
+                      Issue Type(ISSUED_TYPE_ID): #
+                      Memory Leak(MEMORY_LEAK_C): 90
+  Uninitialized Value(PULSE_UNINITIALIZED_VALUE): 72
+              Resource Leak(PULSE_RESOURCE_LEAK): 2
+           Null Dereference(NULLPTR_DEREFERENCE): 2
+                  Use After Free(USE_AFTER_FREE): 1

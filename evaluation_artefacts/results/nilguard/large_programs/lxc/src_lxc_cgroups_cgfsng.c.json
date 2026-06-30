@@ -1,0 +1,14 @@
+[
+  {
+    "procedure_name": "cgfsng_ops_init",
+    "procedure_id": "cgfsng_ops_init",
+    "source_file": "src/lxc/cgroups/cgfsng.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "Alias analysis found no pointers to guard.",
+      "npe_file": "src/lxc/cgroups/cgfsng.c",
+      "npe_line": 1663,
+      "original_pointer": "lxc_global_config_value.values"
+    }
+  }
+]

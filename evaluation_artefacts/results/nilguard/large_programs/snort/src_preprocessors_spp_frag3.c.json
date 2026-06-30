@@ -1,0 +1,23 @@
+[
+  {
+    "procedure_name": "Frag3ReloadGlobal",
+    "procedure_id": "Frag3ReloadGlobal{e668be1787760ef643ff97566d803e0b}",
+    "source_file": "src/preprocessors/spp_frag3.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 48,
+      "end_node": 48,
+      "start_line": 4813,
+      "end_line": 4813,
+      "guard_with_pointer": "frag3_swap_config",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 1,
+        "nodes_in_scope": 1,
+        "true_slice_size": 1,
+        "initial_candidate_plans": 1,
+        "total_aliases": 1
+      }
+    }
+  }
+]

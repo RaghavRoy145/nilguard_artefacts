@@ -1,0 +1,244 @@
+[
+  {
+    "procedure_name": "ParseIcmpCode",
+    "procedure_id": "ParseIcmpCode",
+    "source_file": "src/detection-plugins/sp_icmp_code_check.c",
+    "plan_type": "Evade",
+    "details": {
+      "start_node": 1,
+      "pointer_expr": "data",
+      "return_type": "void"
+    }
+  },
+  {
+    "procedure_name": "ParseIcmpCode",
+    "procedure_id": "ParseIcmpCode",
+    "source_file": "src/detection-plugins/sp_icmp_code_check.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 33,
+      "end_node": 33,
+      "start_line": 261,
+      "end_line": 261,
+      "guard_with_pointer": "data",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 12,
+        "nodes_in_scope": 1,
+        "true_slice_size": 44,
+        "initial_candidate_plans": 12,
+        "total_aliases": 3
+      }
+    }
+  },
+  {
+    "procedure_name": "ParseIcmpCode",
+    "procedure_id": "ParseIcmpCode",
+    "source_file": "src/detection-plugins/sp_icmp_code_check.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 57,
+      "end_node": 57,
+      "start_line": 248,
+      "end_line": 248,
+      "guard_with_pointer": "data",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 12,
+        "nodes_in_scope": 1,
+        "true_slice_size": 44,
+        "initial_candidate_plans": 12,
+        "total_aliases": 3
+      }
+    }
+  },
+  {
+    "procedure_name": "ParseIcmpCode",
+    "procedure_id": "ParseIcmpCode",
+    "source_file": "src/detection-plugins/sp_icmp_code_check.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 58,
+      "end_node": 58,
+      "start_line": 245,
+      "end_line": 245,
+      "guard_with_pointer": "data",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 12,
+        "nodes_in_scope": 1,
+        "true_slice_size": 44,
+        "initial_candidate_plans": 12,
+        "total_aliases": 3
+      }
+    }
+  },
+  {
+    "procedure_name": "ParseIcmpCode",
+    "procedure_id": "ParseIcmpCode",
+    "source_file": "src/detection-plugins/sp_icmp_code_check.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 75,
+      "end_node": 75,
+      "start_line": 234,
+      "end_line": 234,
+      "guard_with_pointer": "data",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 12,
+        "nodes_in_scope": 1,
+        "true_slice_size": 44,
+        "initial_candidate_plans": 12,
+        "total_aliases": 3
+      }
+    }
+  },
+  {
+    "procedure_name": "ParseIcmpCode",
+    "procedure_id": "ParseIcmpCode",
+    "source_file": "src/detection-plugins/sp_icmp_code_check.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 81,
+      "end_node": 81,
+      "start_line": 228,
+      "end_line": 228,
+      "guard_with_pointer": "data",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 12,
+        "nodes_in_scope": 1,
+        "true_slice_size": 44,
+        "initial_candidate_plans": 12,
+        "total_aliases": 3
+      }
+    }
+  },
+  {
+    "procedure_name": "ParseIcmpCode",
+    "procedure_id": "ParseIcmpCode",
+    "source_file": "src/detection-plugins/sp_icmp_code_check.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 102,
+      "end_node": 102,
+      "start_line": 276,
+      "end_line": 276,
+      "guard_with_pointer": "data",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 12,
+        "nodes_in_scope": 1,
+        "true_slice_size": 44,
+        "initial_candidate_plans": 12,
+        "total_aliases": 3
+      }
+    }
+  },
+  {
+    "procedure_name": "ParseIcmpCode",
+    "procedure_id": "ParseIcmpCode",
+    "source_file": "src/detection-plugins/sp_icmp_code_check.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 103,
+      "end_node": 103,
+      "start_line": 273,
+      "end_line": 273,
+      "guard_with_pointer": "data",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 12,
+        "nodes_in_scope": 1,
+        "true_slice_size": 44,
+        "initial_candidate_plans": 12,
+        "total_aliases": 3
+      }
+    }
+  },
+  {
+    "procedure_name": "ParseIcmpCode",
+    "procedure_id": "ParseIcmpCode",
+    "source_file": "src/detection-plugins/sp_icmp_code_check.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 130,
+      "end_node": 130,
+      "start_line": 296,
+      "end_line": 296,
+      "guard_with_pointer": "data",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 12,
+        "nodes_in_scope": 1,
+        "true_slice_size": 44,
+        "initial_candidate_plans": 12,
+        "total_aliases": 3
+      }
+    }
+  },
+  {
+    "procedure_name": "ParseIcmpCode",
+    "procedure_id": "ParseIcmpCode",
+    "source_file": "src/detection-plugins/sp_icmp_code_check.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 131,
+      "end_node": 131,
+      "start_line": 293,
+      "end_line": 293,
+      "guard_with_pointer": "data",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 12,
+        "nodes_in_scope": 1,
+        "true_slice_size": 44,
+        "initial_candidate_plans": 12,
+        "total_aliases": 3
+      }
+    }
+  },
+  {
+    "procedure_name": "ParseIcmpCode",
+    "procedure_id": "ParseIcmpCode",
+    "source_file": "src/detection-plugins/sp_icmp_code_check.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 151,
+      "end_node": 151,
+      "start_line": 312,
+      "end_line": 312,
+      "guard_with_pointer": "data",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 12,
+        "nodes_in_scope": 1,
+        "true_slice_size": 44,
+        "initial_candidate_plans": 12,
+        "total_aliases": 3
+      }
+    }
+  },
+  {
+    "procedure_name": "ParseIcmpCode",
+    "procedure_id": "ParseIcmpCode",
+    "source_file": "src/detection-plugins/sp_icmp_code_check.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 152,
+      "end_node": 152,
+      "start_line": 309,
+      "end_line": 309,
+      "guard_with_pointer": "data",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 12,
+        "nodes_in_scope": 1,
+        "true_slice_size": 44,
+        "initial_candidate_plans": 12,
+        "total_aliases": 3
+      }
+    }
+  }
+]

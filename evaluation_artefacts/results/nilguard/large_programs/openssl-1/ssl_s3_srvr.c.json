@@ -1,0 +1,86 @@
+[
+  {
+    "procedure_name": "ssl3_send_server_hello",
+    "procedure_id": "ssl3_send_server_hello",
+    "source_file": "ssl/s3_srvr.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 12,
+      "end_node": 14,
+      "start_line": 1518,
+      "end_line": 1518,
+      "guard_with_pointer": "p",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 4,
+        "nodes_in_scope": 3,
+        "true_slice_size": 21,
+        "initial_candidate_plans": 6,
+        "total_aliases": 3
+      }
+    }
+  },
+  {
+    "procedure_name": "ssl3_send_server_hello",
+    "procedure_id": "ssl3_send_server_hello",
+    "source_file": "ssl/s3_srvr.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 40,
+      "end_node": 40,
+      "start_line": 1486,
+      "end_line": 1486,
+      "guard_with_pointer": "p",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 4,
+        "nodes_in_scope": 1,
+        "true_slice_size": 21,
+        "initial_candidate_plans": 6,
+        "total_aliases": 3
+      }
+    }
+  },
+  {
+    "procedure_name": "ssl3_send_server_hello",
+    "procedure_id": "ssl3_send_server_hello",
+    "source_file": "ssl/s3_srvr.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 57,
+      "end_node": 57,
+      "start_line": 1457,
+      "end_line": 1457,
+      "guard_with_pointer": "p",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 4,
+        "nodes_in_scope": 1,
+        "true_slice_size": 21,
+        "initial_candidate_plans": 6,
+        "total_aliases": 3
+      }
+    }
+  },
+  {
+    "procedure_name": "ssl3_send_server_hello",
+    "procedure_id": "ssl3_send_server_hello",
+    "source_file": "ssl/s3_srvr.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 10,
+      "end_node": 10,
+      "start_line": 1522,
+      "end_line": 1522,
+      "guard_with_pointer": "p",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 4,
+        "nodes_in_scope": 1,
+        "true_slice_size": 21,
+        "initial_candidate_plans": 6,
+        "total_aliases": 3
+      }
+    }
+  }
+]

@@ -1,0 +1,215 @@
+[
+  {
+    "procedure_name": "DCE2_IfaceAddFastPatterns",
+    "procedure_id": "DCE2_IfaceAddFastPatterns{3e7ecbbb7e23545b0b6dcbe4aca68ee8}",
+    "source_file": "src/dynamic-preprocessors/dcerpc2/dce2_roptions.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 18,
+      "end_node": 16,
+      "start_line": 707,
+      "end_line": 709,
+      "guard_with_pointer": "tcp_fp",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 3,
+        "nodes_in_scope": 3,
+        "true_slice_size": 11,
+        "initial_candidate_plans": 10,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "DCE2_IfaceAddFastPatterns",
+    "procedure_id": "DCE2_IfaceAddFastPatterns{3e7ecbbb7e23545b0b6dcbe4aca68ee8}",
+    "source_file": "src/dynamic-preprocessors/dcerpc2/dce2_roptions.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 8,
+      "end_node": 8,
+      "start_line": 725,
+      "end_line": 725,
+      "guard_with_pointer": "tcp_fp",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 3,
+        "nodes_in_scope": 1,
+        "true_slice_size": 11,
+        "initial_candidate_plans": 10,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "DCE2_IfaceAddFastPatterns",
+    "procedure_id": "DCE2_IfaceAddFastPatterns{3e7ecbbb7e23545b0b6dcbe4aca68ee8}",
+    "source_file": "src/dynamic-preprocessors/dcerpc2/dce2_roptions.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 22,
+      "end_node": 8,
+      "start_line": 706,
+      "end_line": 725,
+      "guard_with_pointer": "tcp_fp",
+      "metrics": {
+        "cost_l_imprecision": 3,
+        "cost_g_overhead_final": 3,
+        "nodes_in_scope": 9,
+        "true_slice_size": 11,
+        "initial_candidate_plans": 10,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "DCE2_IfaceAddFastPatterns",
+    "procedure_id": "DCE2_IfaceAddFastPatterns{3e7ecbbb7e23545b0b6dcbe4aca68ee8}",
+    "source_file": "src/dynamic-preprocessors/dcerpc2/dce2_roptions.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 42,
+      "end_node": 33,
+      "start_line": 762,
+      "end_line": 774,
+      "guard_with_pointer": "index",
+      "metrics": {
+        "cost_l_imprecision": 3,
+        "cost_g_overhead_final": 6,
+        "nodes_in_scope": 10,
+        "true_slice_size": 18,
+        "initial_candidate_plans": 12,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "DCE2_IfaceAddFastPatterns",
+    "procedure_id": "DCE2_IfaceAddFastPatterns{3e7ecbbb7e23545b0b6dcbe4aca68ee8}",
+    "source_file": "src/dynamic-preprocessors/dcerpc2/dce2_roptions.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 44,
+      "end_node": 44,
+      "start_line": 759,
+      "end_line": 759,
+      "guard_with_pointer": "index",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 6,
+        "nodes_in_scope": 1,
+        "true_slice_size": 18,
+        "initial_candidate_plans": 12,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "DCE2_IfaceAddFastPatterns",
+    "procedure_id": "DCE2_IfaceAddFastPatterns{3e7ecbbb7e23545b0b6dcbe4aca68ee8}",
+    "source_file": "src/dynamic-preprocessors/dcerpc2/dce2_roptions.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 47,
+      "end_node": 47,
+      "start_line": 754,
+      "end_line": 754,
+      "guard_with_pointer": "index",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 6,
+        "nodes_in_scope": 1,
+        "true_slice_size": 18,
+        "initial_candidate_plans": 12,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "DCE2_IfaceAddFastPatterns",
+    "procedure_id": "DCE2_IfaceAddFastPatterns{3e7ecbbb7e23545b0b6dcbe4aca68ee8}",
+    "source_file": "src/dynamic-preprocessors/dcerpc2/dce2_roptions.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 49,
+      "end_node": 49,
+      "start_line": 751,
+      "end_line": 751,
+      "guard_with_pointer": "index",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 6,
+        "nodes_in_scope": 1,
+        "true_slice_size": 18,
+        "initial_candidate_plans": 12,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "DCE2_IfaceAddFastPatterns",
+    "procedure_id": "DCE2_IfaceAddFastPatterns{3e7ecbbb7e23545b0b6dcbe4aca68ee8}",
+    "source_file": "src/dynamic-preprocessors/dcerpc2/dce2_roptions.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 52,
+      "end_node": 52,
+      "start_line": 746,
+      "end_line": 746,
+      "guard_with_pointer": "index",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 6,
+        "nodes_in_scope": 1,
+        "true_slice_size": 18,
+        "initial_candidate_plans": 12,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "DCE2_IfaceAddFastPatterns",
+    "procedure_id": "DCE2_IfaceAddFastPatterns{3e7ecbbb7e23545b0b6dcbe4aca68ee8}",
+    "source_file": "src/dynamic-preprocessors/dcerpc2/dce2_roptions.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 54,
+      "end_node": 54,
+      "start_line": 743,
+      "end_line": 743,
+      "guard_with_pointer": "index",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 6,
+        "nodes_in_scope": 1,
+        "true_slice_size": 18,
+        "initial_candidate_plans": 12,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "DCE2_IfaceAddFastPatterns",
+    "procedure_id": "DCE2_IfaceAddFastPatterns{3e7ecbbb7e23545b0b6dcbe4aca68ee8}",
+    "source_file": "src/dynamic-preprocessors/dcerpc2/dce2_roptions.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "Alias analysis found no pointers to guard.",
+      "npe_file": "src/dynamic-preprocessors/dcerpc2/dce2_roptions.c",
+      "npe_line": 732,
+      "original_pointer": "index"
+    }
+  },
+  {
+    "procedure_name": "DCE2_IfaceAddFastPatterns",
+    "procedure_id": "DCE2_IfaceAddFastPatterns{3e7ecbbb7e23545b0b6dcbe4aca68ee8}",
+    "source_file": "src/dynamic-preprocessors/dcerpc2/dce2_roptions.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "Alias analysis found no pointers to guard.",
+      "npe_file": "src/dynamic-preprocessors/dcerpc2/dce2_roptions.c",
+      "npe_line": 733,
+      "original_pointer": "index"
+    }
+  }
+]

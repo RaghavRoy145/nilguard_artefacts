@@ -1,0 +1,23 @@
+[
+  {
+    "procedure_name": "IMAPReload",
+    "procedure_id": "IMAPReload{8c13c24dd493e9ee20d1ce31f39141a0}",
+    "source_file": "src/dynamic-preprocessors/imap/spp_imap.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 50,
+      "end_node": 50,
+      "start_line": 587,
+      "end_line": 587,
+      "guard_with_pointer": "imap_swap_config",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 1,
+        "nodes_in_scope": 1,
+        "true_slice_size": 1,
+        "initial_candidate_plans": 1,
+        "total_aliases": 1
+      }
+    }
+  }
+]

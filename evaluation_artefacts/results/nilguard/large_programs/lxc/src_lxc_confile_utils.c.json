@@ -1,0 +1,16 @@
+[
+  {
+    "procedure_name": "lxc_container_name_to_pid",
+    "procedure_id": "lxc_container_name_to_pid{aa4fe548b9303c96febda542b6e2c92c}",
+    "source_file": "src/lxc/confile_utils.c",
+    "plan_type": "Replace",
+    "details": {
+      "def_site_node": 58,
+      "def_site_line": 676,
+      "target_pvar": "err",
+      "pvar_type": "char*",
+      "reuse_candidate": null,
+      "metrics": { "cost_rep_modification": 1, "total_aliases": 1 }
+    }
+  }
+]

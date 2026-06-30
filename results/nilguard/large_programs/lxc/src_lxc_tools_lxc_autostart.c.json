@@ -1,0 +1,56 @@
+[
+  {
+    "procedure_name": "get_list",
+    "procedure_id": "get_list{8eecedddb5db514a6e78c6f2adf5ebc7}",
+    "source_file": "src/lxc/tools/lxc_autostart.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 31,
+      "end_node": 31,
+      "start_line": 221,
+      "end_line": 221,
+      "guard_with_pointer": "workstr_list",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 1,
+        "nodes_in_scope": 1,
+        "true_slice_size": 1,
+        "initial_candidate_plans": 1,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "accumulate_list",
+    "procedure_id": "accumulate_list{8eecedddb5db514a6e78c6f2adf5ebc7}",
+    "source_file": "src/lxc/tools/lxc_autostart.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 39,
+      "end_node": 39,
+      "start_line": 170,
+      "end_line": 170,
+      "guard_with_pointer": "str_list",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 1,
+        "nodes_in_scope": 1,
+        "true_slice_size": 1,
+        "initial_candidate_plans": 1,
+        "total_aliases": 2
+      }
+    }
+  },
+  {
+    "procedure_name": "get_list",
+    "procedure_id": "get_list{8eecedddb5db514a6e78c6f2adf5ebc7}",
+    "source_file": "src/lxc/tools/lxc_autostart.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "No valid plans remained after filtering",
+      "npe_file": "src/lxc/tools/lxc_autostart.c",
+      "npe_line": 220,
+      "original_pointer": "workstr_list"
+    }
+  }
+]

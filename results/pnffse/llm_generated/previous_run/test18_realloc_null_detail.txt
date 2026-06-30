@@ -1,0 +1,24 @@
+
+In /home/infer_TempFix/c_npe_tests/test18_realloc_null.c:
+
+~~~~~~~~~ In function: main ~~~~~~~~~
+Future-condition checking for 'realloc @9': Failed!
+
+<======[Bidirectional Bug Localization & Possible Proof Repairs]======>
+
+[Repair Options]
+.ret=0 /\ data=0 /\ deref(data)@12 · deref(data)@13 · free(data)@16 · RET()@17 ~~~> (!_(data))^*;
+[Patches]
+ @ line 12 can be inserted with code: if (data==0){ return; }
+
+
+~~~~~~~~~ In function: main ~~~~~~~~~
+Future-condition checking for 'malloc @6': Failed!
+
+<======[Bidirectional Bug Localization & Possible Proof Repairs]======>
+
+[Repair Options]
+.ret=0 /\ data=0 /\ deref(data)@12 · deref(data)@13 · free(data)@16 · RET()@17 ~~~> (!_(data))^*;
+[Patches]
+ @ line 12 can be inserted with code: if (data==0){ return; }
+

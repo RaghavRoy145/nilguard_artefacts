@@ -1,0 +1,215 @@
+[
+  {
+    "procedure_name": "Build_NFA",
+    "procedure_id": "Build_NFA{c64edbbfa1093636eb1bb9d633ccc5dd}",
+    "source_file": "src/sfutil/acsmx2.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 42,
+      "end_node": 42,
+      "start_line": 967,
+      "end_line": 967,
+      "guard_with_pointer": "queue_array",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 3,
+        "nodes_in_scope": 1,
+        "true_slice_size": 9,
+        "initial_candidate_plans": 3,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "Build_NFA",
+    "procedure_id": "Build_NFA{c64edbbfa1093636eb1bb9d633ccc5dd}",
+    "source_file": "src/sfutil/acsmx2.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 45,
+      "end_node": 45,
+      "start_line": 954,
+      "end_line": 954,
+      "guard_with_pointer": "queue_array",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 3,
+        "nodes_in_scope": 1,
+        "true_slice_size": 9,
+        "initial_candidate_plans": 3,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "Build_NFA",
+    "procedure_id": "Build_NFA{c64edbbfa1093636eb1bb9d633ccc5dd}",
+    "source_file": "src/sfutil/acsmx2.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 60,
+      "end_node": 60,
+      "start_line": 944,
+      "end_line": 944,
+      "guard_with_pointer": "queue_array",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 3,
+        "nodes_in_scope": 1,
+        "true_slice_size": 9,
+        "initial_candidate_plans": 3,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "Convert_NFA_To_DFA",
+    "procedure_id": "Convert_NFA_To_DFA{c64edbbfa1093636eb1bb9d633ccc5dd}",
+    "source_file": "src/sfutil/acsmx2.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 9,
+      "end_node": 9,
+      "start_line": 1087,
+      "end_line": 1087,
+      "guard_with_pointer": "acsmTransTableOpt",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 3,
+        "nodes_in_scope": 1,
+        "true_slice_size": 7,
+        "initial_candidate_plans": 3,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "Convert_NFA_To_DFA",
+    "procedure_id": "Convert_NFA_To_DFA{c64edbbfa1093636eb1bb9d633ccc5dd}",
+    "source_file": "src/sfutil/acsmx2.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 40,
+      "end_node": 40,
+      "start_line": 1078,
+      "end_line": 1078,
+      "guard_with_pointer": "acsmTransTableOpt",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 3,
+        "nodes_in_scope": 1,
+        "true_slice_size": 7,
+        "initial_candidate_plans": 3,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "Convert_NFA_To_DFA",
+    "procedure_id": "Convert_NFA_To_DFA{c64edbbfa1093636eb1bb9d633ccc5dd}",
+    "source_file": "src/sfutil/acsmx2.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 71,
+      "end_node": 71,
+      "start_line": 1036,
+      "end_line": 1036,
+      "guard_with_pointer": "acsmTransTableOpt",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 3,
+        "nodes_in_scope": 1,
+        "true_slice_size": 7,
+        "initial_candidate_plans": 3,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "Convert_NFA_To_DFA",
+    "procedure_id": "Convert_NFA_To_DFA{c64edbbfa1093636eb1bb9d633ccc5dd}",
+    "source_file": "src/sfutil/acsmx2.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "No valid plans remained after filtering",
+      "npe_file": "src/sfutil/acsmx2.c",
+      "npe_line": 1027,
+      "original_pointer": "i"
+    }
+  },
+  {
+    "procedure_name": "Convert_NFA_To_DFA",
+    "procedure_id": "Convert_NFA_To_DFA{c64edbbfa1093636eb1bb9d633ccc5dd}",
+    "source_file": "src/sfutil/acsmx2.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 31,
+      "end_node": 31,
+      "start_line": 1070,
+      "end_line": 1070,
+      "guard_with_pointer": "queue_array",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 3,
+        "nodes_in_scope": 1,
+        "true_slice_size": 9,
+        "initial_candidate_plans": 3,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "Convert_NFA_To_DFA",
+    "procedure_id": "Convert_NFA_To_DFA{c64edbbfa1093636eb1bb9d633ccc5dd}",
+    "source_file": "src/sfutil/acsmx2.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 43,
+      "end_node": 43,
+      "start_line": 1059,
+      "end_line": 1059,
+      "guard_with_pointer": "queue_array",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 3,
+        "nodes_in_scope": 1,
+        "true_slice_size": 9,
+        "initial_candidate_plans": 3,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "Convert_NFA_To_DFA",
+    "procedure_id": "Convert_NFA_To_DFA{c64edbbfa1093636eb1bb9d633ccc5dd}",
+    "source_file": "src/sfutil/acsmx2.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 58,
+      "end_node": 58,
+      "start_line": 1050,
+      "end_line": 1050,
+      "guard_with_pointer": "queue_array",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 3,
+        "nodes_in_scope": 1,
+        "true_slice_size": 9,
+        "initial_candidate_plans": 3,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "Convert_NFA_To_DFA",
+    "procedure_id": "Convert_NFA_To_DFA{c64edbbfa1093636eb1bb9d633ccc5dd}",
+    "source_file": "src/sfutil/acsmx2.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "Alias analysis found no pointers to guard.",
+      "npe_file": "src/sfutil/acsmx2.c",
+      "npe_line": 1027,
+      "original_pointer": "i"
+    }
+  }
+]

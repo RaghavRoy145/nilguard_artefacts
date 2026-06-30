@@ -1,0 +1,65 @@
+[
+  {
+    "procedure_name": "recins_parse_args",
+    "procedure_id": "recins_parse_args",
+    "source_file": "utils/recins.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 72,
+      "end_node": 72,
+      "start_line": 202,
+      "end_line": 202,
+      "guard_with_pointer": "provided_record",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 1,
+        "nodes_in_scope": 1,
+        "true_slice_size": 1,
+        "initial_candidate_plans": 1,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "recins_parse_args",
+    "procedure_id": "recins_parse_args",
+    "source_file": "utils/recins.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 55,
+      "end_node": 55,
+      "start_line": 222,
+      "end_line": 222,
+      "guard_with_pointer": "field",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 1,
+        "nodes_in_scope": 1,
+        "true_slice_size": 1,
+        "initial_candidate_plans": 1,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "recins_parse_args",
+    "procedure_id": "recins_parse_args",
+    "source_file": "utils/recins.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 38,
+      "end_node": 38,
+      "start_line": 266,
+      "end_line": 266,
+      "guard_with_pointer": "provided_record",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 1,
+        "nodes_in_scope": 1,
+        "true_slice_size": 1,
+        "initial_candidate_plans": 1,
+        "total_aliases": 1
+      }
+    }
+  }
+]

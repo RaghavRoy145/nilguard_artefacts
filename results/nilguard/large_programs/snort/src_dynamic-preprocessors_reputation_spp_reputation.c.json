@@ -1,0 +1,35 @@
+[
+  {
+    "procedure_name": "ReputationReload",
+    "procedure_id": "ReputationReload{0702f65424cceff243d0e9b6f67a30f0}",
+    "source_file": "src/dynamic-preprocessors/reputation/spp_reputation.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 40,
+      "end_node": 40,
+      "start_line": 960,
+      "end_line": 960,
+      "guard_with_pointer": "reputation_swap_config",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 1,
+        "nodes_in_scope": 1,
+        "true_slice_size": 1,
+        "initial_candidate_plans": 1,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "ReputationInit",
+    "procedure_id": "ReputationInit{0702f65424cceff243d0e9b6f67a30f0}",
+    "source_file": "src/dynamic-preprocessors/reputation/spp_reputation.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "Alias analysis found no pointers to guard.",
+      "npe_file": "src/dynamic-preprocessors/reputation/spp_reputation.c",
+      "npe_line": 469,
+      "original_pointer": "reputation_config"
+    }
+  }
+]

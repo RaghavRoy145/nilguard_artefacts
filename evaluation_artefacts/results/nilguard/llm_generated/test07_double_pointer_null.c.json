@@ -1,0 +1,16 @@
+[
+  {
+    "procedure_name": "main",
+    "procedure_id": "main",
+    "source_file": "test07_double_pointer_null.c",
+    "plan_type": "Replace",
+    "details": {
+      "def_site_node": 7,
+      "def_site_line": 5,
+      "target_pvar": "ptr",
+      "pvar_type": "int**",
+      "reuse_candidate": null,
+      "metrics": { "cost_rep_modification": 1, "total_aliases": 1 }
+    }
+  }
+]

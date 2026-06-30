@@ -1,0 +1,23 @@
+[
+  {
+    "procedure_name": "flex_regcomp",
+    "procedure_id": "flex_regcomp",
+    "source_file": "src/regex.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 9,
+      "end_node": 8,
+      "start_line": 61,
+      "end_line": 63,
+      "guard_with_pointer": "errbuf",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 1,
+        "nodes_in_scope": 2,
+        "true_slice_size": 6,
+        "initial_candidate_plans": 2,
+        "total_aliases": 1
+      }
+    }
+  }
+]

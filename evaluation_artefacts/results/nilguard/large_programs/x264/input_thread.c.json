@@ -1,0 +1,65 @@
+[
+  {
+    "procedure_name": "open_file",
+    "procedure_id": "open_file{b44facd922d98b29e486ce6e79bb99e0}",
+    "source_file": "input/thread.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 20,
+      "end_node": 18,
+      "start_line": 58,
+      "end_line": 60,
+      "guard_with_pointer": "h",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 3,
+        "nodes_in_scope": 3,
+        "true_slice_size": 15,
+        "initial_candidate_plans": 7,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "open_file",
+    "procedure_id": "open_file{b44facd922d98b29e486ce6e79bb99e0}",
+    "source_file": "input/thread.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 4,
+      "end_node": 4,
+      "start_line": 73,
+      "end_line": 73,
+      "guard_with_pointer": "h",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 3,
+        "nodes_in_scope": 1,
+        "true_slice_size": 15,
+        "initial_candidate_plans": 7,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "open_file",
+    "procedure_id": "open_file{b44facd922d98b29e486ce6e79bb99e0}",
+    "source_file": "input/thread.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 12,
+      "end_node": 10,
+      "start_line": 65,
+      "end_line": 67,
+      "guard_with_pointer": "h",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 3,
+        "nodes_in_scope": 3,
+        "true_slice_size": 15,
+        "initial_candidate_plans": 7,
+        "total_aliases": 1
+      }
+    }
+  }
+]

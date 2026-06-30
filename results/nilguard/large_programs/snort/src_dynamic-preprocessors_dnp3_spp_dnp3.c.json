@@ -1,0 +1,23 @@
+[
+  {
+    "procedure_name": "ParseDNP3Args",
+    "procedure_id": "ParseDNP3Args{6cf22bab99451b5ffc596f09fdc5b3dc}",
+    "source_file": "src/dynamic-preprocessors/dnp3/spp_dnp3.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 60,
+      "end_node": 60,
+      "start_line": 431,
+      "end_line": 431,
+      "guard_with_pointer": "default_config",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 1,
+        "nodes_in_scope": 1,
+        "true_slice_size": 5,
+        "initial_candidate_plans": 1,
+        "total_aliases": 1
+      }
+    }
+  }
+]

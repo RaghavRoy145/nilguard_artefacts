@@ -1,0 +1,9 @@
+Capturing in make/cc mode ...
+Arguments are 
+/home/infer_TempFix/c_npe_tests/test01_simple_null.c
+annalysing main
+CallingFunction: printf @7
+/home/infer_TempFix/c_npe_tests/test01_simple_null.c
+
+=====> Actual effects of function: main ======>
+(.ret=0 /\ deref(ptr)@6 · RET()@8,1)

@@ -1,0 +1,737 @@
+#0
+encoder/analyse.c:1270: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `m.cost` is read without initialization during the call to `x264_10_me_refine_qpel_refdupe()`. 
+  1268.         {
+  1269.             CP32( m.mv, a->l0.mvc[0][0] );
+  1270.             x264_me_refine_qpel_refdupe( h, &m, p_halfpel_thresh );
+                    ^
+  1271.         }
+  1272.         else
+
+#1
+encoder/analyse.c:1286: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.cost_mv` is read without initialization. 
+  1284.         if( i_ref == 0
+  1285.             && a->b_try_skip
+  1286.             && m.cost-m.cost_mv < 300*a->i_lambda
+                              ^
+  1287.             &&  abs(m.mv[0]-h->mb.cache.pskip_mv[0])
+  1288.               + abs(m.mv[1]-h->mb.cache.pskip_mv[1]) <= 1
+
+#2
+extras/avxsynth_c.h:513: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.array_size` is read without initialization. 
+  511. // an active value.  Remember, treat AVS_Value as a fat pointer.
+  512. AVSC_INLINE AVS_Value avs_new_value_bool(int v0) 
+  513.         { AVS_Value v; v.type = 'b'; v.d.boolean = v0 == 0 ? 0 : 1; return v; }   
+                                                                           ^
+  514. AVSC_INLINE AVS_Value avs_new_value_int(int v0) 
+  515.         { AVS_Value v; v.type = 'i'; v.d.integer = v0; return v; }   
+
+#3
+extras/avxsynth_c.h:517: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `_.array_size` is read without initialization. 
+  515.         { AVS_Value v; v.type = 'i'; v.d.integer = v0; return v; }   
+  516. AVSC_INLINE AVS_Value avs_new_value_string(const char * v0) 
+  517.         { AVS_Value v; v.type = 's'; v.d.string = v0; return v; }
+                                                             ^
+  518. AVSC_INLINE AVS_Value avs_new_value_float(float v0) 
+  519.         { AVS_Value v; v.type = 'f'; v.d.floating_pt = v0; return v;}
+
+#4
+filters/video/cache.c:67: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc` on line 60 is not freed after the last access at line 67, column 10. 
+  65.     h->max_size = size;
+  66.     h->cache = malloc( (h->max_size+1) * sizeof(cli_pic_t*) );
+  67.     if( !h->cache ) {
+               ^
+  68.         return -1;
+  69.     }
+
+#5
+filters/video/cache.c:74: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc` on line 66 is not freed after the last access at line 74, column 14. 
+  72.     {
+  73.         h->cache[i] = malloc( sizeof(cli_pic_t) );
+  74.         if( !h->cache[i] || x264_cli_pic_alloc( h->cache[i], info->csp, info->width, info->height ) ) {
+                   ^
+  75.             return -1;
+  76.         }
+
+#6
+filters/video/cache.c:74: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc` on line 73 is not freed after the last access at line 74, column 14. 
+  72.     {
+  73.         h->cache[i] = malloc( sizeof(cli_pic_t) );
+  74.         if( !h->cache[i] || x264_cli_pic_alloc( h->cache[i], info->csp, info->width, info->height ) ) {
+                   ^
+  75.             return -1;
+  76.         }
+
+#7
+filters/video/cache.c:74: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc` on line 73 is not freed after the last access at line 74, column 29. 
+  72.     {
+  73.         h->cache[i] = malloc( sizeof(cli_pic_t) );
+  74.         if( !h->cache[i] || x264_cli_pic_alloc( h->cache[i], info->csp, info->width, info->height ) ) {
+                                  ^
+  75.             return -1;
+  76.         }
+
+#8
+filters/video/crop.c:75: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc` on line 68 is not freed after the last access at line 75, column 10. 
+  73.     static const char * const optlist[] = { "left", "top", "right", "bottom", NULL };
+  74.     char **opts = x264_split_options( opt_string, optlist );
+  75.     if( !opts )
+               ^
+  76.         return -1;
+  77. 
+
+#9
+filters/video/select_every.c:71: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc` on line 60 is not freed after the last access at line 71, column 13. 
+  69.         if( p )
+  70.         {
+  71.             FAIL_IF_ERROR( val <= 0, "invalid step `%s'\n", tok );
+                  ^
+  72.             h->step_size = val;
+  73.             continue;
+
+#10
+filters/video/select_every.c:75: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc` on line 60 is not freed after the last access at line 75, column 9. 
+  73.             continue;
+  74.         }
+  75.         FAIL_IF_ERROR( val < 0 || val >= h->step_size, "invalid offset `%s'\n", tok );
+              ^
+  76.         FAIL_IF_ERROR( h->pattern_len >= MAX_PATTERN_SIZE, "max pattern size %d reached\n", MAX_PATTERN_SIZE );
+  77.         offsets[h->pattern_len++] = val;
+
+#11
+filters/video/select_every.c:79: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc` on line 60 is not freed after the last access at line 79, column 5. 
+  77.         offsets[h->pattern_len++] = val;
+  78.     }
+  79.     FAIL_IF_ERROR( !h->step_size, "no step size provided\n" );
+          ^
+  80.     FAIL_IF_ERROR( !h->pattern_len, "no offsets supplied\n" );
+  81. 
+
+#12
+filters/video/select_every.c:80: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc` on line 60 is not freed after the last access at line 80, column 5. 
+  78.     }
+  79.     FAIL_IF_ERROR( !h->step_size, "no step size provided\n" );
+  80.     FAIL_IF_ERROR( !h->pattern_len, "no offsets supplied\n" );
+          ^
+  81. 
+  82.     h->pattern = malloc( h->pattern_len * sizeof(int) );
+
+#13
+filters/video/select_every.c:83: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc` on line 60 is not freed after the last access at line 83, column 10. 
+  81. 
+  82.     h->pattern = malloc( h->pattern_len * sizeof(int) );
+  83.     if( !h->pattern )
+               ^
+  84.         return -1;
+  85.     memcpy( h->pattern, offsets, h->pattern_len * sizeof(int) );
+
+#14
+filters/video/select_every.c:101: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc` on line 82 is not freed after the last access at line 101, column 9. 
+   99.     char name[20];
+  100.     sprintf( name, "cache_%d", param->i_bitdepth );
+  101.     if( x264_init_vid_filter( name, handle, filter, info, param, (void*)max_rewind ) )
+               ^
+  102.         return -1;
+  103. 
+
+#15
+filters/video/source.c:48: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc` on line 42 is not freed after the last access at line 48, column 9. 
+  46.     h->cur_frame = -1;
+  47. 
+  48.     if( cli_input.picture_alloc( &h->pic, *handle, info->csp, info->width, info->height ) ) {
+              ^
+  49.         return -1;
+  50.     }
+
+#16
+input/avs.c:272: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc` on line 267 is not freed after the last access at line 272, column 5. 
+  270.     }
+  271.     __efffix_tmp = custom_avs_load_library( h );
+  272.     FAIL_IF_ERROR( __efffix_tmp, "failed to load avisynth\n" );
+           ^
+  273.     h->env = h->func.avs_create_script_environment( AVS_INTERFACE_25 );
+  274.     if( h->func.avs_get_error )
+
+#17
+input/avs.c:277: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc` on line 267 is not freed after the last access at line 277, column 9. 
+  275.     {
+  276.         const char *error = h->func.avs_get_error( h->env );
+  277.         FAIL_IF_ERROR( error, "%s\n", error );
+               ^
+  278.     }
+  279.     float avs_version = get_avs_version( h );
+
+#18
+input/avs.c:300: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc` on line 267 is not freed after the last access at line 300, column 9. 
+  298.     {
+  299.         res = h->func.avs_invoke( h->env, "Import", arg, NULL );
+  300.         FAIL_IF_ERROR( avs_is_error( res ), "%s\n", avs_as_error( res ) );
+               ^
+  301.         /* check if the user is using a multi-threaded script and apply distributor if necessary.
+  302.            adapted from avisynth's vfw interface */
+
+#19
+input/avs.c:300: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `v.type` is read without initialization during the call to `avs_as_error()`. 
+  298.     {
+  299.         res = h->func.avs_invoke( h->env, "Import", arg, NULL );
+  300.         FAIL_IF_ERROR( avs_is_error( res ), "%s\n", avs_as_error( res ) );
+               ^
+  301.         /* check if the user is using a multi-threaded script and apply distributor if necessary.
+  302.            adapted from avisynth's vfw interface */
+
+#20
+input/avs.c:300: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `v.type` is read without initialization during the call to `avs_is_error()`. 
+  298.     {
+  299.         res = h->func.avs_invoke( h->env, "Import", arg, NULL );
+  300.         FAIL_IF_ERROR( avs_is_error( res ), "%s\n", avs_as_error( res ) );
+               ^
+  301.         /* check if the user is using a multi-threaded script and apply distributor if necessary.
+  302.            adapted from avisynth's vfw interface */
+
+#21
+input/avs.c:340: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc` on line 267 is not freed after the last access at line 340, column 9. 
+  338.             x264_cli_printf( X264_LOG_INFO, "failed\n" );
+  339.         }
+  340.         FAIL_IF_ERROR( !filter[i], "unable to find source filter to open `%s'\n", psz_filename );
+               ^
+  341.     }
+  342.     FAIL_IF_ERROR( !avs_is_clip( res ), "`%s' didn't return a video clip\n", psz_filename );
+
+#22
+input/avs.c:342: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc` on line 267 is not freed after the last access at line 342, column 5. 
+  340.         FAIL_IF_ERROR( !filter[i], "unable to find source filter to open `%s'\n", psz_filename );
+  341.     }
+  342.     FAIL_IF_ERROR( !avs_is_clip( res ), "`%s' didn't return a video clip\n", psz_filename );
+           ^
+  343.     h->clip = h->func.avs_take_clip( res, h->env );
+  344.     const AVS_VideoInfo *vi = h->func.avs_get_video_info( h->clip );
+
+#23
+input/avs.c:342: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `v.type` is read without initialization during the call to `avs_is_clip()`. 
+  340.         FAIL_IF_ERROR( !filter[i], "unable to find source filter to open `%s'\n", psz_filename );
+  341.     }
+  342.     FAIL_IF_ERROR( !avs_is_clip( res ), "`%s' didn't return a video clip\n", psz_filename );
+           ^
+  343.     h->clip = h->func.avs_take_clip( res, h->env );
+  344.     const AVS_VideoInfo *vi = h->func.avs_get_video_info( h->clip );
+
+#24
+input/avs.c:345: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc` on line 267 is not freed after the last access at line 345, column 5. 
+  343.     h->clip = h->func.avs_take_clip( res, h->env );
+  344.     const AVS_VideoInfo *vi = h->func.avs_get_video_info( h->clip );
+  345.     FAIL_IF_ERROR( !avs_has_video( vi ), "`%s' has no video data\n", psz_filename );
+           ^
+  346.     /* if the clip is made of fields instead of frames, call weave to make them frames */
+  347.     if( avs_is_field_based( vi ) )
+
+#25
+input/avs.c:351: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc` on line 267 is not freed after the last access at line 351, column 9. 
+  349.         x264_cli_log( "avs", X264_LOG_WARNING, "detected fieldbased (separated) input, weaving to frames\n" );
+  350.         AVS_Value tmp = h->func.avs_invoke( h->env, "Weave", res, NULL );
+  351.         FAIL_IF_ERROR( avs_is_error( tmp ), "couldn't weave fields into frames: %s\n", avs_as_error( tmp ) );
+               ^
+  352.         res = update_clip( h, &vi, tmp, res );
+  353.         info->interlaced = 1;
+
+#26
+input/avs.c:358: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc` on line 267 is not freed after the last access at line 358, column 5. 
+  356. #if !HAVE_SWSCALE
+  357.     /* if swscale is not available, convert the CSP if necessary */
+  358.     FAIL_IF_ERROR( avs_version < 2.6f && (opt->output_csp == X264_CSP_I400 || opt->output_csp == X264_CSP_I422 || opt->output_csp == X264_CSP_I444),
+           ^
+  359.                    "avisynth >= 2.6 is required for i400/i422/i444 output\n" );
+  360.     if( (opt->output_csp == X264_CSP_I400 && !AVS_IS_Y( vi )) ||
+
+#27
+input/avs.c:386: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc` on line 267 is not freed after the last access at line 386, column 13. 
+  384.         if( opt->output_csp != X264_CSP_I400 )
+  385.         {
+  386.             FAIL_IF_ERROR( opt->output_csp < X264_CSP_I444 && (vi->width&1),
+                   ^
+  387.                            "input clip width not divisible by 2 (%dx%d)\n", vi->width, vi->height );
+  388.             FAIL_IF_ERROR( opt->output_csp == X264_CSP_I420 && info->interlaced && (vi->height&3),
+
+#28
+input/avs.c:388: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc` on line 267 is not freed after the last access at line 388, column 13. 
+  386.             FAIL_IF_ERROR( opt->output_csp < X264_CSP_I444 && (vi->width&1),
+  387.                            "input clip width not divisible by 2 (%dx%d)\n", vi->width, vi->height );
+  388.             FAIL_IF_ERROR( opt->output_csp == X264_CSP_I420 && info->interlaced && (vi->height&3),
+                   ^
+  389.                            "input clip height not divisible by 4 (%dx%d)\n", vi->width, vi->height );
+  390.             FAIL_IF_ERROR( (opt->output_csp == X264_CSP_I420 || info->interlaced) && (vi->height&1),
+
+#29
+input/avs.c:390: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc` on line 267 is not freed after the last access at line 390, column 13. 
+  388.             FAIL_IF_ERROR( opt->output_csp == X264_CSP_I420 && info->interlaced && (vi->height&3),
+  389.                            "input clip height not divisible by 4 (%dx%d)\n", vi->width, vi->height );
+  390.             FAIL_IF_ERROR( (opt->output_csp == X264_CSP_I420 || info->interlaced) && (vi->height&1),
+                   ^
+  391.                            "input clip height not divisible by 2 (%dx%d)\n", vi->width, vi->height );
+  392.         }
+
+#30
+input/avs.c:420: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc` on line 267 is not freed after the last access at line 420, column 9. 
+  418.         }
+  419.         AVS_Value res2 = h->func.avs_invoke( h->env, conv_func, avs_new_value_array( arg_arr, arg_count ), arg_name );
+  420.         FAIL_IF_ERROR( avs_is_error( res2 ), "couldn't convert input clip to %s: %s\n", csp, avs_as_error( res2 ) );
+               ^
+  421.         res = update_clip( h, &vi, res2, res );
+  422.     }
+
+#31
+input/avs.c:433: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc` on line 267 is not freed after the last access at line 433, column 9. 
+  431.         const char *arg_name[] = { NULL, "levels" };
+  432.         AVS_Value res2 = h->func.avs_invoke( h->env, "ColorYUV", avs_new_value_array( arg_arr, 2 ), arg_name );
+  433.         FAIL_IF_ERROR( avs_is_error( res2 ), "couldn't convert range: %s\n", avs_as_error( res2 ) );
+               ^
+  434.         res = update_clip( h, &vi, res2, res );
+  435.         // notification that the input range has changed to the desired one
+
+#32
+input/avs.c:482: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc` on line 267 is not freed after the last access at line 482, column 9. 
+  480.         AVS_Value pixel_type = h->func.avs_invoke( h->env, "PixelType", res, NULL );
+  481.         const char *pixel_type_name = avs_is_string( pixel_type ) ? avs_as_string( pixel_type ) : "unknown";
+  482.         FAIL_IF_ERROR( 1, "not supported pixel type: %s\n", pixel_type_name );
+               ^
+  483.     }
+  484.     info->vfr = 0;
+
+#33
+input/raw.c:58: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc` on line 45 is not freed after the last access at line 58, column 5. 
+  56.     else
+  57.         sscanf( opt->resolution, "%dx%d", &info->width, &info->height );
+  58.     FAIL_IF_ERROR( !info->width || !info->height, "raw input requires a resolution.\n" );
+          ^
+  59.     if( opt->colorspace )
+  60.     {
+
+#34
+input/raw.c:72: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc` on line 45 is not freed after the last access at line 72, column 5. 
+  70. 
+  71.     h->bit_depth = opt->bit_depth;
+  72.     FAIL_IF_ERROR( h->bit_depth < 8 || h->bit_depth > 16, "unsupported bit depth `%d'\n", h->bit_depth );
+          ^
+  73.     if( h->bit_depth > 8 )
+  74.         info->csp |= X264_CSP_HIGH_DEPTH;
+
+#35
+input/raw.c:80: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc` on line 45 is not freed after the last access at line 80, column 9. 
+  78.     else
+  79.         h->fh = x264_fopen( psz_filename, "rb" );
+  80.     if( h->fh == NULL )
+              ^
+  81.         return -1;
+  82. 
+
+#36
+input/raw.c:102: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc` on line 45 is not freed after the last access at line 102, column 9. 
+  100.         fseek( h->fh, 0, SEEK_SET );
+  101.         info->num_frames = size / h->frame_size;
+  102.         FAIL_IF_ERROR( !info->num_frames, "empty input file\n" );
+               ^
+  103. 
+  104.         /* Attempt to use memory-mapped input frames if possible */
+
+#37
+input/thread.c:55: error: Null Dereference(NULLPTR_DEREFERENCE)
+  `h` could be null (null value originating from line 54) and is dereferenced. 
+  53. {
+  54.     thread_hnd_t *h = malloc( sizeof(thread_hnd_t) );
+  55.     __efffix_tmp = cli_input.picture_alloc( &h->pic, *p_handle, info->csp, info->width, info->height );
+                         ^
+  56.     FAIL_IF_ERR( !h || __efffix_tmp,
+  57.                  "x264", "malloc failed\n" );
+
+#38
+input/thread.c:56: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc` on line 54 is not freed after the last access at line 56, column 5. 
+  54.     thread_hnd_t *h = malloc( sizeof(thread_hnd_t) );
+  55.     __efffix_tmp = cli_input.picture_alloc( &h->pic, *p_handle, info->csp, info->width, info->height );
+  56.     FAIL_IF_ERR( !h || __efffix_tmp,
+          ^
+  57.                  "x264", "malloc failed\n" );
+  58.     h->input = cli_input;
+
+#39
+input/thread.c:62: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc` on line 54 is not freed after the last access at line 62, column 10. 
+  60.     h->next_frame = -1;
+  61.     h->next_args = malloc( sizeof(thread_input_arg_t) );
+  62.     if( !h->next_args ) {
+               ^
+  63.         return -1;
+  64.     }
+
+#40
+input/thread.c:69: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc` on line 61 is not freed after the last access at line 69, column 9. 
+  67.     h->frame_total = info->num_frames;
+  68. 
+  69.     if( x264_threadpool_init( &h->pool, 1, NULL, NULL ) ) {
+              ^
+  70.         return -1;
+  71.     }
+
+#41
+input/timecode.c:248: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  a value is read without initialization. 
+  246.         if( fgets( buff, sizeof(buff), tcfile_in ) != NULL )
+  247.         {
+  248.             ret = sscanf( buff, "%lf", &timecodes[0] );
+                         ^
+  249.             timecodes[0] *= 1e-3;         /* Timecode format v2 is expressed in milliseconds. */
+  250.             FAIL_IF_ERROR( ret != 1, "invalid input tcfile for frame 0\n" );
+
+#42
+input/timecode.c:250: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc` on line 241 is not freed after the last access at line 250, column 13. 
+  248.             ret = sscanf( buff, "%lf", &timecodes[0] );
+  249.             timecodes[0] *= 1e-3;         /* Timecode format v2 is expressed in milliseconds. */
+  250.             FAIL_IF_ERROR( ret != 1, "invalid input tcfile for frame 0\n" );
+                   ^
+  251.             for( num = 1; num < timecodes_num && fgets( buff, sizeof(buff), tcfile_in ) != NULL; )
+  252.             {
+
+#43
+input/timecode.c:257: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc` on line 241 is not freed after the last access at line 257, column 17. 
+  255.                 ret = sscanf( buff, "%lf", &timecodes[num] );
+  256.                 timecodes[num] *= 1e-3;         /* Timecode format v2 is expressed in milliseconds. */
+  257.                 FAIL_IF_ERROR( ret != 1 || timecodes[num] <= timecodes[num - 1],
+                       ^
+  258.                                "invalid input tcfile for frame %d\n", num );
+  259.                 ++num;
+
+#44
+input/timecode.c:262: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc` on line 241 is not freed after the last access at line 262, column 9. 
+  260.             }
+  261.         }
+  262.         FAIL_IF_ERROR( num < timecodes_num, "failed to read input tcfile for frame %d", num );
+               ^
+  263. 
+  264.         if( timecodes_num == 1 )
+
+#45
+input/timecode.c:360: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc` on line 347 is not freed after the last access at line 360, column 9. 
+  358.             h->timebase_den = 0; /* set later by auto timebase generation */
+  359.         }
+  360.         FAIL_IF_ERROR( h->timebase_num > UINT32_MAX || h->timebase_den > UINT32_MAX,
+               ^
+  361.                        "timebase you specified exceeds H.264 maximum\n" );
+  362.     }
+
+#46
+input/timecode.c:373: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc` on line 347 is not freed after the last access at line 373, column 5. 
+  371. 
+  372.     tcfile_in = x264_fopen( psz_filename, "rb" );
+  373.     FAIL_IF_ERROR( !tcfile_in, "can't open `%s'\n", psz_filename );
+           ^
+  374.     if( !x264_is_regular_file( tcfile_in ) )
+  375.     {
+
+#47
+input/timecode.c:374: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc` on line 347 is not freed after the last access at line 374, column 10. 
+  372.     tcfile_in = x264_fopen( psz_filename, "rb" );
+  373.     FAIL_IF_ERROR( !tcfile_in, "can't open `%s'\n", psz_filename );
+  374.     if( !x264_is_regular_file( tcfile_in ) )
+                ^
+  375.     {
+  376.         x264_cli_log( "timecode", X264_LOG_ERROR, "tcfile input incompatible with non-regular file `%s'\n", psz_filename );
+
+#48
+input/timecode.c:383: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc` on line 347 is not freed after the last access at line 383, column 13. 
+  381.     if( parse_tcfile( tcfile_in, h, info ) < 0 )
+  382.     {
+  383.         if( h->pts ) {
+                   ^
+  384.             free( h->pts );
+  385.         }
+
+#49
+input/y4m.c:90: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc` on line 73 is not freed after the last access at line 90, column 9. 
+  88.     else
+  89.         h->fh = x264_fopen(psz_filename, "rb");
+  90.     if( h->fh == NULL )
+              ^
+  91.         return -1;
+  92. 
+
+#50
+input/y4m.c:106: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc` on line 73 is not freed after the last access at line 106, column 5. 
+  104.         }
+  105.     }
+  106.     FAIL_IF_ERROR( strncmp( header, Y4M_MAGIC, sizeof(Y4M_MAGIC)-1 ), "bad sequence header magic\n" );
+           ^
+  107.     FAIL_IF_ERROR( i == MAX_YUV4_HEADER, "bad sequence header length\n" );
+  108. 
+
+#51
+input/y4m.c:106: error: Resource Leak(PULSE_RESOURCE_LEAK)
+  File descriptor dynamically allocated by `fopen()` on line 89 is not closed after the last access at line 106, column 5. 
+  104.         }
+  105.     }
+  106.     FAIL_IF_ERROR( strncmp( header, Y4M_MAGIC, sizeof(Y4M_MAGIC)-1 ), "bad sequence header magic\n" );
+           ^
+  107.     FAIL_IF_ERROR( i == MAX_YUV4_HEADER, "bad sequence header length\n" );
+  108. 
+
+#52
+input/y4m.c:194: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc` on line 73 is not freed after the last access at line 194, column 5. 
+  192.     }
+  193. 
+  194.     FAIL_IF_ERROR( colorspace <= X264_CSP_NONE || colorspace >= X264_CSP_MAX, "colorspace unhandled\n" );
+           ^
+  195.     FAIL_IF_ERROR( h->bit_depth < 8 || h->bit_depth > 16, "unsupported bit depth `%d'\n", h->bit_depth );
+  196. 
+
+#53
+input/y4m.c:222: error: Memory Leak(MEMORY_LEAK_C)
+  Memory dynamically allocated by `malloc` on line 73 is not freed after the last access at line 222, column 9. 
+  220.         while( len <= MAX_FRAME_HEADER && fgetc( h->fh ) != '\n' )
+  221.             len++;
+  222.         FAIL_IF_ERROR( len > MAX_FRAME_HEADER || len < sizeof(Y4M_FRAME_MAGIC), "bad frame header length\n" );
+               ^
+  223.         h->frame_header_len = len;
+  224.         h->frame_size += len;
+
+#54
+output/flv.c:69: error: Use After Free(USE_AFTER_FREE)
+  call to `flv_put_byte()` eventually accesses `c->data` that was invalidated by call to `free()` during the call to `flv_put_byte()` on line 68. 
+  67.     flv_put_tag( c, "FLV" ); // Signature
+  68.     flv_put_byte( c, 1 );    // Version
+  69.     flv_put_byte( c, 1 );    // Video Only
+          ^
+  70.     flv_put_be32( c, 9 );    // DataOffset
+  71.     flv_put_be32( c, 0 );    // PreviousTagSize0
+
+#55
+output/flv.c:84: error: Use After Free(USE_AFTER_FREE)
+  The call to `write_header` in turn calls `flv_put_be32` and may trigger the following issue: call to `write_header()` eventually accesses memory that was invalidated by call to `free()` during the call to `write_header()` on line 43. 
+  82.         if( c )
+  83.         {
+  84.             if( !write_header( c ) )
+                       ^
+  85.             {
+  86.                 p_flv->c = c;
+
+#56
+output/flv.c:84: error: Use After Free(USE_AFTER_FREE)
+  The call to `write_header` in turn calls `flv_put_be32` and may trigger the following issue: call to `write_header()` eventually accesses memory that was invalidated by call to `free()` during the call to `write_header()` on line 44. 
+  82.         if( c )
+  83.         {
+  84.             if( !write_header( c ) )
+                       ^
+  85.             {
+  86.                 p_flv->c = c;
+
+#57
+output/flv.c:84: error: Use After Free(USE_AFTER_FREE)
+  The call to `write_header` in turn calls `flv_put_be32` and may trigger the following issue: call to `write_header()` eventually accesses memory that was invalidated by call to `free()` during the call to `write_header()` on line 45. 
+  82.         if( c )
+  83.         {
+  84.             if( !write_header( c ) )
+                       ^
+  85.             {
+  86.                 p_flv->c = c;
+
+#58
+output/flv.c:84: error: Use After Free(USE_AFTER_FREE)
+  The call to `write_header` may trigger the following issue: call to `write_header()` eventually accesses memory that was invalidated by call to `free()` during the call to `write_header()` on line 67. 
+  82.         if( c )
+  83.         {
+  84.             if( !write_header( c ) )
+                       ^
+  85.             {
+  86.                 p_flv->c = c;
+
+#59
+output/flv.c:84: error: Use After Free(USE_AFTER_FREE)
+  The call to `write_header` may trigger the following issue: call to `write_header()` eventually accesses memory that was invalidated by call to `free()` during the call to `write_header()` on line 71. 
+  82.         if( c )
+  83.         {
+  84.             if( !write_header( c ) )
+                       ^
+  85.             {
+  86.                 p_flv->c = c;
+
+#60
+output/flv.c:111: error: Use After Free(USE_AFTER_FREE)
+  The call to `flv_put_be24` may trigger the following issue: call to `flv_put_be24()` eventually accesses `c->data` that was invalidated by call to `free()` during the call to `flv_put_be24()` on line 63. 
+  109. 
+  110.     int start = c->d_cur;
+  111.     flv_put_be24( c, 0 ); // data length
+           ^
+  112.     flv_put_be24( c, 0 ); // timestamp
+  113.     flv_put_be32( c, 0 ); // reserved
+
+#61
+output/flv.c:113: error: Use After Free(USE_AFTER_FREE)
+  The call to `flv_put_be32` may trigger the following issue: call to `flv_put_be32()` eventually accesses `c->data` that was invalidated by call to `free()` during the call to `flv_put_be32()` on line 43. 
+  111.     flv_put_be24( c, 0 ); // data length
+  112.     flv_put_be24( c, 0 ); // timestamp
+  113.     flv_put_be32( c, 0 ); // reserved
+           ^
+  114. 
+  115.     flv_put_byte( c, AMF_DATA_TYPE_STRING );
+
+#62
+output/flv.c:113: error: Use After Free(USE_AFTER_FREE)
+  The call to `flv_put_be32` may trigger the following issue: call to `flv_put_be32()` eventually accesses `c->data` that was invalidated by call to `free()` during the call to `flv_put_be32()` on line 44. 
+  111.     flv_put_be24( c, 0 ); // data length
+  112.     flv_put_be24( c, 0 ); // timestamp
+  113.     flv_put_be32( c, 0 ); // reserved
+           ^
+  114. 
+  115.     flv_put_byte( c, AMF_DATA_TYPE_STRING );
+
+#63
+output/flv.c:113: error: Use After Free(USE_AFTER_FREE)
+  The call to `flv_put_be32` may trigger the following issue: call to `flv_put_be32()` eventually accesses memory that was invalidated by call to `free()` during the call to `flv_put_be32()` on line 44. 
+  111.     flv_put_be24( c, 0 ); // data length
+  112.     flv_put_be24( c, 0 ); // timestamp
+  113.     flv_put_be32( c, 0 ); // reserved
+           ^
+  114. 
+  115.     flv_put_byte( c, AMF_DATA_TYPE_STRING );
+
+#64
+output/flv.c:113: error: Use After Free(USE_AFTER_FREE)
+  The call to `flv_put_be32` may trigger the following issue: call to `flv_put_be32()` eventually accesses memory that was invalidated by call to `free()` during the call to `flv_put_be32()` on line 45. 
+  111.     flv_put_be24( c, 0 ); // data length
+  112.     flv_put_be24( c, 0 ); // timestamp
+  113.     flv_put_be32( c, 0 ); // reserved
+           ^
+  114. 
+  115.     flv_put_byte( c, AMF_DATA_TYPE_STRING );
+
+#65
+output/flv.c:115: error: Use After Free(USE_AFTER_FREE)
+  call to `flv_put_byte()` eventually accesses `c->data` that was invalidated by call to `free()` during the call to `flv_put_be32()` on line 113. 
+  113.     flv_put_be32( c, 0 ); // reserved
+  114. 
+  115.     flv_put_byte( c, AMF_DATA_TYPE_STRING );
+           ^
+  116.     flv_put_amf_string( c, "onMetaData" );
+  117. 
+
+#66
+output/flv.c:193: error: Use After Free(USE_AFTER_FREE)
+  The call to `flv_put_be24` may trigger the following issue: call to `flv_put_be24()` eventually accesses `c->data` that was invalidated by call to `free()` during the call to `flv_put_be24()` on line 63. 
+  191. 
+  192.     flv_put_byte( c, FLV_TAG_TYPE_VIDEO );
+  193.     flv_put_be24( c, 0 ); // rewrite later
+           ^
+  194.     flv_put_be24( c, 0 ); // timestamp
+  195.     flv_put_byte( c, 0 ); // timestamp extended
+
+#67
+output/flv.c:196: error: Use After Free(USE_AFTER_FREE)
+  The call to `flv_put_be24` may trigger the following issue: call to `flv_put_be24()` eventually accesses `c->data` that was invalidated by call to `free()` during the call to `flv_put_be24()` on line 63. 
+  194.     flv_put_be24( c, 0 ); // timestamp
+  195.     flv_put_byte( c, 0 ); // timestamp extended
+  196.     flv_put_be24( c, 0 ); // StreamID - Always 0
+           ^
+  197.     p_flv->start = c->d_cur; // needed for overwriting length
+  198. 
+
+#68
+output/flv.c:200: error: Use After Free(USE_AFTER_FREE)
+  call to `flv_put_byte()` eventually accesses `c->data` that was invalidated by call to `free()` during the call to `flv_put_byte()` on line 199. 
+  198. 
+  199.     flv_put_byte( c, FLV_FRAME_KEY | FLV_CODECID_H264 ); // FrameType and CodecID
+  200.     flv_put_byte( c, 0 ); // AVC sequence header
+           ^
+  201.     flv_put_be24( c, 0 ); // composition time
+  202. 
+
+#69
+output/flv.c:201: error: Use After Free(USE_AFTER_FREE)
+  The call to `flv_put_be24` may trigger the following issue: call to `flv_put_be24()` eventually accesses `c->data` that was invalidated by call to `free()` during the call to `flv_put_be24()` on line 63. 
+  199.     flv_put_byte( c, FLV_FRAME_KEY | FLV_CODECID_H264 ); // FrameType and CodecID
+  200.     flv_put_byte( c, 0 ); // AVC sequence header
+  201.     flv_put_be24( c, 0 ); // composition time
+           ^
+  202. 
+  203.     flv_put_byte( c, 1 );      // version
+
+#70
+output/flv_bytestream.c:46: error: Use After Free(USE_AFTER_FREE)
+  call to `flv_put_byte()` eventually accesses `c->data` that was invalidated by call to `free()` during the call to `flv_put_byte()` on line 45. 
+  44.     flv_put_byte( c, val >> 16 );
+  45.     flv_put_byte( c, val >> 8 );
+  46.     flv_put_byte( c, val );
+          ^
+  47. }
+  48. 
+
+#71
+output/flv_bytestream.c:83: error: Use After Free(USE_AFTER_FREE)
+  call to `flv_put_be64()` eventually accesses `c->data` that was invalidated by call to `free()` during the call to `flv_put_byte()` on line 82. 
+  81. {
+  82.     flv_put_byte( c, AMF_DATA_TYPE_NUMBER );
+  83.     flv_put_be64( c, flv_dbl2int( d ) );
+          ^
+  84. }
+  85. 
+
+#72
+x264.c:397: error: Uninitialized Value(PULSE_UNINITIALIZED_VALUE)
+  `param.i_fps_num` is read without initialization during the call to `parse()`. 
+  395. 
+  396.     /* Parse command line */
+  397.     if( parse( argc, argv, &param, &opt ) < 0 )
+               ^
+  398.         ret = -1;
+  399. 
+
+Found 73 issues
+                      Issue Type(ISSUED_TYPE_ID): #
+                      Memory Leak(MEMORY_LEAK_C): 44
+                  Use After Free(USE_AFTER_FREE): 18
+  Uninitialized Value(PULSE_UNINITIALIZED_VALUE): 9
+              Resource Leak(PULSE_RESOURCE_LEAK): 1
+           Null Dereference(NULLPTR_DEREFERENCE): 1

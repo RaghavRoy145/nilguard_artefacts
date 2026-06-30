@@ -1,0 +1,14 @@
+[
+  {
+    "procedure_name": "restore",
+    "procedure_id": "restore{e46b043b49667a7e60f048604987195c}",
+    "source_file": "src/lxc/tools/lxc_checkpoint.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "Alias analysis found no pointers to guard.",
+      "npe_file": "src/lxc/tools/lxc_checkpoint.c",
+      "npe_line": 232,
+      "original_pointer": "null"
+    }
+  }
+]

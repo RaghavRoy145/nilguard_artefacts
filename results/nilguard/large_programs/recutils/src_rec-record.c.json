@@ -1,0 +1,143 @@
+[
+  {
+    "procedure_name": "rec_record_uniq",
+    "procedure_id": "rec_record_uniq",
+    "source_file": "src/rec-record.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 3,
+      "end_node": 3,
+      "start_line": 715,
+      "end_line": 715,
+      "guard_with_pointer": "to_remove",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 3,
+        "nodes_in_scope": 1,
+        "true_slice_size": 8,
+        "initial_candidate_plans": 3,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "rec_record_uniq",
+    "procedure_id": "rec_record_uniq",
+    "source_file": "src/rec-record.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 40,
+      "end_node": 40,
+      "start_line": 686,
+      "end_line": 686,
+      "guard_with_pointer": "to_remove",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 3,
+        "nodes_in_scope": 1,
+        "true_slice_size": 8,
+        "initial_candidate_plans": 3,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "rec_record_uniq",
+    "procedure_id": "rec_record_uniq",
+    "source_file": "src/rec-record.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 45,
+      "end_node": 45,
+      "start_line": 664,
+      "end_line": 664,
+      "guard_with_pointer": "to_remove",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 3,
+        "nodes_in_scope": 1,
+        "true_slice_size": 8,
+        "initial_candidate_plans": 3,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "rec_record_to_comment",
+    "procedure_id": "rec_record_to_comment",
+    "source_file": "src/rec-record.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "Alias analysis found no pointers to guard.",
+      "npe_file": "src/rec-record.c",
+      "npe_line": 439,
+      "original_pointer": "null"
+    }
+  },
+  {
+    "procedure_name": "rec_record_to_comment",
+    "procedure_id": "rec_record_to_comment",
+    "source_file": "src/rec-record.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 23,
+      "end_node": 23,
+      "start_line": 439,
+      "end_line": 439,
+      "guard_with_pointer": "buf",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 1,
+        "nodes_in_scope": 1,
+        "true_slice_size": 1,
+        "initial_candidate_plans": 1,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "rec_record_to_comment",
+    "procedure_id": "rec_record_to_comment",
+    "source_file": "src/rec-record.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "Alias analysis found no pointers to guard.",
+      "npe_file": "src/rec-record.c",
+      "npe_line": 447,
+      "original_pointer": "null"
+    }
+  },
+  {
+    "procedure_name": "rec_record_to_comment",
+    "procedure_id": "rec_record_to_comment",
+    "source_file": "src/rec-record.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 25,
+      "end_node": 25,
+      "start_line": 447,
+      "end_line": 447,
+      "guard_with_pointer": "buf",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 1,
+        "nodes_in_scope": 1,
+        "true_slice_size": 1,
+        "initial_candidate_plans": 1,
+        "total_aliases": 1
+      }
+    }
+  },
+  {
+    "procedure_name": "rec_record_to_comment",
+    "procedure_id": "rec_record_to_comment",
+    "source_file": "src/rec-record.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "No valid plans remained after filtering",
+      "npe_file": "src/rec-record.c",
+      "npe_line": 432,
+      "original_pointer": "buf"
+    }
+  }
+]

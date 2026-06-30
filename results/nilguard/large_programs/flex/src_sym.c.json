@@ -1,0 +1,14 @@
+[
+  {
+    "procedure_name": "scinstal",
+    "procedure_id": "scinstal",
+    "source_file": "src/sym.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "Alias analysis found no pointers to guard.",
+      "npe_file": "src/sym.c",
+      "npe_line": 223,
+      "original_pointer": "scname"
+    }
+  }
+]

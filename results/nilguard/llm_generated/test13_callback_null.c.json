@@ -1,0 +1,14 @@
+[
+  {
+    "procedure_name": "main",
+    "procedure_id": "main",
+    "source_file": "test13_callback_null.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "No valid plans remained after filtering",
+      "npe_file": "test13_callback_null.c",
+      "npe_line": 12,
+      "original_pointer": "handler"
+    }
+  }
+]

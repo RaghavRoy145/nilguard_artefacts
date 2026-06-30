@@ -1,0 +1,38 @@
+[
+  {
+    "procedure_name": "rec_encrypt_field",
+    "procedure_id": "rec_encrypt_field",
+    "source_file": "src/rec-crypt.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "Alias analysis found no pointers to guard.",
+      "npe_file": "src/rec-crypt.c",
+      "npe_line": 314,
+      "original_pointer": "null"
+    }
+  },
+  {
+    "procedure_name": "rec_encrypt_field",
+    "procedure_id": "rec_encrypt_field",
+    "source_file": "src/rec-crypt.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "Alias analysis found no pointers to guard.",
+      "npe_file": "src/rec-crypt.c",
+      "npe_line": 314,
+      "original_pointer": "real_in"
+    }
+  },
+  {
+    "procedure_name": "rec_encrypt_field",
+    "procedure_id": "rec_encrypt_field",
+    "source_file": "src/rec-crypt.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "Alias analysis found no pointers to guard.",
+      "npe_file": "src/rec-crypt.c",
+      "npe_line": 314,
+      "original_pointer": "i"
+    }
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "procedure_name": "create_cert_store",
+    "procedure_id": "create_cert_store{6757711bd81d3d5df07693e7af06eba1}",
+    "source_file": "apps/ts.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "No valid plans remained after filtering",
+      "npe_file": "apps/ts.c",
+      "npe_line": 1083,
+      "original_pointer": "cert_ctx"
+    }
+  }
+]

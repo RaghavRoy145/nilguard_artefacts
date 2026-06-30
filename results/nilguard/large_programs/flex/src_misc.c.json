@@ -1,0 +1,26 @@
+[
+  {
+    "procedure_name": "sko_push",
+    "procedure_id": "sko_push{4a37aac5c8f7e438572f91c0ed94cfcb}",
+    "source_file": "src/misc.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "Alias analysis found no pointers to guard.",
+      "npe_file": "src/misc.c",
+      "npe_line": 69,
+      "original_pointer": "sko_stack"
+    }
+  },
+  {
+    "procedure_name": "sko_push",
+    "procedure_id": "sko_push{4a37aac5c8f7e438572f91c0ed94cfcb}",
+    "source_file": "src/misc.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "Alias analysis found no pointers to guard.",
+      "npe_file": "src/misc.c",
+      "npe_line": 62,
+      "original_pointer": "sko_len"
+    }
+  }
+]

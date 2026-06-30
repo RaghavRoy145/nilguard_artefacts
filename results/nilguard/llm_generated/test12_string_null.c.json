@@ -1,0 +1,16 @@
+[
+  {
+    "procedure_name": "main",
+    "procedure_id": "main",
+    "source_file": "test12_string_null.c",
+    "plan_type": "Replace",
+    "details": {
+      "def_site_node": 11,
+      "def_site_line": 6,
+      "target_pvar": "str",
+      "pvar_type": "char*",
+      "reuse_candidate": null,
+      "metrics": { "cost_rep_modification": 1, "total_aliases": 1 }
+    }
+  }
+]

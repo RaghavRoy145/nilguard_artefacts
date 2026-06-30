@@ -1,0 +1,14 @@
+[
+  {
+    "procedure_name": "tls_decrypt_ticket",
+    "procedure_id": "tls_decrypt_ticket{97a3239e0939cd2a1cbc669d027852f1}",
+    "source_file": "ssl/t1_lib.c",
+    "plan_type": "NoPlanGenerated",
+    "details": {
+      "reason": "Alias analysis found no pointers to guard.",
+      "npe_file": "ssl/t1_lib.c",
+      "npe_line": 2312,
+      "original_pointer": "hctx"
+    }
+  }
+]

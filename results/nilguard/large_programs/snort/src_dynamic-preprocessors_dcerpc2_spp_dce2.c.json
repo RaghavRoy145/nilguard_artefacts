@@ -1,0 +1,23 @@
+[
+  {
+    "procedure_name": "DCE2_InitServer",
+    "procedure_id": "DCE2_InitServer{953f688f4ac1c5003803354fd7563826}",
+    "source_file": "src/dynamic-preprocessors/dcerpc2/spp_dce2.c",
+    "plan_type": "Skip",
+    "details": {
+      "start_node": 4,
+      "end_node": 3,
+      "start_line": 385,
+      "end_line": 389,
+      "guard_with_pointer": "pPolicyConfig",
+      "metrics": {
+        "cost_l_imprecision": 0,
+        "cost_g_overhead_final": 1,
+        "nodes_in_scope": 2,
+        "true_slice_size": 6,
+        "initial_candidate_plans": 2,
+        "total_aliases": 1
+      }
+    }
+  }
+]
