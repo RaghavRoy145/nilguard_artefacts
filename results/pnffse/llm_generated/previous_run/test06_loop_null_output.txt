@@ -1,9 +1,0 @@
-Capturing in make/cc mode ...
-Arguments are 
-/home/infer_TempFix/c_npe_tests/test06_loop_null.c
-annalysing main
-CallingFunction: printf @13
-/home/infer_TempFix/c_npe_tests/test06_loop_null.c
-
-=====> Actual effects of function: main ======>
-(.ret=0 /\ deref(values)@9 · RET()@16,1)

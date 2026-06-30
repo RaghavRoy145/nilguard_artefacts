@@ -1,9 +1,0 @@
-Capturing in make/cc mode ...
-Arguments are 
-/home/infer_TempFix/c_npe_tests/test04_array_index_null.c
-annalysing main
-CallingFunction: printf @12
-/home/infer_TempFix/c_npe_tests/test04_array_index_null.c
-
-=====> Actual effects of function: main ======>
-(.ret=0 /\ deref(array)@8 · deref(array)@9 · deref(array)@10 · RET()@13,1)

@@ -1,9 +1,0 @@
-Capturing in make/cc mode ...
-Arguments are 
-/home/infer_TempFix/c_npe_tests/test14_nested_struct_null.c
-annalysing main
-CallingFunction: printf @20
-/home/infer_TempFix/c_npe_tests/test14_nested_struct_null.c
-
-=====> Actual effects of function: main ======>
-(.ret=0 /\ RET()@21,1)

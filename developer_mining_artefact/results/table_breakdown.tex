@@ -1,0 +1,46 @@
+\begin{table*}[t]
+\centering
+\caption{Per-project breakdown of critical write types near pointer dereferences.}
+\label{tab:critical-breakdown}
+\small
+\begin{tabular}{lrrrrrrrr}
+\toprule
+\textbf{Project} & \textbf{Crit.} & \textbf{Rate} & \textbf{Heap} & \textbf{Cond} & \textbf{Ret} & \textbf{Call} & \textbf{I/O} & \textbf{Rsrc} \\
+\midrule
+  busybox & 2,194 & 15.5\% & 768 & 530 & 120 & 502 & 49 & 225 \\
+  coreutils & 722 & 11.2\% & 238 & 190 & 63 & 173 & 5 & 53 \\
+  curl & 3,509 & 17.5\% & 1291 & 759 & 503 & 660 & 13 & 283 \\
+  flex & 199 & 23.2\% & 58 & 52 & 3 & 26 & 3 & 57 \\
+  git-src & 6,783 & 18.5\% & 2108 & 1901 & 518 & 1487 & 66 & 703 \\
+  htop & 1,621 & 19.4\% & 541 & 435 & 47 & 454 & 0 & 144 \\
+  iproute2 & 1,320 & 17.2\% & 351 & 262 & 187 & 313 & 14 & 193 \\
+  jq & 420 & 13.6\% & 197 & 65 & 52 & 97 & 0 & 9 \\
+  libjpeg & 1,793 & 24.4\% & 858 & 428 & 24 & 450 & 4 & 29 \\
+  libpng & 634 & 16.4\% & 283 & 159 & 25 & 149 & 4 & 14 \\
+  libsodium & 91 & 15.6\% & 35 & 34 & 9 & 12 & 0 & 1 \\
+  lighttpd & 1,286 & 17.7\% & 419 & 385 & 85 & 324 & 1 & 72 \\
+  lmdb & 19 & 14.9\% & 9 & 7 & 0 & 3 & 0 & 0 \\
+  lua & 465 & 22.3\% & 180 & 73 & 60 & 152 & 0 & 0 \\
+  lxc & 895 & 14.8\% & 255 & 287 & 73 & 214 & 0 & 66 \\
+  mbedtls & 483 & 11.1\% & 157 & 108 & 102 & 116 & 0 & 0 \\
+  mosquitto & 916 & 21.4\% & 229 & 316 & 156 & 186 & 1 & 28 \\
+  nginx & 9,932 & 19.7\% & 4377 & 2982 & 608 & 1965 & 0 & 0 \\
+  openssl & 6,788 & 15.5\% & 2503 & 1886 & 933 & 1465 & 0 & 1 \\
+  p11-kit & 330 & 11.4\% & 99 & 84 & 29 & 68 & 1 & 49 \\
+  recutils & 248 & 18.7\% & 65 & 75 & 17 & 47 & 0 & 44 \\
+  redis & 2,860 & 18.3\% & 974 & 831 & 159 & 855 & 24 & 17 \\
+  snort3 & 10 & 7.3\% & 9 & 1 & 0 & 0 & 0 & 0 \\
+  strace & 156 & 11.5\% & 55 & 46 & 10 & 28 & 0 & 17 \\
+  systemd & 5,049 & 8.4\% & 1562 & 1385 & 928 & 1057 & 1 & 116 \\
+  tmux & 2,634 & 25.8\% & 679 & 749 & 81 & 752 & 1 & 372 \\
+  x264 & 1,443 & 17.3\% & 729 & 313 & 19 & 294 & 19 & 69 \\
+  zstd & 1,470 & 16.6\% & 445 & 446 & 103 & 373 & 11 & 92 \\
+\midrule
+  \textbf{Total} & \textbf{24,809} & \textbf{16.1\%} & \textbf{19,474} & \textbf{14,789} & \textbf{4,914} & \textbf{12,222} & \textbf{217} & \textbf{2,654} \\
+  \textit{\% of raw} &  &  & \textit{35.9\%} & \textit{27.3\%} & \textit{9.1\%} & \textit{22.5\%} & \textit{0.4\%} & \textit{4.9\%} \\
+\bottomrule
+\end{tabular}
+\vspace{1mm}
+\footnotesize
+\textit{Columns}: Heap = writes through pointers/struct fields/arrays (C1, C6); Cond = feeds \texttt{if}/\texttt{while}/\texttt{for} (C2); Ret = feeds \texttt{return} (C3); Call = escapes via function argument (C4); I/O = feeds file/logging output (C5); Rsrc = \texttt{malloc}/\texttt{calloc}/\texttt{free} (C7, C8).
+\end{table*}

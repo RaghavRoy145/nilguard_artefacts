@@ -1,0 +1,66 @@
+======================================================================
+ COMBINED ANALYSIS: ALL FLOWS TO CONDITIONAL
+======================================================================
+
+  ── Intra-procedural: writes flowing to a conditional (semgrep) ──
+    Total unique locations:                 13,315
+    As % of baseline writes:                  8.6%
+    Of those, how many also have another critical property:
+      Also a heap write:                      6,324
+      Also resource mgmt (malloc/free):       1,485
+      Also feeds a return:                    3,199
+      Also escapes via call:                  8,144
+      Also feeds I/O:                           179
+    (These overlap — a single location can have multiple properties)
+
+  ── Inter-procedural: writes flowing to a caller conditional (Joern) ──
+    IP1 (return → caller conditional):       17,610
+    IP2 (out-param → caller conditional):     4,550
+    Total inter-procedural:                  22,160
+    As % of baseline writes:                 14.4%
+
+  ── TOTAL: ALL WRITES FLOWING TO A CONDITIONAL ──
+    Intra (same function):   13,315
+    + Inter (cross-function):22,160
+    = Total:                 35,475
+    As % of baseline:        23.0%  (35,475 / 154,253)
+
+  ── OVERALL CRITICALITY ──
+    Intra-procedural (dedup):  16.1%  (24,809 / 154,253)
+    Extended (+ Joern):        30.4%  (46,969 / 154,253)
+    Delta:                     +14.4pp
+
+  ── Per-project inter-procedural flows ──
+    Project                 IP1   IP2 Total Intra%   Ext%   dpp
+    ------------------------------------------------------------
+    busybox                 543   264   807  15.5%  28.2% +12.8
+    coreutils                38    48    86  11.2%  13.9% +2.7
+    curl                   1072   187  1259  17.5%  33.8% +16.3
+    flex                      0     0     0  23.2%  23.2% +0.0
+    git-src                1054   655  1709  18.5%  28.6% +10.1
+    htop                     66    24    90  19.4%  21.8% +2.4
+    iproute2                302   976  1278  17.2%  50.7% +33.5
+    jq                      117    18   135  13.6%  23.7% +10.2
+    libjpeg                  23    37    60  24.4%  26.1% +1.8
+    libpng                    0     1     1  16.4%  16.5% +0.1
+    libsodium                 3     0     3  15.6%  16.3% +0.7
+    lighttpd                108     0   108  17.7%  20.8% +3.1
+    lmdb                      0     1     1  14.9%  17.0% +2.1
+    lua                      47     1    48  22.3%  26.1% +3.9
+    lxc                     181    12   193  14.8%  21.3% +6.5
+    mbedtls                 715    11   726  11.1%  42.8% +31.6
+    mosquitto               254     2   256  21.4%  34.6% +13.2
+    nginx                   696   191   887  19.7%  23.8% +4.1
+    openssl                 837   428  1265  15.5%  21.4% +5.9
+    p11-kit                 305    32   337  11.4%  33.8% +22.4
+    recutils               1678    79  1757  18.7% 297.6% +278.9
+    redis                   280   234   514  18.3%  24.5% +6.3
+    snort3                    0     0     0   7.3%   7.3% +0.0
+    strace                   14     1    15  11.5%  13.3% +1.7
+    systemd                9000   903  9903   8.4%  44.8% +36.5
+    tmux                    153   237   390  25.8%  34.6% +8.8
+    x264                     19   191   210  17.3%  23.1% +5.8
+    zstd                    105    17   122  16.6%  20.0% +3.4
+
+  -> +14.4pp: Significant cross-functional impact.
+======================================================================

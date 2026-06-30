@@ -1,0 +1,836 @@
+##############################################################################
+# NilGuard Empirical Study: Local Safety ↔ Global Safety Correlation
+#
+# RESEARCH QUESTION:
+#   When a Skip patch  if (ptr != NULL) { ...scope... }  encloses writes,
+#   how often are those writes "semantically critical"?
+#
+#   Critical = the write's conditionalization could break behavior elsewhere:
+#     - heap / shared-state mutation
+#     - feeds a subsequent conditional (control-flow impact)
+#     - feeds a return value (caller impact)
+#     - escapes via a function call (interprocedural impact)
+#     - persistence / I/O  (external-world impact)
+#
+# STRUCTURE:
+#   B*  = Baseline rules (count all writes near dereferences)
+#   C*  = Critical-write rules (classify writes as semantics-breaking)
+#   D*  = Dereference-only rules (normalization denominators)
+#
+# NOTE: "near" = in the same lexical scope, approximated by semgrep's
+#       sequential `...` operator (matches within the same block).
+#       We focus on writes AFTER the dereference (the region a Skip-Fault
+#       patch would guard).  A symmetric "write-before-deref" section is
+#       included for completeness.
+##############################################################################
+
+rules:
+
+  # ==========================================================================
+  # D: DEREFERENCE BASELINE (denominators for normalisation)
+  # ==========================================================================
+
+  - id: D1-arrow-deref
+    languages: [c]
+    severity: INFO
+    message: "Pointer dereference via arrow operator: $PTR->$F"
+    pattern-either:
+      - pattern: $X = $PTR->$F;
+      - pattern: $PTR->$F = $E;
+      - pattern: $FUNC(..., $PTR->$F, ...);
+
+  - id: D2-star-deref
+    languages: [c]
+    severity: INFO
+    message: "Pointer dereference via star operator"
+    pattern-either:
+      - pattern: $X = *$PTR;
+      - pattern: |
+          *$PTR = $E;
+
+  - id: D3-array-deref
+    languages: [c]
+    severity: INFO
+    message: "Pointer dereference via array subscript"
+    pattern-either:
+      - pattern: $X = $PTR[$IDX];
+      - pattern: $PTR[$IDX] = $E;
+
+  - id: D4-free-deref
+    languages: [c]
+    severity: INFO
+    message: "Implicit dereference via free()"
+    pattern: free($PTR);
+
+  # ==========================================================================
+  # B: BASELINE — ANY write after a dereference (same scope)
+  #    This counts ALL writes that a Skip patch would enclose.
+  # ==========================================================================
+
+  # --- Arrow dereference forms followed by any assignment ---
+  - id: B1-write-after-arrow-read
+    languages: [c]
+    severity: INFO
+    message: "Local write ($VAR) after arrow-read dereference in same scope"
+    pattern: |
+      $X = $PTR->$F;
+      ...
+      $VAR = $EXPR;
+
+  - id: B2-write-after-arrow-write
+    languages: [c]
+    severity: INFO
+    message: "Local write ($VAR) after arrow-write dereference in same scope"
+    pattern: |
+      $PTR->$F = $E;
+      ...
+      $VAR = $EXPR;
+
+  # --- Star dereference forms followed by any assignment ---
+  - id: B3-write-after-star-read
+    languages: [c]
+    severity: INFO
+    message: "Local write ($VAR) after star-read dereference in same scope"
+    pattern: |
+      $X = *$PTR;
+      ...
+      $VAR = $EXPR;
+
+  - id: B4-write-after-star-write
+    languages: [c]
+    severity: INFO
+    message: "Local write ($VAR) after star-write dereference in same scope"
+    pattern: |
+      *$PTR = $E;
+      ...
+      $VAR = $EXPR;
+
+  # --- Free followed by any assignment ---
+  - id: B5-write-after-free
+    languages: [c]
+    severity: INFO
+    message: "Local write ($VAR) after free() in same scope"
+    pattern: |
+      free($PTR);
+      ...
+      $VAR = $EXPR;
+
+  # ==========================================================================
+  # B-REV: BASELINE — ANY write BEFORE a dereference (same scope)
+  #    Also enclosed if the Skip patch guards the full lexical scope.
+  # ==========================================================================
+
+  - id: B6-write-before-arrow-deref
+    languages: [c]
+    severity: INFO
+    message: "Local write ($VAR) before arrow dereference in same scope"
+    patterns:
+      - pattern: |
+          $VAR = $EXPR;
+          ...
+          $PTR->$F = $E;
+      # Exclude cases where $VAR IS $PTR (the write IS the deref target setup)
+      - pattern-not: |
+          $PTR = $EXPR;
+          ...
+          $PTR->$F = $E;
+
+  - id: B7-write-before-star-deref
+    languages: [c]
+    severity: INFO
+    message: "Local write ($VAR) before star dereference in same scope"
+    patterns:
+      - pattern: |
+          $VAR = $EXPR;
+          ...
+          *$PTR = $E;
+      - pattern-not: |
+          $PTR = $EXPR;
+          ...
+          *$PTR = $E;
+
+  # ==========================================================================
+  # C1: CRITICAL — Heap write (write through pointer) near a deref
+  #    These modify shared mutable state visible outside the function.
+  # ==========================================================================
+
+  - id: C1a-heap-write-after-arrow-deref
+    languages: [c]
+    severity: WARNING
+    message: "CRITICAL: Heap write (*$PTR2) after arrow dereference"
+    pattern-either:
+      - pattern: |
+          $X = $PTR1->$F1;
+          ...
+          *$PTR2 = $EXPR;
+      - pattern: |
+          $PTR1->$F1 = $E1;
+          ...
+          *$PTR2 = $EXPR;
+
+  - id: C1b-struct-field-write-after-deref
+    languages: [c]
+    severity: WARNING
+    message: "CRITICAL: Struct field write ($PTR2->$F2) after dereference"
+    pattern-either:
+      - pattern: |
+          $X = $PTR1->$F1;
+          ...
+          $PTR2->$F2 = $EXPR;
+      - pattern: |
+          *$PTR1 = $E1;
+          ...
+          $PTR2->$F2 = $EXPR;
+
+  - id: C1c-array-write-after-deref
+    languages: [c]
+    severity: WARNING
+    message: "CRITICAL: Array write ($PTR2[$IDX]) after dereference"
+    pattern-either:
+      - pattern: |
+          $X = $PTR1->$F1;
+          ...
+          $PTR2[$IDX] = $EXPR;
+      - pattern: |
+          *$PTR1 = $E1;
+          ...
+          $PTR2[$IDX] = $EXPR;
+      - pattern: |
+          $PTR1->$F1 = $E1;
+          ...
+          $PTR2[$IDX] = $EXPR;
+
+  # ==========================================================================
+  # C2: CRITICAL — Write feeds a subsequent conditional
+  #    The variable written is later used in an if/while/for/switch guard.
+  #    Conditionalising this write changes control flow downstream.
+  # ==========================================================================
+
+  - id: C2a-write-feeds-if-after-arrow-deref
+    languages: [c]
+    severity: WARNING
+    message: "CRITICAL: Write to $VAR after arrow deref, then $VAR used in if-condition"
+    pattern-either:
+      - pattern: |
+          $X = $PTR->$F;
+          ...
+          $VAR = $EXPR;
+          ...
+          if (<... $VAR ...>) {
+            ...
+          }
+      - pattern: |
+          $PTR->$F = $E;
+          ...
+          $VAR = $EXPR;
+          ...
+          if (<... $VAR ...>) {
+            ...
+          }
+
+  - id: C2b-write-feeds-while-after-deref
+    languages: [c]
+    severity: WARNING
+    message: "CRITICAL: Write to $VAR after deref, then $VAR used in while-condition"
+    pattern-either:
+      - pattern: |
+          $X = $PTR->$F;
+          ...
+          $VAR = $EXPR;
+          ...
+          while (<... $VAR ...>) {
+            ...
+          }
+      - pattern: |
+          *$PTR = $E;
+          ...
+          $VAR = $EXPR;
+          ...
+          while (<... $VAR ...>) {
+            ...
+          }
+
+  - id: C2c-write-feeds-for-after-deref
+    languages: [c]
+    severity: WARNING
+    message: "CRITICAL: Write to $VAR after deref, then $VAR used in for-condition"
+    pattern-either:
+      - pattern: |
+          $X = $PTR->$F;
+          ...
+          $VAR = $EXPR;
+          ...
+          for (...; <... $VAR ...>; ...) {
+            ...
+          }
+      - pattern: |
+          $PTR->$F = $E;
+          ...
+          $VAR = $EXPR;
+          ...
+          for (...; <... $VAR ...>; ...) {
+            ...
+          }
+
+  # ==========================================================================
+  # C3: CRITICAL — Write feeds a return statement
+  #    The written variable is later returned → affects caller behaviour.
+  # ==========================================================================
+
+  - id: C3a-write-feeds-return-after-arrow-deref
+    languages: [c]
+    severity: WARNING
+    message: "CRITICAL: Write to $VAR after arrow deref, then return $VAR"
+    pattern-either:
+      - pattern: |
+          $X = $PTR->$F;
+          ...
+          $VAR = $EXPR;
+          ...
+          return $VAR;
+      - pattern: |
+          $PTR->$F = $E;
+          ...
+          $VAR = $EXPR;
+          ...
+          return $VAR;
+
+  - id: C3b-write-feeds-return-after-star-deref
+    languages: [c]
+    severity: WARNING
+    message: "CRITICAL: Write to $VAR after star deref, then return $VAR"
+    pattern-either:
+      - pattern: |
+          $X = *$PTR;
+          ...
+          $VAR = $EXPR;
+          ...
+          return $VAR;
+      - pattern: |
+          *$PTR = $E;
+          ...
+          $VAR = $EXPR;
+          ...
+          return $VAR;
+
+  # ==========================================================================
+  # C4: CRITICAL — Write escapes via function call
+  #    The written variable is passed to another function → interprocedural
+  #    impact.  This is an over-approximation (the callee may not use it
+  #    critically), but it flags potential escape.
+  #
+  #    NOTE: C4 is intentionally broad.  C5 (I/O) is a strict subset.
+  #    The analysis script computes both a raw and refined criticality
+  #    rate, where the refined rate subtracts C4 matches to known
+  #    pure-output functions.  This makes the raw rate an UPPER BOUND.
+  # ==========================================================================
+
+  - id: C4a-write-escapes-call-after-arrow-deref
+    languages: [c]
+    severity: WARNING
+    message: "CRITICAL: Write to $VAR after arrow deref, then $VAR passed to $FUNC()"
+    pattern-either:
+      - pattern: |
+          $X = $PTR->$F;
+          ...
+          $VAR = $EXPR;
+          ...
+          $FUNC(..., $VAR, ...);
+      - pattern: |
+          $PTR->$F = $E;
+          ...
+          $VAR = $EXPR;
+          ...
+          $FUNC(..., $VAR, ...);
+
+  - id: C4b-write-escapes-call-after-star-deref
+    languages: [c]
+    severity: WARNING
+    message: "CRITICAL: Write to $VAR after star deref, then $VAR passed to $FUNC()"
+    pattern-either:
+      - pattern: |
+          $X = *$PTR;
+          ...
+          $VAR = $EXPR;
+          ...
+          $FUNC(..., $VAR, ...);
+      - pattern: |
+          *$PTR = $E;
+          ...
+          $VAR = $EXPR;
+          ...
+          $FUNC(..., $VAR, ...);
+
+  # ==========================================================================
+  # C5: CRITICAL — Write feeds persistence / I/O
+  #    The written variable is passed to a known I/O or logging function.
+  #    Subset of C4 but specifically flags external-world impact.
+  # ==========================================================================
+
+  - id: C5a-write-feeds-file-io
+    languages: [c]
+    severity: WARNING
+    message: "CRITICAL: Write to $VAR near deref, then $VAR passed to file I/O"
+    pattern-either:
+      # fprintf
+      - pattern: |
+          $X = $PTR->$F;
+          ...
+          $VAR = $EXPR;
+          ...
+          fprintf(..., ..., $VAR, ...);
+      - pattern: |
+          $PTR->$F = $E;
+          ...
+          $VAR = $EXPR;
+          ...
+          fprintf(..., ..., $VAR, ...);
+      # fwrite
+      - pattern: |
+          $X = $PTR->$F;
+          ...
+          $VAR = $EXPR;
+          ...
+          fwrite($VAR, ...);
+      - pattern: |
+          $PTR->$F = $E;
+          ...
+          $VAR = $EXPR;
+          ...
+          fwrite($VAR, ...);
+      # write (POSIX)
+      - pattern: |
+          $X = $PTR->$F;
+          ...
+          $VAR = $EXPR;
+          ...
+          write(..., $VAR, ...);
+      # send (socket)
+      - pattern: |
+          $X = $PTR->$F;
+          ...
+          $VAR = $EXPR;
+          ...
+          send(..., $VAR, ...);
+
+  - id: C5b-write-feeds-logging
+    languages: [c]
+    severity: WARNING
+    message: "CRITICAL: Write to $VAR near deref, then $VAR passed to logging"
+    pattern-either:
+      - pattern: |
+          $X = $PTR->$F;
+          ...
+          $VAR = $EXPR;
+          ...
+          syslog(..., ..., $VAR, ...);
+      - pattern: |
+          $PTR->$F = $E;
+          ...
+          $VAR = $EXPR;
+          ...
+          syslog(..., ..., $VAR, ...);
+      - pattern: |
+          $X = $PTR->$F;
+          ...
+          $VAR = $EXPR;
+          ...
+          printf(..., $VAR, ...);
+
+  # ==========================================================================
+  # C6: CRITICAL — Write to a pointer passed as output parameter
+  #    Writing through a pointer parameter = caller-visible mutation.
+  #    This is a HEAP WRITE that specifically targets output parameters.
+  # ==========================================================================
+
+  - id: C6-output-param-write-near-deref
+    languages: [c]
+    severity: WARNING
+    message: "CRITICAL: Write via output pointer ($OUT) near dereference"
+    pattern-either:
+      - pattern: |
+          $X = $PTR->$F;
+          ...
+          *$OUT = $EXPR;
+      - pattern: |
+          $PTR->$F = $E;
+          ...
+          *$OUT = $EXPR;
+
+  # ==========================================================================
+  # C7: CRITICAL — malloc/calloc result assignment after deref
+  #    If a Skip patch conditionalises a malloc, the pointer is left
+  #    uninitialised on the guarded path → use-after-uninit downstream.
+  # ==========================================================================
+
+  - id: C7a-malloc-after-deref
+    languages: [c]
+    severity: WARNING
+    message: "CRITICAL: malloc assignment ($VAR) after dereference"
+    pattern-either:
+      - pattern: |
+          $X = $PTR->$F;
+          ...
+          $VAR = malloc(...);
+      - pattern: |
+          $PTR->$F = $E;
+          ...
+          $VAR = malloc(...);
+      - pattern: |
+          $X = *$PTR;
+          ...
+          $VAR = malloc(...);
+
+  - id: C7b-calloc-after-deref
+    languages: [c]
+    severity: WARNING
+    message: "CRITICAL: calloc assignment ($VAR) after dereference"
+    pattern-either:
+      - pattern: |
+          $X = $PTR->$F;
+          ...
+          $VAR = calloc(...);
+      - pattern: |
+          $PTR->$F = $E;
+          ...
+          $VAR = calloc(...);
+
+  # ==========================================================================
+  # C8: CRITICAL — free() after dereference
+  #    If the Skip patch skips a free(), we get a memory leak.
+  #    Not a crash, but a resource-safety violation.
+  # ==========================================================================
+
+  - id: C8-free-after-deref
+    languages: [c]
+    severity: WARNING
+    message: "CRITICAL: free($VAR) after dereference — skip patch causes leak"
+    pattern-either:
+      - pattern: |
+          $X = $PTR->$F;
+          ...
+          free($VAR);
+      - pattern: |
+          $PTR->$F = $E;
+          ...
+          free($VAR);
+      - pattern: |
+          $X = *$PTR;
+          ...
+          free($VAR);
+
+  # ==========================================================================
+  # C9: CRITICAL — Write to a variable declared extern or at file scope
+  #    This is an approximation: we match assignments inside functions to
+  #    variables that were NOT declared locally in the same function.
+  #    We use pattern-not-inside to exclude locally-declared variables.
+  # ==========================================================================
+
+  # NOTE: Detecting globals with semgrep is inherently imprecise.
+  #   This rule catches the pattern where a variable is assigned after
+  #   a dereference but has no visible local declaration.  Post-processing
+  #   cross-references with file-scope declarations.
+
+  # ==========================================================================
+  # N: NON-CRITICAL — Local-only writes (for contrast / denominator)
+  #    Write to a variable that is declared in the same block as the deref
+  #    and is not subsequently used outside that block.
+  #    Approximation: the variable is declared AND used only within the
+  #    block containing the dereference.
+  # ==========================================================================
+
+  - id: N1-local-decl-write-after-deref
+    languages: [c]
+    severity: INFO
+    message: "NON-CRITICAL: Write to locally-declared $VAR after dereference"
+    patterns:
+      - pattern: |
+          $TYPE $VAR;
+          ...
+          $X = $PTR->$F;
+          ...
+          $VAR = $EXPR;
+      # Must be inside a function body
+      - pattern-inside: |
+          $RET $FN(...) {
+            ...
+          }
+
+  # ==========================================================================
+  # ==========================================================================
+  #
+  #  COMPOUND FLOW RULES (F-prefix)
+  #
+  #  These detect writes that satisfy a SOURCE category (heap, rsrc)
+  #  AND flow into a SINK category (conditional).  This is distinct from
+  #  the original C-rules, which treat each category independently.
+  #
+  #  Motivation: a heap-mutating write that also determines downstream
+  #  control flow is MORE critical than a heap write that is never
+  #  branched on.  These rules quantify that intersection.
+  #
+  # ==========================================================================
+  # ==========================================================================
+
+  # --------------------------------------------------------------------------
+  # F1: Heap write → conditional
+  #   A write through a pointer/struct field (C1) whose target is then
+  #   used in an if/while/for condition (C2).
+  # --------------------------------------------------------------------------
+
+  - id: F1a-field-write-feeds-if
+    languages: [c]
+    severity: WARNING
+    message: "COMPOUND: Struct field write ($PTR2->$F2) after deref, then $PTR2 used in if-condition"
+    pattern-either:
+      - pattern: |
+          $X = $PTR1->$F1;
+          ...
+          $PTR2->$F2 = $EXPR;
+          ...
+          if (<... $PTR2 ...>) {
+            ...
+          }
+      - pattern: |
+          $PTR1->$F1 = $E1;
+          ...
+          $PTR2->$F2 = $EXPR;
+          ...
+          if (<... $PTR2 ...>) {
+            ...
+          }
+
+  - id: F1b-star-write-feeds-if
+    languages: [c]
+    severity: WARNING
+    message: "COMPOUND: Pointer write (*$PTR2) after deref, then $PTR2 used in if-condition"
+    pattern-either:
+      - pattern: |
+          $X = $PTR1->$F1;
+          ...
+          *$PTR2 = $EXPR;
+          ...
+          if (<... $PTR2 ...>) {
+            ...
+          }
+      - pattern: |
+          $X = *$PTR1;
+          ...
+          *$PTR2 = $EXPR;
+          ...
+          if (<... $PTR2 ...>) {
+            ...
+          }
+
+  - id: F1c-field-write-feeds-while
+    languages: [c]
+    severity: WARNING
+    message: "COMPOUND: Struct field write after deref, then used in while-condition"
+    pattern-either:
+      - pattern: |
+          $X = $PTR1->$F1;
+          ...
+          $PTR2->$F2 = $EXPR;
+          ...
+          while (<... $PTR2 ...>) {
+            ...
+          }
+      - pattern: |
+          $PTR1->$F1 = $E1;
+          ...
+          $PTR2->$F2 = $EXPR;
+          ...
+          while (<... $PTR2 ...>) {
+            ...
+          }
+
+  - id: F1d-array-write-feeds-if
+    languages: [c]
+    severity: WARNING
+    message: "COMPOUND: Array write ($PTR2[$IDX]) after deref, then $PTR2 used in if-condition"
+    pattern-either:
+      - pattern: |
+          $X = $PTR1->$F1;
+          ...
+          $PTR2[$IDX] = $EXPR;
+          ...
+          if (<... $PTR2 ...>) {
+            ...
+          }
+      - pattern: |
+          $PTR1->$F1 = $E1;
+          ...
+          $PTR2[$IDX] = $EXPR;
+          ...
+          if (<... $PTR2 ...>) {
+            ...
+          }
+
+  # --------------------------------------------------------------------------
+  # F2: Resource management → conditional
+  #   A malloc/calloc/free (C7/C8) whose result is then used in a
+  #   conditional.  Extremely common pattern (null-check after malloc),
+  #   but if a Skip patch conditionalizes the malloc, this conditional
+  #   becomes unreachable and potentially dangerous.
+  # --------------------------------------------------------------------------
+
+  - id: F2a-malloc-feeds-if
+    languages: [c]
+    severity: WARNING
+    message: "COMPOUND: malloc result ($VAR) after deref, then $VAR used in if-condition"
+    pattern-either:
+      - pattern: |
+          $X = $PTR->$F;
+          ...
+          $VAR = malloc(...);
+          ...
+          if (<... $VAR ...>) {
+            ...
+          }
+      - pattern: |
+          $PTR->$F = $E;
+          ...
+          $VAR = malloc(...);
+          ...
+          if (<... $VAR ...>) {
+            ...
+          }
+      - pattern: |
+          $X = *$PTR;
+          ...
+          $VAR = malloc(...);
+          ...
+          if (<... $VAR ...>) {
+            ...
+          }
+
+  - id: F2b-calloc-feeds-if
+    languages: [c]
+    severity: WARNING
+    message: "COMPOUND: calloc result ($VAR) after deref, then $VAR used in if-condition"
+    pattern-either:
+      - pattern: |
+          $X = $PTR->$F;
+          ...
+          $VAR = calloc(...);
+          ...
+          if (<... $VAR ...>) {
+            ...
+          }
+      - pattern: |
+          $PTR->$F = $E;
+          ...
+          $VAR = calloc(...);
+          ...
+          if (<... $VAR ...>) {
+            ...
+          }
+
+  - id: F2c-free-feeds-if
+    languages: [c]
+    severity: WARNING
+    message: "COMPOUND: free($VAR) after deref, then $VAR used in if-condition"
+    pattern-either:
+      - pattern: |
+          $X = $PTR->$F;
+          ...
+          free($VAR);
+          ...
+          if (<... $VAR ...>) {
+            ...
+          }
+      - pattern: |
+          $PTR->$F = $E;
+          ...
+          free($VAR);
+          ...
+          if (<... $VAR ...>) {
+            ...
+          }
+
+  # --------------------------------------------------------------------------
+  # F3: Return-feeding write → conditional (at call site)
+  #
+  #   INTER-PROCEDURAL: a function returns $VAR, and the caller checks
+  #   the return value in a conditional.  Semgrep CE cannot track this
+  #   flow across function boundaries.
+  #
+  #   APPROXIMATION: We match the CALLEE side — a write that feeds both
+  #   a local conditional AND a return.  This captures cases where the
+  #   value is branched on locally before being returned, which is the
+  #   intra-procedural fragment of the full inter-procedural flow.
+  # --------------------------------------------------------------------------
+
+  - id: F3a-write-feeds-if-and-return
+    languages: [c]
+    severity: WARNING
+    message: "COMPOUND: Write to $VAR after deref, used in if-condition, then returned"
+    pattern-either:
+      - pattern: |
+          $X = $PTR->$F;
+          ...
+          $VAR = $EXPR;
+          ...
+          if (<... $VAR ...>) {
+            ...
+          }
+          ...
+          return $VAR;
+      - pattern: |
+          $X = $PTR->$F;
+          ...
+          $VAR = $EXPR;
+          ...
+          if (<... $VAR ...>) {
+            ...
+            return $VAR;
+          }
+
+  # --------------------------------------------------------------------------
+  # F4: Heap write → return
+  #   A write through a pointer whose target is then returned.
+  #   If a Skip patch conditionalizes this, the caller receives
+  #   stale or uninitialised data.
+  # --------------------------------------------------------------------------
+
+  - id: F4a-field-write-then-return-ptr
+    languages: [c]
+    severity: WARNING
+    message: "COMPOUND: Struct field write ($PTR2->$F2) after deref, then $PTR2 returned"
+    pattern-either:
+      - pattern: |
+          $X = $PTR1->$F1;
+          ...
+          $PTR2->$F2 = $EXPR;
+          ...
+          return $PTR2;
+      - pattern: |
+          $PTR1->$F1 = $E1;
+          ...
+          $PTR2->$F2 = $EXPR;
+          ...
+          return $PTR2;
+
+  # --------------------------------------------------------------------------
+  # F5: Heap write → call escape
+  #   A write through a pointer whose target is then passed to a
+  #   function call.  The callee may read the written field.
+  # --------------------------------------------------------------------------
+
+  - id: F5a-field-write-then-call-escape
+    languages: [c]
+    severity: WARNING
+    message: "COMPOUND: Struct field write ($PTR2->$F2) after deref, then $PTR2 passed to $FUNC()"
+    pattern-either:
+      - pattern: |
+          $X = $PTR1->$F1;
+          ...
+          $PTR2->$F2 = $EXPR;
+          ...
+          $FUNC(..., $PTR2, ...);
+      - pattern: |
+          $PTR1->$F1 = $E1;
+          ...
+          $PTR2->$F2 = $EXPR;
+          ...
+          $FUNC(..., $PTR2, ...);
