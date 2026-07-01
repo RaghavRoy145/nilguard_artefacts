@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+# Note: not using set -e to ensure script always reaches the attach prompt
 
 IMAGE="yahuuuuui/fse24-prove_n_fix:ubuntu"
 CONTAINER_NAME="snort-analysis"
@@ -8,13 +8,16 @@ TIMESTAMP=$(date +%Y%m%d_%H%M%S)
 OUTPUT_DIR="${SCRIPT_DIR}/snort-analysis-results/${TIMESTAMP}"
 
 SNORT_DIR="snort"
-SNORT_ARCHIVE="/home/vorashil/Projects/EffFix-artifact/effFix-benchmark/archives/snort.tar.gz"
+SNORT_VERSION="2.9.13"
+SNORT_TARBALL="snort-${SNORT_VERSION}.tar.gz"
+SNORT_URL="https://www.snort.org/downloads/archive/snort/${SNORT_TARBALL}"
+SNORT_URL_ALT="https://www.snort.org/downloads/snort/${SNORT_TARBALL}"
 DAQ_VERSION="2.0.7"
 
-echo "=== ProveNFix Snort 2.9.13 Analysis ==="
-echo "Using existing spec_snort-2.9.13.c on main branch"
+echo "=== ProveNFix Snort ${SNORT_VERSION} Analysis ==="
+echo "Using existing spec_snort-${SNORT_VERSION}.c on main branch"
 echo ""
-echo "Snort archive: ${SNORT_ARCHIVE}"
+echo "Snort version: ${SNORT_VERSION}"
 echo "DAQ version: ${DAQ_VERSION}"
 echo "Container: ${CONTAINER_NAME}"
 echo "Results: ${OUTPUT_DIR}"
@@ -23,7 +26,7 @@ echo ""
 mkdir -p "$OUTPUT_DIR"
 
 # Pull image
-echo "[1/7] Pulling Docker image..."
+echo "[1/8] Pulling Docker image..."
 docker pull "$IMAGE"
 
 # Handle existing container
@@ -40,11 +43,11 @@ if docker ps -a --format '{{.Names}}' | grep -q "^${CONTAINER_NAME}$"; then
 fi
 
 # Start container
-echo "[2/7] Creating container..."
+echo "[2/8] Creating container..."
 docker run -d --name "$CONTAINER_NAME" "$IMAGE" tail -f /dev/null
 
 # Use main branch
-echo "[3/7] Using main branch..."
+echo "[3/8] Using main branch..."
 docker exec "$CONTAINER_NAME" bash -c '
     cd /home/infer_TempFix
     git stash
@@ -53,7 +56,7 @@ docker exec "$CONTAINER_NAME" bash -c '
 '
 
 echo ""
-echo "[4/7] Building ProveNFix..."
+echo "[4/8] Building ProveNFix..."
 docker exec "$CONTAINER_NAME" bash -c '
     cd /home/infer_TempFix
     ./compile
@@ -61,7 +64,7 @@ docker exec "$CONTAINER_NAME" bash -c '
 
 # Install Snort dependencies and download DAQ
 echo ""
-echo "[5/7] Installing dependencies and downloading DAQ..."
+echo "[5/8] Installing dependencies and downloading DAQ..."
 docker exec "$CONTAINER_NAME" bash -c "
     apt-get update
     apt-get install -y libpcap-dev libpcre3-dev libdumbnet-dev bison flex zlib1g-dev liblzma-dev libssl-dev libnghttp2-dev
@@ -82,14 +85,33 @@ docker exec "$CONTAINER_NAME" bash -c "
     ldconfig
 "
 
-# Copy Snort archive from host
+# Download and extract Snort
 echo ""
-echo "[6/7] Copying and extracting Snort archive..."
-docker cp "${SNORT_ARCHIVE}" "${CONTAINER_NAME}:/home/snort.tar.gz"
+echo "[6/8] Downloading and extracting Snort ${SNORT_VERSION}..."
 docker exec "$CONTAINER_NAME" bash -c "
     cd /home
-    if [ ! -d \"${SNORT_DIR}\" ]; then
-        tar -xzf snort.tar.gz
+    if [ ! -d '${SNORT_DIR}' ]; then
+        if [ ! -f '${SNORT_TARBALL}' ]; then
+            curl -sL -o '${SNORT_TARBALL}' '${SNORT_URL}' || \
+            curl -sL -o '${SNORT_TARBALL}' '${SNORT_URL_ALT}' || {
+                echo 'ERROR: Failed to download Snort ${SNORT_VERSION} tarball.'
+                echo 'Download manually from https://www.snort.org/downloads'
+                echo '(Snort 2 → View Snort Previous Releases)'
+                echo 'and docker cp it to this container at /home/${SNORT_TARBALL}'
+                exit 1
+            }
+            # Verify it is actually a tarball and not an HTML error/login page
+            if ! file '${SNORT_TARBALL}' | grep -qi 'gzip\|tar'; then
+                echo 'ERROR: Downloaded file is not a valid tarball (possibly an auth page).'
+                echo 'Download manually from https://www.snort.org/downloads'
+                rm -f '${SNORT_TARBALL}'
+                exit 1
+            fi
+        fi
+        mkdir -p '${SNORT_DIR}'
+        tar -xzf '${SNORT_TARBALL}' -C '${SNORT_DIR}' --strip-components=1
+    else
+        echo 'Snort directory already exists, skipping extraction'
     fi
 "
 
@@ -105,10 +127,10 @@ docker exec "$CONTAINER_NAME" bash -c "
 "
 
 echo ""
-echo "[8/8] Copying spec_snort-2.9.13.c and running TempFix..."
+echo "[8/8] Copying spec_snort-${SNORT_VERSION}.c and running TempFix..."
 docker exec "$CONTAINER_NAME" bash -c "
     cd /home/${SNORT_DIR}
-    cp /home/infer_TempFix/spec_snort-2.9.13.c spec.c
+    cp /home/infer_TempFix/spec_snort-${SNORT_VERSION}.c spec.c
     echo \"Using spec.c with \$(wc -l < spec.c) lines\"
     rm -f /home/infer_TempFix/TempFix-out/detail.txt
     rm -f /home/infer_TempFix/TempFix-out/report.csv

@@ -8,7 +8,7 @@ TIMESTAMP=$(date +%Y%m%d_%H%M%S)
 OUTPUT_DIR="${SCRIPT_DIR}/small-npes-analysis-results/${TIMESTAMP}"
 
 # Source file to analyze (external to infer_TempFix repo)
-SOURCE_FILE="/home/vorashil/Projects/infer_RaghavRoy/examples/c_npe/small-progs/hand-crafted/small_npes.c"
+SOURCE_FILE="${1:-${SCRIPT_DIR}/small_npes.c}"
 
 echo "=== ProveNFix small_npes.c Analysis ==="
 echo "Single file NPE analysis"

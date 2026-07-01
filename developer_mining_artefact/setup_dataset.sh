@@ -17,7 +17,7 @@
 
 set -euo pipefail
 
-DATASET_DIR="${1:-/Users/ragroy01/repos/semgrep_study/dataset}"
+DATASET_DIR="${1:-./dataset}"
 mkdir -p "$DATASET_DIR"
 
 # Each entry: <name> <repo_url> <tag_or_commit>

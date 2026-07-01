@@ -77,7 +77,7 @@ python3 joern_interproc.py --dataset ./dataset --output ./results --max-memory 1
 python3 joern_interproc.py --dataset ./dataset --output ./results --project busybox
 
 # Re-merge from cached Joern results (requires --dataset for write-location counting)
-python3 joern_interproc.py --reprocess --output ./results --dataset ./dataset --exclude cpython
+python3 joern_interproc.py --reprocess --output ./results --dataset ./dataset
 ```
 
 ### Step 4: Developer patch mining
@@ -89,16 +89,16 @@ Requires full git history (not shallow clones):
 for repo in dataset/*/; do git -C "$repo" fetch --unshallow 2>/dev/null; done
 
 # Full run (~1 hour, runs semgrep per commit)
-python3 mine_dev_patches.py --dataset ./dataset --output ./results/dev_patches --exclude cpython
+python3 mine_dev_patches.py --dataset ./dataset --output ./results/dev_patches
 
 # Single project
 python3 mine_dev_patches.py --dataset ./dataset --output ./results/dev_patches --project redis
 
 # Re-aggregate from cached results (instant)
-python3 mine_dev_patches.py --reprocess --output ./results/dev_patches --exclude cpython
+python3 mine_dev_patches.py --reprocess --output ./results/dev_patches
 
 # Generate validation sample for manual inspection
-python3 mine_dev_patches.py --reprocess --output ./results/dev_patches --exclude cpython --validate 50
+python3 mine_dev_patches.py --reprocess --output ./results/dev_patches --validate 50
 ```
 
 ### Step 5: Statistical analysis
@@ -148,72 +148,97 @@ The comparison with the baseline study:
 
 Developer patches have a combined conditional rate of **12.1%**, compared to the baseline's **10.5%** — a difference of +1.6 percentage points. The intra-procedural rates are similar (10.7% vs 8.6%), and the inter-procedural rates are both small (1.4% vs 1.9%). The slightly higher intra-procedural rate for developer patches is consistent with the observation that developers fix real NPEs in code with genuine null-dependent control flow, while the baseline includes many dereferences in simple accessor functions.
 
-======================================================================
- STATISTICAL ANALYSIS: LOCAL SAFETY ↔ GLOBAL SAFETY CORRELATION
-======================================================================
 
-  Definitions:
-    Locally safe  = guard scope has NO writes feeding a
-                    conditional in the same function
-    Globally safe = guard scope has NO writes with verified
-                    inter-procedural conditional impact
+# Statistical Analysis: Local Safety ↔ Global Safety Correlation
 
-  H0: Local safety and global safety are independent
-  H1: Local safety and global safety are correlated
+## Definitions
 
-======================================================================
- DEVELOPER PATCHES (per-patch, n=684)
-======================================================================
+| Term | Definition |
+|---|---|
+| **Locally safe** | Guard scope has NO writes feeding a conditional in the same function |
+| **Globally safe** | Guard scope has NO writes with verified inter-procedural conditional impact |
 
-  Patches analysed: 684
+**H₀:** Local safety and global safety are independent.
+**H₁:** Local safety and global safety are correlated.
 
-  ── Developer patches: local ↔ global safety ──
-                             Globally Safe  Globally Unsafe   Total
-  Locally Safe                         629                4     633
-  Locally Unsafe                        43                8      51
-  Total                                672               12     684
+---
 
-  P(locally safe)  = 92.5%
-  P(globally safe) = 98.2%
-  P(both safe)     = 92.0%
-  P(globally safe | locally safe) = 99.4%
-  P(globally safe | locally unsafe) = 84.3%
+## Developer Patches (per-patch, n = 684)
 
-  Phi coefficient: 0.3012
-    → Medium association
-    Direction: POSITIVE — local safety predicts global safety
+Patches analysed: **684**
 
-  Chi-square: χ² = 62.0589, df = 1, p = 3.33e-15
-    WARNING: min expected count = 0.9 < 5, prefer Fisher's exact
-  Fisher's exact: OR = 29.2558, p = 2.19e-07
+### Contingency table
 
-  Result: Highly significant (p < 0.001)
+|  | Globally Safe | Globally Unsafe | Total |
+|---|---:|---:|---:|
+| **Locally Safe** | 629 | 4 | 633 |
+| **Locally Unsafe** | 43 | 8 | 51 |
+| **Total** | 672 | 12 | 684 |
 
-======================================================================
- BASELINE STUDY (per-write-location)
-======================================================================
+### Probabilities
 
-  Write locations classified: 24,809
+| Measure | Value |
+|---|---:|
+| P(locally safe) | 92.5% |
+| P(globally safe) | 98.2% |
+| P(both safe) | 92.0% |
+| P(globally safe \| locally safe) | **99.4%** |
+| P(globally safe \| locally unsafe) | 84.3% |
 
-  ── Baseline: local ↔ global safety (per location) ──
-                             Globally Safe  Globally Unsafe   Total
-  Locally Safe                      10,389            1,105  11,494
-  Locally Unsafe                    11,755            1,560  13,315
-  Total                             22,144            2,665  24,809
+### Correlation
 
-  P(locally safe)  = 46.3%
-  P(globally safe) = 89.3%
-  P(both safe)     = 41.9%
-  P(globally safe | locally safe) = 90.4%
-  P(globally safe | locally unsafe) = 88.3%
+| Statistic | Value | Interpretation |
+|---|---|---|
+| Phi coefficient (φ) | 0.3012 | Medium association |
+| Direction | POSITIVE | Local safety predicts global safety |
 
-  Phi coefficient: 0.0339
-    → Negligible association
-    Direction: POSITIVE — local safety predicts global safety
+### Significance tests
 
-  Chi-square: χ² = 28.4379, df = 1, p = 9.68e-08
-  Fisher's exact: OR = 1.2477, p = 9.91e-08
+| Test | Statistic | p-value |
+|---|---|---|
+| Chi-square | χ² = 62.0589, df = 1 | 3.33 × 10⁻¹⁵ |
+| Fisher's exact | OR = 29.2558 | **2.19 × 10⁻⁷** |
 
-  Result: Highly significant (p < 0.001)
+> Min expected count = 0.9 < 5 — Fisher's exact test is preferred over chi-square.
 
-======================================================================
+**Result: Highly significant (p < 0.001)**
+
+---
+
+## Baseline Study (per-write-location)
+
+Write locations classified: **24,809**
+
+### Contingency table
+
+|  | Globally Safe | Globally Unsafe | Total |
+|---|---:|---:|---:|
+| **Locally Safe** | 10,389 | 1,105 | 11,494 |
+| **Locally Unsafe** | 11,755 | 1,560 | 13,315 |
+| **Total** | 22,144 | 2,665 | 24,809 |
+
+### Probabilities
+
+| Measure | Value |
+|---|---:|
+| P(locally safe) | 46.3% |
+| P(globally safe) | 89.3% |
+| P(both safe) | 41.9% |
+| P(globally safe \| locally safe) | **90.4%** |
+| P(globally safe \| locally unsafe) | 88.3% |
+
+### Correlation
+
+| Statistic | Value | Interpretation |
+|---|---|---|
+| Phi coefficient (φ) | 0.0339 | Negligible association |
+| Direction | POSITIVE | Local safety predicts global safety |
+
+### Significance tests
+
+| Test | Statistic | p-value |
+|---|---|---|
+| Chi-square | χ² = 28.4379, df = 1 | 9.68 × 10⁻⁸ |
+| Fisher's exact | OR = 1.2477 | **9.91 × 10⁻⁸** |
+
+**Result: Highly significant (p < 0.001)**
