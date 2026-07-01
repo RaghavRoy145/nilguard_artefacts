@@ -32,15 +32,3 @@ Reproduces the local-vs-global safety correlation study across 28 open-source C 
 See [`developer_mining_artefact/README.md`](developer_mining_artefact/README.md) for full setup and reproduction instructions.
 
 ---
-
-## Citation
-
-```bibtex
-@inproceedings{nilguard2026,
-  title     = {{NilGuard}: Minimising Patches for Null Pointer Errors
-               with Incorrectness Separation Logic},
-  author    = {<authors>},
-  booktitle = {Proceedings of <venue>},
-  year      = {2026}
-}
-```
