@@ -99,7 +99,7 @@ Requires Docker. The scripts are self-contained and will pull the image automati
 
 **Tested environment:** Ubuntu 20.04, Intel x86 i5, 32 GB RAM.
 
-**Disk space:** ~3 GB for the large project dataset.
+**Disk space:** ~3 GB for the large project dataset, and ~50GB for NilGuard as it generates many temp files!
 
 ---
 
